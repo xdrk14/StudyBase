@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 & P4 Formula Sheet — Edexcel IAL</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #ffffff;
+  --surface:   #f8f9fc;
+  --surface2:  #ffffff;
+  --border:    #dde1ed;
+  --text:      #1a1a2e;
+  --muted:     #64698a;
+  --accent:    #3a5bd9;
+
+  --trig:      #3d4f8a;
+  --trig-bg:   #eef1fb;
+  --diff:      #2d6b52;
+  --diff-bg:   #edf7f3;
+  --integ:     #7a2e6a;
+  --integ-bg:  #fbf0f9;
+  --series:    #7a6020;
+  --series-bg: #fdf8ec;
+  --vec:       #1f6b6b;
+  --vec-bg:    #edf8f8;
+  --misc:      #5a2e80;
+  --misc-bg:   #f6f0fc;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 32px 20px 64px;
+}
+
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* TITLE */
+.title-block {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 32px 24px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+.title-block h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.title-block p {
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 0.88rem;
+  font-weight: 300;
+}
+.title-block .chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+.chip {
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* CHAPTER BLOCK */
+.chapter {
+  margin-bottom: 36px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.chapter-header .num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+/* GROUP (sub-section within chapter) */
+.group {
+  border-top: 1px solid var(--border);
+}
+.group-label {
+  padding: 8px 20px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ROWS */
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  border-bottom: 1px solid var(--border);
+  min-height: 46px;
+}
+.row:last-child { border-bottom: none; }
+
+.row-label {
+  padding: 12px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  line-height: 1.3;
+}
+
+.row-formula {
+  padding: 11px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  background: var(--surface2);
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* condition badge */
+.cond {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  background: var(--surface);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 8px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* note row */
+.note-row {
+  grid-column: 1 / -1;
+  font-size: 0.75rem;
+  padding: 5px 20px;
+  color: var(--muted);
+  font-style: italic;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+/* COLOUR THEMES */
+.trig   .chapter-header { background: var(--trig-bg);   color: #2a3d8f; border-bottom: 2px solid var(--trig); }
+.diff   .chapter-header { background: var(--diff-bg);   color: #1a5c3d; border-bottom: 2px solid var(--diff); }
+.integ  .chapter-header { background: var(--integ-bg);  color: #7a2e6a; border-bottom: 2px solid var(--integ); }
+.series .chapter-header { background: var(--series-bg); color: #7a6020; border-bottom: 2px solid var(--series); }
+.vec    .chapter-header { background: var(--vec-bg);    color: #1a6060; border-bottom: 2px solid var(--vec); }
+.misc   .chapter-header { background: var(--misc-bg);   color: #5a2e80; border-bottom: 2px solid var(--misc); }
+
+.trig   .chip { background: var(--trig-bg);   color: #2a3d8f; border: 1px solid var(--trig); }
+.diff   .chip { background: var(--diff-bg);   color: #1a5c3d; border: 1px solid var(--diff); }
+.integ  .chip { background: var(--integ-bg);  color: #7a2e6a; border: 1px solid var(--integ); }
+.series .chip { background: var(--series-bg); color: #7a6020; border: 1px solid var(--series); }
+.vec    .chip { background: var(--vec-bg);    color: #1a6060; border: 1px solid var(--vec); }
+.misc   .chip { background: var(--misc-bg);   color: #5a2e80; border: 1px solid var(--misc); }
+
+/* chips in title */
+.chip-trig    { background: var(--trig-bg);   color: #2a3d8f; border: 1px solid var(--trig); }
+.chip-diff    { background: var(--diff-bg);   color: #1a5c3d; border: 1px solid var(--diff); }
+.chip-integ   { background: var(--integ-bg);  color: #7a2e6a; border: 1px solid var(--integ); }
+.chip-series  { background: var(--series-bg); color: #7a6020; border: 1px solid var(--series); }
+.chip-vec     { background: var(--vec-bg);    color: #1a6060; border: 1px solid var(--vec); }
+.chip-misc    { background: var(--misc-bg);   color: #5a2e80; border: 1px solid var(--misc); }
+
+/* MathJax colour override */
+mjx-container { color: var(--text) !important; }
+  .title-block { border-color: #dde1ed; }
+
+@media (max-width: 600px) {
+  .row { grid-template-columns: 1fr; }
+  .row-label { border-right: none; border-bottom: 1px solid var(--border); padding: 8px 16px 4px; }
+  .row-formula { padding: 8px 16px 12px; }
+}
+</style>
+<!-- sb:start -->
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
+<script src="../../app/note.js"></script>
+<!-- sb:end -->
+</head>
+<body>
+<div class="page">
+
+  <div class="title-block">
+    <h1>P3 &amp; P4 Formula Sheet</h1>
+    <p>Edexcel IAL · Complete Reference · All results required at A-Level</p>
+    <div class="chips">
+      <span class="chip chip-trig">Trigonometry</span>
+      <span class="chip chip-diff">Differentiation</span>
+      <span class="chip chip-integ">Integration</span>
+      <span class="chip chip-series">Binomial Series</span>
+      <span class="chip chip-vec">Vectors</span>
+      <span class="chip chip-misc">Partial Fractions &amp; DEs</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       1. TRIGONOMETRY
+  ═══════════════════════════════════════ -->
+  <div class="chapter trig">
+    <div class="chapter-header"><span class="num">01</span> Trigonometric Identities</div>
+
+    <div class="group">
+      <div class="group-label">Pythagorean Identities</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Fundamental</div>
+          <div class="row-formula">\(\sin^2\theta + \cos^2\theta \equiv 1\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Divide by cos²θ</div>
+          <div class="row-formula">\(1 + \tan^2\theta \equiv \sec^2\theta\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Divide by sin²θ</div>
+          <div class="row-formula">\(\cot^2\theta + 1 \equiv \csc^2\theta\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Reciprocal Functions</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">sec θ</div>
+          <div class="row-formula">\(\sec\theta = \dfrac{1}{\cos\theta}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">csc θ</div>
+          <div class="row-formula">\(\csc\theta = \dfrac{1}{\sin\theta}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cot θ</div>
+          <div class="row-formula">\(\cot\theta = \dfrac{\cos\theta}{\sin\theta} = \dfrac{1}{\tan\theta}\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Addition Formulae</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">sin(A ± B)</div>
+          <div class="row-formula">\(\sin A\cos B \pm \cos A\sin B\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cos(A ± B)</div>
+          <div class="row-formula">\(\cos A\cos B \mp \sin A\sin B\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">tan(A ± B)</div>
+          <div class="row-formula">\(\dfrac{\tan A \pm \tan B}{1 \mp \tan A\tan B}\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Double Angle Formulae</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">sin 2A</div>
+          <div class="row-formula">\(2\sin A\cos A\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cos 2A — form 1</div>
+          <div class="row-formula">\(\cos^2 A - \sin^2 A\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cos 2A — form 2</div>
+          <div class="row-formula">\(2\cos^2 A - 1\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cos 2A — form 3</div>
+          <div class="row-formula">\(1 - 2\sin^2 A\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">tan 2A</div>
+          <div class="row-formula">\(\dfrac{2\tan A}{1 - \tan^2 A}\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Rearrangements — used for integrating powers</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">sin²A</div>
+          <div class="row-formula">\(\dfrac{1 - \cos 2A}{2}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cos²A</div>
+          <div class="row-formula">\(\dfrac{1 + \cos 2A}{2}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">sin A cos A</div>
+          <div class="row-formula">\(\dfrac{1}{2}\sin 2A\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">R-form / Harmonic Form</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">a sin x + b cos x</div>
+          <div class="row-formula">\(R\sin(x+\alpha)\) &nbsp;where &nbsp;\(R = \sqrt{a^2+b^2}\), &nbsp;\(\tan\alpha = \dfrac{b}{a}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">a cos x + b sin x</div>
+          <div class="row-formula">\(R\cos(x-\alpha)\) &nbsp;where &nbsp;\(R = \sqrt{a^2+b^2}\), &nbsp;\(\tan\alpha = \dfrac{b}{a}\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Inverse Trig — Domains &amp; Ranges</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">arcsin x</div>
+          <div class="row-formula">Domain \([-1,1]\) &nbsp;→&nbsp; Range \(\left[-\tfrac{\pi}{2},\,\tfrac{\pi}{2}\right]\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">arccos x</div>
+          <div class="row-formula">Domain \([-1,1]\) &nbsp;→&nbsp; Range \([0,\,\pi]\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">arctan x</div>
+          <div class="row-formula">Domain \(\mathbb{R}\) &nbsp;→&nbsp; Range \(\left(-\tfrac{\pi}{2},\,\tfrac{\pi}{2}\right)\) &nbsp;(strict inequalities)</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /trig -->
+
+  <!-- ═══════════════════════════════════════
+       2. DIFFERENTIATION
+  ═══════════════════════════════════════ -->
+  <div class="chapter diff">
+    <div class="chapter-header"><span class="num">02</span> Differentiation</div>
+
+    <div class="group">
+      <div class="group-label">Core Rules</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Chain Rule</div>
+          <div class="row-formula">\(\dfrac{dy}{dx} = \dfrac{dy}{du}\cdot\dfrac{du}{dx}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Product Rule</div>
+          <div class="row-formula">\((uv)' = u'v + uv'\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Quotient Rule</div>
+          <div class="row-formula">\(\left(\dfrac{u}{v}\right)' = \dfrac{u'v - uv'}{v^2}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Parametric</div>
+          <div class="row-formula">\(\dfrac{dy}{dx} = \dfrac{dy/dt}{dx/dt}\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Polynomials &amp; Exponentials</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">xⁿ</div>
+          <div class="row-formula">\(nx^{n-1}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">eˣ</div>
+          <div class="row-formula">\(e^x\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">e^{f(x)}</div>
+          <div class="row-formula">\(f'(x)\,e^{f(x)}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">aˣ</div>
+          <div class="row-formula">\(a^x \ln a\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Logarithms</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">ln x</div>
+          <div class="row-formula">\(\dfrac{1}{x}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">ln f(x)</div>
+          <div class="row-formula">\(\dfrac{f'(x)}{f(x)}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">ln|ax + b|</div>
+          <div class="row-formula">\(\dfrac{a}{ax+b}\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Primary Trigonometric</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">sin x</div>
+          <div class="row-formula">\(\cos x\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cos x</div>
+          <div class="row-formula">\(-\sin x\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">tan x</div>
+          <div class="row-formula">\(\sec^2 x\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">sin(ax + b)</div>
+          <div class="row-formula">\(a\cos(ax+b)\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cos(ax + b)</div>
+          <div class="row-formula">\(-a\sin(ax+b)\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Reciprocal Trigonometric</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">sec x</div>
+          <div class="row-formula">\(\sec x\tan x\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">csc x</div>
+          <div class="row-formula">\(-\csc x\cot x\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cot x</div>
+          <div class="row-formula">\(-\csc^2 x\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Inverse Trigonometric</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">arcsin x</div>
+          <div class="row-formula">\(\dfrac{1}{\sqrt{1-x^2}}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">arccos x</div>
+          <div class="row-formula">\(\dfrac{-1}{\sqrt{1-x^2}}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">arctan x</div>
+          <div class="row-formula">\(\dfrac{1}{1+x^2}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">arctan(x/a)</div>
+          <div class="row-formula">\(\dfrac{a}{a^2+x^2}\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Implicit &amp; Connected Rates</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">d/dx [f(y)]</div>
+          <div class="row-formula">\(f'(y)\,\dfrac{dy}{dx}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">d/dx [yⁿ]</div>
+          <div class="row-formula">\(n\,y^{n-1}\dfrac{dy}{dx}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">d/dx [xy]</div>
+          <div class="row-formula">\(y + x\dfrac{dy}{dx}\) &nbsp;(product rule)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Connected rates</div>
+          <div class="row-formula">\(\dfrac{dA}{dt} = \dfrac{dA}{dr}\cdot\dfrac{dr}{dt}\)</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /diff -->
+
+  <!-- ═══════════════════════════════════════
+       3. INTEGRATION
+  ═══════════════════════════════════════ -->
+  <div class="chapter integ">
+    <div class="chapter-header"><span class="num">03</span> Integration</div>
+
+    <div class="group">
+      <div class="group-label">Core Power &amp; Exponential</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">xⁿ &nbsp;(n ≠ −1)</div>
+          <div class="row-formula">\(\dfrac{x^{n+1}}{n+1} + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">1/x</div>
+          <div class="row-formula">\(\ln|x| + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">eˣ</div>
+          <div class="row-formula">\(e^x + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">e^{ax+b}</div>
+          <div class="row-formula">\(\dfrac{1}{a}\,e^{ax+b} + c\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Linear Argument — divide result by inner coefficient a</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">(ax+b)ⁿ</div>
+          <div class="row-formula">\(\dfrac{(ax+b)^{n+1}}{a(n+1)} + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">1/(ax+b)</div>
+          <div class="row-formula">\(\dfrac{1}{a}\ln|ax+b| + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">sin(ax+b)</div>
+          <div class="row-formula">\(-\dfrac{1}{a}\cos(ax+b) + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cos(ax+b)</div>
+          <div class="row-formula">\(\dfrac{1}{a}\sin(ax+b) + c\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Standard Trigonometric</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">sin x</div>
+          <div class="row-formula">\(-\cos x + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cos x</div>
+          <div class="row-formula">\(\sin x + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">tan x</div>
+          <div class="row-formula">\(\ln|\sec x| + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">sec²x</div>
+          <div class="row-formula">\(\tan x + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">sec x tan x</div>
+          <div class="row-formula">\(\sec x + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">csc x cot x</div>
+          <div class="row-formula">\(-\csc x + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">csc²x</div>
+          <div class="row-formula">\(-\cot x + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cot x</div>
+          <div class="row-formula">\(\ln|\sin x| + c\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Trig Powers — use double angle substitution first</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">sin²x</div>
+          <div class="row-formula">\(\dfrac{x}{2} - \dfrac{\sin 2x}{4} + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">cos²x</div>
+          <div class="row-formula">\(\dfrac{x}{2} + \dfrac{\sin 2x}{4} + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">sin x cos x</div>
+          <div class="row-formula">\(\dfrac{1}{4}\sin 2x + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">tan²x</div>
+          <div class="row-formula">\(\tan x - x + c\) &nbsp;&nbsp;(use \(\sec^2 x - 1\))</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Reverse Chain Rule</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">f'(x) / f(x)</div>
+          <div class="row-formula">\(\ln|f(x)| + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">f'(x) [f(x)]ⁿ</div>
+          <div class="row-formula">\(\dfrac{[f(x)]^{n+1}}{n+1} + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">f'(x) e^{f(x)}</div>
+          <div class="row-formula">\(e^{f(x)} + c\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Inverse Trig Results</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">1 / √(1−x²)</div>
+          <div class="row-formula">\(\arcsin x + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">1 / (1+x²)</div>
+          <div class="row-formula">\(\arctan x + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">1 / √(a²−x²)</div>
+          <div class="row-formula">\(\arcsin\!\left(\dfrac{x}{a}\right) + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">1 / (a²+x²)</div>
+          <div class="row-formula">\(\dfrac{1}{a}\arctan\!\left(\dfrac{x}{a}\right) + c\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Integration by Parts</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Formula</div>
+          <div class="row-formula">\(\displaystyle\int u\,\frac{dv}{dx}\,dx = uv - \int v\,\frac{du}{dx}\,dx\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Choose u = (LIPTE)</div>
+          <div class="row-formula"><strong style="color:#7a2e6a">L</strong>ogs &nbsp;→&nbsp; <strong style="color:#7a2e6a">I</strong>nverse trig &nbsp;→&nbsp; <strong style="color:#7a2e6a">P</strong>olynomials &nbsp;→&nbsp; <strong style="color:#7a2e6a">T</strong>rig &nbsp;→&nbsp; <strong style="color:#7a2e6a">E</strong>xponential</div>
+        </div>
+        <div class="row">
+          <div class="row-label">∫ ln x  dx</div>
+          <div class="row-formula">\(x\ln x - x + c\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">∫ x eˣ dx</div>
+          <div class="row-formula">\(e^x(x-1) + c\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Integration by Substitution</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Principle</div>
+          <div class="row-formula">\(\displaystyle\int f\bigl(g(x)\bigr)\,g'(x)\,dx = \int f(u)\,du\) &nbsp;where \(u = g(x)\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Definite integrals</div>
+          <div class="row-formula">Change limits to u-values. Do NOT substitute back.</div>
+        </div>
+        <div class="row">
+          <div class="row-label">√(a²−x²) → use</div>
+          <div class="row-formula">\(x = a\sin\theta\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">a²+x² → use</div>
+          <div class="row-formula">\(x = a\tan\theta\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Areas &amp; Volumes</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Parametric area</div>
+          <div class="row-formula">\(\displaystyle\int_\alpha^\beta y\,\frac{dx}{dt}\,dt\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Volume (x-axis)</div>
+          <div class="row-formula">\(\displaystyle V = \pi\int_a^b y^2\,dx\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Volume (param)</div>
+          <div class="row-formula">\(\displaystyle V = \pi\int_\alpha^\beta y^2\,\frac{dx}{dt}\,dt\)</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /integ -->
+
+  <!-- ═══════════════════════════════════════
+       4. BINOMIAL SERIES
+  ═══════════════════════════════════════ -->
+  <div class="chapter series">
+    <div class="chapter-header"><span class="num">04</span> Binomial Expansion (Negative &amp; Fractional n)</div>
+
+    <div class="group">
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Formula</div>
+          <div class="row-formula">\((1+x)^n = 1 + nx + \dfrac{n(n-1)}{2!}x^2 + \dfrac{n(n-1)(n-2)}{3!}x^3 + \cdots\) <span class="cond">|x| &lt; 1</span></div>
+        </div>
+        <div class="row">
+          <div class="row-label">(a + bx)ⁿ — step 1</div>
+          <div class="row-formula">Factor out \(a^n\) first: &nbsp;\(\displaystyle a^n\!\left(1+\frac{b}{a}x\right)^n\) <span class="cond">|bx/a| &lt; 1</span></div>
+        </div>
+        <div class="row">
+          <div class="row-label">Validity (combined)</div>
+          <div class="row-formula">Use partial fractions → expand each term → validity = intersection of all individual conditions</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /series -->
+
+  <!-- ═══════════════════════════════════════
+       5. PARTIAL FRACTIONS & DEs
+  ═══════════════════════════════════════ -->
+  <div class="chapter misc">
+    <div class="chapter-header"><span class="num">05</span> Partial Fractions &amp; Differential Equations</div>
+
+    <div class="group">
+      <div class="group-label">Partial Fraction Forms</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Distinct linear</div>
+          <div class="row-formula">\(\dfrac{f(x)}{(ax+b)(cx+d)} \equiv \dfrac{A}{ax+b} + \dfrac{B}{cx+d}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Repeated linear</div>
+          <div class="row-formula">\(\dfrac{f(x)}{(ax+b)^2} \equiv \dfrac{A}{ax+b} + \dfrac{B}{(ax+b)^2}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Improper fraction</div>
+          <div class="row-formula">If deg(num) ≥ deg(denom): divide first → get quotient + proper fraction → then decompose</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Log Laws (used when integrating partial fractions)</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Product → sum</div>
+          <div class="row-formula">\(\ln A + \ln B = \ln(AB)\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Division → difference</div>
+          <div class="row-formula">\(\ln A - \ln B = \ln\!\left(\dfrac{A}{B}\right)\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Power</div>
+          <div class="row-formula">\(n\ln A = \ln(A^n)\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Differential Equations — Separation of Variables</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Method</div>
+          <div class="row-formula">\(\dfrac{dy}{dx} = f(x)\,g(y) \;\;\Rightarrow\;\; \displaystyle\int\frac{1}{g(y)}\,dy = \int f(x)\,dx\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Particular solution</div>
+          <div class="row-formula">Substitute boundary condition \((x_0,\,y_0)\) into general solution to find \(c\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Standard Models</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Growth</div>
+          <div class="row-formula">\(\dfrac{dN}{dt} = kN \;\;\Rightarrow\;\; N = N_0\,e^{kt}\) &nbsp;\((k > 0)\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Decay</div>
+          <div class="row-formula">\(\dfrac{dN}{dt} = -kN \;\;\Rightarrow\;\; N = N_0\,e^{-kt}\) &nbsp;\((k > 0)\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Newton's Cooling</div>
+          <div class="row-formula">\(\dfrac{d\theta}{dt} = -k(\theta - \theta_0)\)</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /misc -->
+
+  <!-- ═══════════════════════════════════════
+       6. VECTORS
+  ═══════════════════════════════════════ -->
+  <div class="chapter vec">
+    <div class="chapter-header"><span class="num">06</span> Vectors</div>
+
+    <div class="group">
+      <div class="group-label">Magnitude &amp; Unit Vector</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">|a| in 2D</div>
+          <div class="row-formula">\(\sqrt{a_1^2 + a_2^2}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">|a| in 3D</div>
+          <div class="row-formula">\(\sqrt{a_1^2 + a_2^2 + a_3^2}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Unit vector</div>
+          <div class="row-formula">\(\hat{\mathbf{a}} = \dfrac{\mathbf{a}}{|\mathbf{a}|}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Vector AB</div>
+          <div class="row-formula">\(\overrightarrow{AB} = \mathbf{b} - \mathbf{a}\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Line Equation &amp; Intersection</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Line equation</div>
+          <div class="row-formula">\(\mathbf{r} = \mathbf{a} + \lambda\,\mathbf{d}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Through A and B</div>
+          <div class="row-formula">\(\mathbf{r} = \mathbf{a} + \lambda(\mathbf{b} - \mathbf{a})\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Intersection test</div>
+          <div class="row-formula">Equate components → solve two equations → check 3rd for consistency</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Skew lines</div>
+          <div class="row-formula">Not parallel AND 3rd equation inconsistent (no solution)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Scalar (Dot) Product</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Geometric form</div>
+          <div class="row-formula">\(\mathbf{a}\cdot\mathbf{b} = |\mathbf{a}||\mathbf{b}|\cos\theta\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Component form</div>
+          <div class="row-formula">\(\mathbf{a}\cdot\mathbf{b} = a_1b_1 + a_2b_2 + a_3b_3\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Find angle</div>
+          <div class="row-formula">\(\cos\theta = \dfrac{\mathbf{a}\cdot\mathbf{b}}{|\mathbf{a}||\mathbf{b}|}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Perpendicular</div>
+          <div class="row-formula">\(\mathbf{a}\cdot\mathbf{b} = 0\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Parallel</div>
+          <div class="row-formula">\(\mathbf{a} = k\mathbf{b}\) for some scalar \(k\)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-label">Position Vectors &amp; Section Formula</div>
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Midpoint</div>
+          <div class="row-formula">\(\dfrac{\mathbf{a}+\mathbf{b}}{2}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Divides m : n</div>
+          <div class="row-formula">\(\overrightarrow{OP} = \dfrac{n\,\mathbf{a} + m\,\mathbf{b}}{m+n}\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Non-parallel coeffs</div>
+          <div class="row-formula">If \(p\mathbf{a}+q\mathbf{b} = r\mathbf{a}+s\mathbf{b}\) then \(p=r\) and \(q=s\)</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /vec -->
+
+  <!-- ═══════════════════════════════════════
+       7. PARAMETRIC / COORDINATE GEOMETRY
+  ═══════════════════════════════════════ -->
+  <div class="chapter diff" style="--diff:#3a5a6b; --diff-bg:#172028;">
+    <div class="chapter-header" style="background:#edf4f7; color:#1f5a6b; border-bottom:2px solid #2a7a8a;"><span class="num">07</span> Parametric Equations &amp; Coordinate Geometry</div>
+
+    <div class="group">
+      <div class="rows">
+        <div class="row">
+          <div class="row-label">Circle</div>
+          <div class="row-formula">\(x = a + r\cos t,\;\; y = b + r\sin t \;\;\Rightarrow\;\; (x-a)^2+(y-b)^2 = r^2\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Ellipse</div>
+          <div class="row-formula">\(x = a\cos t,\;\; y = b\sin t \;\;\Rightarrow\;\; \dfrac{x^2}{a^2}+\dfrac{y^2}{b^2} = 1\)</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Cartesian conversion</div>
+          <div class="row-formula">Rearrange one equation for \(t\) → substitute into other. Use trig identities where needed.</div>
+        </div>
+        <div class="row">
+          <div class="row-label">Domain rule</div>
+          <div class="row-formula">Domain of Cartesian = range of \(x(t)\) over the given parameter domain</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /parametric -->
+
+</div><!-- /page -->
+</body>
+</html>

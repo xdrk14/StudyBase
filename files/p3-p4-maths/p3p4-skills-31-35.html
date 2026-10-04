@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 & P4 Skills 31–35 | Edexcel IAL Mathematics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['$$', '$$']],
+      tags: 'none'
+    },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+  };
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-size: 16px;
+    line-height: 1.7;
+    padding: 24px 16px 80px;
+  }
+
+  .page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* PAGE TITLE */
+  .page-title {
+    text-align: center;
+    padding: 40px 24px 32px;
+    margin-bottom: 48px;
+    border-bottom: 3px solid #1a1a2e;
+  }
+  .page-title h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .page-title p {
+    font-size: 1rem;
+    color: #555;
+    font-weight: 400;
+  }
+  .skill-badge {
+    display: inline-block;
+    background: #1a1a2e;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  /* SKILL BLOCK */
+  .skill-block {
+    margin-bottom: 64px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+  }
+
+  /* SKILL HEADER */
+  .skill-header {
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 24px 32px;
+  }
+  .skill-header .skill-number {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8899cc;
+    margin-bottom: 6px;
+  }
+  .skill-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  /* SECTION BOXES */
+  .box {
+    padding: 28px 32px;
+    border-left: 5px solid transparent;
+  }
+  .box h3 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 0.65;
+  }
+  .box p, .box li { font-size: 0.97rem; line-height: 1.75; }
+  .box ul, .box ol { padding-left: 20px; }
+  .box li { margin-bottom: 6px; }
+
+  .concept-box {
+    background: #e8f4fd;
+    border-color: #3a8fd9;
+  }
+  .concept-box h3 { color: #1a5a8a; }
+
+  .formula-box {
+    background: #fff9e6;
+    border-color: #e6b800;
+    font-size: 1.05rem;
+  }
+  .formula-box h3 { color: #7a5c00; }
+  .formula-box .mjx-chtml { font-size: 1.1em !important; }
+
+  .apply-box {
+    background: #f0f7f0;
+    border-color: #4caf7d;
+  }
+  .apply-box h3 { color: #2a6645; }
+
+  .example-box {
+    background: #e8f8e8;
+    border-color: #3aa86a;
+  }
+  .example-box h3 { color: #1a6a3a; }
+
+  .question-box {
+    background: #f3e8ff;
+    border-color: #9b59b6;
+  }
+  .question-box h3 { color: #5a1f8a; }
+
+  .solution-box {
+    background: #fff0e8;
+    border-color: #e07030;
+  }
+  .solution-box h3 { color: #8a3a10; }
+
+  /* DIVIDERS between boxes */
+  .box + .box {
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  /* WORKED EXAMPLE styling */
+  .example-item {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px dashed #b0d9b0;
+  }
+  .example-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .example-item h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a6a3a;
+    margin-bottom: 12px;
+  }
+  .step {
+    background: rgba(255,255,255,0.55);
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin: 8px 0;
+    font-size: 0.95rem;
+  }
+  .step strong { color: #1a1a2e; font-weight: 600; }
+
+  /* QUESTION LIST */
+  .q-list { counter-reset: qcount; list-style: none; padding: 0; }
+  .q-list li {
+    counter-increment: qcount;
+    padding: 10px 16px 10px 48px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    position: relative;
+    font-size: 0.95rem;
+  }
+  .q-list li::before {
+    content: "Q" counter(qcount);
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: #7a3aaa;
+    letter-spacing: 0.5px;
+  }
+
+  /* SOLUTION LIST */
+  .s-list { list-style: none; padding: 0; }
+  .s-item {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px dashed #e0b898;
+  }
+  .s-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .s-item h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #8a3a10;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .s-step {
+    background: rgba(255,255,255,0.55);
+    border-radius: 6px;
+    padding: 9px 14px;
+    margin: 6px 0;
+    font-size: 0.93rem;
+  }
+  .s-step strong { color: #1a1a2e; }
+
+  /* MathJax display override */
+  mjx-container[display="true"] {
+    margin: 12px 0 !important;
+    overflow-x: auto;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .box { padding: 20px 18px; }
+    .skill-header { padding: 20px 18px; }
+    .skill-header h2 { font-size: 1.3rem; }
+    .page-title h1 { font-size: 1.4rem; }
+  }
+</style>
+<!-- sb:start -->
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
+<script src="../../app/note.js"></script>
+<!-- sb:end -->
+</head>
+<body>
+<div class="page-wrapper">
+
+<!-- PAGE TITLE -->
+<div class="page-title">
+  <div class="skill-badge">Edexcel IAL · P3 & P4</div>
+  <h1>Skills 31 – 35: Full Teaching Notes</h1>
+  <p>Trigonometric forms · Reciprocal &amp; inverse trig · Integration identities · Parametric equations</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- SKILL 31: R sin(x + α) form -->
+<!-- ============================================================ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 31</div>
+    <h2>The \(R\sin(x+\alpha)\) Form (Harmonic Form)</h2>
+  </div>
+
+  <div class="box concept-box">
+    <h3>What It Is</h3>
+    <p>Any expression of the form \(a\sin x + b\cos x\), where \(a\) and \(b\) are constants, can always be rewritten as a single sinusoidal function \(R\sin(x + \alpha)\). This is called the <strong>harmonic form</strong> or <strong>R-form</strong>. The reason this is useful is that a single sine (or cosine) function is much easier to work with: you can immediately read off its maximum value, minimum value, and the angle at which these occur. This technique is essential for solving equations of the form \(a\sin x + b\cos x = c\), and for finding stationary points of such expressions without calculus.</p>
+  </div>
+
+  <div class="box formula-box">
+    <h3>The Formula / Rule</h3>
+    <p>The core identity is:</p>
+    $$a\sin x + b\cos x \equiv R\sin(x + \alpha)$$
+    <p>where:</p>
+    $$R = \sqrt{a^2 + b^2}, \qquad \tan\alpha = \frac{b}{a}, \quad R > 0,\ 0 < \alpha < \frac{\pi}{2}$$
+    <p>Expanding the right-hand side using the addition formula \(\sin(x+\alpha) = \sin x\cos\alpha + \cos x\sin\alpha\):</p>
+    $$R\sin(x+\alpha) = R\cos\alpha\,\sin x + R\sin\alpha\,\cos x$$
+    <p>Comparing coefficients: \(R\cos\alpha = a\) and \(R\sin\alpha = b\). These two equations give \(R\) and \(\alpha\).</p>
+    <p><strong>Also valid:</strong></p>
+    $$a\sin x + b\cos x \equiv R\cos(x - \beta), \quad R = \sqrt{a^2+b^2},\quad \tan\beta = \frac{a}{b}$$
+    <p><strong>Maximum value</strong> of \(R\sin(x+\alpha)\) is \(\boldsymbol{R}\), occurring when \(\sin(x+\alpha)=1\).<br>
+    <strong>Minimum value</strong> is \(\boldsymbol{-R}\), occurring when \(\sin(x+\alpha)=-1\).</p>
+  </div>
+
+  <div class="box apply-box">
+    <h3>Where to Apply It</h3>
+    <ul>
+      <li>Solving equations of the form \(a\sin x + b\cos x = c\) over a given interval.</li>
+      <li>Finding the maximum or minimum value of \(a\sin x + b\cos x\) and the \(x\)-values at which they occur.</li>
+      <li>Simplifying expressions before integration.</li>
+      <li>Modelling periodic phenomena (sound waves, oscillations) where a combined sine and cosine must be written as a single wave.</li>
+    </ul>
+  </div>
+
+  <div class="box example-box">
+    <h3>Worked Examples</h3>
+
+    <div class="example-item">
+      <h4>Example 1 — Write \(3\sin x + 4\cos x\) in the form \(R\sin(x+\alpha)\), giving \(\alpha\) in radians to 3 d.p.</h4>
+
+      <div class="step"><strong>Step 1: Identify \(a\) and \(b\).</strong><br>
+        Compare \(a\sin x + b\cos x\) with \(3\sin x + 4\cos x\): \(a = 3\), \(b = 4\).</div>
+
+      <div class="step"><strong>Step 2: Find \(R\).</strong><br>
+        $$R = \sqrt{a^2 + b^2} = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$$</div>
+
+      <div class="step"><strong>Step 3: Find \(\alpha\).</strong><br>
+        $$\tan\alpha = \frac{b}{a} = \frac{4}{3}$$
+        $$\alpha = \arctan\!\left(\frac{4}{3}\right) = 0.927 \text{ rad (3 d.p.)}$$</div>
+
+      <div class="step"><strong>Step 4: Write the answer.</strong><br>
+        $$\boxed{3\sin x + 4\cos x \equiv 5\sin(x + 0.927)}$$</div>
+
+      <div class="step"><strong>Verification:</strong> Expand \(5\sin(x+0.927) = 5(\sin x\cos 0.927 + \cos x\sin 0.927)\).<br>
+        \(\cos(0.927)\approx 0.6 = \tfrac{3}{5}\) and \(\sin(0.927)\approx 0.8 = \tfrac{4}{5}\).<br>
+        So \(5\cdot\tfrac{3}{5}\sin x + 5\cdot\tfrac{4}{5}\cos x = 3\sin x + 4\cos x\). ✓</div>
+    </div>
+
+    <div class="example-item">
+      <h4>Example 2 — Solve \(3\sin x + 4\cos x = 2.5\) for \(0 \leq x \leq 2\pi\), giving answers in radians to 3 d.p.</h4>
+
+      <div class="step"><strong>Step 1: Use the result from Example 1.</strong><br>
+        \(3\sin x + 4\cos x \equiv 5\sin(x + 0.927)\). The equation becomes:
+        $$5\sin(x + 0.927) = 2.5$$</div>
+
+      <div class="step"><strong>Step 2: Isolate the sine function.</strong><br>
+        $$\sin(x + 0.927) = \frac{2.5}{5} = 0.5$$</div>
+
+      <div class="step"><strong>Step 3: Adjust the interval for the compound angle.</strong><br>
+        Since \(0 \leq x \leq 2\pi\), we have \(0.927 \leq x + 0.927 \leq 2\pi + 0.927\), i.e., \(0.927 \leq x+0.927 \leq 7.210\).</div>
+
+      <div class="step"><strong>Step 4: Find the principal value.</strong><br>
+        $$x + 0.927 = \arcsin(0.5) = \frac{\pi}{6} \approx 0.524$$
+        This is outside the interval \([0.927, 7.210]\), so we use the supplementary angle: \(\pi - 0.524 = 2.618\).</div>
+
+      <div class="step"><strong>Step 5: Find all solutions in the adjusted interval.</strong><br>
+        \(\sin\theta = 0.5\) in \([0.927, 7.210]\):<br>
+        — \(\theta = 2.618\) (in interval ✓)<br>
+        — \(\theta = 2\pi + 0.524 = 6.807\) (in interval ✓)</div>
+
+      <div class="step"><strong>Step 6: Solve for \(x\).</strong><br>
+        $$x = 2.618 - 0.927 = 1.691 \quad \text{and} \quad x = 6.807 - 0.927 = 5.880$$
+        $$\boxed{x \approx 1.691 \text{ rad} \quad \text{or} \quad x \approx 5.880 \text{ rad}}$$</div>
+    </div>
+  </div>
+
+  <div class="box question-box">
+    <h3>Practice Questions</h3>
+    <ol class="q-list">
+      <li>Write \(5\sin x + 12\cos x\) in the form \(R\sin(x+\alpha)\) where \(R > 0\) and \(0 < \alpha < \frac{\pi}{2}\). Give \(\alpha\) to 3 d.p.</li>
+      <li>Write \(\sin x + \sqrt{3}\cos x\) in the form \(R\sin(x+\alpha)\), giving \(\alpha\) as an exact value.</li>
+      <li>Write \(8\cos x + 6\sin x\) in the form \(R\cos(x - \beta)\) where \(R > 0\) and \(0 < \beta < \frac{\pi}{2}\). Give \(\beta\) to 3 d.p.</li>
+      <li>Find the maximum value of \(5\sin x + 12\cos x\) and the value of \(x\) in \([0, 2\pi]\) at which it occurs. Give your answer to 3 d.p.</li>
+      <li>Solve \(5\sin x + 12\cos x = 6\) for \(0 \leq x \leq 2\pi\), giving solutions in radians to 3 d.p.</li>
+      <li>Find the minimum value of \(\dfrac{1}{3 + \sin x + \sqrt{3}\cos x}\) and state the value of \(x \in [0, 2\pi]\) at which it occurs.</li>
+      <li>Solve \(\sqrt{3}\sin\theta - \cos\theta = 1\) for \(0° \leq \theta \leq 360°\), giving solutions to 1 d.p.</li>
+    </ol>
+  </div>
+
+  <div class="box solution-box">
+    <h3>Full Solutions</h3>
+    <ul class="s-list">
+
+      <li class="s-item">
+        <h4>Solution to Q1</h4>
+        <div class="s-step">\(a = 5,\ b = 12\).</div>
+        <div class="s-step">$$R = \sqrt{25 + 144} = \sqrt{169} = 13$$</div>
+        <div class="s-step">$$\tan\alpha = \frac{12}{5} \implies \alpha = \arctan(2.4) = 1.176 \text{ rad}$$</div>
+        <div class="s-step">$$\boxed{5\sin x + 12\cos x \equiv 13\sin(x + 1.176)}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q2</h4>
+        <div class="s-step">\(a = 1,\ b = \sqrt{3}\).</div>
+        <div class="s-step">$$R = \sqrt{1 + 3} = \sqrt{4} = 2$$</div>
+        <div class="s-step">$$\tan\alpha = \frac{\sqrt{3}}{1} = \sqrt{3} \implies \alpha = \frac{\pi}{3}$$</div>
+        <div class="s-step">$$\boxed{\sin x + \sqrt{3}\cos x \equiv 2\sin\!\left(x + \frac{\pi}{3}\right)}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q3</h4>
+        <div class="s-step">Use \(a\cos x + b\sin x \equiv R\cos(x - \beta)\) where \(R\cos\beta = a = 8\) and \(R\sin\beta = b = 6\).</div>
+        <div class="s-step">$$R = \sqrt{64 + 36} = \sqrt{100} = 10$$</div>
+        <div class="s-step">$$\tan\beta = \frac{6}{8} = 0.75 \implies \beta = \arctan(0.75) = 0.644 \text{ rad}$$</div>
+        <div class="s-step">$$\boxed{8\cos x + 6\sin x \equiv 10\cos(x - 0.644)}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q4</h4>
+        <div class="s-step">From Q1: \(5\sin x + 12\cos x \equiv 13\sin(x + 1.176)\).</div>
+        <div class="s-step">Maximum occurs when \(\sin(x + 1.176) = 1\), so \(x + 1.176 = \frac{\pi}{2}\).</div>
+        <div class="s-step">$$x = \frac{\pi}{2} - 1.176 = 1.5708 - 1.176 = 0.395 \text{ rad}$$</div>
+        <div class="s-step">$$\boxed{\text{Maximum value} = 13, \text{ at } x \approx 0.395 \text{ rad}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q5</h4>
+        <div class="s-step">From Q1: \(13\sin(x + 1.176) = 6 \implies \sin(x + 1.176) = \dfrac{6}{13}\).</div>
+        <div class="s-step">Interval for compound angle: \([1.176,\ 2\pi + 1.176] = [1.176,\ 7.459]\).</div>
+        <div class="s-step">Principal value: \(\arcsin(6/13) = 0.474\). Outside interval, use \(\pi - 0.474 = 2.668\) ✓</div>
+        <div class="s-step">Second value in interval: \(2\pi + 0.474 = 6.757\) ✓</div>
+        <div class="s-step">$$x = 2.668 - 1.176 = 1.492 \quad \text{and} \quad x = 6.757 - 1.176 = 5.581$$</div>
+        <div class="s-step">$$\boxed{x \approx 1.492 \text{ rad} \quad \text{or} \quad x \approx 5.581 \text{ rad}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q6</h4>
+        <div class="s-step">From Q2: \(\sin x + \sqrt{3}\cos x \equiv 2\sin\!\left(x + \frac{\pi}{3}\right)\).</div>
+        <div class="s-step">So the expression becomes \(\dfrac{1}{3 + 2\sin(x + \frac{\pi}{3})}\).</div>
+        <div class="s-step">This fraction is <strong>smallest</strong> when the denominator is <strong>largest</strong>, i.e., when \(\sin(x + \frac{\pi}{3}) = 1\).</div>
+        <div class="s-step">$$\text{Minimum} = \frac{1}{3 + 2(1)} = \frac{1}{5}$$</div>
+        <div class="s-step">Occurs when \(x + \frac{\pi}{3} = \frac{\pi}{2} \implies x = \frac{\pi}{2} - \frac{\pi}{3} = \frac{\pi}{6}\).</div>
+        <div class="s-step">$$\boxed{\text{Minimum value} = \frac{1}{5}, \text{ at } x = \frac{\pi}{6}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q7</h4>
+        <div class="s-step">\(a = \sqrt{3},\ b = -1\). Write as \(R\sin(\theta - \alpha)\) since we have a minus sign on cosine.</div>
+        <div class="s-step">Use: \(\sqrt{3}\sin\theta - \cos\theta \equiv R\sin(\theta - \alpha)\) where \(R\cos\alpha = \sqrt{3}\) and \(R\sin\alpha = 1\).</div>
+        <div class="s-step">$$R = \sqrt{3 + 1} = 2, \quad \tan\alpha = \frac{1}{\sqrt{3}} \implies \alpha = 30°$$</div>
+        <div class="s-step">Equation: \(2\sin(\theta - 30°) = 1 \implies \sin(\theta - 30°) = 0.5\).</div>
+        <div class="s-step">Interval for compound angle: \([-30°, 330°]\).</div>
+        <div class="s-step">\(\theta - 30° = 30°\) or \(\theta - 30° = 150°\).</div>
+        <div class="s-step">$$\theta = 60° \quad \text{or} \quad \theta = 180°$$</div>
+        <div class="s-step">$$\boxed{\theta = 60° \quad \text{or} \quad \theta = 180°}$$</div>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SKILL 32: sec, cosec, cot -->
+<!-- ============================================================ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 32</div>
+    <h2>Secant, Cosecant and Cotangent — Definitions and Graphs</h2>
+  </div>
+
+  <div class="box concept-box">
+    <h3>What It Is</h3>
+    <p>The three reciprocal trigonometric functions are \(\sec x\), \(\text{cosec}\, x\) (sometimes written \(\csc x\)), and \(\cot x\). Each is simply the reciprocal (i.e., one divided by) of one of the standard trig functions. A helpful memory trick: <strong>Sec goes with Cosine, Cosec goes with Sine, Cot goes with Tangent</strong> — notice each starts with the opposite letter. These functions arise naturally when solving equations, simplifying identities, and differentiating or integrating certain expressions. They have vertical asymptotes wherever the denominator function equals zero, and their graphs consist of repeated separate branches.</p>
+  </div>
+
+  <div class="box formula-box">
+    <h3>The Definitions and Key Identities</h3>
+    <p><strong>Definitions:</strong></p>
+    $$\sec x = \frac{1}{\cos x}, \qquad \text{cosec}\,x = \frac{1}{\sin x}, \qquad \cot x = \frac{\cos x}{\sin x} = \frac{1}{\tan x}$$
+    <p><strong>Pythagorean Identities (derived from \(\sin^2 x + \cos^2 x = 1\)):</strong></p>
+    $$1 + \tan^2 x \equiv \sec^2 x \qquad (\text{divide } \sin^2 x + \cos^2 x = 1 \text{ by } \cos^2 x)$$
+    $$1 + \cot^2 x \equiv \text{cosec}^2\, x \qquad (\text{divide by } \sin^2 x)$$
+    <p><strong>Graph properties:</strong></p>
+    <ul style="margin-top:8px">
+      <li>\(\sec x\): Period \(2\pi\). Asymptotes at \(x = \frac{\pi}{2} + n\pi\). Range: \(|\sec x| \geq 1\), i.e., \((-\infty,-1]\cup[1,\infty)\).</li>
+      <li>\(\text{cosec}\,x\): Period \(2\pi\). Asymptotes at \(x = n\pi\). Range: \((-\infty,-1]\cup[1,\infty)\).</li>
+      <li>\(\cot x\): Period \(\pi\). Asymptotes at \(x = n\pi\). Range: all real numbers.</li>
+    </ul>
+  </div>
+
+  <div class="box apply-box">
+    <h3>Where to Apply It</h3>
+    <ul>
+      <li>Solving equations involving squared trig terms: use \(\sec^2 x = 1 + \tan^2 x\) or \(\text{cosec}^2 x = 1 + \cot^2 x\) to convert a mixed equation into a single trig ratio.</li>
+      <li>Proving identities that involve reciprocal trig functions.</li>
+      <li>Differentiation: \(\frac{d}{dx}(\tan x) = \sec^2 x\) and \(\frac{d}{dx}(\cot x) = -\text{cosec}^2 x\).</li>
+      <li>Integration: \(\int \sec^2 x\,dx = \tan x + c\) and \(\int \text{cosec}^2 x\,dx = -\cot x + c\).</li>
+    </ul>
+  </div>
+
+  <div class="box example-box">
+    <h3>Worked Examples</h3>
+
+    <div class="example-item">
+      <h4>Example 1 — Solve \(2\sec^2 x - 3\tan x - 4 = 0\) for \(0° \leq x \leq 360°\).</h4>
+
+      <div class="step"><strong>Step 1: Convert using the identity \(\sec^2 x = 1 + \tan^2 x\).</strong><br>
+        $$2(1 + \tan^2 x) - 3\tan x - 4 = 0$$
+        $$2 + 2\tan^2 x - 3\tan x - 4 = 0$$
+        $$2\tan^2 x - 3\tan x - 2 = 0$$</div>
+
+      <div class="step"><strong>Step 2: Solve the quadratic. Let \(u = \tan x\).</strong><br>
+        $$2u^2 - 3u - 2 = 0$$
+        $$(2u + 1)(u - 2) = 0$$
+        $$\tan x = -\frac{1}{2} \quad \text{or} \quad \tan x = 2$$</div>
+
+      <div class="step"><strong>Step 3: Solve \(\tan x = -\frac{1}{2}\) in \([0°, 360°]\).</strong><br>
+        Calculator gives \(\arctan(-0.5) = -26.57°\). In the range: \(180° - 26.57° = 153.43°\) and \(360° - 26.57° = 333.43°\).</div>
+
+      <div class="step"><strong>Step 4: Solve \(\tan x = 2\) in \([0°, 360°]\).</strong><br>
+        Calculator gives \(63.43°\) and \(63.43° + 180° = 243.43°\).</div>
+
+      <div class="step"><strong>Final answer:</strong>
+        $$\boxed{x = 63.4°,\ 153.4°,\ 243.4°,\ 333.4°}$$</div>
+    </div>
+
+    <div class="example-item">
+      <h4>Example 2 — Prove that \(\dfrac{\sec^2 x}{\tan x} \equiv 2\,\text{cosec}\,2x\).</h4>
+
+      <div class="step"><strong>Step 1: Start with the left-hand side (LHS).</strong><br>
+        $$\text{LHS} = \frac{\sec^2 x}{\tan x} = \frac{\dfrac{1}{\cos^2 x}}{\dfrac{\sin x}{\cos x}} = \frac{1}{\cos^2 x} \cdot \frac{\cos x}{\sin x} = \frac{1}{\cos x \sin x}$$</div>
+
+      <div class="step"><strong>Step 2: Use the double angle formula \(\sin 2x = 2\sin x\cos x\), so \(\sin x \cos x = \frac{1}{2}\sin 2x\).</strong><br>
+        $$\frac{1}{\cos x\sin x} = \frac{1}{\frac{1}{2}\sin 2x} = \frac{2}{\sin 2x} = 2\,\text{cosec}\,2x$$</div>
+
+      <div class="step"><strong>Step 3: Conclude.</strong><br>
+        $$\boxed{\frac{\sec^2 x}{\tan x} \equiv 2\,\text{cosec}\,2x \quad \text{✓}}$$</div>
+    </div>
+  </div>
+
+  <div class="box question-box">
+    <h3>Practice Questions</h3>
+    <ol class="q-list">
+      <li>Solve \(\sec^2 x = 4\) for \(-\pi \leq x \leq \pi\). Give exact answers.</li>
+      <li>Solve \(\text{cosec}^2 x - 5\cot x + 5 = 0\) for \(0° \leq x \leq 360°\). Give answers to 1 d.p.</li>
+      <li>Prove the identity: \(\cot^2 x - \cos^2 x \equiv \cot^2 x\cos^2 x\).</li>
+      <li>Prove the identity: \(\sec x - \cos x \equiv \sin x\tan x\).</li>
+      <li>Given that \(\sec\theta = -\frac{5}{3}\) and \(\theta\) is obtuse, find the exact values of \(\tan\theta\) and \(\text{cosec}\,\theta\).</li>
+      <li>Solve \(3\cot^2 x + 5\,\text{cosec}\,x + 1 = 0\) for \(0 \leq x \leq 2\pi\). Give answers to 3 s.f.</li>
+      <li>Show that \(\dfrac{1 + \cot^2 x}{1 + \tan^2 x} \equiv \cot^2 x\).</li>
+    </ol>
+  </div>
+
+  <div class="box solution-box">
+    <h3>Full Solutions</h3>
+    <ul class="s-list">
+
+      <li class="s-item">
+        <h4>Solution to Q1</h4>
+        <div class="s-step">\(\sec^2 x = 4 \implies \cos^2 x = \frac{1}{4} \implies \cos x = \pm\frac{1}{2}\).</div>
+        <div class="s-step">For \(\cos x = \frac{1}{2}\): \(x = \frac{\pi}{3}\) or \(x = -\frac{\pi}{3}\).</div>
+        <div class="s-step">For \(\cos x = -\frac{1}{2}\): \(x = \frac{2\pi}{3}\) or \(x = -\frac{2\pi}{3}\).</div>
+        <div class="s-step">$$\boxed{x = \pm\frac{\pi}{3},\ \pm\frac{2\pi}{3}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q2</h4>
+        <div class="s-step">Use \(\text{cosec}^2 x = 1 + \cot^2 x\):</div>
+        <div class="s-step">$$1 + \cot^2 x - 5\cot x + 5 = 0 \implies \cot^2 x - 5\cot x + 6 = 0$$</div>
+        <div class="s-step">$$(\cot x - 2)(\cot x - 3) = 0 \implies \cot x = 2 \text{ or } \cot x = 3$$</div>
+        <div class="s-step">$$\tan x = \frac{1}{2} \implies x = 26.6°,\ 206.6°$$</div>
+        <div class="s-step">$$\tan x = \frac{1}{3} \implies x = 18.4°,\ 198.4°$$</div>
+        <div class="s-step">$$\boxed{x = 18.4°,\ 26.6°,\ 198.4°,\ 206.6°}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q3</h4>
+        <div class="s-step"><strong>LHS:</strong> \(\cot^2 x - \cos^2 x\).</div>
+        <div class="s-step">Write \(\cot^2 x = \dfrac{\cos^2 x}{\sin^2 x}\):
+        $$\frac{\cos^2 x}{\sin^2 x} - \cos^2 x = \cos^2 x\!\left(\frac{1}{\sin^2 x} - 1\right) = \cos^2 x \cdot \frac{1 - \sin^2 x}{\sin^2 x}$$</div>
+        <div class="s-step">Since \(1 - \sin^2 x = \cos^2 x\):
+        $$= \frac{\cos^2 x \cdot \cos^2 x}{\sin^2 x} = \cot^2 x \cos^2 x = \text{RHS} \quad \checkmark$$</div>
+        <div class="s-step">$$\boxed{\text{Proved: } \cot^2 x - \cos^2 x \equiv \cot^2 x \cos^2 x}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q4</h4>
+        <div class="s-step"><strong>LHS:</strong> \(\sec x - \cos x = \dfrac{1}{\cos x} - \cos x = \dfrac{1 - \cos^2 x}{\cos x} = \dfrac{\sin^2 x}{\cos x}\).</div>
+        <div class="s-step">$$= \sin x \cdot \frac{\sin x}{\cos x} = \sin x \tan x = \text{RHS} \quad \checkmark$$</div>
+        <div class="s-step">$$\boxed{\text{Proved: } \sec x - \cos x \equiv \sin x\tan x}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q5</h4>
+        <div class="s-step">\(\sec\theta = -\frac{5}{3} \implies \cos\theta = -\frac{3}{5}\). Since \(\theta\) is obtuse, \(\sin\theta > 0\).</div>
+        <div class="s-step">$$\sin\theta = \sqrt{1 - \cos^2\theta} = \sqrt{1 - \frac{9}{25}} = \sqrt{\frac{16}{25}} = \frac{4}{5}$$</div>
+        <div class="s-step">$$\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{4/5}{-3/5} = -\frac{4}{3}$$</div>
+        <div class="s-step">$$\text{cosec}\,\theta = \frac{1}{\sin\theta} = \frac{5}{4}$$</div>
+        <div class="s-step">$$\boxed{\tan\theta = -\frac{4}{3},\quad \text{cosec}\,\theta = \frac{5}{4}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q6</h4>
+        <div class="s-step">Use \(\cot^2 x = \text{cosec}^2 x - 1\):</div>
+        <div class="s-step">$$3(\text{cosec}^2 x - 1) + 5\,\text{cosec}\,x + 1 = 0$$
+        $$3\,\text{cosec}^2 x + 5\,\text{cosec}\,x - 2 = 0$$</div>
+        <div class="s-step">Let \(u = \text{cosec}\,x\): \((3u - 1)(u + 2) = 0 \implies u = \frac{1}{3}\) or \(u = -2\).</div>
+        <div class="s-step">\(\text{cosec}\,x = \frac{1}{3} \implies \sin x = 3\). Impossible (|\(\sin x\)| ≤ 1). No solution.</div>
+        <div class="s-step">\(\text{cosec}\,x = -2 \implies \sin x = -\frac{1}{2} \implies x = \pi + \frac{\pi}{6} = \frac{7\pi}{6}\) or \(x = 2\pi - \frac{\pi}{6} = \frac{11\pi}{6}\).</div>
+        <div class="s-step">$$\boxed{x = \frac{7\pi}{6} \approx 3.67 \text{ rad} \quad \text{or} \quad x = \frac{11\pi}{6} \approx 5.76 \text{ rad}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q7</h4>
+        <div class="s-step"><strong>LHS:</strong> \(\dfrac{1 + \cot^2 x}{1 + \tan^2 x} = \dfrac{\text{cosec}^2 x}{\sec^2 x}\) (using the two Pythagorean identities).</div>
+        <div class="s-step">$$= \frac{1/\sin^2 x}{1/\cos^2 x} = \frac{\cos^2 x}{\sin^2 x} = \cot^2 x = \text{RHS} \quad \checkmark$$</div>
+        <div class="s-step">$$\boxed{\text{Proved: } \frac{1+\cot^2 x}{1+\tan^2 x} \equiv \cot^2 x}$$</div>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SKILL 33: Inverse Trig Functions -->
+<!-- ============================================================ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 33</div>
+    <h2>Inverse Trigonometric Functions: \(\arcsin\), \(\arccos\), \(\arctan\)</h2>
+  </div>
+
+  <div class="box concept-box">
+    <h3>What It Is</h3>
+    <p>The inverse trigonometric functions undo the action of the standard trig functions. For example, \(\arcsin(0.5) = \frac{\pi}{6}\) because \(\sin\!\left(\frac{\pi}{6}\right) = 0.5\). The key complication is that sine, cosine, and tangent are <em>not</em> one-to-one functions — a single output value can come from many input angles. To define a proper inverse function (which must give exactly one output per input), we must restrict the domain of the original trig function. These restricted domains are fixed and must be memorised. The inverse functions are written \(\arcsin\), \(\arccos\), \(\arctan\) (or equivalently \(\sin^{-1}\), \(\cos^{-1}\), \(\tan^{-1}\)).</p>
+  </div>
+
+  <div class="box formula-box">
+    <h3>Domains, Ranges and Graphs</h3>
+    <p><strong>\(y = \arcsin x\):</strong></p>
+    $$\text{Domain: } -1 \leq x \leq 1 \qquad \text{Range: } -\frac{\pi}{2} \leq y \leq \frac{\pi}{2}$$
+    <p><strong>\(y = \arccos x\):</strong></p>
+    $$\text{Domain: } -1 \leq x \leq 1 \qquad \text{Range: } 0 \leq y \leq \pi$$
+    <p><strong>\(y = \arctan x\):</strong></p>
+    $$\text{Domain: } x \in \mathbb{R} \qquad \text{Range: } -\frac{\pi}{2} < y < \frac{\pi}{2}$$
+    <p>(Note: the range for \(\arctan\) is an open interval — it never actually reaches \(\pm\frac{\pi}{2}\).)</p>
+    <p><strong>Derivatives (for use in differentiation topics):</strong></p>
+    $$\frac{d}{dx}(\arcsin x) = \frac{1}{\sqrt{1-x^2}}, \qquad \frac{d}{dx}(\arccos x) = -\frac{1}{\sqrt{1-x^2}}, \qquad \frac{d}{dx}(\arctan x) = \frac{1}{1+x^2}$$
+    <p><strong>Graph property:</strong> Each inverse trig graph is the reflection of the corresponding restricted trig function in the line \(y = x\).</p>
+  </div>
+
+  <div class="box apply-box">
+    <h3>Where to Apply It</h3>
+    <ul>
+      <li>Evaluating exact values: e.g., \(\arcsin\!\left(\frac{\sqrt{3}}{2}\right) = \frac{\pi}{3}\).</li>
+      <li>Solving trig equations when you need the principal value (the unique answer in the restricted range).</li>
+      <li>Integration: the derivatives above lead to standard integrals, e.g., \(\displaystyle\int \frac{1}{\sqrt{1-x^2}}\,dx = \arcsin x + c\).</li>
+      <li>Whenever the range of arcsin/arccos/arctan must be carefully stated — exam questions often ask for the range explicitly.</li>
+    </ul>
+  </div>
+
+  <div class="box example-box">
+    <h3>Worked Examples</h3>
+
+    <div class="example-item">
+      <h4>Example 1 — Find the exact value of \(\cos\!\left(\arcsin\!\left(\frac{3}{5}\right)\right)\).</h4>
+
+      <div class="step"><strong>Step 1: Let \(\theta = \arcsin\!\left(\frac{3}{5}\right)\), so \(\sin\theta = \frac{3}{5}\).</strong><br>
+        Since \(\arcsin\) has range \(\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\), we know \(\theta\) is in the first or fourth quadrant, and \(\cos\theta \geq 0\).</div>
+
+      <div class="step"><strong>Step 2: Use the Pythagorean identity.</strong><br>
+        $$\cos^2\theta = 1 - \sin^2\theta = 1 - \frac{9}{25} = \frac{16}{25}$$
+        $$\cos\theta = \frac{4}{5} \quad (\text{positive because } \theta \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right])$$</div>
+
+      <div class="step"><strong>Step 3: State the answer.</strong><br>
+        $$\boxed{\cos\!\left(\arcsin\!\left(\frac{3}{5}\right)\right) = \frac{4}{5}}$$</div>
+    </div>
+
+    <div class="example-item">
+      <h4>Example 2 — Solve \(2\arctan x = \arctan\!\left(\frac{3}{4}\right)\) and find \(x\) exactly.</h4>
+
+      <div class="step"><strong>Step 1: Isolate one arctan.</strong><br>
+        $$\arctan x = \frac{1}{2}\arctan\!\left(\frac{3}{4}\right)$$
+        Let \(\phi = \arctan\!\left(\frac{3}{4}\right)\), so \(\tan\phi = \frac{3}{4}\).</div>
+
+      <div class="step"><strong>Step 2: Use the half-angle tangent formula. We want \(\tan\!\left(\frac{\phi}{2}\right)\).</strong><br>
+        We know: \(\tan\phi = \dfrac{2t}{1-t^2}\) where \(t = \tan\!\left(\frac{\phi}{2}\right)\).
+        $$\frac{3}{4} = \frac{2t}{1 - t^2} \implies 3(1 - t^2) = 8t \implies 3t^2 + 8t - 3 = 0$$</div>
+
+      <div class="step"><strong>Step 3: Solve the quadratic.</strong><br>
+        $$(3t - 1)(t + 3) = 0 \implies t = \frac{1}{3} \text{ or } t = -3$$
+        Since \(\phi = \arctan(3/4)\) is a small positive angle, \(\phi/2\) is also small and positive, so \(t = \frac{1}{3}\).</div>
+
+      <div class="step"><strong>Final answer:</strong>
+        $$x = \tan\!\left(\frac{\phi}{2}\right) = \frac{1}{3}$$
+        $$\boxed{x = \frac{1}{3}}$$</div>
+    </div>
+  </div>
+
+  <div class="box question-box">
+    <h3>Practice Questions</h3>
+    <ol class="q-list">
+      <li>State the domain and range of \(y = \arctan x\). Hence sketch its graph, indicating the equations of any asymptotes.</li>
+      <li>Without a calculator, find the exact value of \(\sin\!\left(\arccos\!\left(\frac{5}{13}\right)\right)\).</li>
+      <li>Without a calculator, find the exact value of \(\tan\!\left(\arcsin\!\left(-\frac{1}{2}\right)\right)\).</li>
+      <li>Find the exact value of \(\arcsin\!\left(\sin\!\left(\frac{7\pi}{6}\right)\right)\). Explain why the answer is not \(\frac{7\pi}{6}\).</li>
+      <li>Solve the equation \(\arctan(2x - 1) = \dfrac{\pi}{4}\) for \(x\).</li>
+      <li>Find the range of the function \(f(x) = 2\arcsin(x - 1) + \dfrac{\pi}{2}\), stating clearly the domain of \(f\).</li>
+      <li>Prove that \(\arcsin x + \arccos x = \dfrac{\pi}{2}\) for \(-1 \leq x \leq 1\). (Hint: let \(\alpha = \arcsin x\) and show \(\cos\alpha = x\).)</li>
+    </ol>
+  </div>
+
+  <div class="box solution-box">
+    <h3>Full Solutions</h3>
+    <ul class="s-list">
+
+      <li class="s-item">
+        <h4>Solution to Q1</h4>
+        <div class="s-step">$$\boxed{\text{Domain: } x \in \mathbb{R}, \quad \text{Range: } -\frac{\pi}{2} < y < \frac{\pi}{2}}$$</div>
+        <div class="s-step">Graph: An increasing S-shaped curve passing through the origin. Horizontal asymptotes at \(y = \frac{\pi}{2}\) (as \(x \to +\infty\)) and \(y = -\frac{\pi}{2}\) (as \(x \to -\infty\)).</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q2</h4>
+        <div class="s-step">Let \(\theta = \arccos\!\left(\frac{5}{13}\right)\), so \(\cos\theta = \frac{5}{13}\) and \(\theta \in [0, \pi]\), hence \(\sin\theta \geq 0\).</div>
+        <div class="s-step">$$\sin^2\theta = 1 - \frac{25}{169} = \frac{144}{169} \implies \sin\theta = \frac{12}{13}$$</div>
+        <div class="s-step">$$\boxed{\sin\!\left(\arccos\!\left(\frac{5}{13}\right)\right) = \frac{12}{13}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q3</h4>
+        <div class="s-step">Let \(\theta = \arcsin\!\left(-\frac{1}{2}\right)\). Then \(\sin\theta = -\frac{1}{2}\) and \(\theta \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\).</div>
+        <div class="s-step">So \(\theta = -\frac{\pi}{6}\).</div>
+        <div class="s-step">$$\tan\!\left(-\frac{\pi}{6}\right) = -\tan\!\left(\frac{\pi}{6}\right) = -\frac{1}{\sqrt{3}} = -\frac{\sqrt{3}}{3}$$</div>
+        <div class="s-step">$$\boxed{\tan\!\left(\arcsin\!\left(-\frac{1}{2}\right)\right) = -\frac{\sqrt{3}}{3}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q4</h4>
+        <div class="s-step">\(\sin\!\left(\frac{7\pi}{6}\right) = \sin\!\left(\pi + \frac{\pi}{6}\right) = -\sin\!\left(\frac{\pi}{6}\right) = -\frac{1}{2}\).</div>
+        <div class="s-step">Now apply \(\arcsin\): \(\arcsin\!\left(-\frac{1}{2}\right) = -\frac{\pi}{6}\).</div>
+        <div class="s-step">The answer is <em>not</em> \(\frac{7\pi}{6}\) because \(\frac{7\pi}{6}\) is outside the range of \(\arcsin\), which is \(\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\).</div>
+        <div class="s-step">$$\boxed{\arcsin\!\left(\sin\!\left(\frac{7\pi}{6}\right)\right) = -\frac{\pi}{6}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q5</h4>
+        <div class="s-step">Apply \(\tan\) to both sides:</div>
+        <div class="s-step">$$2x - 1 = \tan\!\left(\frac{\pi}{4}\right) = 1$$</div>
+        <div class="s-step">$$2x = 2 \implies x = 1$$</div>
+        <div class="s-step">$$\boxed{x = 1}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q6</h4>
+        <div class="s-step"><strong>Domain:</strong> \(\arcsin(x-1)\) requires \(-1 \leq x - 1 \leq 1\), i.e., \(0 \leq x \leq 2\).</div>
+        <div class="s-step"><strong>Range of \(\arcsin(x-1)\):</strong> \(-\frac{\pi}{2} \leq \arcsin(x-1) \leq \frac{\pi}{2}\).</div>
+        <div class="s-step"><strong>Multiply by 2:</strong> \(-\pi \leq 2\arcsin(x-1) \leq \pi\).</div>
+        <div class="s-step"><strong>Add \(\frac{\pi}{2}\):</strong> \(-\frac{\pi}{2} \leq f(x) \leq \frac{3\pi}{2}\).</div>
+        <div class="s-step">$$\boxed{\text{Domain: } 0 \leq x \leq 2, \quad \text{Range: } -\frac{\pi}{2} \leq f(x) \leq \frac{3\pi}{2}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q7</h4>
+        <div class="s-step">Let \(\alpha = \arcsin x\). Then \(\sin\alpha = x\) and \(\alpha \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\).</div>
+        <div class="s-step">We want to show \(\arccos x = \frac{\pi}{2} - \alpha\), i.e., that \(\cos\!\left(\frac{\pi}{2} - \alpha\right) = x\).</div>
+        <div class="s-step">$$\cos\!\left(\frac{\pi}{2} - \alpha\right) = \sin\alpha = x \quad \checkmark$$</div>
+        <div class="s-step">Also, since \(\alpha \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\), we have \(\frac{\pi}{2} - \alpha \in [0, \pi]\), which is exactly the range of \(\arccos\). So \(\frac{\pi}{2} - \alpha = \arccos x\).</div>
+        <div class="s-step">Therefore \(\arcsin x + \arccos x = \alpha + \frac{\pi}{2} - \alpha = \frac{\pi}{2}\).</div>
+        <div class="s-step">$$\boxed{\arcsin x + \arccos x = \frac{\pi}{2} \quad \text{for } -1 \leq x \leq 1. \quad \checkmark}$$</div>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SKILL 34: Trig Identities for Integration -->
+<!-- ============================================================ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 34</div>
+    <h2>Trigonometric Identities for Integration</h2>
+  </div>
+
+  <div class="box concept-box">
+    <h3>What It Is</h3>
+    <p>Many trigonometric functions cannot be integrated directly using the standard results. The key technique is to use a known identity to rewrite the integrand into a form that <em>can</em> be integrated. The most important transformations are: using the double-angle formula to handle \(\sin^2 x\) and \(\cos^2 x\); using the product-to-sum formulas to handle products like \(\sin mx\cos nx\); and using the Pythagorean identity \(\sin^2 x + \cos^2 x = 1\) to reduce mixed powers. The goal is always to convert the integrand into a sum of terms involving \(\sin(kx)\), \(\cos(kx)\), or constants, which are all straightforward to integrate.</p>
+  </div>
+
+  <div class="box formula-box">
+    <h3>Key Identity Substitutions for Integration</h3>
+    <p><strong>For \(\cos^2 x\) and \(\sin^2 x\) — use double angle:</strong></p>
+    $$\cos^2 x = \frac{1 + \cos 2x}{2}, \qquad \sin^2 x = \frac{1 - \cos 2x}{2}$$
+    <p><strong>For \(\sin^3 x\) or \(\cos^3 x\) — split off one factor:</strong></p>
+    $$\sin^3 x = \sin x(1 - \cos^2 x), \qquad \cos^3 x = \cos x(1 - \sin^2 x)$$
+    <p><strong>For products \(\sin A\cos B\), etc. — product-to-sum:</strong></p>
+    $$\sin A\cos B = \tfrac{1}{2}\left[\sin(A+B) + \sin(A-B)\right]$$
+    $$\cos A\cos B = \tfrac{1}{2}\left[\cos(A-B) + \cos(A+B)\right]$$
+    $$\sin A\sin B = \tfrac{1}{2}\left[\cos(A-B) - \cos(A+B)\right]$$
+    <p><strong>For \(\tan^2 x\) and \(\cot^2 x\) — use Pythagorean:</strong></p>
+    $$\tan^2 x = \sec^2 x - 1, \qquad \cot^2 x = \text{cosec}^2\, x - 1$$
+    <p><strong>Standard results to know:</strong></p>
+    $$\int \sin x\,dx = -\cos x + c, \quad \int \cos x\,dx = \sin x + c, \quad \int \sec^2 x\,dx = \tan x + c, \quad \int \text{cosec}^2 x\,dx = -\cot x + c$$
+  </div>
+
+  <div class="box apply-box">
+    <h3>Where to Apply It</h3>
+    <ul>
+      <li>Whenever you see \(\sin^2 x\), \(\cos^2 x\), or \(\sin^2(ax)\) in an integrand — use the double angle formula immediately.</li>
+      <li>Whenever you see \(\sin^3 x\) or \(\cos^3 x\) — split off one power.</li>
+      <li>Whenever you see a product of two different trig functions, e.g., \(\sin 3x\cos x\) — use product-to-sum.</li>
+      <li>Whenever you see \(\tan^2 x\) — replace with \(\sec^2 x - 1\).</li>
+      <li>Definite integrals: always convert limits to radians if working with trig functions.</li>
+    </ul>
+  </div>
+
+  <div class="box example-box">
+    <h3>Worked Examples</h3>
+
+    <div class="example-item">
+      <h4>Example 1 — Find \(\displaystyle\int \sin^2 x\cos^2 x\,dx\).</h4>
+
+      <div class="step"><strong>Step 1: Use the identity \(\sin 2x = 2\sin x\cos x\), so \(\sin x\cos x = \frac{1}{2}\sin 2x\).</strong><br>
+        $$\sin^2 x\cos^2 x = (\sin x\cos x)^2 = \left(\frac{1}{2}\sin 2x\right)^2 = \frac{1}{4}\sin^2 2x$$</div>
+
+      <div class="step"><strong>Step 2: Apply the double angle formula to \(\sin^2 2x\).</strong><br>
+        $$\sin^2 2x = \frac{1 - \cos 4x}{2}$$</div>
+
+      <div class="step"><strong>Step 3: Substitute and integrate.</strong><br>
+        $$\int \frac{1}{4}\cdot\frac{1 - \cos 4x}{2}\,dx = \frac{1}{8}\int (1 - \cos 4x)\,dx$$
+        $$= \frac{1}{8}\left(x - \frac{\sin 4x}{4}\right) + c$$</div>
+
+      <div class="step"><strong>Final answer:</strong>
+        $$\boxed{\int \sin^2 x\cos^2 x\,dx = \frac{x}{8} - \frac{\sin 4x}{32} + c}$$</div>
+    </div>
+
+    <div class="example-item">
+      <h4>Example 2 — Evaluate \(\displaystyle\int_0^{\pi/2} \cos^3 x\,dx\).</h4>
+
+      <div class="step"><strong>Step 1: Split off one cosine factor.</strong><br>
+        $$\cos^3 x = \cos x \cdot \cos^2 x = \cos x(1 - \sin^2 x)$$</div>
+
+      <div class="step"><strong>Step 2: Expand.</strong><br>
+        $$\cos^3 x = \cos x - \sin^2 x\cos x$$</div>
+
+      <div class="step"><strong>Step 3: Integrate each term. For \(\int \sin^2 x\cos x\,dx\), use the substitution \(u = \sin x\), \(du = \cos x\,dx\).</strong><br>
+        $$\int \sin^2 x\cos x\,dx = \int u^2\,du = \frac{u^3}{3} = \frac{\sin^3 x}{3}$$</div>
+
+      <div class="step"><strong>Step 4: Combine and apply limits.</strong><br>
+        $$\int_0^{\pi/2}\cos^3 x\,dx = \left[\sin x - \frac{\sin^3 x}{3}\right]_0^{\pi/2}$$
+        $$= \left(1 - \frac{1}{3}\right) - (0 - 0) = \frac{2}{3}$$</div>
+
+      <div class="step"><strong>Final answer:</strong>
+        $$\boxed{\int_0^{\pi/2}\cos^3 x\,dx = \frac{2}{3}}$$</div>
+    </div>
+  </div>
+
+  <div class="box question-box">
+    <h3>Practice Questions</h3>
+    <ol class="q-list">
+      <li>Find \(\displaystyle\int \cos^2 x\,dx\).</li>
+      <li>Find \(\displaystyle\int \sin^2 3x\,dx\).</li>
+      <li>Find \(\displaystyle\int \sin 5x\cos 3x\,dx\).</li>
+      <li>Find \(\displaystyle\int \tan^2 x\,dx\).</li>
+      <li>Evaluate \(\displaystyle\int_0^{\pi} \sin^2\!\left(\frac{x}{2}\right)\,dx\).</li>
+      <li>Find \(\displaystyle\int \sin^3 x\,dx\).</li>
+      <li>Evaluate \(\displaystyle\int_0^{\pi/4} \cos 2x\cos 4x\,dx\).</li>
+    </ol>
+  </div>
+
+  <div class="box solution-box">
+    <h3>Full Solutions</h3>
+    <ul class="s-list">
+
+      <li class="s-item">
+        <h4>Solution to Q1</h4>
+        <div class="s-step">Use \(\cos^2 x = \dfrac{1 + \cos 2x}{2}\):</div>
+        <div class="s-step">$$\int \frac{1 + \cos 2x}{2}\,dx = \frac{1}{2}\left(x + \frac{\sin 2x}{2}\right) + c$$</div>
+        <div class="s-step">$$\boxed{\int \cos^2 x\,dx = \frac{x}{2} + \frac{\sin 2x}{4} + c}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q2</h4>
+        <div class="s-step">Use \(\sin^2 3x = \dfrac{1 - \cos 6x}{2}\):</div>
+        <div class="s-step">$$\int \frac{1 - \cos 6x}{2}\,dx = \frac{1}{2}\left(x - \frac{\sin 6x}{6}\right) + c$$</div>
+        <div class="s-step">$$\boxed{\int \sin^2 3x\,dx = \frac{x}{2} - \frac{\sin 6x}{12} + c}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q3</h4>
+        <div class="s-step">Product-to-sum: \(\sin 5x\cos 3x = \frac{1}{2}[\sin 8x + \sin 2x]\).</div>
+        <div class="s-step">$$\int \frac{1}{2}(\sin 8x + \sin 2x)\,dx = \frac{1}{2}\left(-\frac{\cos 8x}{8} - \frac{\cos 2x}{2}\right) + c$$</div>
+        <div class="s-step">$$\boxed{\int \sin 5x\cos 3x\,dx = -\frac{\cos 8x}{16} - \frac{\cos 2x}{4} + c}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q4</h4>
+        <div class="s-step">Replace \(\tan^2 x = \sec^2 x - 1\):</div>
+        <div class="s-step">$$\int (\sec^2 x - 1)\,dx = \tan x - x + c$$</div>
+        <div class="s-step">$$\boxed{\int \tan^2 x\,dx = \tan x - x + c}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q5</h4>
+        <div class="s-step">Use \(\sin^2\!\left(\frac{x}{2}\right) = \dfrac{1 - \cos x}{2}\):</div>
+        <div class="s-step">$$\int_0^{\pi} \frac{1 - \cos x}{2}\,dx = \frac{1}{2}\Big[x - \sin x\Big]_0^{\pi}$$</div>
+        <div class="s-step">$$= \frac{1}{2}\big[(\pi - 0) - (0 - 0)\big] = \frac{\pi}{2}$$</div>
+        <div class="s-step">$$\boxed{\int_0^{\pi} \sin^2\!\left(\frac{x}{2}\right)\,dx = \frac{\pi}{2}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q6</h4>
+        <div class="s-step">Write \(\sin^3 x = \sin x(1 - \cos^2 x) = \sin x - \sin x\cos^2 x\).</div>
+        <div class="s-step">For \(\int \sin x\cos^2 x\,dx\): let \(u = \cos x\), \(du = -\sin x\,dx\), giving \(-\int u^2\,du = -\frac{u^3}{3} = -\frac{\cos^3 x}{3}\).</div>
+        <div class="s-step">$$\int \sin^3 x\,dx = -\cos x - \left(-\frac{\cos^3 x}{3}\right) + c = -\cos x + \frac{\cos^3 x}{3} + c$$</div>
+        <div class="s-step">$$\boxed{\int \sin^3 x\,dx = -\cos x + \frac{\cos^3 x}{3} + c}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q7</h4>
+        <div class="s-step">Product-to-sum: \(\cos 2x\cos 4x = \frac{1}{2}[\cos 2x + \cos 6x]\) (using \(A - B = -2x,\ A + B = 6x\)).</div>
+        <div class="s-step">$$\int_0^{\pi/4} \frac{1}{2}(\cos 2x + \cos 6x)\,dx = \frac{1}{2}\left[\frac{\sin 2x}{2} + \frac{\sin 6x}{6}\right]_0^{\pi/4}$$</div>
+        <div class="s-step">At \(x = \frac{\pi}{4}\): \(\sin\!\left(\frac{\pi}{2}\right) = 1\), \(\sin\!\left(\frac{3\pi}{2}\right) = -1\).</div>
+        <div class="s-step">$$= \frac{1}{2}\left(\frac{1}{2} + \frac{-1}{6}\right) - 0 = \frac{1}{2}\cdot\frac{2}{6} = \frac{1}{2}\cdot\frac{1}{3} = \frac{1}{6}$$</div>
+        <div class="s-step">$$\boxed{\int_0^{\pi/4}\cos 2x\cos 4x\,dx = \frac{1}{6}}$$</div>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SKILL 35: Parametric → Cartesian Conversion -->
+<!-- ============================================================ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 35</div>
+    <h2>Parametric Equations → Cartesian Conversion</h2>
+  </div>
+
+  <div class="box concept-box">
+    <h3>What It Is</h3>
+    <p>A curve can be described <em>parametrically</em> by giving both \(x\) and \(y\) as separate functions of a third variable called the <strong>parameter</strong>, usually \(t\) or \(\theta\). For example, \(x = t^2,\ y = 2t\) describes a parabola. The <strong>Cartesian equation</strong> is a single equation in \(x\) and \(y\) only (no parameter). Converting between the two forms requires you to eliminate the parameter — either by rearranging one equation for the parameter and substituting into the other, or by using a trigonometric identity (most commonly \(\sin^2\theta + \cos^2\theta = 1\)) to combine two parametric equations into one. The domain of the Cartesian equation is always determined by the range of the \(x\)-parametric function over the allowed parameter values.</p>
+  </div>
+
+  <div class="box formula-box">
+    <h3>The Methods and Key Rules</h3>
+    <p><strong>Method 1 — Algebraic elimination:</strong></p>
+    <p>Given \(x = f(t)\) and \(y = g(t)\), rearrange one equation to get \(t\) in terms of \(x\) (or \(y\)), then substitute into the other.</p>
+    $$x = f(t) \implies t = f^{-1}(x) \implies y = g\!\left(f^{-1}(x)\right)$$
+    <p><strong>Method 2 — Trigonometric identity:</strong></p>
+    <p>If the parametric equations involve \(\sin\theta\) and \(\cos\theta\), rearrange to isolate them, then use:</p>
+    $$\sin^2\theta + \cos^2\theta = 1$$
+    <p>Common scenarios:</p>
+    $$x = r\cos\theta + a,\quad y = r\sin\theta + b \implies (x-a)^2 + (y-b)^2 = r^2 \quad \text{(circle)}$$
+    $$x = a\cos\theta,\quad y = b\sin\theta \implies \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \quad \text{(ellipse)}$$
+    $$x = a\sec\theta,\quad y = b\tan\theta \implies \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \quad \text{(hyperbola, using } \sec^2\theta - \tan^2\theta = 1)$$
+    <p><strong>Domain rule:</strong> The domain of the Cartesian equation equals the range of \(x = f(t)\) over all allowed values of the parameter \(t\).</p>
+  </div>
+
+  <div class="box apply-box">
+    <h3>Where to Apply It</h3>
+    <ul>
+      <li>Whenever you need to identify the type of curve (circle, ellipse, parabola, hyperbola) from its parametric form.</li>
+      <li>When solving for intersection points of a parametric curve with a line or another curve.</li>
+      <li>When finding the Cartesian equation to differentiate or integrate a parametric curve indirectly.</li>
+      <li>Exam questions often say: "Find the Cartesian equation of the curve, stating any restrictions on \(x\)."</li>
+      <li>If you see \(\sin\theta\) and \(\cos\theta\) together — always try \(\sin^2\theta + \cos^2\theta = 1\) first.</li>
+    </ul>
+  </div>
+
+  <div class="box example-box">
+    <h3>Worked Examples</h3>
+
+    <div class="example-item">
+      <h4>Example 1 — A curve has parametric equations \(x = t^2 - 1\), \(y = \dfrac{2}{t}\), \(t \neq 0\). Find the Cartesian equation.</h4>
+
+      <div class="step"><strong>Step 1: Rearrange the simpler equation for the parameter \(t\).</strong><br>
+        From \(y = \dfrac{2}{t}\):
+        $$t = \frac{2}{y}$$</div>
+
+      <div class="step"><strong>Step 2: Substitute into the other parametric equation.</strong><br>
+        $$x = t^2 - 1 = \left(\frac{2}{y}\right)^2 - 1 = \frac{4}{y^2} - 1$$</div>
+
+      <div class="step"><strong>Step 3: Rearrange into standard form.</strong><br>
+        $$x + 1 = \frac{4}{y^2}$$
+        $$y^2(x + 1) = 4$$
+        $$y^2 = \frac{4}{x + 1}$$</div>
+
+      <div class="step"><strong>Step 4: Determine the domain.</strong><br>
+        From \(x = t^2 - 1\): since \(t^2 \geq 0\), we have \(x \geq -1\). Also \(t \neq 0\), so \(t^2 > 0\), hence \(x > -1\).</div>
+
+      <div class="step"><strong>Final answer:</strong>
+        $$\boxed{y^2 = \frac{4}{x+1}, \quad x > -1}$$</div>
+    </div>
+
+    <div class="example-item">
+      <h4>Example 2 — A curve has parametric equations \(x = 3 + 2\cos\theta\), \(y = -1 + 4\sin\theta\), \(0 \leq \theta \leq 2\pi\). Find the Cartesian equation and name the curve.</h4>
+
+      <div class="step"><strong>Step 1: Isolate \(\cos\theta\) and \(\sin\theta\).</strong><br>
+        $$\cos\theta = \frac{x - 3}{2}, \qquad \sin\theta = \frac{y + 1}{4}$$</div>
+
+      <div class="step"><strong>Step 2: Apply the identity \(\sin^2\theta + \cos^2\theta = 1\).</strong><br>
+        $$\left(\frac{y+1}{4}\right)^2 + \left(\frac{x-3}{2}\right)^2 = 1$$</div>
+
+      <div class="step"><strong>Step 3: Write in standard form.</strong><br>
+        $$\frac{(x-3)^2}{4} + \frac{(y+1)^2}{16} = 1$$</div>
+
+      <div class="step"><strong>Step 4: Identify the curve.</strong><br>
+        This is an <strong>ellipse</strong> with centre \((3, -1)\), horizontal semi-axis \(a = 2\), vertical semi-axis \(b = 4\).</div>
+
+      <div class="step"><strong>Final answer:</strong>
+        $$\boxed{\frac{(x-3)^2}{4} + \frac{(y+1)^2}{16} = 1 \quad \text{(an ellipse with centre }(3,-1)\text{)}}$$</div>
+    </div>
+  </div>
+
+  <div class="box question-box">
+    <h3>Practice Questions</h3>
+    <ol class="q-list">
+      <li>Find the Cartesian equation of the curve \(x = 3t - 1\), \(y = t^2 + 2\). State any restriction on \(x\) if the domain of \(t\) is all real numbers.</li>
+      <li>Find the Cartesian equation of the curve \(x = 2\cos\theta\), \(y = 2\sin\theta\), \(0 \leq \theta \leq 2\pi\). Name the curve.</li>
+      <li>Find the Cartesian equation of the curve \(x = \cos\theta + 1\), \(y = \sin\theta - 2\), \(0 \leq \theta < 2\pi\). Give the centre and radius.</li>
+      <li>Find the Cartesian equation of the curve \(x = e^t\), \(y = e^{2t} - 3\). State the restriction on \(x\).</li>
+      <li>A curve is defined by \(x = \sec\theta\), \(y = \tan\theta\). Show that the Cartesian equation is \(x^2 - y^2 = 1\).</li>
+      <li>A curve has parametric equations \(x = 4t^2\), \(y = 8t\). Show that the Cartesian equation is \(y^2 = 16x\) and state the restriction on \(x\).</li>
+      <li>Find the Cartesian equation of the curve \(x = 1 + \sin^2\theta\), \(y = 2\cos^2\theta - 1\). (Hint: use \(\sin^2\theta + \cos^2\theta = 1\).)</li>
+    </ol>
+  </div>
+
+  <div class="box solution-box">
+    <h3>Full Solutions</h3>
+    <ul class="s-list">
+
+      <li class="s-item">
+        <h4>Solution to Q1</h4>
+        <div class="s-step">From \(x = 3t - 1\): \(t = \dfrac{x+1}{3}\).</div>
+        <div class="s-step">Substitute into \(y = t^2 + 2\):
+        $$y = \left(\frac{x+1}{3}\right)^2 + 2 = \frac{(x+1)^2}{9} + 2$$</div>
+        <div class="s-step">Since \(t\in\mathbb{R}\), \(x\) can be any real value.</div>
+        <div class="s-step">$$\boxed{y = \frac{(x+1)^2}{9} + 2, \quad x \in \mathbb{R}}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q2</h4>
+        <div class="s-step">\(\cos\theta = \dfrac{x}{2}\), \(\sin\theta = \dfrac{y}{2}\).</div>
+        <div class="s-step">Apply identity: \(\left(\frac{x}{2}\right)^2 + \left(\frac{y}{2}\right)^2 = 1\).</div>
+        <div class="s-step">$$x^2 + y^2 = 4$$</div>
+        <div class="s-step">$$\boxed{x^2 + y^2 = 4 \quad \text{(a circle, centre }(0,0)\text{, radius }2)}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q3</h4>
+        <div class="s-step">\(\cos\theta = x - 1\), \(\sin\theta = y + 2\).</div>
+        <div class="s-step">Apply identity: \((x-1)^2 + (y+2)^2 = 1\).</div>
+        <div class="s-step">$$\boxed{(x-1)^2 + (y+2)^2 = 1 \quad \text{(circle, centre }(1,-2)\text{, radius }1)}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q4</h4>
+        <div class="s-step">From \(x = e^t\): \(e^t = x\), so \(e^{2t} = x^2\).</div>
+        <div class="s-step">Substitute: \(y = x^2 - 3\).</div>
+        <div class="s-step">Since \(e^t > 0\) for all real \(t\), we need \(x > 0\).</div>
+        <div class="s-step">$$\boxed{y = x^2 - 3, \quad x > 0}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q5</h4>
+        <div class="s-step">From \(x = \sec\theta\): \(\sec\theta = x\). From \(y = \tan\theta\): \(\tan\theta = y\).</div>
+        <div class="s-step">Use the identity \(\sec^2\theta - \tan^2\theta = 1\):</div>
+        <div class="s-step">$$x^2 - y^2 = \sec^2\theta - \tan^2\theta = 1$$</div>
+        <div class="s-step">$$\boxed{x^2 - y^2 = 1 \quad \checkmark}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q6</h4>
+        <div class="s-step">From \(y = 8t\): \(t = \dfrac{y}{8}\).</div>
+        <div class="s-step">Substitute into \(x = 4t^2\): \(x = 4\left(\dfrac{y}{8}\right)^2 = 4\cdot\dfrac{y^2}{64} = \dfrac{y^2}{16}\).</div>
+        <div class="s-step">So \(y^2 = 16x\). Since \(x = 4t^2 \geq 0\), the restriction is \(x \geq 0\).</div>
+        <div class="s-step">$$\boxed{y^2 = 16x, \quad x \geq 0 \quad \checkmark}$$</div>
+      </li>
+
+      <li class="s-item">
+        <h4>Solution to Q7</h4>
+        <div class="s-step">From \(x = 1 + \sin^2\theta\): \(\sin^2\theta = x - 1\).</div>
+        <div class="s-step">Since \(\sin^2\theta + \cos^2\theta = 1\): \(\cos^2\theta = 1 - (x-1) = 2 - x\).</div>
+        <div class="s-step">From \(y = 2\cos^2\theta - 1\): \(\cos^2\theta = \dfrac{y+1}{2}\).</div>
+        <div class="s-step">Set the two expressions for \(\cos^2\theta\) equal:
+        $$\frac{y+1}{2} = 2 - x \implies y + 1 = 4 - 2x \implies y = 3 - 2x$$</div>
+        <div class="s-step">Domain: \(\sin^2\theta \in [0,1]\) so \(x - 1 \in [0,1]\) giving \(x \in [1,2]\). Also \(\cos^2\theta = 2 - x \in [0,1]\) giving \(x \in [1,2]\).</div>
+        <div class="s-step">$$\boxed{y = 3 - 2x, \quad 1 \leq x \leq 2}$$</div>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<!-- END FOOTER -->
+<div style="text-align:center; padding: 32px 0 16px; color:#aaa; font-size:0.82rem; letter-spacing:0.5px;">
+  Edexcel IAL P3 &amp; P4 · Skills 31–35 · All content verified · MathJax rendered
+</div>
+
+</div><!-- end page-wrapper -->
+</body>
+</html>

@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 & P4 Maths — Skills 11–15</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['$$', '$$']], tags: 'none' },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #1a1a2e;
+  font-size: 16px;
+  line-height: 1.7;
+}
+.page-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+.page-title {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.page-title h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.5px;
+}
+.page-title p {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ── Skill block ── */
+.skill {
+  margin-bottom: 64px;
+}
+
+/* Section header */
+.skill-header {
+  background: #1a1a2e;
+  color: #ffffff;
+  border-radius: 10px 10px 0 0;
+  padding: 18px 28px;
+}
+.skill-header .skill-number {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 2px;
+}
+.skill-header h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+/* Boxes */
+.box {
+  border-radius: 0;
+  padding: 22px 28px;
+  margin-top: 0;
+}
+.box:last-child {
+  border-radius: 0 0 10px 10px;
+}
+.box-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+.concept  { background: #e8f4fd; }
+.formula  { background: #fff9e6; }
+.examples { background: #e8f8e8; }
+.questions { background: #f3e8ff; }
+.solutions { background: #fff0e8; }
+
+.formula .mjx-chtml, .formula .MathJax {
+  font-size: 1.18em !important;
+}
+
+/* Divider between boxes */
+.box + .box {
+  border-top: 1px solid rgba(26,26,46,0.07);
+}
+
+/* Worked example blocks */
+.example-block {
+  margin-bottom: 28px;
+}
+.example-block:last-child { margin-bottom: 0; }
+.example-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #1a4a1a;
+}
+.step {
+  margin: 8px 0;
+  padding-left: 16px;
+  border-left: 3px solid rgba(26,100,26,0.25);
+}
+.step-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #2a6a2a;
+  margin-bottom: 2px;
+}
+
+/* Q&A */
+.q-list { list-style: none; padding: 0; }
+.q-list li {
+  padding: 8px 0 8px 0;
+  border-bottom: 1px solid rgba(90,40,120,0.10);
+  font-weight: 500;
+}
+.q-list li:last-child { border-bottom: none; }
+.q-num {
+  display: inline-block;
+  font-weight: 700;
+  color: #6a2dad;
+  min-width: 28px;
+}
+
+.sol-block {
+  margin-bottom: 24px;
+}
+.sol-block:last-child { margin-bottom: 0; }
+.sol-title {
+  font-weight: 700;
+  color: #7a3000;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+.sol-step {
+  margin: 6px 0;
+  padding-left: 16px;
+  border-left: 3px solid rgba(160,80,0,0.25);
+}
+.sol-step-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a05000;
+  margin-bottom: 2px;
+}
+
+p { margin: 6px 0; }
+
+@media (max-width: 600px) {
+  .skill-header { padding: 14px 16px; }
+  .box { padding: 16px 14px; }
+  .page-title h1 { font-size: 1.5rem; }
+}
+</style>
+<!-- sb:start -->
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
+<script src="../../app/note.js"></script>
+<!-- sb:end -->
+</head>
+<body>
+<div class="page-wrap">
+
+<div class="page-title">
+  <h1>Edexcel IAL P3 &amp; P4 Mathematics</h1>
+  <p>Skills 11 – 15 &nbsp;|&nbsp; Full Teaching Notes, Worked Examples &amp; Practice</p>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SKILL 11 — PARAMETRIC DIFFERENTIATION
+══════════════════════════════════════════ -->
+<div class="skill">
+  <div class="skill-header">
+    <div class="skill-number">Skill 11</div>
+    <h2>Parametric Differentiation</h2>
+  </div>
+
+  <!-- CONCEPT -->
+  <div class="box concept">
+    <div class="box-label">What it is</div>
+    <p>Sometimes a curve is described not by a single equation \(y = f(x)\), but by two separate equations, each written in terms of a third variable called the <strong>parameter</strong> (usually \(t\)). For example, \(x = t^2\) and \(y = 2t\) together describe a parabola.</p>
+    <p>To find the gradient \(\dfrac{dy}{dx}\) of such a curve at any point, we do <em>not</em> need to eliminate \(t\) and write \(y\) explicitly in terms of \(x\). Instead, we use the <strong>chain rule</strong> in a clever form that lets us work directly with the parametric equations.</p>
+    <p>The key idea is: differentiate \(x\) with respect to \(t\), differentiate \(y\) with respect to \(t\), then divide. The \(dt\) parts cancel out, leaving \(\dfrac{dy}{dx}\).</p>
+    <p>Once you have a formula for the gradient in terms of \(t\), you substitute the value of \(t\) at any specific point to find the numerical gradient there.</p>
+  </div>
+
+  <!-- FORMULA -->
+  <div class="box formula">
+    <div class="box-label">The Rule</div>
+    <p><strong>Chain Rule in Parametric Form:</strong></p>
+    $$\frac{dy}{dx} = \frac{\,\dfrac{dy}{dt}\,}{\,\dfrac{dx}{dt}\,}$$
+    <p>This is valid provided \(\dfrac{dx}{dt} \neq 0\).</p>
+    <p><strong>Gradient of the normal</strong> at a point with gradient \(m\) is \(-\dfrac{1}{m}\).</p>
+    <p><strong>Stationary points</strong> occur where \(\dfrac{dy}{dt} = 0\) (provided \(\dfrac{dx}{dt} \neq 0\)).</p>
+  </div>
+
+  <!-- WHERE TO APPLY -->
+  <div class="box concept" style="background:#ddeeff;">
+    <div class="box-label">Where to Apply It</div>
+    <p>Use parametric differentiation whenever a curve is defined by \(x = f(t)\) and \(y = g(t)\) and you need: the gradient at a given point, the equation of a tangent or normal, or the location of stationary points — <em>without</em> first converting to a Cartesian equation.</p>
+  </div>
+
+  <!-- WORKED EXAMPLES -->
+  <div class="box examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example-block">
+      <div class="example-title">Example 1 — Find the gradient at a given parameter value</div>
+      <p>A curve is defined by \(x = t^3 - 3t\) and \(y = t^2 + 1\). Find the gradient of the curve at the point where \(t = 2\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Differentiate \(x\) with respect to \(t\)</div>
+        <p>$$\frac{dx}{dt} = 3t^2 - 3$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Differentiate \(y\) with respect to \(t\)</div>
+        <p>$$\frac{dy}{dt} = 2t$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Apply the parametric gradient formula</div>
+        <p>$$\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{2t}{3t^2 - 3}$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Substitute \(t = 2\)</div>
+        <p>$$\frac{dy}{dx}\bigg|_{t=2} = \frac{2(2)}{3(2)^2 - 3} = \frac{4}{12 - 3} = \frac{4}{9}$$</p>
+        <p>$$\boxed{\dfrac{dy}{dx} = \dfrac{4}{9}}$$</p>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">Example 2 — Find the equation of the tangent</div>
+      <p>A curve is given by \(x = 4\cos\theta\) and \(y = 3\sin\theta\). Find the equation of the tangent to the curve at the point where \(\theta = \dfrac{\pi}{6}\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Differentiate both parametric equations</div>
+        <p>$$\frac{dx}{d\theta} = -4\sin\theta, \qquad \frac{dy}{d\theta} = 3\cos\theta$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Find the gradient formula</div>
+        <p>$$\frac{dy}{dx} = \frac{3\cos\theta}{-4\sin\theta} = -\frac{3}{4}\cot\theta$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Evaluate at \(\theta = \pi/6\)</div>
+        <p>$$\cot\!\left(\frac{\pi}{6}\right) = \frac{\cos(\pi/6)}{\sin(\pi/6)} = \frac{\sqrt{3}/2}{1/2} = \sqrt{3}$$</p>
+        <p>$$m = -\frac{3}{4}\cdot\sqrt{3} = -\frac{3\sqrt{3}}{4}$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Find the coordinates at \(\theta = \pi/6\)</div>
+        <p>$$x = 4\cos\!\left(\frac{\pi}{6}\right) = 4\cdot\frac{\sqrt{3}}{2} = 2\sqrt{3}$$</p>
+        <p>$$y = 3\sin\!\left(\frac{\pi}{6}\right) = 3\cdot\frac{1}{2} = \frac{3}{2}$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 5 — Write the equation of the tangent using \(y - y_1 = m(x - x_1)\)</div>
+        <p>$$y - \frac{3}{2} = -\frac{3\sqrt{3}}{4}\!\left(x - 2\sqrt{3}\right)$$</p>
+        <p>Expand: \(y = -\dfrac{3\sqrt{3}}{4}x + \dfrac{3\sqrt{3}}{4}\cdot 2\sqrt{3} + \dfrac{3}{2} = -\dfrac{3\sqrt{3}}{4}x + \dfrac{9}{2} + \dfrac{3}{2}\)</p>
+        <p>$$\boxed{y = -\dfrac{3\sqrt{3}}{4}x + 6}$$</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div class="box questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li><span class="q-num">Q1.</span> A curve is defined by \(x = t^2\) and \(y = t^3\). Find \(\dfrac{dy}{dx}\) in terms of \(t\), and find the gradient at \(t = 3\).</li>
+      <li><span class="q-num">Q2.</span> Given \(x = 2t + 1\) and \(y = t^2 - 4t\), find the gradient of the curve at \(t = 1\).</li>
+      <li><span class="q-num">Q3.</span> A curve is defined by \(x = e^t\) and \(y = e^{2t} + 1\). Find \(\dfrac{dy}{dx}\) in terms of \(x\).</li>
+      <li><span class="q-num">Q4.</span> Given \(x = \sin\theta\) and \(y = \cos 2\theta\), find \(\dfrac{dy}{dx}\) at \(\theta = \dfrac{\pi}{3}\).</li>
+      <li><span class="q-num">Q5.</span> A curve is given by \(x = t^2 - 1\) and \(y = 2t^3 - 3t\). Find the values of \(t\) at the stationary points.</li>
+      <li><span class="q-num">Q6.</span> For the curve \(x = 3t\) and \(y = \dfrac{6}{t}\), find the equation of the tangent at \(t = 2\).</li>
+      <li><span class="q-num">Q7.</span> Given \(x = 1 + \cos\theta\) and \(y = 2 + \sin\theta\), find the gradient of the normal at \(\theta = \dfrac{\pi}{4}\).</li>
+    </ol>
+  </div>
+
+  <!-- SOLUTIONS -->
+  <div class="box solutions">
+    <div class="box-label">Fully Worked Solutions</div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q1</div>
+      <div class="sol-step"><div class="sol-step-label">Differentiate</div>
+        <p>\(\dfrac{dx}{dt} = 2t,\quad \dfrac{dy}{dt} = 3t^2\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Gradient formula</div>
+        <p>$$\frac{dy}{dx} = \frac{3t^2}{2t} = \frac{3t}{2}$$</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">At \(t=3\)</div>
+        <p>$$\frac{dy}{dx} = \frac{3(3)}{2} = \boxed{\dfrac{9}{2}}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q2</div>
+      <div class="sol-step"><div class="sol-step-label">Differentiate</div>
+        <p>\(\dfrac{dx}{dt} = 2,\quad \dfrac{dy}{dt} = 2t - 4\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Gradient formula</div>
+        <p>$$\frac{dy}{dx} = \frac{2t-4}{2} = t - 2$$</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">At \(t=1\)</div>
+        <p>$$\frac{dy}{dx} = 1-2 = \boxed{-1}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q3</div>
+      <div class="sol-step"><div class="sol-step-label">Differentiate</div>
+        <p>\(\dfrac{dx}{dt} = e^t,\quad \dfrac{dy}{dt} = 2e^{2t}\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Gradient in terms of \(t\)</div>
+        <p>$$\frac{dy}{dx} = \frac{2e^{2t}}{e^t} = 2e^t$$</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Since \(x = e^t\), we have \(e^t = x\)</div>
+        <p>$$\boxed{\dfrac{dy}{dx} = 2x}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q4</div>
+      <div class="sol-step"><div class="sol-step-label">Differentiate (recall \(\cos 2\theta\) differentiates to \(-2\sin 2\theta\))</div>
+        <p>\(\dfrac{dx}{d\theta} = \cos\theta,\quad \dfrac{dy}{d\theta} = -2\sin 2\theta\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Use double-angle: \(\sin 2\theta = 2\sin\theta\cos\theta\)</div>
+        <p>$$\frac{dy}{dx} = \frac{-2(2\sin\theta\cos\theta)}{\cos\theta} = -4\sin\theta$$</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">At \(\theta = \pi/3\)</div>
+        <p>$$\frac{dy}{dx} = -4\sin\!\left(\frac{\pi}{3}\right) = -4\cdot\frac{\sqrt{3}}{2} = \boxed{-2\sqrt{3}}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q5</div>
+      <div class="sol-step"><div class="sol-step-label">Differentiate</div>
+        <p>\(\dfrac{dx}{dt} = 2t,\quad \dfrac{dy}{dt} = 6t^2 - 3\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Stationary points: set \(\dfrac{dy}{dt} = 0\)</div>
+        <p>$$6t^2 - 3 = 0 \implies t^2 = \frac{1}{2} \implies t = \pm\frac{1}{\sqrt{2}}$$</p>
+        <p>Check \(\dfrac{dx}{dt} \neq 0\): \(\dfrac{dx}{dt} = 2t\). At \(t = \pm\dfrac{1}{\sqrt{2}}\), \(\dfrac{dx}{dt} \neq 0\). ✓</p>
+        <p>$$\boxed{t = \dfrac{1}{\sqrt{2}} \text{ and } t = -\dfrac{1}{\sqrt{2}}}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q6</div>
+      <div class="sol-step"><div class="sol-step-label">Differentiate</div>
+        <p>\(\dfrac{dx}{dt} = 3,\quad \dfrac{dy}{dt} = -\dfrac{6}{t^2}\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Gradient formula</div>
+        <p>$$\frac{dy}{dx} = \frac{-6/t^2}{3} = -\frac{2}{t^2}$$</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">At \(t=2\): gradient \(m = -\dfrac{2}{4} = -\dfrac{1}{2}\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Coordinates at \(t=2\): \(x = 6,\; y = 3\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Tangent equation</div>
+        <p>$$y - 3 = -\frac{1}{2}(x - 6) \implies y = -\frac{1}{2}x + 3 + 3$$</p>
+        <p>$$\boxed{y = -\dfrac{1}{2}x + 6}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q7</div>
+      <div class="sol-step"><div class="sol-step-label">Differentiate</div>
+        <p>\(\dfrac{dx}{d\theta} = -\sin\theta,\quad \dfrac{dy}{d\theta} = \cos\theta\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Gradient of tangent</div>
+        <p>$$\frac{dy}{dx} = \frac{\cos\theta}{-\sin\theta} = -\cot\theta$$</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">At \(\theta = \pi/4\): \(-\cot(\pi/4) = -1\). So tangent gradient \(= -1\).</div></div>
+      <div class="sol-step"><div class="sol-step-label">Normal gradient = negative reciprocal</div>
+        <p>$$\text{Normal gradient} = -\frac{1}{-1} = \boxed{1}$$</p>
+      </div>
+    </div>
+
+  </div>
+</div><!-- end skill 11 -->
+
+
+<!-- ══════════════════════════════════════════
+     SKILL 12 — RATES OF CHANGE
+══════════════════════════════════════════ -->
+<div class="skill">
+  <div class="skill-header">
+    <div class="skill-number">Skill 12</div>
+    <h2>Rates of Change</h2>
+  </div>
+
+  <div class="box concept">
+    <div class="box-label">What it is</div>
+    <p>A <strong>rate of change</strong> is a derivative — it tells you how fast one quantity is changing with respect to another. In many real-world problems, two or more quantities are both changing with time, and they are connected by a geometric or physical formula.</p>
+    <p>For example, if a balloon is being inflated, its radius \(r\) and its volume \(V\) both change with time \(t\). The volume formula \(V = \tfrac{4}{3}\pi r^3\) links the two quantities. If we know how fast the volume changes \(\bigl(\tfrac{dV}{dt}\bigr)\), we can find how fast the radius changes \(\bigl(\tfrac{dr}{dt}\bigr)\).</p>
+    <p>The method is to <strong>chain the derivatives together</strong>. If you know \(\tfrac{dV}{dt}\) and you can find \(\tfrac{dV}{dr}\), the chain rule lets you calculate \(\tfrac{dr}{dt}\) by dividing.</p>
+    <p>A <em>decreasing</em> quantity always has a <strong>negative</strong> rate of change. Always check signs match the physical context of the problem.</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">The Rule</div>
+    <p><strong>Connected Rates of Change (Chain Rule):</strong></p>
+    $$\frac{dy}{dt} = \frac{dy}{dx}\cdot\frac{dx}{dt}$$
+    <p>More generally, for any chain of related quantities:</p>
+    $$\frac{dA}{dt} = \frac{dA}{dr}\cdot\frac{dr}{dt}$$
+    <p><strong>Inverse rate:</strong></p>
+    $$\frac{dr}{dt} = \frac{1}{\,\dfrac{dt}{dr}\,} \quad\Longrightarrow\quad \frac{dr}{dt} = \frac{\dfrac{dV}{dt}}{\dfrac{dV}{dr}}$$
+    <p><strong>Useful geometric formulas to memorise:</strong></p>
+    <p>Circle: \(A = \pi r^2,\; C = 2\pi r\)</p>
+    <p>Sphere: \(V = \tfrac{4}{3}\pi r^3,\; S = 4\pi r^2\)</p>
+  </div>
+
+  <div class="box concept" style="background:#ddeeff;">
+    <div class="box-label">Where to Apply It</div>
+    <p>Use this technique whenever a question tells you the rate at which one quantity changes and asks for the rate at which a related quantity changes. Look for phrases like "the rate of increase of the radius", "the rate at which the area is growing", or "find \(\tfrac{dh}{dt}\) given \(\tfrac{dV}{dt}\)".</p>
+  </div>
+
+  <div class="box examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example-block">
+      <div class="example-title">Example 1 — Expanding sphere</div>
+      <p>A spherical balloon is being inflated so that its volume increases at a constant rate of \(50\text{ cm}^3\text{s}^{-1}\). Find the rate at which the radius is increasing when the radius is \(5\text{ cm}\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Write down what is known and what is needed</div>
+        <p>\(\dfrac{dV}{dt} = 50\), need \(\dfrac{dr}{dt}\) when \(r = 5\).</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Write the volume formula and differentiate with respect to \(r\)</div>
+        <p>$$V = \frac{4}{3}\pi r^3 \implies \frac{dV}{dr} = 4\pi r^2$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Apply the chain rule</div>
+        <p>$$\frac{dr}{dt} = \frac{dV/dt}{dV/dr} = \frac{50}{4\pi r^2}$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Substitute \(r = 5\)</div>
+        <p>$$\frac{dr}{dt} = \frac{50}{4\pi(25)} = \frac{50}{100\pi} = \frac{1}{2\pi}$$</p>
+        <p>$$\boxed{\frac{dr}{dt} = \frac{1}{2\pi} \approx 0.159 \text{ cm s}^{-1}}$$</p>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">Example 2 — Area of a circle</div>
+      <p>The radius of a circle is decreasing at a rate of \(0.4\text{ cm s}^{-1}\). Find the rate at which the area is decreasing when the radius is \(8\text{ cm}\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — State knowns: \(\dfrac{dr}{dt} = -0.4\) (negative because decreasing), need \(\dfrac{dA}{dt}\)</div>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Differentiate the area formula</div>
+        <p>$$A = \pi r^2 \implies \frac{dA}{dr} = 2\pi r$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Chain rule</div>
+        <p>$$\frac{dA}{dt} = \frac{dA}{dr}\cdot\frac{dr}{dt} = 2\pi r \cdot (-0.4) = -0.8\pi r$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Substitute \(r = 8\)</div>
+        <p>$$\frac{dA}{dt} = -0.8\pi(8) = -6.4\pi$$</p>
+        <p>$$\boxed{\frac{dA}{dt} = -6.4\pi \approx -20.1 \text{ cm}^2\text{s}^{-1}}$$</p>
+        <p>The negative sign confirms the area is <em>decreasing</em>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li><span class="q-num">Q1.</span> A cube has side length \(x\) cm. Its volume is increasing at \(12\text{ cm}^3\text{s}^{-1}\). Find the rate of increase of the side length when \(x = 3\text{ cm}\).</li>
+      <li><span class="q-num">Q2.</span> The radius of a circle is increasing at \(2\text{ cm s}^{-1}\). Find the rate of increase of the circumference.</li>
+      <li><span class="q-num">Q3.</span> A spherical raindrop evaporates so that its surface area decreases at a rate of \(2\text{ mm}^2\text{s}^{-1}\). Find the rate at which the radius decreases when \(r = 1.5\text{ mm}\). (Surface area \(S = 4\pi r^2\).)</li>
+      <li><span class="q-num">Q4.</span> The area of a circle is increasing at \(10\text{ cm}^2\text{s}^{-1}\). Find the rate at which the radius is increasing when the area is \(25\pi\text{ cm}^2\).</li>
+      <li><span class="q-num">Q5.</span> Water is poured into a conical tank at \(5\text{ cm}^3\text{s}^{-1}\). The volume of water is \(V = \dfrac{1}{3}\pi r^2 h\). Given that \(r = 2h\) always, find \(\dfrac{dh}{dt}\) when \(h = 4\text{ cm}\).</li>
+      <li><span class="q-num">Q6.</span> A variable \(y\) is related to \(x\) by \(y = x^3 + 2x\). If \(x\) is increasing at \(3\text{ units s}^{-1}\), find the rate of change of \(y\) when \(x = 2\).</li>
+      <li><span class="q-num">Q7.</span> A particle moves so that its displacement is \(s = t^3 - 6t^2 + 9t\). Find the rate of change of \(s\) with respect to \(t\) at \(t = 3\), and state whether \(s\) is increasing or decreasing at that moment.</li>
+    </ol>
+  </div>
+
+  <div class="box solutions">
+    <div class="box-label">Fully Worked Solutions</div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q1</div>
+      <div class="sol-step"><div class="sol-step-label">Volume of cube</div><p>\(V = x^3 \implies \dfrac{dV}{dx} = 3x^2\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">Chain rule</div><p>\(\dfrac{dx}{dt} = \dfrac{dV/dt}{dV/dx} = \dfrac{12}{3x^2}\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=3\)</div><p>$$\frac{dx}{dt} = \frac{12}{27} = \boxed{\frac{4}{9} \approx 0.444 \text{ cm s}^{-1}}$$</p></div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q2</div>
+      <div class="sol-step"><div class="sol-step-label">Circumference \(C = 2\pi r\)</div><p>\(\dfrac{dC}{dr} = 2\pi\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">Chain rule</div><p>\(\dfrac{dC}{dt} = 2\pi \cdot \dfrac{dr}{dt} = 2\pi \cdot 2 = \boxed{4\pi \approx 12.6 \text{ cm s}^{-1}}\)</p></div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q3</div>
+      <div class="sol-step"><div class="sol-step-label">Known: \(\dfrac{dS}{dt} = -2\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Differentiate \(S = 4\pi r^2\)</div><p>\(\dfrac{dS}{dr} = 8\pi r\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">Chain rule</div><p>\(\dfrac{dr}{dt} = \dfrac{dS/dt}{dS/dr} = \dfrac{-2}{8\pi r}\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">At \(r = 1.5\)</div><p>$$\frac{dr}{dt} = \frac{-2}{12\pi} = \boxed{-\frac{1}{6\pi} \approx -0.053 \text{ mm s}^{-1}}$$</p></div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q4</div>
+      <div class="sol-step"><div class="sol-step-label">When \(A = 25\pi\): \(\pi r^2 = 25\pi \implies r = 5\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">\(\dfrac{dA}{dr} = 2\pi r = 10\pi\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Chain rule</div><p>\(\dfrac{dr}{dt} = \dfrac{10}{10\pi} = \boxed{\dfrac{1}{\pi} \approx 0.318 \text{ cm s}^{-1}}\)</p></div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q5</div>
+      <div class="sol-step"><div class="sol-step-label">Substitute \(r = 2h\) into volume formula</div><p>\(V = \tfrac{1}{3}\pi(2h)^2 h = \tfrac{4}{3}\pi h^3\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">Differentiate</div><p>\(\dfrac{dV}{dh} = 4\pi h^2\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">Chain rule</div><p>\(\dfrac{dh}{dt} = \dfrac{5}{4\pi h^2}\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">At \(h=4\)</div><p>$$\frac{dh}{dt} = \frac{5}{64\pi} = \boxed{\frac{5}{64\pi} \approx 0.0249 \text{ cm s}^{-1}}$$</p></div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q6</div>
+      <div class="sol-step"><div class="sol-step-label">Differentiate \(y\) with respect to \(x\)</div><p>\(\dfrac{dy}{dx} = 3x^2 + 2\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">Chain rule</div><p>\(\dfrac{dy}{dt} = (3x^2+2)\cdot 3\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=2\)</div><p>\(\dfrac{dy}{dt} = (12+2)\cdot 3 = \boxed{42 \text{ units s}^{-1}}\)</p></div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q7</div>
+      <div class="sol-step"><div class="sol-step-label">Differentiate</div><p>\(\dfrac{ds}{dt} = 3t^2 - 12t + 9\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">At \(t=3\)</div><p>\(\dfrac{ds}{dt} = 27 - 36 + 9 = \boxed{0}\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">Conclusion</div><p>The rate of change is zero at \(t = 3\): this is a stationary point, so \(s\) is neither increasing nor decreasing at that instant.</p></div>
+    </div>
+
+  </div>
+</div><!-- end skill 12 -->
+
+
+<!-- ══════════════════════════════════════════
+     SKILL 13 — REVERSE POWER RULE
+══════════════════════════════════════════ -->
+<div class="skill">
+  <div class="skill-header">
+    <div class="skill-number">Skill 13</div>
+    <h2>Reverse Power Rule (Integrating \(x^n\))</h2>
+  </div>
+
+  <div class="box concept">
+    <div class="box-label">What it is</div>
+    <p>Integration is the <em>reverse</em> of differentiation. The <strong>reverse power rule</strong> tells you how to integrate any power of \(x\). When you differentiate \(x^n\), you multiply by the power and reduce it by one. To reverse that process, you increase the power by one and divide by the new power.</p>
+    <p>This works for <em>any</em> value of \(n\) — positive, negative, or fractional — <strong>except</strong> \(n = -1\) (which would require dividing by zero). The case \(n = -1\) is handled separately using the natural logarithm (Skill 15).</p>
+    <p>Because differentiation destroys any constant (the derivative of a constant is zero), every indefinite integral must include an <strong>arbitrary constant \(+ C\)</strong>. Without it, your answer is incomplete.</p>
+    <p>For definite integrals (with limits), you evaluate the antiderivative at the upper limit and subtract its value at the lower limit. The \(C\) always cancels in this case.</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">The Rule</div>
+    <p><strong>Reverse Power Rule:</strong></p>
+    $$\int x^n \, dx = \frac{x^{n+1}}{n+1} + C \qquad (n \neq -1)$$
+    <p><strong>Linear argument (very common extension):</strong></p>
+    $$\int (ax + b)^n \, dx = \frac{(ax+b)^{n+1}}{a(n+1)} + C$$
+    <p>Divide by the coefficient of \(x\) inside the bracket — this is the "reverse chain rule" adjustment.</p>
+    <p><strong>Definite integral:</strong></p>
+    $$\int_a^b f(x)\,dx = \Bigl[F(x)\Bigr]_a^b = F(b) - F(a)$$
+  </div>
+
+  <div class="box concept" style="background:#ddeeff;">
+    <div class="box-label">Where to Apply It</div>
+    <p>Apply the reverse power rule to integrate any term of the form \(kx^n\), including negative powers like \(x^{-3}\) and fractional powers like \(x^{1/2}\). For expressions like \(\dfrac{3}{x^2}\), rewrite as \(3x^{-2}\) first, then integrate. Always rewrite roots as fractional powers before integrating.</p>
+  </div>
+
+  <div class="box examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example-block">
+      <div class="example-title">Example 1 — Indefinite integral with multiple terms</div>
+      <p>Find \(\displaystyle\int \left(4x^3 - \frac{2}{x^2} + \sqrt{x}\right) dx\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Rewrite using index notation</div>
+        <p>$$\int \left(4x^3 - 2x^{-2} + x^{1/2}\right) dx$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Integrate each term using \(\frac{x^{n+1}}{n+1}\)</div>
+        <p>Term 1: \(\displaystyle\int 4x^3\,dx = \frac{4x^4}{4} = x^4\)</p>
+        <p>Term 2: \(\displaystyle\int -2x^{-2}\,dx = \frac{-2x^{-1}}{-1} = 2x^{-1} = \frac{2}{x}\)</p>
+        <p>Term 3: \(\displaystyle\int x^{1/2}\,dx = \frac{x^{3/2}}{3/2} = \frac{2}{3}x^{3/2}\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Combine with \(+C\)</div>
+        <p>$$\boxed{x^4 + \frac{2}{x} + \frac{2}{3}x^{3/2} + C}$$</p>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">Example 2 — Definite integral</div>
+      <p>Evaluate \(\displaystyle\int_1^4 \left(3x^2 - \frac{1}{2\sqrt{x}}\right) dx\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Rewrite</div>
+        <p>$$\int_1^4 \left(3x^2 - \frac{1}{2}x^{-1/2}\right) dx$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Integrate each term</div>
+        <p>$$\left[x^3 - \frac{1}{2}\cdot\frac{x^{1/2}}{1/2}\right]_1^4 = \left[x^3 - x^{1/2}\right]_1^4$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Evaluate at upper limit \(x=4\)</div>
+        <p>$$4^3 - 4^{1/2} = 64 - 2 = 62$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Evaluate at lower limit \(x=1\)</div>
+        <p>$$1^3 - 1^{1/2} = 1 - 1 = 0$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 5 — Subtract</div>
+        <p>$$62 - 0 = \boxed{62}$$</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li><span class="q-num">Q1.</span> Find \(\displaystyle\int (5x^4 + 3x^2 - 7)\,dx\).</li>
+      <li><span class="q-num">Q2.</span> Find \(\displaystyle\int \frac{6}{x^3}\,dx\).</li>
+      <li><span class="q-num">Q3.</span> Find \(\displaystyle\int \left(2\sqrt{x} - \frac{4}{\sqrt{x}}\right)dx\).</li>
+      <li><span class="q-num">Q4.</span> Evaluate \(\displaystyle\int_0^2 (x^3 - 4x + 1)\,dx\).</li>
+      <li><span class="q-num">Q5.</span> Find \(\displaystyle\int (2x+3)^4\,dx\).</li>
+      <li><span class="q-num">Q6.</span> Evaluate \(\displaystyle\int_1^9 \frac{1}{\sqrt{x}}\,dx\).</li>
+      <li><span class="q-num">Q7.</span> Find \(\displaystyle\int \left(x^{2/3} + x^{-4/3}\right)dx\).</li>
+    </ol>
+  </div>
+
+  <div class="box solutions">
+    <div class="box-label">Fully Worked Solutions</div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q1</div>
+      <div class="sol-step"><div class="sol-step-label">Integrate term by term</div>
+        <p>\(\displaystyle\int 5x^4\,dx = x^5\), \(\quad\displaystyle\int 3x^2\,dx = x^3\), \(\quad\displaystyle\int -7\,dx = -7x\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Answer</div>
+        <p>$$\boxed{x^5 + x^3 - 7x + C}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q2</div>
+      <div class="sol-step"><div class="sol-step-label">Rewrite: \(\dfrac{6}{x^3} = 6x^{-3}\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Integrate</div>
+        <p>\(\displaystyle\int 6x^{-3}\,dx = \dfrac{6x^{-2}}{-2} = -3x^{-2}\)</p>
+        <p>$$\boxed{-\dfrac{3}{x^2} + C}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q3</div>
+      <div class="sol-step"><div class="sol-step-label">Rewrite: \(2x^{1/2} - 4x^{-1/2}\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Integrate</div>
+        <p>\(2\cdot\dfrac{x^{3/2}}{3/2} - 4\cdot\dfrac{x^{1/2}}{1/2} = \dfrac{4}{3}x^{3/2} - 8x^{1/2}\)</p>
+        <p>$$\boxed{\frac{4}{3}x^{3/2} - 8\sqrt{x} + C}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q4</div>
+      <div class="sol-step"><div class="sol-step-label">Integrate</div>
+        <p>\(\left[\dfrac{x^4}{4} - 2x^2 + x\right]_0^2\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=2\)</div><p>\(\dfrac{16}{4} - 8 + 2 = 4 - 8 + 2 = -2\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=0\)</div><p>\(0\)</p></div>
+      <div class="sol-step"><div class="sol-step-label">Subtract</div><p>$$-2 - 0 = \boxed{-2}$$</p></div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q5</div>
+      <div class="sol-step"><div class="sol-step-label">Use linear argument rule: coefficient of \(x\) inside bracket is \(2\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Integrate</div>
+        <p>$$\int(2x+3)^4\,dx = \frac{(2x+3)^5}{2\times 5} = \frac{(2x+3)^5}{10}$$</p>
+        <p>$$\boxed{\frac{(2x+3)^5}{10} + C}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q6</div>
+      <div class="sol-step"><div class="sol-step-label">Rewrite: \(x^{-1/2}\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Integrate</div>
+        <p>\(\left[\dfrac{x^{1/2}}{1/2}\right]_1^9 = \left[2\sqrt{x}\right]_1^9 = 2\sqrt{9} - 2\sqrt{1} = 6 - 2 = \boxed{4}\)</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q7</div>
+      <div class="sol-step"><div class="sol-step-label">Integrate \(x^{2/3}\)</div>
+        <p>\(\dfrac{x^{5/3}}{5/3} = \dfrac{3}{5}x^{5/3}\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Integrate \(x^{-4/3}\)</div>
+        <p>\(\dfrac{x^{-1/3}}{-1/3} = -3x^{-1/3}\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Combine</div>
+        <p>$$\boxed{\frac{3}{5}x^{5/3} - 3x^{-1/3} + C}$$</p>
+      </div>
+    </div>
+
+  </div>
+</div><!-- end skill 13 -->
+
+
+<!-- ══════════════════════════════════════════
+     SKILL 14 — INTEGRATING eˣ AND eᵃˣ
+══════════════════════════════════════════ -->
+<div class="skill">
+  <div class="skill-header">
+    <div class="skill-number">Skill 14</div>
+    <h2>Integrating \(e^x\) and \(e^{ax}\)</h2>
+  </div>
+
+  <div class="box concept">
+    <div class="box-label">What it is</div>
+    <p>The exponential function \(e^x\) is unique in mathematics: it is its own derivative. This means \(\dfrac{d}{dx}(e^x) = e^x\). Because integration is the reverse of differentiation, integrating \(e^x\) gives back \(e^x\) (plus the constant \(C\)).</p>
+    <p>When the exponent contains a linear function — for example \(e^{3x}\) or \(e^{-2x+1}\) — differentiation introduces an extra factor (the coefficient of \(x\)) by the chain rule. To reverse this, we must <strong>divide by that coefficient</strong> when integrating.</p>
+    <p>This is the same compensating adjustment used in the reverse power rule for linear arguments. Think of it as "undoing" what the chain rule would have added during differentiation.</p>
+    <p>Always check your answer by differentiating it — you should recover the original integrand.</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">The Rules</div>
+    <p><strong>Basic exponential:</strong></p>
+    $$\int e^x\,dx = e^x + C$$
+    <p><strong>Linear exponent:</strong></p>
+    $$\int e^{ax+b}\,dx = \frac{1}{a}e^{ax+b} + C \qquad (a \neq 0)$$
+    <p><strong>Scaled version:</strong></p>
+    $$\int k\,e^{ax+b}\,dx = \frac{k}{a}e^{ax+b} + C$$
+    <p>The key: <strong>divide by the coefficient of \(x\)</strong> in the exponent.</p>
+  </div>
+
+  <div class="box concept" style="background:#ddeeff;">
+    <div class="box-label">Where to Apply It</div>
+    <p>Use these results whenever the integrand is an exponential function with a linear exponent. If the exponent is not linear (e.g., \(e^{x^2}\)), these rules do not apply directly — you would need a substitution. For all Edexcel P3/P4 questions, the exponent will be linear.</p>
+  </div>
+
+  <div class="box examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example-block">
+      <div class="example-title">Example 1 — Indefinite integral</div>
+      <p>Find \(\displaystyle\int \left(3e^{4x} - 2e^{-x} + e^{2x+1}\right) dx\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Integrate term 1: \(3e^{4x}\)</div>
+        <p>Exponent is \(4x\), coefficient of \(x\) is \(4\). Divide by \(4\):</p>
+        <p>$$\int 3e^{4x}\,dx = \frac{3}{4}e^{4x}$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Integrate term 2: \(-2e^{-x}\)</div>
+        <p>Exponent is \(-x\), coefficient is \(-1\). Divide by \(-1\):</p>
+        <p>$$\int -2e^{-x}\,dx = \frac{-2}{-1}e^{-x} = 2e^{-x}$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Integrate term 3: \(e^{2x+1}\)</div>
+        <p>Exponent is \(2x+1\), coefficient of \(x\) is \(2\). Divide by \(2\):</p>
+        <p>$$\int e^{2x+1}\,dx = \frac{1}{2}e^{2x+1}$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Combine</div>
+        <p>$$\boxed{\frac{3}{4}e^{4x} + 2e^{-x} + \frac{1}{2}e^{2x+1} + C}$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Verification (differentiate term 1)</div>
+        <p>\(\dfrac{d}{dx}\!\left(\dfrac{3}{4}e^{4x}\right) = \dfrac{3}{4}\cdot 4\cdot e^{4x} = 3e^{4x}\) ✓</p>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">Example 2 — Definite integral</div>
+      <p>Evaluate \(\displaystyle\int_0^1 (4e^{2x} - e^{-x})\,dx\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Find the antiderivative</div>
+        <p>$$\int(4e^{2x} - e^{-x})\,dx = \frac{4}{2}e^{2x} - \frac{1}{-1}e^{-x} = 2e^{2x} + e^{-x}$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Evaluate at upper limit \(x = 1\)</div>
+        <p>$$2e^{2} + e^{-1}$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Evaluate at lower limit \(x = 0\)</div>
+        <p>$$2e^{0} + e^{0} = 2(1) + 1 = 3$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Subtract</div>
+        <p>$$\left(2e^2 + e^{-1}\right) - 3$$</p>
+        <p>$$\boxed{2e^2 + e^{-1} - 3} \approx 14.75 + 0.368 - 3 \approx 12.12$$</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li><span class="q-num">Q1.</span> Find \(\displaystyle\int 5e^{3x}\,dx\).</li>
+      <li><span class="q-num">Q2.</span> Find \(\displaystyle\int \left(e^{2x} + e^{-3x}\right)dx\).</li>
+      <li><span class="q-num">Q3.</span> Find \(\displaystyle\int \left(4e^{x/2} - 6e^{-2x}\right)dx\).</li>
+      <li><span class="q-num">Q4.</span> Evaluate \(\displaystyle\int_0^2 3e^{x}\,dx\).</li>
+      <li><span class="q-num">Q5.</span> Evaluate \(\displaystyle\int_0^{\ln 2} e^{2x}\,dx\).</li>
+      <li><span class="q-num">Q6.</span> Find \(\displaystyle\int \left(2e^{3x-1} + e^{1-x}\right)dx\).</li>
+      <li><span class="q-num">Q7.</span> Find the exact value of \(\displaystyle\int_1^3 \left(e^{2x} - e^{-x}\right)dx\).</li>
+    </ol>
+  </div>
+
+  <div class="box solutions">
+    <div class="box-label">Fully Worked Solutions</div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q1</div>
+      <div class="sol-step"><div class="sol-step-label">Coefficient of \(x\) in exponent is \(3\). Divide by \(3\).</div>
+        <p>$$\boxed{\frac{5}{3}e^{3x} + C}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q2</div>
+      <div class="sol-step"><div class="sol-step-label">Integrate each term</div>
+        <p>\(\displaystyle\int e^{2x}\,dx = \dfrac{1}{2}e^{2x}\), \(\quad\displaystyle\int e^{-3x}\,dx = \dfrac{1}{-3}e^{-3x} = -\dfrac{1}{3}e^{-3x}\)</p>
+        <p>$$\boxed{\frac{1}{2}e^{2x} - \frac{1}{3}e^{-3x} + C}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q3</div>
+      <div class="sol-step"><div class="sol-step-label">Exponent of first term is \(\frac{x}{2}\), coefficient \(= \frac{1}{2}\). Divide by \(\frac{1}{2}\) means multiply by \(2\).</div>
+        <p>\(\displaystyle\int 4e^{x/2}\,dx = 4\cdot 2\cdot e^{x/2} = 8e^{x/2}\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Exponent of second term is \(-2x\), coefficient \(= -2\).</div>
+        <p>\(\displaystyle\int -6e^{-2x}\,dx = \dfrac{-6}{-2}e^{-2x} = 3e^{-2x}\)</p>
+        <p>$$\boxed{8e^{x/2} + 3e^{-2x} + C}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q4</div>
+      <div class="sol-step"><div class="sol-step-label">Antiderivative: \(3e^x\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Evaluate</div>
+        <p>\(\left[3e^x\right]_0^2 = 3e^2 - 3e^0 = 3e^2 - 3\)</p>
+        <p>$$\boxed{3e^2 - 3} \approx 19.17$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q5</div>
+      <div class="sol-step"><div class="sol-step-label">Antiderivative: \(\frac{1}{2}e^{2x}\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">At \(x = \ln 2\): \(\dfrac{1}{2}e^{2\ln 2} = \dfrac{1}{2}e^{\ln 4} = \dfrac{1}{2}\cdot 4 = 2\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">At \(x = 0\): \(\dfrac{1}{2}e^0 = \dfrac{1}{2}\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Subtract</div>
+        <p>$$2 - \frac{1}{2} = \boxed{\frac{3}{2}}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q6</div>
+      <div class="sol-step"><div class="sol-step-label">Term 1: exponent \(3x-1\), coefficient \(3\).</div>
+        <p>\(\displaystyle\int 2e^{3x-1}\,dx = \dfrac{2}{3}e^{3x-1}\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Term 2: exponent \(1-x\), coefficient \(-1\).</div>
+        <p>\(\displaystyle\int e^{1-x}\,dx = \dfrac{1}{-1}e^{1-x} = -e^{1-x}\)</p>
+        <p>$$\boxed{\frac{2}{3}e^{3x-1} - e^{1-x} + C}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q7</div>
+      <div class="sol-step"><div class="sol-step-label">Antiderivatives: \(\dfrac{1}{2}e^{2x}\) and \(\dfrac{1}{-1}e^{-x} = -e^{-x}\)</div>
+        <p>$$\left[\frac{1}{2}e^{2x} + e^{-x}\right]_1^3$$</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=3\)</div>
+        <p>\(\dfrac{1}{2}e^6 + e^{-3}\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=1\)</div>
+        <p>\(\dfrac{1}{2}e^2 + e^{-1}\)</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Subtract</div>
+        <p>$$\boxed{\frac{1}{2}e^6 + e^{-3} - \frac{1}{2}e^2 - e^{-1}}$$</p>
+      </div>
+    </div>
+
+  </div>
+</div><!-- end skill 14 -->
+
+
+<!-- ══════════════════════════════════════════
+     SKILL 15 — INTEGRATING 1/x → ln
+══════════════════════════════════════════ -->
+<div class="skill">
+  <div class="skill-header">
+    <div class="skill-number">Skill 15</div>
+    <h2>Integrating \(\dfrac{1}{x}\) and \(\dfrac{1}{ax+b}\) — The Natural Logarithm</h2>
+  </div>
+
+  <div class="box concept">
+    <div class="box-label">What it is</div>
+    <p>Recall that the reverse power rule breaks down when \(n = -1\): you cannot write \(\dfrac{x^0}{0}\) because division by zero is undefined. This is the one exception to the power rule, and it requires a completely different result.</p>
+    <p>Because \(\dfrac{d}{dx}(\ln|x|) = \dfrac{1}{x}\), the integral of \(\dfrac{1}{x}\) is the natural logarithm. Notice the <strong>absolute value bars</strong>: \(\ln|x|\) instead of \(\ln x\). This is necessary because \(\ln\) is only defined for positive inputs, yet \(\dfrac{1}{x}\) can be integrated over intervals that include negative values of \(x\). The modulus ensures the argument is always positive.</p>
+    <p>When integrating \(\dfrac{1}{ax+b}\), the chain rule adjustment applies: differentiation of \(\ln|ax+b|\) produces an extra factor of \(a\), so when integrating we divide by \(a\).</p>
+    <p>Definite integrals of this type produce exact logarithmic values — simplify using log laws where possible.</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">The Rules</div>
+    <p><strong>Basic logarithmic integral:</strong></p>
+    $$\int \frac{1}{x}\,dx = \ln|x| + C$$
+    <p><strong>Linear denominator:</strong></p>
+    $$\int \frac{1}{ax+b}\,dx = \frac{1}{a}\ln|ax+b| + C \qquad (a \neq 0)$$
+    <p><strong>Scaled version:</strong></p>
+    $$\int \frac{k}{ax+b}\,dx = \frac{k}{a}\ln|ax+b| + C$$
+    <p><strong>Reverse chain rule (fraction form):</strong></p>
+    $$\int \frac{f'(x)}{f(x)}\,dx = \ln|f(x)| + C$$
+    <p>Recognise this: if the numerator is (or is a multiple of) the derivative of the denominator, the integral is a logarithm.</p>
+  </div>
+
+  <div class="box concept" style="background:#ddeeff;">
+    <div class="box-label">Where to Apply It</div>
+    <p>Use this rule whenever the integrand is \(\dfrac{1}{x}\), \(\dfrac{k}{ax+b}\), or any fraction where the numerator is a constant multiple of the derivative of the denominator. If the denominator is quadratic or higher, first try partial fractions (a later skill) to reduce to linear denominators.</p>
+  </div>
+
+  <div class="box examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example-block">
+      <div class="example-title">Example 1 — Indefinite integral with mixed terms</div>
+      <p>Find \(\displaystyle\int \left(\frac{3}{x} + \frac{4}{2x-1} - \frac{1}{3x+5}\right) dx\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Identify each term as a logarithmic integral</div>
+        <p>Each fraction has a linear denominator, so we use \(\dfrac{k}{ax+b} \to \dfrac{k}{a}\ln|ax+b|\).</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Integrate term 1: \(\dfrac{3}{x}\)</div>
+        <p>Here \(a=1,\, k=3\): \(\displaystyle\int \dfrac{3}{x}\,dx = 3\ln|x|\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Integrate term 2: \(\dfrac{4}{2x-1}\)</div>
+        <p>Here \(a=2,\, k=4\): \(\displaystyle\int \dfrac{4}{2x-1}\,dx = \dfrac{4}{2}\ln|2x-1| = 2\ln|2x-1|\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Integrate term 3: \(-\dfrac{1}{3x+5}\)</div>
+        <p>Here \(a=3,\, k=-1\): \(\displaystyle\int \dfrac{-1}{3x+5}\,dx = -\dfrac{1}{3}\ln|3x+5|\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 5 — Combine</div>
+        <p>$$\boxed{3\ln|x| + 2\ln|2x-1| - \frac{1}{3}\ln|3x+5| + C}$$</p>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <div class="example-title">Example 2 — Definite integral and exact simplification</div>
+      <p>Evaluate \(\displaystyle\int_1^5 \frac{2}{3x+2}\,dx\), giving your answer as an exact logarithm.</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Find the antiderivative: \(a=3,\, k=2\)</div>
+        <p>$$\int \frac{2}{3x+2}\,dx = \frac{2}{3}\ln|3x+2|$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Evaluate at \(x=5\)</div>
+        <p>$$\frac{2}{3}\ln|15+2| = \frac{2}{3}\ln 17$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Evaluate at \(x=1\)</div>
+        <p>$$\frac{2}{3}\ln|3+2| = \frac{2}{3}\ln 5$$</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Subtract and simplify using log laws</div>
+        <p>$$\frac{2}{3}\ln 17 - \frac{2}{3}\ln 5 = \frac{2}{3}\left(\ln 17 - \ln 5\right) = \frac{2}{3}\ln\!\left(\frac{17}{5}\right)$$</p>
+        <p>$$\boxed{\frac{2}{3}\ln\!\left(\frac{17}{5}\right)}$$</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li><span class="q-num">Q1.</span> Find \(\displaystyle\int \frac{5}{x}\,dx\).</li>
+      <li><span class="q-num">Q2.</span> Find \(\displaystyle\int \frac{1}{3x-2}\,dx\).</li>
+      <li><span class="q-num">Q3.</span> Find \(\displaystyle\int \left(\frac{2}{x} + \frac{3}{4x+1}\right)dx\).</li>
+      <li><span class="q-num">Q4.</span> Evaluate \(\displaystyle\int_1^e \frac{4}{x}\,dx\), giving an exact answer.</li>
+      <li><span class="q-num">Q5.</span> Evaluate \(\displaystyle\int_0^3 \frac{1}{2x+1}\,dx\), giving an exact answer.</li>
+      <li><span class="q-num">Q6.</span> Find \(\displaystyle\int \frac{6x}{3x^2+1}\,dx\). [Hint: check if the numerator is a multiple of the derivative of the denominator.]</li>
+      <li><span class="q-num">Q7.</span> Evaluate \(\displaystyle\int_2^5 \frac{3}{2x-1}\,dx\), simplifying your answer.</li>
+    </ol>
+  </div>
+
+  <div class="box solutions">
+    <div class="box-label">Fully Worked Solutions</div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q1</div>
+      <div class="sol-step"><div class="sol-step-label">Direct application</div>
+        <p>$$\boxed{5\ln|x| + C}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q2</div>
+      <div class="sol-step"><div class="sol-step-label">\(a=3,\, k=1\). Divide by \(3\).</div>
+        <p>$$\boxed{\frac{1}{3}\ln|3x-2| + C}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q3</div>
+      <div class="sol-step"><div class="sol-step-label">Term 1: \(2\ln|x|\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Term 2: \(a=4,\, k=3\) → \(\dfrac{3}{4}\ln|4x+1|\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Combine</div>
+        <p>$$\boxed{2\ln|x| + \frac{3}{4}\ln|4x+1| + C}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q4</div>
+      <div class="sol-step"><div class="sol-step-label">Antiderivative: \(4\ln|x|\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=e\): \(4\ln e = 4\cdot 1 = 4\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=1\): \(4\ln 1 = 4\cdot 0 = 0\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Answer</div>
+        <p>$$\boxed{4}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q5</div>
+      <div class="sol-step"><div class="sol-step-label">\(a=2,\, k=1\). Antiderivative: \(\dfrac{1}{2}\ln|2x+1|\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=3\): \(\dfrac{1}{2}\ln 7\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=0\): \(\dfrac{1}{2}\ln 1 = 0\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Answer</div>
+        <p>$$\boxed{\frac{1}{2}\ln 7}$$</p>
+      </div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q6</div>
+      <div class="sol-step"><div class="sol-step-label">Check: denominator is \(3x^2+1\). Its derivative is \(6x\).</div>
+        <p>The numerator IS \(6x\) — this is exactly the derivative of the denominator!</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Apply reverse chain rule: \(\displaystyle\int\dfrac{f'(x)}{f(x)}\,dx = \ln|f(x)| + C\)</div>
+        <p>$$\boxed{\ln|3x^2+1| + C}$$</p>
+      </div>
+      <div class="sol-step"><div class="sol-step-label">Verify by differentiating: \(\dfrac{d}{dx}\!\left(\ln(3x^2+1)\right) = \dfrac{6x}{3x^2+1}\) ✓</div></div>
+    </div>
+
+    <div class="sol-block">
+      <div class="sol-title">Solution to Q7</div>
+      <div class="sol-step"><div class="sol-step-label">\(a=2,\, k=3\). Antiderivative: \(\dfrac{3}{2}\ln|2x-1|\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=5\): \(\dfrac{3}{2}\ln 9\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">At \(x=2\): \(\dfrac{3}{2}\ln 3\)</div></div>
+      <div class="sol-step"><div class="sol-step-label">Subtract and simplify</div>
+        <p>$$\frac{3}{2}\ln 9 - \frac{3}{2}\ln 3 = \frac{3}{2}(\ln 9 - \ln 3) = \frac{3}{2}\ln\!\left(\frac{9}{3}\right) = \frac{3}{2}\ln 3$$</p>
+        <p>$$\boxed{\frac{3}{2}\ln 3}$$</p>
+      </div>
+    </div>
+
+  </div>
+</div><!-- end skill 15 -->
+
+</div><!-- end page-wrap -->
+</body>
+</html>

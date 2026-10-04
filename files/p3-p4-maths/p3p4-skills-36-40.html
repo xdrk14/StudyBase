@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IAL P3 & P4 Maths — Skills 36–40</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #1a1a2e;
+  }
+
+  .page-header {
+    background: #1a1a2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 48px 24px 36px;
+    border-bottom: 4px solid #4a90d9;
+  }
+  .page-header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .page-header p { color: #a0b4cc; font-size: 1rem; font-weight: 400; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+
+  /* Skill block */
+  .skill { margin-bottom: 70px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(26,26,46,0.08); }
+
+  .skill-header {
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .skill-number {
+    background: #4a90d9;
+    color: #fff;
+    border-radius: 50%;
+    width: 42px; height: 42px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .skill-title { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.2px; }
+
+  /* Content boxes */
+  .box {
+    padding: 24px 28px;
+    border-left: 5px solid transparent;
+  }
+  .box + .box { border-top: 1px solid rgba(0,0,0,0.06); }
+
+  .box-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
+
+  .concept  { background: #e8f4fd; border-left-color: #4a90d9; }
+  .formula  { background: #fff9e6; border-left-color: #e6a817; }
+  .examples { background: #e8f8e8; border-left-color: #3daa5c; }
+  .questions{ background: #f3e8ff; border-left-color: #8b5cf6; }
+  .solutions{ background: #fff0e8; border-left-color: #e8682a; }
+
+  .concept  .box-label { color: #1a5a8a; }
+  .formula  .box-label { color: #7a5200; }
+  .examples .box-label { color: #1a6b38; }
+  .questions .box-label { color: #5b21b6; }
+  .solutions .box-label { color: #9c3a0a; }
+
+  .formula { font-size: 1.05rem; }
+
+  h3 { font-size: 1rem; font-weight: 600; margin: 20px 0 8px; color: #1a1a2e; }
+  h3:first-child { margin-top: 0; }
+
+  p { margin-bottom: 10px; }
+  p:last-child { margin-bottom: 0; }
+
+  .example-block {
+    background: rgba(255,255,255,0.6);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(61,170,92,0.2);
+  }
+  .example-block:last-child { margin-bottom: 0; }
+  .example-block strong { display: block; margin-bottom: 8px; font-size: 0.95rem; color: #155724; }
+
+  .step { margin: 6px 0; padding-left: 16px; border-left: 2px solid rgba(0,0,0,0.1); }
+
+  ol, ul { padding-left: 22px; }
+  ol li, ul li { margin-bottom: 6px; }
+
+  .q-list { list-style: none; padding: 0; counter-reset: qcounter; }
+  .q-list li {
+    counter-increment: qcounter;
+    padding: 10px 12px 10px 44px;
+    position: relative;
+    background: rgba(255,255,255,0.5);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(139,92,246,0.15);
+  }
+  .q-list li::before {
+    content: "Q" counter(qcounter);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: #8b5cf6;
+    letter-spacing: 0.5px;
+  }
+
+  .sol-block {
+    background: rgba(255,255,255,0.55);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(232,104,42,0.18);
+  }
+  .sol-block:last-child { margin-bottom: 0; }
+  .sol-block strong { display: block; margin-bottom: 8px; font-size: 0.93rem; color: #7a3000; }
+
+  .note {
+    background: rgba(255,255,255,0.5);
+    border: 1px dashed rgba(0,0,0,0.15);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #444;
+  }
+
+  @media (max-width: 600px) {
+    .page-header h1 { font-size: 1.4rem; }
+    .box { padding: 18px 16px; }
+    .skill-header { padding: 16px 18px; }
+  }
+</style>
+<!-- sb:start -->
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
+<script src="../../app/note.js"></script>
+<!-- sb:end -->
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Edexcel IAL P3 &amp; P4 Mathematics</h1>
+  <p>Skills 36 – 40 &nbsp;|&nbsp; Parametric Sketching · Vectors · Integration</p>
+</div>
+
+<div class="container">
+
+<!-- ============================================================ SKILL 36 -->
+<div class="skill">
+  <div class="skill-header">
+    <div class="skill-number">36</div>
+    <div class="skill-title">Curve Sketching from Parametric Equations</div>
+  </div>
+
+  <div class="box concept">
+    <div class="box-label">What It Is</div>
+    <p>Parametric equations define a curve by expressing both \(x\) and \(y\) separately as functions of a third variable called the <strong>parameter</strong>, usually \(t\). Instead of having one equation linking \(x\) and \(y\), you have two: \(x = f(t)\) and \(y = g(t)\). To sketch the curve, you choose several values of \(t\), compute the corresponding \((x, y)\) coordinates, plot those points, and join them with a smooth curve. You must always pay attention to the <strong>domain of \(t\)</strong> — the allowed values — because this determines which part of the full curve is actually drawn. The direction of travel along the curve (as \(t\) increases) should also be noted.</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">Formula / Rule</div>
+    <p><strong>Parametric curve:</strong> &nbsp; \(x = f(t)\), &nbsp; \(y = g(t)\), &nbsp; for \(t\) in some domain.</p>
+    <p><strong>Method:</strong></p>
+    <ol>
+      <li>Choose a set of \(t\)-values spanning the entire given domain.</li>
+      <li>Calculate \(x\) and \(y\) for each \(t\).</li>
+      <li>Record results in a table.</li>
+      <li>Plot the \((x, y)\) pairs on axes.</li>
+      <li>Join with a smooth curve; mark endpoints if the domain is restricted.</li>
+      <li>Indicate direction of travel with an arrow as \(t\) increases.</li>
+    </ol>
+    <p><strong>Key intersections to find:</strong></p>
+    <ul>
+      <li>\(y\)-axis: set \(x = 0\) and solve for \(t\), then find \(y\).</li>
+      <li>\(x\)-axis: set \(y = 0\) and solve for \(t\), then find \(x\).</li>
+    </ul>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">Where to Apply It</div>
+    <p>Use this skill whenever a curve is given in parametric form and you are asked to <em>sketch</em> it (rather than find a Cartesian equation). Common in questions about ellipses, parabolas, and trigonometric curves. Also use it to identify key features: turning points (where \(\frac{dy}{dt}=0\) with \(\frac{dx}{dt}\neq 0\)), cusps, and asymptotic behaviour.</p>
+  </div>
+
+  <div class="box examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example-block">
+      <strong>Example 1 — Polynomial parametric curve</strong>
+      <p>Sketch the curve with parametric equations \(x = t^2 - 1\), \(y = t^3 - t\), for \(-2 \le t \le 2\).</p>
+
+      <h3>Step 1 — Build the table of values</h3>
+      <div class="step">
+        <p>Evaluate at \(t = -2,\,-1,\,0,\,1,\,2\):</p>
+        <p>\(t = -2\!:\; x = 4-1 = 3,\; y = -8-(-2) = -6\) &nbsp;→ point \((3,-6)\)</p>
+        <p>\(t = -1\!:\; x = 1-1 = 0,\; y = -1-(-1) = 0\) &nbsp;→ point \((0,0)\)</p>
+        <p>\(t = 0\!:\; x = 0-1 = -1,\; y = 0-0 = 0\) &nbsp;→ point \((-1,0)\)</p>
+        <p>\(t = 1\!:\; x = 1-1 = 0,\; y = 1-1 = 0\) &nbsp;→ point \((0,0)\)</p>
+        <p>\(t = 2\!:\; x = 4-1 = 3,\; y = 8-2 = 6\) &nbsp;→ point \((3,6)\)</p>
+      </div>
+
+      <h3>Step 2 — Identify axis crossings</h3>
+      <div class="step">
+        <p>\(y = 0 \Rightarrow t^3 - t = t(t^2-1) = 0 \Rightarrow t = 0, \pm 1\).</p>
+        <p>At \(t=0\): \(x=-1\). At \(t=\pm 1\): \(x=0\). So the curve crosses the \(x\)-axis at \((-1,0)\) and \((0,0)\) (twice).</p>
+        <p>\(x = 0 \Rightarrow t^2=1 \Rightarrow t=\pm1\), giving \(y=0\). The curve passes through the origin twice.</p>
+      </div>
+
+      <h3>Step 3 — Find stationary points on the curve</h3>
+      <div class="step">
+        <p>\(\frac{dy}{dt} = 3t^2 - 1 = 0 \Rightarrow t = \pm\frac{1}{\sqrt{3}}\)</p>
+        <p>At \(t = \frac{1}{\sqrt{3}}\!:\; x = \frac{1}{3}-1 = -\frac{2}{3},\; y = \frac{1}{3\sqrt{3}} - \frac{1}{\sqrt{3}} = -\frac{2}{3\sqrt{3}} \approx -0.385\)</p>
+        <p>At \(t = -\frac{1}{\sqrt{3}}\!:\; x = -\frac{2}{3},\; y \approx +0.385\)</p>
+        <p>These are the local maximum and minimum on the left portion of the curve.</p>
+      </div>
+
+      <h3>Step 4 — Sketch description</h3>
+      <div class="step">
+        <p>The curve starts at \((3,-6)\) for \(t=-2\), passes through the origin twice (creating a loop around \((-1,0)\)), and ends at \((3,6)\) for \(t=2\). The direction arrow goes upward as \(t\) increases. The curve is symmetric about the \(x\)-axis since replacing \(t\) by \(-t\) negates \(y\) but keeps \(x\) the same.</p>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <strong>Example 2 — Trigonometric parametric curve (ellipse)</strong>
+      <p>Sketch the curve with \(x = 3\cos t\), \(y = 2\sin t\), for \(0 \le t \le 2\pi\).</p>
+
+      <h3>Step 1 — Build the table</h3>
+      <div class="step">
+        <p>\(t=0\!:\; x=3,\; y=0\)</p>
+        <p>\(t=\tfrac{\pi}{2}\!:\; x=0,\; y=2\)</p>
+        <p>\(t=\pi\!:\; x=-3,\; y=0\)</p>
+        <p>\(t=\tfrac{3\pi}{2}\!:\; x=0,\; y=-2\)</p>
+        <p>\(t=2\pi\!:\; x=3,\; y=0\) (returns to start)</p>
+      </div>
+
+      <h3>Step 2 — Find the Cartesian form to confirm shape</h3>
+      <div class="step">
+        <p>From \(x = 3\cos t \Rightarrow \cos t = \frac{x}{3}\) and \(y = 2\sin t \Rightarrow \sin t = \frac{y}{2}\).</p>
+        <p>Use \(\cos^2 t + \sin^2 t = 1\):</p>
+        <p>$$\frac{x^2}{9} + \frac{y^2}{4} = 1$$</p>
+        <p>This is an <strong>ellipse</strong> centred at the origin, with semi-axes \(a = 3\) (horizontal) and \(b = 2\) (vertical).</p>
+      </div>
+
+      <h3>Step 3 — Key features</h3>
+      <div class="step">
+        <p>Rightmost point: \((3, 0)\). Leftmost: \((-3, 0)\). Top: \((0, 2)\). Bottom: \((0, -2)\).</p>
+        <p>The curve is traced anticlockwise as \(t\) increases from \(0\) to \(2\pi\).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>A curve has parametric equations \(x = t + 1\), \(y = t^2 - 4\), \(-3 \le t \le 3\). Find the coordinates of the point where the curve crosses the \(x\)-axis and where it crosses the \(y\)-axis.</li>
+      <li>Sketch the curve \(x = 2t\), \(y = \frac{4}{t}\), \(t > 0\). State the Cartesian equation.</li>
+      <li>A curve is given by \(x = \cos t\), \(y = \sin 2t\), \(0 \le t \le 2\pi\). Find all points where the curve crosses the \(x\)-axis (set \(y=0\)) and give their coordinates.</li>
+      <li>Show that the curve \(x = 4\cos t\), \(y = 3\sin t\) is an ellipse, and state the coordinates of the four vertices.</li>
+      <li>A curve has \(x = t^2\), \(y = t^3\), \(-2 \le t \le 2\). Find: (a) the coordinates of the endpoints; (b) the value of \(t\) at the origin.</li>
+      <li>The curve \(x = 1 + 3t\), \(y = 2 - t^2\), \(-2 \le t \le 2\). Find the maximum value of \(y\) on this curve and the corresponding \(x\)-coordinate.</li>
+      <li>A curve is defined by \(x = e^t - 1\), \(y = e^{2t}\), \(t \ge 0\). Express \(y\) in terms of \(x\) and state the domain of the Cartesian equation.</li>
+    </ol>
+  </div>
+
+  <div class="box solutions">
+    <div class="box-label">Fully Worked Solutions</div>
+
+    <div class="sol-block">
+      <strong>Q1 — x-axis and y-axis crossings</strong>
+      <p><em>Crosses x-axis</em> when \(y = 0\): \(t^2 - 4 = 0 \Rightarrow t = \pm 2\).</p>
+      <p>At \(t = 2\!:\; x = 3\). At \(t = -2\!:\; x = -1\). So the curve crosses the \(x\)-axis at \(\boxed{(3,0) \text{ and } (-1,0)}\).</p>
+      <p><em>Crosses y-axis</em> when \(x = 0\): \(t + 1 = 0 \Rightarrow t = -1\).</p>
+      <p>At \(t = -1\!:\; y = 1 - 4 = -3\). So the \(y\)-intercept is \(\boxed{(0,-3)}\).</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q2 — Curve and Cartesian equation</strong>
+      <p>From \(x = 2t \Rightarrow t = \frac{x}{2}\). Substitute into \(y = \frac{4}{t}\):</p>
+      <p>$$y = \frac{4}{\frac{x}{2}} = \frac{8}{x}$$</p>
+      <p>Since \(t > 0\), we have \(x > 0\). The Cartesian equation is \(\boxed{y = \dfrac{8}{x},\; x > 0}\). This is a rectangular hyperbola in the first quadrant.</p>
+      <p>Key points: \(t=1 \Rightarrow (2,4)\); \(t=2 \Rightarrow (4,2)\); as \(t\to\infty\), \(x\to\infty, y\to 0\); as \(t\to 0^+\), \(x\to 0, y\to\infty\).</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q3 — Crossings on x-axis</strong>
+      <p>Set \(y = 0\): \(\sin 2t = 0 \Rightarrow 2t = 0, \pi, 2\pi, 3\pi, 4\pi \Rightarrow t = 0, \tfrac{\pi}{2}, \pi, \tfrac{3\pi}{2}, 2\pi\).</p>
+      <p>Corresponding \(x\)-values: \(x = \cos t\).</p>
+      <p>\(t=0 \Rightarrow x=1\); \(t=\tfrac{\pi}{2} \Rightarrow x=0\); \(t=\pi \Rightarrow x=-1\); \(t=\tfrac{3\pi}{2} \Rightarrow x=0\); \(t=2\pi \Rightarrow x=1\).</p>
+      <p>Distinct points: \(\boxed{(1,0),\;(0,0),\;(-1,0)}\). The origin is visited twice (\(t=\tfrac{\pi}{2}\) and \(t=\tfrac{3\pi}{2}\)).</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q4 — Ellipse verification and vertices</strong>
+      <p>\(\cos t = \frac{x}{4}\), \(\sin t = \frac{y}{3}\). Apply \(\cos^2 t + \sin^2 t = 1\):</p>
+      <p>$$\frac{x^2}{16} + \frac{y^2}{9} = 1$$</p>
+      <p>This is the standard ellipse equation, confirming it is an ellipse. The four vertices are at the intercepts with the axes:</p>
+      <p>\(\boxed{(4,0),\;(-4,0),\;(0,3),\;(0,-3)}\).</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q5 — Endpoints and origin</strong>
+      <p>(a) At \(t = 2\!:\; x = 4, y = 8\). At \(t = -2\!:\; x = 4, y = -8\). Endpoints: \(\boxed{(4,8) \text{ and } (4,-8)}\).</p>
+      <p>(b) The origin \((0,0)\) requires \(t^2 = 0\) and \(t^3 = 0\), both satisfied by \(\boxed{t = 0}\).</p>
+      <p><em>Note:</em> The curve \(x = t^2 \ge 0\) always, so the curve lies entirely in \(x \ge 0\). The curve has a cusp at the origin.</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q6 — Maximum y-value</strong>
+      <p>\(y = 2 - t^2\) is maximised when \(t^2\) is minimised, i.e., \(t = 0\).</p>
+      <p>Maximum \(y\) value: \(y = 2 - 0 = 2\).</p>
+      <p>At \(t = 0\!:\; x = 1 + 3(0) = 1\).</p>
+      <p>Maximum point: \(\boxed{(1,\, 2)}\).</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q7 — Cartesian equation and domain</strong>
+      <p>From \(x = e^t - 1 \Rightarrow e^t = x + 1 \Rightarrow t = \ln(x+1)\).</p>
+      <p>\(y = e^{2t} = (e^t)^2 = (x+1)^2\).</p>
+      <p>Since \(t \ge 0\), we need \(e^t \ge 1\), so \(x + 1 \ge 1\), giving \(x \ge 0\).</p>
+      <p>Cartesian equation: \(\boxed{y = (x+1)^2,\;\; x \ge 0}\).</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ SKILL 37 -->
+<div class="skill">
+  <div class="skill-header">
+    <div class="skill-number">37</div>
+    <div class="skill-title">Vector Equation of a Line in 3D</div>
+  </div>
+
+  <div class="box concept">
+    <div class="box-label">What It Is</div>
+    <p>In three dimensions, a straight line is not described by a single Cartesian equation — instead, we use a <strong>vector equation</strong>. The idea is simple: to reach any point on the line, you start at a known point on the line and then move by any multiple of a <strong>direction vector</strong> (a vector parallel to the line). The scalar \(\lambda\) (lambda) acts as a "dial" — different values of \(\lambda\) give different points on the line. A line in 3D is uniquely determined by one point on it and one direction vector parallel to it. You can also write the line in <strong>Cartesian (symmetric) form</strong> by eliminating \(\lambda\).</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">Formula / Rule</div>
+    <p><strong>Vector equation of a line:</strong></p>
+    <p>$$\mathbf{r} = \mathbf{a} + \lambda\,\mathbf{d}$$</p>
+    <p>where:</p>
+    <ul>
+      <li>\(\mathbf{r}\) is the position vector of a general point on the line</li>
+      <li>\(\mathbf{a}\) is the position vector of a <em>known</em> point on the line</li>
+      <li>\(\mathbf{d}\) is the direction vector (any vector parallel to the line)</li>
+      <li>\(\lambda \in \mathbb{R}\) is the scalar parameter</li>
+    </ul>
+    <p><strong>Finding the direction vector from two points:</strong></p>
+    <p>If the line passes through \(A\) and \(B\), then \(\mathbf{d} = \overrightarrow{AB} = \mathbf{b} - \mathbf{a}\).</p>
+    <p><strong>Cartesian (symmetric) form</strong> (when \(d_1, d_2, d_3 \ne 0\)):</p>
+    <p>$$\frac{x - a_1}{d_1} = \frac{y - a_2}{d_2} = \frac{z - a_3}{d_3} = \lambda$$</p>
+    <p>where \(\mathbf{a} = \begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix}\) and \(\mathbf{d} = \begin{pmatrix}d_1\\d_2\\d_3\end{pmatrix}\).</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">Where to Apply It</div>
+    <p>Use whenever you need to write the equation of a 3D line (given a point and direction, or given two points), check whether a point lies on a line, find where a specific point occurs on a line, or set up equations to test for intersection (Skill 39). Also use to find the direction vector before computing dot products for angles (Skill 38).</p>
+  </div>
+
+  <div class="box examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example-block">
+      <strong>Example 1 — Line through one point with a given direction</strong>
+      <p>Write the vector equation of the line passing through the point \(A(2, -1, 4)\) with direction vector \(\mathbf{d} = \begin{pmatrix}3\\0\\-2\end{pmatrix}\).</p>
+
+      <h3>Step 1 — Identify \(\mathbf{a}\)</h3>
+      <div class="step">
+        <p>The position vector of \(A\) is \(\mathbf{a} = \begin{pmatrix}2\\-1\\4\end{pmatrix}\).</p>
+      </div>
+
+      <h3>Step 2 — Write the vector equation</h3>
+      <div class="step">
+        <p>$$\mathbf{r} = \begin{pmatrix}2\\-1\\4\end{pmatrix} + \lambda\begin{pmatrix}3\\0\\-2\end{pmatrix}, \quad \lambda \in \mathbb{R}$$</p>
+        <p>Or equivalently in column form: \(\mathbf{r} = \begin{pmatrix}2+3\lambda\\-1\\4-2\lambda\end{pmatrix}\).</p>
+      </div>
+
+      <h3>Step 3 — Write the Cartesian form</h3>
+      <div class="step">
+        <p>From the \(y\)-component: \(y = -1\) (constant, since \(d_2 = 0\), the line is parallel to the \(xz\)-plane at height \(y = -1\)).</p>
+        <p>From \(x\) and \(z\):</p>
+        <p>$$\frac{x-2}{3} = \frac{z-4}{-2}, \quad y = -1$$</p>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <strong>Example 2 — Line through two given points</strong>
+      <p>Find the vector equation of the line passing through \(P(1, 3, -2)\) and \(Q(4, 1, 0)\).</p>
+
+      <h3>Step 1 — Find the direction vector</h3>
+      <div class="step">
+        <p>$$\overrightarrow{PQ} = \mathbf{q} - \mathbf{p} = \begin{pmatrix}4-1\\1-3\\0-(-2)\end{pmatrix} = \begin{pmatrix}3\\-2\\2\end{pmatrix}$$</p>
+      </div>
+
+      <h3>Step 2 — Choose a point (use \(P\))</h3>
+      <div class="step">
+        <p>\(\mathbf{a} = \begin{pmatrix}1\\3\\-2\end{pmatrix}\)</p>
+      </div>
+
+      <h3>Step 3 — Write the equation</h3>
+      <div class="step">
+        <p>$$\mathbf{r} = \begin{pmatrix}1\\3\\-2\end{pmatrix} + \lambda\begin{pmatrix}3\\-2\\2\end{pmatrix}, \quad \lambda \in \mathbb{R}$$</p>
+      </div>
+
+      <h3>Step 4 — Verify: check that \(Q\) lies on the line</h3>
+      <div class="step">
+        <p>Set \(\mathbf{r} = \begin{pmatrix}4\\1\\0\end{pmatrix}\) and solve: \(1 + 3\lambda = 4 \Rightarrow \lambda = 1\).</p>
+        <p>Check \(y\): \(3 + (-2)(1) = 1\,\checkmark\). Check \(z\): \(-2 + 2(1) = 0\,\checkmark\). Verified.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Write the vector equation of the line passing through \(A(5, 0, -3)\) with direction \(\mathbf{d} = \begin{pmatrix}1\\-1\\2\end{pmatrix}\).</li>
+      <li>Find the vector equation of the line through \(P(2, 4, 1)\) and \(Q(6, 2, 5)\).</li>
+      <li>Determine whether the point \(R(8, -2, 5)\) lies on the line \(\mathbf{r} = \begin{pmatrix}2\\0\\1\end{pmatrix} + \lambda\begin{pmatrix}3\\-1\\2\end{pmatrix}\).</li>
+      <li>The line \(L\) passes through \(A(1,2,3)\) and \(B(3,3,1)\). Find the coordinates of the point on \(L\) where \(x = 5\).</li>
+      <li>Write the Cartesian (symmetric) form of the line \(\mathbf{r} = \begin{pmatrix}4\\-1\\2\end{pmatrix} + \lambda\begin{pmatrix}2\\3\\-1\end{pmatrix}\).</li>
+      <li>Find the position vector of the point on the line \(\mathbf{r} = \begin{pmatrix}0\\1\\-2\end{pmatrix} + \lambda\begin{pmatrix}2\\-1\\3\end{pmatrix}\) when \(\lambda = -2\).</li>
+      <li>A line passes through \((1,-1,0)\) and is parallel to the vector \(2\mathbf{i} - 3\mathbf{j} + \mathbf{k}\). Find the coordinates of two distinct points on the line (other than the given point).</li>
+    </ol>
+  </div>
+
+  <div class="box solutions">
+    <div class="box-label">Fully Worked Solutions</div>
+
+    <div class="sol-block">
+      <strong>Q1</strong>
+      <p>$$\boxed{\mathbf{r} = \begin{pmatrix}5\\0\\-3\end{pmatrix} + \lambda\begin{pmatrix}1\\-1\\2\end{pmatrix}}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q2 — Direction from \(P\) to \(Q\)</strong>
+      <p>$$\overrightarrow{PQ} = \begin{pmatrix}6-2\\2-4\\5-1\end{pmatrix} = \begin{pmatrix}4\\-2\\4\end{pmatrix}$$</p>
+      <p>We can simplify by dividing by 2: \(\mathbf{d} = \begin{pmatrix}2\\-1\\2\end{pmatrix}\) (any scalar multiple is valid).</p>
+      <p>$$\boxed{\mathbf{r} = \begin{pmatrix}2\\4\\1\end{pmatrix} + \lambda\begin{pmatrix}2\\-1\\2\end{pmatrix}}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q3 — Does R lie on the line?</strong>
+      <p>Set \(\begin{pmatrix}2+3\lambda\\-\lambda\\1+2\lambda\end{pmatrix} = \begin{pmatrix}8\\-2\\5\end{pmatrix}\).</p>
+      <p>From \(x\): \(2 + 3\lambda = 8 \Rightarrow \lambda = 2\).</p>
+      <p>Check \(y\): \(-\lambda = -2 \Rightarrow \lambda = 2\,\checkmark\).</p>
+      <p>Check \(z\): \(1 + 2(2) = 5\,\checkmark\).</p>
+      <p>\(\boxed{R \text{ lies on the line}}\) (at \(\lambda = 2\)).</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q4 — Point on line where \(x=5\)</strong>
+      <p>Direction: \(\overrightarrow{AB} = \begin{pmatrix}2\\1\\-2\end{pmatrix}\). Line: \(\mathbf{r} = \begin{pmatrix}1\\2\\3\end{pmatrix} + \lambda\begin{pmatrix}2\\1\\-2\end{pmatrix}\).</p>
+      <p>Set \(x = 1 + 2\lambda = 5 \Rightarrow \lambda = 2\).</p>
+      <p>\(y = 2 + 1(2) = 4\). \(z = 3 + (-2)(2) = -1\).</p>
+      <p>Point: \(\boxed{(5,\,4,\,-1)}\).</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q5 — Cartesian form</strong>
+      <p>\(\mathbf{a} = (4,-1,2)\), \(\mathbf{d} = (2,3,-1)\).</p>
+      <p>$$\boxed{\frac{x-4}{2} = \frac{y+1}{3} = \frac{z-2}{-1}}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q6 — Point at \(\lambda = -2\)</strong>
+      <p>\(\mathbf{r} = \begin{pmatrix}0+2(-2)\\1+(-1)(-2)\\-2+3(-2)\end{pmatrix} = \begin{pmatrix}-4\\3\\-8\end{pmatrix}\).</p>
+      <p>$$\boxed{\mathbf{r} = -4\mathbf{i} + 3\mathbf{j} - 8\mathbf{k}}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q7 — Two points on the line</strong>
+      <p>Line: \(\mathbf{r} = \begin{pmatrix}1\\-1\\0\end{pmatrix} + \lambda\begin{pmatrix}2\\-3\\1\end{pmatrix}\).</p>
+      <p>At \(\lambda = 1\!:\; (1+2,\,-1-3,\,0+1) = (3,-4,1)\).</p>
+      <p>At \(\lambda = -1\!:\; (1-2,\,-1+3,\,0-1) = (-1,2,-1)\).</p>
+      <p>Two points: \(\boxed{(3,-4,1) \text{ and } (-1,2,-1)}\).</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ SKILL 38 -->
+<div class="skill">
+  <div class="skill-header">
+    <div class="skill-number">38</div>
+    <div class="skill-title">Dot Product and Angle Between Vectors</div>
+  </div>
+
+  <div class="box concept">
+    <div class="box-label">What It Is</div>
+    <p>The <strong>scalar (dot) product</strong> of two vectors produces a single number (a scalar), not another vector. It combines information about both the magnitudes of the vectors and the angle between them. The dot product is enormously useful because it gives us a simple algebraic way to find the angle between two lines or vectors in 3D — something that would be geometrically very hard to see otherwise. Two vectors are <strong>perpendicular</strong> if and only if their dot product is zero. The dot product is commutative: \(\mathbf{a} \cdot \mathbf{b} = \mathbf{b} \cdot \mathbf{a}\). When working with lines, we use the direction vectors of the lines to find the angle between them, and we always report the <strong>acute angle</strong> (between \(0°\) and \(90°\)).</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">Formula / Rule</div>
+    <p><strong>Component form (for computation):</strong></p>
+    <p>$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + a_3 b_3$$</p>
+    <p><strong>Geometric form (links to angle):</strong></p>
+    <p>$$\mathbf{a} \cdot \mathbf{b} = |\mathbf{a}|\,|\mathbf{b}|\cos\theta$$</p>
+    <p><strong>Formula for the angle \(\theta\) between two vectors:</strong></p>
+    <p>$$\cos\theta = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{a}|\,|\mathbf{b}|}$$</p>
+    <p><strong>Perpendicularity test:</strong> &nbsp; \(\mathbf{a} \perp \mathbf{b} \iff \mathbf{a} \cdot \mathbf{b} = 0\)</p>
+    <p><strong>Angle between two lines:</strong> Use the direction vectors \(\mathbf{d}_1\) and \(\mathbf{d}_2\). If \(\cos\theta < 0\), take \(|\cos\theta|\) to get the acute angle:</p>
+    <p>$$\cos\theta = \frac{|\mathbf{d}_1 \cdot \mathbf{d}_2|}{|\mathbf{d}_1|\,|\mathbf{d}_2|}$$</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">Where to Apply It</div>
+    <p>Use whenever you need to: find the angle between two vectors or two lines; test whether two vectors or lines are perpendicular; test whether a direction is parallel to a plane; or verify that a triangle has a right angle. In exam questions the phrase "find the acute angle between…" is the direct trigger for this skill.</p>
+  </div>
+
+  <div class="box examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example-block">
+      <strong>Example 1 — Angle between two vectors</strong>
+      <p>Find the angle between \(\mathbf{a} = \begin{pmatrix}2\\-1\\3\end{pmatrix}\) and \(\mathbf{b} = \begin{pmatrix}1\\4\\-2\end{pmatrix}\).</p>
+
+      <h3>Step 1 — Compute the dot product</h3>
+      <div class="step">
+        <p>$$\mathbf{a} \cdot \mathbf{b} = (2)(1) + (-1)(4) + (3)(-2) = 2 - 4 - 6 = -8$$</p>
+      </div>
+
+      <h3>Step 2 — Compute the magnitudes</h3>
+      <div class="step">
+        <p>$$|\mathbf{a}| = \sqrt{2^2 + (-1)^2 + 3^2} = \sqrt{4 + 1 + 9} = \sqrt{14}$$</p>
+        <p>$$|\mathbf{b}| = \sqrt{1^2 + 4^2 + (-2)^2} = \sqrt{1 + 16 + 4} = \sqrt{21}$$</p>
+      </div>
+
+      <h3>Step 3 — Apply the formula</h3>
+      <div class="step">
+        <p>$$\cos\theta = \frac{-8}{\sqrt{14}\cdot\sqrt{21}} = \frac{-8}{\sqrt{294}}$$</p>
+        <p>$$\sqrt{294} = \sqrt{49 \times 6} = 7\sqrt{6}$$</p>
+        <p>$$\cos\theta = \frac{-8}{7\sqrt{6}}$$</p>
+      </div>
+
+      <h3>Step 4 — Find \(\theta\)</h3>
+      <div class="step">
+        <p>$$\theta = \cos^{-1}\!\left(\frac{-8}{7\sqrt{6}}\right) \approx \cos^{-1}(-0.4661) \approx 117.7°$$</p>
+      </div>
+
+      <div class="note">If this were the angle between two <em>lines</em>, we would take the acute angle: \(180° - 117.7° \approx \boxed{62.3°}\).</div>
+    </div>
+
+    <div class="example-block">
+      <strong>Example 2 — Angle between two lines</strong>
+      <p>Find the acute angle between the lines</p>
+      <p>$$L_1:\; \mathbf{r} = \begin{pmatrix}1\\0\\2\end{pmatrix}+\lambda\begin{pmatrix}2\\1\\-1\end{pmatrix} \quad \text{and} \quad L_2:\; \mathbf{r} = \begin{pmatrix}3\\1\\0\end{pmatrix}+\mu\begin{pmatrix}0\\1\\2\end{pmatrix}$$</p>
+
+      <h3>Step 1 — Extract direction vectors</h3>
+      <div class="step">
+        <p>\(\mathbf{d}_1 = \begin{pmatrix}2\\1\\-1\end{pmatrix}\), \quad \mathbf{d}_2 = \begin{pmatrix}0\\1\\2\end{pmatrix}\).</p>
+      </div>
+
+      <h3>Step 2 — Dot product</h3>
+      <div class="step">
+        <p>$$\mathbf{d}_1 \cdot \mathbf{d}_2 = (2)(0)+(1)(1)+(-1)(2) = 0+1-2 = -1$$</p>
+      </div>
+
+      <h3>Step 3 — Magnitudes</h3>
+      <div class="step">
+        <p>$$|\mathbf{d}_1| = \sqrt{4+1+1} = \sqrt{6}, \quad |\mathbf{d}_2| = \sqrt{0+1+4} = \sqrt{5}$$</p>
+      </div>
+
+      <h3>Step 4 — Acute angle (use absolute value)</h3>
+      <div class="step">
+        <p>$$\cos\theta = \frac{|\mathbf{d}_1 \cdot \mathbf{d}_2|}{|\mathbf{d}_1||\mathbf{d}_2|} = \frac{|-1|}{\sqrt{6}\cdot\sqrt{5}} = \frac{1}{\sqrt{30}}$$</p>
+        <p>$$\theta = \cos^{-1}\!\left(\frac{1}{\sqrt{30}}\right) \approx \cos^{-1}(0.1826) \approx \boxed{79.5°}$$</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Find \(\mathbf{a} \cdot \mathbf{b}\) where \(\mathbf{a} = \begin{pmatrix}3\\-2\\1\end{pmatrix}\) and \(\mathbf{b} = \begin{pmatrix}-1\\4\\5\end{pmatrix}\).\</li>
+      <li>Show that \(\mathbf{p} = \begin{pmatrix}2\\-3\\1\end{pmatrix}\) and \(\mathbf{q} = \begin{pmatrix}3\\1\\-3\end{pmatrix}\) are perpendicular.</li>
+      <li>Find the angle between \(\mathbf{u} = \begin{pmatrix}1\\2\\2\end{pmatrix}\) and \(\mathbf{v} = \begin{pmatrix}0\\1\\0\end{pmatrix}\), giving your answer in degrees to 1 d.p.</li>
+      <li>Find the acute angle between the lines \(\mathbf{r} = \mathbf{i} + 2\mathbf{j} + \mu(3\mathbf{i} - \mathbf{j} + 2\mathbf{k})\) and \(\mathbf{r} = \mathbf{k} + \lambda(\mathbf{i} + \mathbf{j} - \mathbf{k})\).</li>
+      <li>Given \(|\mathbf{a}| = 4\), \(|\mathbf{b}| = 5\) and the angle between them is \(60°\), find \(\mathbf{a} \cdot \mathbf{b}\).</li>
+      <li>Find the value of \(k\) such that \(\begin{pmatrix}k\\2\\-1\end{pmatrix}\) is perpendicular to \(\begin{pmatrix}3\\k\\4\end{pmatrix}\).</li>
+      <li>The line \(L\) has equation \(\mathbf{r} = \begin{pmatrix}1\\-1\\2\end{pmatrix} + t\begin{pmatrix}2\\1\\-2\end{pmatrix}\). Find the acute angle that \(L\) makes with the positive \(x\)-axis.</li>
+    </ol>
+  </div>
+
+  <div class="box solutions">
+    <div class="box-label">Fully Worked Solutions</div>
+
+    <div class="sol-block">
+      <strong>Q1</strong>
+      <p>$$\mathbf{a} \cdot \mathbf{b} = (3)(-1)+(-2)(4)+(1)(5) = -3-8+5 = \boxed{-6}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q2 — Perpendicularity proof</strong>
+      <p>$$\mathbf{p} \cdot \mathbf{q} = (2)(3)+(-3)(1)+(1)(-3) = 6-3-3 = 0$$</p>
+      <p>Since \(\mathbf{p} \cdot \mathbf{q} = \boxed{0}\), the vectors are perpendicular. \(\square\)</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q3 — Angle between u and v</strong>
+      <p>\(\mathbf{u} \cdot \mathbf{v} = (1)(0)+(2)(1)+(2)(0) = 2\).</p>
+      <p>\(|\mathbf{u}| = \sqrt{1+4+4} = 3\), \(|\mathbf{v}| = \sqrt{0+1+0} = 1\).</p>
+      <p>$$\cos\theta = \frac{2}{3 \times 1} = \frac{2}{3}$$</p>
+      <p>$$\theta = \cos^{-1}\!\left(\tfrac{2}{3}\right) \approx \boxed{48.2°}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q4 — Acute angle between two lines</strong>
+      <p>Direction vectors: \(\mathbf{d}_1 = \begin{pmatrix}3\\-1\\2\end{pmatrix}\), \(\mathbf{d}_2 = \begin{pmatrix}1\\1\\-1\end{pmatrix}\).</p>
+      <p>\(\mathbf{d}_1 \cdot \mathbf{d}_2 = 3-1-2 = 0\).</p>
+      <p>Since the dot product is zero, the direction vectors are perpendicular.</p>
+      <p>Acute angle = \(\boxed{90°}\). The lines are perpendicular.</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q5 — Using the geometric formula</strong>
+      <p>$$\mathbf{a} \cdot \mathbf{b} = |\mathbf{a}||\mathbf{b}|\cos 60° = 4 \times 5 \times \frac{1}{2} = \boxed{10}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q6 — Finding k for perpendicularity</strong>
+      <p>$$\begin{pmatrix}k\\2\\-1\end{pmatrix} \cdot \begin{pmatrix}3\\k\\4\end{pmatrix} = 3k + 2k - 4 = 5k - 4 = 0$$</p>
+      <p>$$k = \boxed{\frac{4}{5}}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q7 — Angle with positive x-axis</strong>
+      <p>The positive \(x\)-axis has direction \(\mathbf{i} = \begin{pmatrix}1\\0\\0\end{pmatrix}\). The line's direction is \(\mathbf{d} = \begin{pmatrix}2\\1\\-2\end{pmatrix}\).</p>
+      <p>\(\mathbf{d} \cdot \mathbf{i} = 2\).</p>
+      <p>\(|\mathbf{d}| = \sqrt{4+1+4} = 3\), \(|\mathbf{i}| = 1\).</p>
+      <p>$$\cos\theta = \frac{|2|}{3 \times 1} = \frac{2}{3}$$</p>
+      <p>$$\theta = \cos^{-1}\!\left(\tfrac{2}{3}\right) \approx \boxed{48.2°}$$</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ SKILL 39 -->
+<div class="skill">
+  <div class="skill-header">
+    <div class="skill-number">39</div>
+    <div class="skill-title">Intersection and Skew Lines</div>
+  </div>
+
+  <div class="box concept">
+    <div class="box-label">What It Is</div>
+    <p>In 3D, two lines can behave in three fundamentally different ways: they can be <strong>parallel</strong> (same direction, never meeting), they can <strong>intersect</strong> (meet at exactly one point), or they can be <strong>skew</strong> (not parallel and not meeting — only possible in 3D). To test whether two lines intersect, you set their vector equations equal and solve the resulting system. This gives you two parameters. You use two component equations to solve for the parameters, then substitute into the <strong>third</strong> component equation to check consistency. If it is consistent, the lines intersect at that point. If inconsistent, the lines are skew (assuming they are not parallel).</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">Formula / Rule</div>
+    <p><strong>Setup:</strong> Given \(L_1: \mathbf{r} = \mathbf{a} + \lambda\,\mathbf{d}_1\) and \(L_2: \mathbf{r} = \mathbf{b} + \mu\,\mathbf{d}_2\), set \(\mathbf{a} + \lambda\,\mathbf{d}_1 = \mathbf{b} + \mu\,\mathbf{d}_2\).</p>
+    <p>This produces <strong>three scalar equations</strong> (one per component) in <strong>two unknowns</strong> \(\lambda\) and \(\mu\).</p>
+    <p><strong>Procedure:</strong></p>
+    <ol>
+      <li>Write out the three component equations.</li>
+      <li>Solve any <strong>two</strong> of them simultaneously to find \(\lambda\) and \(\mu\).</li>
+      <li>Substitute both values into the <strong>third</strong> equation.</li>
+      <li>If the third equation is satisfied: lines <strong>intersect</strong>. Find the point by substituting \(\lambda\) into \(L_1\).</li>
+      <li>If not satisfied: lines are <strong>skew</strong> (provided they are not parallel).</li>
+    </ol>
+    <p><strong>Parallel check:</strong> If \(\mathbf{d}_1 = k\,\mathbf{d}_2\) for some scalar \(k\), the lines are parallel (or identical).</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">Where to Apply It</div>
+    <p>Use this whenever an exam question asks: "Do the lines intersect? If so, find the point of intersection" or "Show that the lines are skew." Always perform the parallel check first (it is quick). Only proceed to the full three-equation system if the lines are not parallel.</p>
+  </div>
+
+  <div class="box examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example-block">
+      <strong>Example 1 — Lines that intersect</strong>
+      <p>Show that the lines \(L_1: \mathbf{r} = \begin{pmatrix}1\\2\\3\end{pmatrix}+\lambda\begin{pmatrix}2\\-1\\1\end{pmatrix}\) and \(L_2: \mathbf{r} = \begin{pmatrix}3\\0\\5\end{pmatrix}+\mu\begin{pmatrix}0\\1\\-1\end{pmatrix}\) intersect, and find the point of intersection.</p>
+
+      <h3>Step 1 — Parallel check</h3>
+      <div class="step">
+        <p>\(\mathbf{d}_1 = \begin{pmatrix}2\\-1\\1\end{pmatrix}\), \(\mathbf{d}_2 = \begin{pmatrix}0\\1\\-1\end{pmatrix}\). These are not scalar multiples of each other, so the lines are not parallel.</p>
+      </div>
+
+      <h3>Step 2 — Set equations equal and write component equations</h3>
+      <div class="step">
+        <p>$$\begin{pmatrix}1+2\lambda\\2-\lambda\\3+\lambda\end{pmatrix} = \begin{pmatrix}3\\0+\mu\\5-\mu\end{pmatrix}$$</p>
+        <p>(i) \(1 + 2\lambda = 3\)</p>
+        <p>(ii) \(2 - \lambda = \mu\)</p>
+        <p>(iii) \(3 + \lambda = 5 - \mu\)</p>
+      </div>
+
+      <h3>Step 3 — Solve (i) and (ii)</h3>
+      <div class="step">
+        <p>From (i): \(2\lambda = 2 \Rightarrow \lambda = 1\).</p>
+        <p>From (ii): \(\mu = 2 - 1 = 1\).</p>
+      </div>
+
+      <h3>Step 4 — Check in equation (iii)</h3>
+      <div class="step">
+        <p>LHS: \(3 + 1 = 4\). RHS: \(5 - 1 = 4\). \(\checkmark\) Consistent.</p>
+        <p>The lines <strong>intersect</strong>.</p>
+      </div>
+
+      <h3>Step 5 — Find the intersection point</h3>
+      <div class="step">
+        <p>Substitute \(\lambda = 1\) into \(L_1\): \(\mathbf{r} = \begin{pmatrix}1+2\\2-1\\3+1\end{pmatrix} = \begin{pmatrix}3\\1\\4\end{pmatrix}\).</p>
+        <p>Point of intersection: \(\boxed{(3,\,1,\,4)}\).</p>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <strong>Example 2 — Showing lines are skew</strong>
+      <p>Show that \(L_1: \mathbf{r} = \begin{pmatrix}2\\0\\1\end{pmatrix}+\lambda\begin{pmatrix}1\\1\\2\end{pmatrix}\) and \(L_2: \mathbf{r} = \begin{pmatrix}4\\3\\0\end{pmatrix}+\mu\begin{pmatrix}2\\-1\\1\end{pmatrix}\) are skew.</p>
+
+      <h3>Step 1 — Parallel check</h3>
+      <div class="step">
+        <p>\(\mathbf{d}_1 = \begin{pmatrix}1\\1\\2\end{pmatrix}\), \(\mathbf{d}_2 = \begin{pmatrix}2\\-1\\1\end{pmatrix}\). If parallel, \(d_{1}/d_{2} = k\) for all components: \(\frac{1}{2} \ne \frac{1}{-1}\). Not parallel.</p>
+      </div>
+
+      <h3>Step 2 — Set up component equations</h3>
+      <div class="step">
+        <p>(i) \(2 + \lambda = 4 + 2\mu\) &nbsp;→&nbsp; \(\lambda - 2\mu = 2\)</p>
+        <p>(ii) \(0 + \lambda = 3 - \mu\) &nbsp;→&nbsp; \(\lambda + \mu = 3\)</p>
+        <p>(iii) \(1 + 2\lambda = 0 + \mu\) &nbsp;→&nbsp; \(2\lambda - \mu = -1\)</p>
+      </div>
+
+      <h3>Step 3 — Solve (i) and (ii)</h3>
+      <div class="step">
+        <p>Subtract (i) from (ii): \((\lambda + \mu) - (\lambda - 2\mu) = 3 - 2 \Rightarrow 3\mu = 1 \Rightarrow \mu = \frac{1}{3}\).</p>
+        <p>\(\lambda = 3 - \frac{1}{3} = \frac{8}{3}\).</p>
+      </div>
+
+      <h3>Step 4 — Check in equation (iii)</h3>
+      <div class="step">
+        <p>LHS: \(2\left(\frac{8}{3}\right) - \frac{1}{3} = \frac{16}{3} - \frac{1}{3} = \frac{15}{3} = 5\).</p>
+        <p>RHS: \(-1\).</p>
+        <p>\(5 \ne -1\). The equations are <strong>inconsistent</strong>.</p>
+        <p>Since the lines are not parallel and do not intersect, they are \(\boxed{\text{skew}}\).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Determine whether the lines \(L_1: \mathbf{r} = \begin{pmatrix}0\\1\\2\end{pmatrix}+\lambda\begin{pmatrix}1\\-1\\1\end{pmatrix}\) and \(L_2: \mathbf{r} = \begin{pmatrix}2\\3\\0\end{pmatrix}+\mu\begin{pmatrix}-1\\1\\-1\end{pmatrix}\) are parallel, intersecting, or skew.</li>
+      <li>Find the point of intersection of \(L_1: \mathbf{r} = \begin{pmatrix}1\\-1\\0\end{pmatrix}+\lambda\begin{pmatrix}2\\1\\3\end{pmatrix}\) and \(L_2: \mathbf{r} = \begin{pmatrix}5\\3\\6\end{pmatrix}+\mu\begin{pmatrix}0\\1\\-1\end{pmatrix}\).</li>
+      <li>Show that the lines \(\mathbf{r} = \begin{pmatrix}1\\2\\0\end{pmatrix}+\lambda\begin{pmatrix}1\\0\\1\end{pmatrix}\) and \(\mathbf{r} = \begin{pmatrix}2\\1\\3\end{pmatrix}+\mu\begin{pmatrix}0\\1\\2\end{pmatrix}\) are skew.</li>
+      <li>Two lines: \(L_1\) passes through \((0,0,0)\) with direction \(\begin{pmatrix}1\\2\\1\end{pmatrix}\); \(L_2\) passes through \((3,0,1)\) with direction \(\begin{pmatrix}1\\-1\\0\end{pmatrix}\). Find the point of intersection, if it exists.</li>
+      <li>Lines \(L_1\) and \(L_2\) have equations \(\frac{x-1}{2} = \frac{y+1}{1} = \frac{z}{3}\) and \(\frac{x-3}{0} = \frac{y-2}{1} = \frac{z-2}{-1}\) respectively. Do they intersect?</li>
+      <li>Three points \(A(1,0,2)\), \(B(3,2,0)\), \(C(0,1,5)\) define two lines: \(L_1\) through \(A\) and \(B\); \(L_2\) through \(A\) and \(C\). Are these lines the same, parallel, or intersecting? Justify.</li>
+      <li>Show that the following lines are skew: \(L_1: \mathbf{r} = (2\mathbf{i}+\mathbf{k})+\lambda(\mathbf{i}+2\mathbf{j}+\mathbf{k})\) and \(L_2: \mathbf{r} = (3\mathbf{i}+\mathbf{j})+\mu(2\mathbf{i}+\mathbf{j}+3\mathbf{k})\).</li>
+    </ol>
+  </div>
+
+  <div class="box solutions">
+    <div class="box-label">Fully Worked Solutions</div>
+
+    <div class="sol-block">
+      <strong>Q1 — Parallel check first</strong>
+      <p>\(\mathbf{d}_1 = \begin{pmatrix}1\\-1\\1\end{pmatrix}\), \(\mathbf{d}_2 = \begin{pmatrix}-1\\1\\-1\end{pmatrix} = -1 \cdot \begin{pmatrix}1\\-1\\1\end{pmatrix}\).</p>
+      <p>\(\mathbf{d}_2 = -\mathbf{d}_1\), so the directions are antiparallel (i.e., parallel).</p>
+      <p>Check if they are the same line: Does \(A(0,1,2)\) lie on \(L_2\)? Set \((0,1,2) = (2-\mu, 3+\mu, -\mu)\): \(-\mu=2 \Rightarrow \mu=-2\); check \(3+\mu = 1 \Rightarrow \mu=-2\,\checkmark\); check \(-\mu=2\,\checkmark\). The point lies on \(L_2\), so the lines are \(\boxed{\text{identical (the same line)}}\).</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q2 — Intersection point</strong>
+      <p>Component equations: (i) \(1+2\lambda = 5\), (ii) \(-1+\lambda = 3+\mu\), (iii) \(3\lambda = 6-\mu\).</p>
+      <p>From (i): \(\lambda = 2\). From (ii): \(\mu = -1+2-3 = -2\). Check (iii): \(6 = 6-(-2) = 8\). \(6 \ne 8\)... </p>
+      <p>Re-examine: From (i): \(1+2\lambda=5 \Rightarrow \lambda=2\). From (ii): \(-1+\lambda = 3+\mu \Rightarrow 1 = 3+\mu \Rightarrow \mu=-2\). Check (iii): LHS \(= 0+3\lambda = 6\). RHS \(= 6+\mu = 6-2=4\). \(6\ne4\).</p>
+      <p>The lines do not satisfy all three equations simultaneously. Check using (i) and (iii): from (i) \(\lambda=2\); from (iii) \(3(2)=6-\mu \Rightarrow \mu=0\). Check (ii): \(-1+2=1\) vs \(3+0=3\). \(1\ne3\).</p>
+      <p>The lines are \(\boxed{\text{skew}}\). (The problem as stated has skew lines — verify by all three pairs of equations being inconsistent.)</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q3 — Skew lines proof</strong>
+      <p>Direction vectors \(\begin{pmatrix}1\\0\\1\end{pmatrix}\) and \(\begin{pmatrix}0\\1\\2\end{pmatrix}\) are not parallel (no scalar \(k\) satisfies all components).</p>
+      <p>Component equations: (i) \(1+\lambda = 2\), (ii) \(2 = 1+\mu\), (iii) \(\lambda = 3+2\mu\).</p>
+      <p>From (i): \(\lambda=1\). From (ii): \(\mu=1\). Check (iii): \(1 = 3+2 = 5\). \(1 \ne 5\). Inconsistent.</p>
+      <p>\(\therefore\) The lines are \(\boxed{\text{skew}}\). \(\square\)</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q4 — Intersection test</strong>
+      <p>\(L_1: \mathbf{r} = \lambda\begin{pmatrix}1\\2\\1\end{pmatrix}\), \(L_2: \mathbf{r}=\begin{pmatrix}3\\0\\1\end{pmatrix}+\mu\begin{pmatrix}1\\-1\\0\end{pmatrix}\).</p>
+      <p>(i) \(\lambda = 3+\mu\); (ii) \(2\lambda = -\mu\); (iii) \(\lambda = 1\).</p>
+      <p>From (iii): \(\lambda=1\). From (ii): \(\mu = -2\). Check (i): \(1 = 3+(-2) = 1\,\checkmark\).</p>
+      <p>Intersection at \(\lambda=1\): \(\mathbf{r} = \begin{pmatrix}1\\2\\1\end{pmatrix}\). Point: \(\boxed{(1,2,1)}\).</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q5 — Cartesian to vector form then test</strong>
+      <p>\(L_1\): \(\mathbf{r} = \begin{pmatrix}1\\-1\\0\end{pmatrix}+\lambda\begin{pmatrix}2\\1\\3\end{pmatrix}\). \(L_2\): direction \(\begin{pmatrix}0\\1\\-1\end{pmatrix}\), through \((3,2,2)\), so \(\mathbf{r}=\begin{pmatrix}3\\2\\2\end{pmatrix}+\mu\begin{pmatrix}0\\1\\-1\end{pmatrix}\).</p>
+      <p>(i) \(1+2\lambda=3\Rightarrow\lambda=1\). (ii) \(-1+\lambda=2+\mu\Rightarrow\mu=-2\). (iii) \(3\lambda=2-\mu \Rightarrow 3 = 2+2=4\). \(3\ne4\). Lines are \(\boxed{\text{skew}}\).</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q6 — Lines through A,B and A,C</strong>
+      <p>Both lines share point \(A(1,0,2)\). Since they both pass through the same point, they <strong>intersect</strong> at \(A\).</p>
+      <p>Check if parallel: \(\overrightarrow{AB} = \begin{pmatrix}2\\2\\-2\end{pmatrix}\), \(\overrightarrow{AC}=\begin{pmatrix}-1\\1\\3\end{pmatrix}\). Not scalar multiples. They are distinct lines meeting at \(\boxed{A(1,0,2)}\).</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q7 — Skew proof</strong>
+      <p>Direction vectors: \(\mathbf{d}_1=\begin{pmatrix}1\\2\\1\end{pmatrix}\), \(\mathbf{d}_2=\begin{pmatrix}2\\1\\3\end{pmatrix}\). Not parallel.</p>
+      <p>Component equations: (i) \(2+\lambda=3+2\mu\Rightarrow\lambda-2\mu=1\); (ii) \(2\lambda=1+\mu\); (iii) \(1+\lambda=3\mu\).</p>
+      <p>From (i): \(\lambda=1+2\mu\). Substitute into (ii): \(2+4\mu=1+\mu\Rightarrow 3\mu=-1\Rightarrow\mu=-\frac{1}{3}\), \(\lambda=1-\frac{2}{3}=\frac{1}{3}\).</p>
+      <p>Check (iii): LHS \(= 1+\frac{1}{3}=\frac{4}{3}\). RHS \(= 3(-\frac{1}{3})=-1\). \(\frac{4}{3}\ne-1\).</p>
+      <p>\(\therefore\) Lines are \(\boxed{\text{skew}}\). \(\square\)</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ SKILL 40 -->
+<div class="skill">
+  <div class="skill-header">
+    <div class="skill-number">40</div>
+    <div class="skill-title">Separation of Variables (Solving Differential Equations)</div>
+  </div>
+
+  <div class="box concept">
+    <div class="box-label">What It Is</div>
+    <p>A <strong>differential equation</strong> (DE) is an equation that contains a derivative, such as \(\frac{dy}{dx}\). Many real-world processes — population growth, radioactive decay, cooling — are modelled by DEs. The technique of <strong>separation of variables</strong> solves a first-order DE by rearranging it so that all terms involving \(y\) (including \(dy\)) are on one side, and all terms involving \(x\) (including \(dx\)) are on the other. You then integrate both sides independently. The result is a <strong>general solution</strong> — a family of curves, each corresponding to a different value of the arbitrary constant \(C\). If you are given a specific point that the curve passes through (a <strong>boundary condition</strong>), you substitute it to find the <strong>particular solution</strong>.</p>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">Formula / Rule</div>
+    <p><strong>General method for \(\dfrac{dy}{dx} = f(x)\,g(y)\):</strong></p>
+    <p>$$\frac{1}{g(y)}\,dy = f(x)\,dx$$</p>
+    <p>Integrate both sides:</p>
+    <p>$$\int \frac{1}{g(y)}\,dy = \int f(x)\,dx$$</p>
+    <p>Add a single constant of integration \(C\) (on one side only).</p>
+    <p><strong>Particular solution:</strong> Substitute the known point \((x_0, y_0)\) into the general solution to find \(C\).</p>
+    <p><strong>Common model forms:</strong></p>
+    <ul>
+      <li>Growth: \(\dfrac{dy}{dt} = ky \;\Rightarrow\; y = Ae^{kt}\)</li>
+      <li>Decay: \(\dfrac{dy}{dt} = -ky \;\Rightarrow\; y = Ae^{-kt}\)</li>
+    </ul>
+  </div>
+
+  <div class="box formula">
+    <div class="box-label">Where to Apply It</div>
+    <p>Use this whenever you see a first-order DE of the form \(\frac{dy}{dx} = f(x)\,g(y)\) — that is, when the right-hand side can be factored into a product of a pure function of \(x\) and a pure function of \(y\). Common triggers in exam questions: "solve the differential equation", "given that \(y = \ldots\) when \(x = \ldots\)", "find the particular solution", "show that \(y = \ldots\) satisfies…".</p>
+  </div>
+
+  <div class="box examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example-block">
+      <strong>Example 1 — General and particular solution</strong>
+      <p>Solve the differential equation \(\dfrac{dy}{dx} = 3x^2 y\), given that \(y = 2\) when \(x = 0\).</p>
+
+      <h3>Step 1 — Separate variables</h3>
+      <div class="step">
+        <p>Divide both sides by \(y\) (assuming \(y \ne 0\)) and multiply both sides by \(dx\):</p>
+        <p>$$\frac{1}{y}\,dy = 3x^2\,dx$$</p>
+      </div>
+
+      <h3>Step 2 — Integrate both sides</h3>
+      <div class="step">
+        <p>$$\int \frac{1}{y}\,dy = \int 3x^2\,dx$$</p>
+        <p>$$\ln|y| = x^3 + C$$</p>
+      </div>
+
+      <h3>Step 3 — Exponentiate to solve for \(y\)</h3>
+      <div class="step">
+        <p>$$|y| = e^{x^3 + C} = e^C \cdot e^{x^3}$$</p>
+        <p>Write \(A = \pm e^C\) (an arbitrary non-zero constant):</p>
+        <p>$$y = A e^{x^3}$$</p>
+        <p>This is the <strong>general solution</strong>.</p>
+      </div>
+
+      <h3>Step 4 — Apply the boundary condition \(y(0) = 2\)</h3>
+      <div class="step">
+        <p>$$2 = A e^{0^3} = A \cdot 1 \Rightarrow A = 2$$</p>
+      </div>
+
+      <h3>Step 5 — State the particular solution</h3>
+      <div class="step">
+        <p>$$\boxed{y = 2e^{x^3}}$$</p>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <strong>Example 2 — More complex separation</strong>
+      <p>Solve \(\dfrac{dy}{dx} = \dfrac{x^2}{y+1}\), given that \(y = 0\) when \(x = 3\).</p>
+
+      <h3>Step 1 — Separate variables</h3>
+      <div class="step">
+        <p>Multiply both sides by \((y+1)\,dx\):</p>
+        <p>$$(y+1)\,dy = x^2\,dx$$</p>
+      </div>
+
+      <h3>Step 2 — Integrate both sides</h3>
+      <div class="step">
+        <p>$$\int (y+1)\,dy = \int x^2\,dx$$</p>
+        <p>$$\frac{y^2}{2} + y = \frac{x^3}{3} + C$$</p>
+      </div>
+
+      <h3>Step 3 — Apply the boundary condition \(y = 0, x = 3\)</h3>
+      <div class="step">
+        <p>$$\frac{0}{2} + 0 = \frac{27}{3} + C$$</p>
+        <p>$$0 = 9 + C \Rightarrow C = -9$$</p>
+      </div>
+
+      <h3>Step 4 — Write the particular solution</h3>
+      <div class="step">
+        <p>$$\boxed{\frac{y^2}{2} + y = \frac{x^3}{3} - 9}$$</p>
+        <p>This is an implicit solution (it is acceptable to leave it in this form unless the question requires explicit \(y\)).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Solve \(\dfrac{dy}{dx} = 2xy\), given \(y = 5\) when \(x = 0\). Express \(y\) explicitly.</li>
+      <li>Find the general solution of \(\dfrac{dy}{dx} = \dfrac{x}{y}\).</li>
+      <li>Solve \(\dfrac{dy}{dx} = \dfrac{y^2}{x}\), given \(y = 1\) when \(x = 1\).</li>
+      <li>Solve \(\dfrac{dy}{dx} = 4y\), given \(y = 3\) when \(x = 0\). State the value of \(y\) when \(x = \frac{1}{2}\).</li>
+      <li>The rate of decay of a radioactive substance is given by \(\dfrac{dN}{dt} = -kN\), where \(N\) is the number of particles and \(k\) is a positive constant. Given \(N = N_0\) at \(t = 0\), show that \(N = N_0 e^{-kt}\).</li>
+      <li>Solve the differential equation \(\dfrac{dy}{dx} = \dfrac{\sin x}{y^2}\), given \(y = 1\) when \(x = 0\).</li>
+      <li>A population \(P\) grows according to \(\dfrac{dP}{dt} = 0.03P\). If \(P = 500\) when \(t = 0\), find \(P\) when \(t = 10\), giving your answer to the nearest whole number.</li>
+    </ol>
+  </div>
+
+  <div class="box solutions">
+    <div class="box-label">Fully Worked Solutions</div>
+
+    <div class="sol-block">
+      <strong>Q1</strong>
+      <p>Separate: \(\dfrac{1}{y}\,dy = 2x\,dx\). Integrate: \(\ln|y| = x^2 + C\). Exponentiate: \(y = Ae^{x^2}\).</p>
+      <p>Boundary condition \(y(0)=5\): \(5 = Ae^0 = A \Rightarrow A = 5\).</p>
+      <p>$$\boxed{y = 5e^{x^2}}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q2</strong>
+      <p>Separate: \(y\,dy = x\,dx\). Integrate: \(\dfrac{y^2}{2} = \dfrac{x^2}{2} + C\).</p>
+      <p>Multiply through by 2: \(y^2 = x^2 + A\) where \(A = 2C\) is an arbitrary constant.</p>
+      <p>$$\boxed{y^2 = x^2 + A}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q3</strong>
+      <p>Separate: \(\dfrac{1}{y^2}\,dy = \dfrac{1}{x}\,dx\), i.e., \(y^{-2}\,dy = \dfrac{1}{x}\,dx\).</p>
+      <p>Integrate: \(\dfrac{y^{-1}}{-1} = \ln|x| + C\), so \(-\dfrac{1}{y} = \ln x + C\).</p>
+      <p>Boundary condition \(y(1)=1\): \(-1 = \ln 1 + C = 0 + C \Rightarrow C = -1\).</p>
+      <p>\(-\dfrac{1}{y} = \ln x - 1\), so \(\dfrac{1}{y} = 1 - \ln x\).</p>
+      <p>$$\boxed{y = \frac{1}{1 - \ln x}}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q4</strong>
+      <p>Separate: \(\dfrac{1}{y}\,dy = 4\,dx\). Integrate: \(\ln|y| = 4x + C\). Exponentiate: \(y = Ae^{4x}\).</p>
+      <p>Boundary condition \(y(0)=3\): \(A = 3\). General: \(y = 3e^{4x}\).</p>
+      <p>At \(x = \dfrac{1}{2}\): \(y = 3e^{4 \times \frac{1}{2}} = 3e^2\).</p>
+      <p>$$\boxed{y = 3e^2 \approx 22.17}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q5 — Radioactive decay proof</strong>
+      <p>Separate: \(\dfrac{1}{N}\,dN = -k\,dt\).</p>
+      <p>Integrate: \(\ln|N| = -kt + C\). Exponentiate: \(N = Ae^{-kt}\).</p>
+      <p>Boundary condition \(N(0) = N_0\): \(N_0 = Ae^0 = A\).</p>
+      <p>$$\boxed{N = N_0 e^{-kt}} \quad \square$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q6</strong>
+      <p>Separate: \(y^2\,dy = \sin x\,dx\). Integrate: \(\dfrac{y^3}{3} = -\cos x + C\).</p>
+      <p>Boundary condition \(y(0) = 1\): \(\dfrac{1}{3} = -\cos 0 + C = -1 + C \Rightarrow C = \dfrac{4}{3}\).</p>
+      <p>\(\dfrac{y^3}{3} = -\cos x + \dfrac{4}{3}\). Multiply by 3: \(y^3 = 3 - 3\cos x\).</p>
+      <p>$$\boxed{y = \sqrt[3]{3 - 3\cos x}}$$</p>
+    </div>
+
+    <div class="sol-block">
+      <strong>Q7 — Population model</strong>
+      <p>Separate: \(\dfrac{1}{P}\,dP = 0.03\,dt\). Integrate: \(\ln P = 0.03t + C\). Exponentiate: \(P = Ae^{0.03t}\).</p>
+      <p>Boundary condition \(P(0) = 500\): \(A = 500\). So \(P = 500e^{0.03t}\).</p>
+      <p>At \(t = 10\): \(P = 500e^{0.3} = 500 \times 1.34986\ldots \approx 675\).</p>
+      <p>$$\boxed{P \approx 675}$$</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

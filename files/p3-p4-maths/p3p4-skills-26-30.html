@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 & P4 Maths — Skills 26–30</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['$$', '$$']],
+    tags: 'none'
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #1a1a2e;
+    padding: 24px 16px 60px;
+  }
+
+  .page-header {
+    max-width: 900px;
+    margin: 0 auto 48px;
+    text-align: center;
+    padding: 40px 32px;
+    background: #1a1a2e;
+    border-radius: 12px;
+    color: #fff;
+  }
+  .page-header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .page-header p {
+    font-size: 0.95rem;
+    opacity: 0.75;
+    font-weight: 300;
+  }
+
+  .skill-block {
+    max-width: 900px;
+    margin: 0 auto 56px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(26,26,46,0.09);
+  }
+
+  .skill-header {
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 22px 32px;
+  }
+  .skill-header .skill-number {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 4px;
+  }
+  .skill-header h2 {
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  .section {
+    padding: 28px 32px;
+    border-bottom: 1px solid rgba(26,26,46,0.07);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 0.55;
+  }
+
+  /* Colour themes */
+  .concept  { background: #e8f4fd; }
+  .formula  { background: #fff9e6; }
+  .apply    { background: #f0faf0; }
+  .examples { background: #e8f8e8; }
+  .questions{ background: #f3e8ff; }
+  .solutions{ background: #fff0e8; }
+
+  .concept  .section-label { color: #1565c0; }
+  .formula  .section-label { color: #b8860b; }
+  .apply    .section-label { color: #2e7d32; }
+  .examples .section-label { color: #1b5e20; }
+  .questions .section-label{ color: #6a1b9a; }
+  .solutions .section-label{ color: #bf360c; }
+
+  .formula .math-display {
+    font-size: 1.08em;
+  }
+
+  /* Worked example sub-blocks */
+  .example-block {
+    background: rgba(255,255,255,0.55);
+    border-left: 4px solid #2e7d32;
+    border-radius: 0 8px 8px 0;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .example-block:last-child { margin-bottom: 0; }
+  .example-block h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1b5e20;
+    letter-spacing: 0.5px;
+  }
+
+  .step {
+    margin: 8px 0;
+    padding-left: 16px;
+    border-left: 2px solid rgba(46,125,50,0.2);
+  }
+  .step-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #2e7d32;
+    margin-bottom: 2px;
+  }
+
+  /* Q&A numbering */
+  .q-list, .s-list {
+    list-style: none;
+    counter-reset: qcount;
+  }
+  .q-list li, .s-list li {
+    counter-increment: qcount;
+    margin-bottom: 16px;
+    padding-left: 36px;
+    position: relative;
+  }
+  .q-list li::before {
+    content: "Q" counter(qcount);
+    position: absolute; left: 0; top: 0;
+    font-size: 0.72rem; font-weight: 700;
+    background: #6a1b9a; color: #fff;
+    padding: 2px 6px; border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .s-list li::before {
+    content: "S" counter(qcount);
+    position: absolute; left: 0; top: 0;
+    font-size: 0.72rem; font-weight: 700;
+    background: #bf360c; color: #fff;
+    padding: 2px 6px; border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .sol-block {
+    background: rgba(255,255,255,0.5);
+    border-left: 4px solid #bf360c;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-top: 6px;
+  }
+  .sol-step { margin: 6px 0; }
+
+  /* Formula key-value grid */
+  .formula-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .formula-item {
+    background: rgba(255,255,255,0.6);
+    border-radius: 8px;
+    padding: 14px 18px;
+    border: 1px solid rgba(184,134,11,0.2);
+  }
+  .formula-item .f-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #b8860b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  p { margin-bottom: 10px; }
+  p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 600px) {
+    .section { padding: 20px 18px; }
+    .skill-header { padding: 18px 18px; }
+    .example-block { padding: 14px 14px; }
+  }
+</style>
+<!-- sb:start -->
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
+<script src="../../app/note.js"></script>
+<!-- sb:end -->
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Edexcel IAL Pure Mathematics P3 &amp; P4</h1>
+  <p>Skills 26 – 30 &nbsp;·&nbsp; Complete Teaching Notes with Worked Examples &amp; Practice</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SKILL 26: COMPLETING THE SQUARE
+═══════════════════════════════════════════════════════════ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 26</div>
+    <h2>Completing the Square</h2>
+  </div>
+
+  <!-- CONCEPT -->
+  <div class="section concept">
+    <div class="section-label">What It Is</div>
+    <p>Completing the square is a method of rewriting a quadratic expression \(ax^2 + bx + c\) into the equivalent form \(a(x+p)^2 + q\). Instead of leaving the quadratic in its expanded form, you force it into a perfect-square bracket plus a leftover constant.</p>
+    <p>The technique is important because the completed-square form immediately reveals the minimum (or maximum) value of the quadratic and the value of \(x\) at which that occurs. It also lets you solve quadratics that do not factorise neatly and is used when integrating certain expressions.</p>
+    <p>Every quadratic can be completed-square — there are no exceptions. The process is entirely algebraic: no trial and error is required.</p>
+  </div>
+
+  <!-- FORMULA -->
+  <div class="section formula">
+    <div class="section-label">The Rule</div>
+    <div class="formula-grid">
+      <div class="formula-item">
+        <div class="f-label">General Result (leading coefficient = 1)</div>
+        $$x^2 + bx + c = \left(x + \frac{b}{2}\right)^2 - \left(\frac{b}{2}\right)^2 + c$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">General Result (leading coefficient \(a \neq 1\))</div>
+        $$ax^2 + bx + c = a\!\left(x + \frac{b}{2a}\right)^2 - \frac{b^2}{4a} + c$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Key shortcut — half the \(x\)-coefficient, then square it</div>
+        <p>Take the coefficient of \(x\), halve it, put it inside the bracket with \(x\), square the bracket, then subtract that square outside the bracket to compensate.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHEN TO APPLY -->
+  <div class="section apply">
+    <div class="section-label">When To Use It</div>
+    <p><strong>Solving quadratics</strong> that cannot be factorised: rewrite in completed-square form, then isolate \(x\).</p>
+    <p><strong>Finding the vertex</strong> of a parabola: the form \(a(x+p)^2+q\) gives vertex \((-p,\,q)\) directly.</p>
+    <p><strong>Integration</strong>: expressions like \(\dfrac{1}{x^2+4x+13}\) must be completed-square before using the standard \(\arctan\) integral.</p>
+    <p><strong>Proving results</strong>: e.g.\ showing a quadratic is always positive by writing it as a perfect square plus a positive constant.</p>
+  </div>
+
+  <!-- WORKED EXAMPLES -->
+  <div class="section examples">
+    <div class="section-label">Worked Examples</div>
+
+    <div class="example-block">
+      <h4>Example 1 — Leading coefficient 1</h4>
+      <p>Write \(x^2 - 6x + 11\) in the form \((x+p)^2 + q\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Halve the \(x\)-coefficient</div>
+        <p>The coefficient of \(x\) is \(-6\). Half of \(-6\) is \(-3\). So the squared bracket will be \((x-3)^2\).</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Expand the bracket to find what it equals</div>
+        <p>\((x-3)^2 = x^2 - 6x + 9\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Find the correction constant</div>
+        <p>We have \(x^2-6x+11\) but the bracket gives \(x^2-6x+9\). The difference is \(11-9=2\). So we write:</p>
+        $$x^2 - 6x + 11 = (x-3)^2 + 2$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — State the result</div>
+        $$\boxed{(x-3)^2 + 2}$$
+        <p>Minimum value is \(2\), occurring at \(x=3\).</p>
+      </div>
+    </div>
+
+    <div class="example-block">
+      <h4>Example 2 — Leading coefficient \(\neq 1\)</h4>
+      <p>Write \(2x^2 + 12x - 5\) in the form \(a(x+p)^2 + q\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Factor out the leading coefficient from the \(x\)-terms only</div>
+        $$2x^2 + 12x - 5 = 2\!\left(x^2 + 6x\right) - 5$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Complete the square inside the bracket</div>
+        <p>Half of \(6\) is \(3\). So \(x^2+6x = (x+3)^2 - 9\).</p>
+        $$= 2\!\left[(x+3)^2 - 9\right] - 5$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Expand the factor of 2</div>
+        $$= 2(x+3)^2 - 18 - 5$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Collect the constants</div>
+        $$\boxed{2(x+3)^2 - 23}$$
+        <p>Minimum value is \(-23\), occurring at \(x = -3\).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div class="section questions">
+    <div class="section-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Write \(x^2 + 8x + 3\) in the form \((x+p)^2 + q\). State the minimum value.</li>
+      <li>Write \(x^2 - 10x + 30\) in completed-square form.</li>
+      <li>Write \(3x^2 + 12x - 1\) in the form \(a(x+p)^2 + q\).</li>
+      <li>Write \(2x^2 - 8x + 9\) in completed-square form. Hence state the minimum value and the value of \(x\) at which it occurs.</li>
+      <li>Show that \(x^2 - 4x + 7 > 0\) for all real \(x\). (Hint: complete the square.)</li>
+      <li>Write \(x^2 + 5x + 4\) in completed-square form, then solve \(x^2 + 5x + 4 = 0\) using the completed-square form.</li>
+      <li>Write \(-x^2 + 6x - 2\) in the form \(a(x+p)^2 + q\). Hence state the maximum value of the expression.</li>
+    </ol>
+  </div>
+
+  <!-- SOLUTIONS -->
+  <div class="section solutions">
+    <div class="section-label">Fully Worked Solutions</div>
+    <ol class="s-list">
+
+      <li>
+        <div class="sol-block">
+          <p>Half of \(8\) is \(4\). So \((x+4)^2 = x^2+8x+16\).</p>
+          <p>\(x^2+8x+3 = (x+4)^2 - 16 + 3\)</p>
+          $$\boxed{(x+4)^2 - 13}$$
+          <p>Minimum value: \(-13\) at \(x=-4\).</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Half of \(-10\) is \(-5\). So \((x-5)^2 = x^2-10x+25\).</p>
+          <p>\(x^2-10x+30 = (x-5)^2 - 25 + 30\)</p>
+          $$\boxed{(x-5)^2 + 5}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Factor out \(3\) from \(x\)-terms: \(3(x^2+4x)-1\).</p>
+          <p>Half of \(4\) is \(2\). \(x^2+4x=(x+2)^2-4\).</p>
+          <p>\(= 3[(x+2)^2-4]-1 = 3(x+2)^2-12-1\)</p>
+          $$\boxed{3(x+2)^2 - 13}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Factor out \(2\) from \(x\)-terms: \(2(x^2-4x)+9\).</p>
+          <p>Half of \(-4\) is \(-2\). \(x^2-4x=(x-2)^2-4\).</p>
+          <p>\(= 2[(x-2)^2-4]+9 = 2(x-2)^2-8+9\)</p>
+          $$\boxed{2(x-2)^2 + 1}$$
+          <p>Minimum value: \(1\) at \(x=2\).</p>
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Half of \(-4\) is \(-2\). \(x^2-4x+7=(x-2)^2-4+7=(x-2)^2+3\).</p>
+          <p>Since \((x-2)^2 \geq 0\) for all real \(x\), we have \((x-2)^2+3 \geq 3 > 0\).</p>
+          $$\boxed{x^2-4x+7 > 0 \text{ for all real } x.}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Half of \(5\) is \(\dfrac{5}{2}\). So \(x^2+5x = \left(x+\dfrac{5}{2}\right)^2 - \dfrac{25}{4}\).</p>
+          <p>\(x^2+5x+4 = \left(x+\dfrac{5}{2}\right)^2 - \dfrac{25}{4}+4 = \left(x+\dfrac{5}{2}\right)^2 - \dfrac{9}{4}\)</p>
+          <p>Setting this equal to zero: \(\left(x+\dfrac{5}{2}\right)^2 = \dfrac{9}{4}\)</p>
+          <p>\(x+\dfrac{5}{2} = \pm\dfrac{3}{2}\)</p>
+          <p>\(x = -\dfrac{5}{2}+\dfrac{3}{2} = -1\) or \(x = -\dfrac{5}{2}-\dfrac{3}{2} = -4\)</p>
+          $$\boxed{x = -1 \text{ or } x = -4}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Factor out \(-1\) from all terms: \(-(x^2-6x+2)\).</p>
+          <p>Half of \(-6\) is \(-3\). \(x^2-6x=(x-3)^2-9\).</p>
+          <p>\(x^2-6x+2=(x-3)^2-9+2=(x-3)^2-7\).</p>
+          <p>So \(-x^2+6x-2 = -[(x-3)^2-7]\)</p>
+          $$\boxed{-(x-3)^2 + 7}$$
+          <p>Maximum value: \(7\) at \(x=3\). (Maximum because the bracket is subtracted.)</p>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SKILL 27: LOG LAWS
+═══════════════════════════════════════════════════════════ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 27</div>
+    <h2>Logarithm Laws</h2>
+  </div>
+
+  <div class="section concept">
+    <div class="section-label">What It Is</div>
+    <p>A logarithm answers the question: "What power do I raise the base to in order to get this number?" Written \(\log_a x = n\) means \(a^n = x\). The base \(a\) must be positive and not equal to 1.</p>
+    <p>The logarithm laws are rules that let you manipulate and simplify logarithmic expressions — combining two logs into one, splitting one log into two, or moving a power out in front of a log. These rules follow directly from the corresponding index laws.</p>
+    <p>In A-level work you mainly meet \(\log_{10}\) (written \(\log\)) and \(\ln\) (the natural logarithm, base \(e\)). All the laws work identically for any base.</p>
+  </div>
+
+  <div class="section formula">
+    <div class="section-label">The Rules</div>
+    <div class="formula-grid">
+      <div class="formula-item">
+        <div class="f-label">Multiplication Law</div>
+        $$\log_a(xy) = \log_a x + \log_a y$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Division Law</div>
+        $$\log_a\!\left(\frac{x}{y}\right) = \log_a x - \log_a y$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Power Law</div>
+        $$\log_a(x^k) = k\log_a x$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Special Values</div>
+        $$\log_a 1 = 0 \qquad \log_a a = 1 \qquad \log_a a^n = n$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Change of Base</div>
+        $$\log_a x = \frac{\log_b x}{\log_b a}$$
+      </div>
+    </div>
+  </div>
+
+  <div class="section apply">
+    <div class="section-label">When To Use It</div>
+    <p><strong>Simplifying expressions</strong>: combining several log terms into a single log, or expanding a single log into separate terms.</p>
+    <p><strong>Solving equations</strong>: taking logs of both sides when the unknown is an exponent, or converting a log equation into an exponential one.</p>
+    <p><strong>Linearising data</strong>: in modelling, taking logs transforms power-law and exponential relationships into straight-line graphs (covered in Skill 28).</p>
+    <p><strong>Integration and differentiation</strong>: recognising log forms to apply standard results.</p>
+  </div>
+
+  <div class="section examples">
+    <div class="section-label">Worked Examples</div>
+
+    <div class="example-block">
+      <h4>Example 1 — Write as a single logarithm</h4>
+      <p>Express \(3\log 2 + \log 5 - \log 4\) as a single logarithm.</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Apply power law to the first term</div>
+        <p>\(3\log 2 = \log 2^3 = \log 8\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Apply the multiplication law</div>
+        <p>\(\log 8 + \log 5 = \log(8 \times 5) = \log 40\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Apply the division law</div>
+        <p>\(\log 40 - \log 4 = \log\!\left(\dfrac{40}{4}\right) = \log 10\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Evaluate using special value</div>
+        <p>\(\log_{10} 10 = 1\)</p>
+        $$\boxed{1}$$
+      </div>
+    </div>
+
+    <div class="example-block">
+      <h4>Example 2 — Expand and simplify</h4>
+      <p>Write \(\ln\!\left(\dfrac{e^3 x^2}{\sqrt{y}}\right)\) in terms of \(\ln x\) and \(\ln y\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Apply the division law</div>
+        <p>\(= \ln(e^3 x^2) - \ln\!\left(\sqrt{y}\right)\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Apply the multiplication law to the numerator term</div>
+        <p>\(= \ln e^3 + \ln x^2 - \ln y^{1/2}\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Apply the power law to all terms</div>
+        <p>\(= 3\ln e + 2\ln x - \dfrac{1}{2}\ln y\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Use \(\ln e = 1\)</div>
+        $$\boxed{3 + 2\ln x - \tfrac{1}{2}\ln y}$$
+      </div>
+    </div>
+  </div>
+
+  <div class="section questions">
+    <div class="section-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Write \(\log 6 + \log 3 - \log 2\) as a single logarithm and evaluate it.</li>
+      <li>Write \(2\ln 3 - \ln 6 + \ln 2\) as a single logarithm.</li>
+      <li>Write \(\log_2 48 - \log_2 3\) as a single value (no logarithm in the answer).</li>
+      <li>Express \(\log\!\left(\dfrac{x^3}{100\sqrt{x}}\right)\) in the form \(a\log x + b\).</li>
+      <li>Given \(\log_a 2 = p\) and \(\log_a 3 = q\), express \(\log_a 18\) in terms of \(p\) and \(q\).</li>
+      <li>Show that \(2\log_3 6 - \log_3 4 = 1 + 2\log_3 3^{1/2} + \log_3 9 - \log_3 4\) simplifies to \(1 + \log_3 9 - \log_3 4 + \log_3 3\). Hence evaluate exactly. (Simplify \(2\log_3 6 - \log_3 4\).)</li>
+      <li>Write \(\ln\!\left(\dfrac{\sqrt{x+1}}{e^2(x-1)}\right)\) in terms of \(\ln(x+1)\) and \(\ln(x-1)\).</li>
+    </ol>
+  </div>
+
+  <div class="section solutions">
+    <div class="section-label">Fully Worked Solutions</div>
+    <ol class="s-list">
+
+      <li>
+        <div class="sol-block">
+          <p>\(\log 6 + \log 3 - \log 2 = \log\!\left(\dfrac{6\times 3}{2}\right) = \log 9\)</p>
+          $$\boxed{\log 9}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Power law: \(2\ln 3 = \ln 9\).</p>
+          <p>\(\ln 9 - \ln 6 + \ln 2 = \ln\!\left(\dfrac{9 \times 2}{6}\right) = \ln 3\)</p>
+          $$\boxed{\ln 3}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>\(\log_2 48 - \log_2 3 = \log_2\!\left(\dfrac{48}{3}\right) = \log_2 16 = \log_2 2^4\)</p>
+          $$\boxed{4}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>\(\log\!\left(\dfrac{x^3}{100\sqrt{x}}\right) = \log x^3 - \log 100 - \log x^{1/2}\)</p>
+          <p>\(= 3\log x - 2 - \dfrac{1}{2}\log x\)</p>
+          $$\boxed{\frac{5}{2}\log x - 2}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>\(\log_a 18 = \log_a(2 \times 3^2) = \log_a 2 + \log_a 3^2 = \log_a 2 + 2\log_a 3\)</p>
+          $$\boxed{p + 2q}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>\(2\log_3 6 - \log_3 4 = \log_3 6^2 - \log_3 4 = \log_3 36 - \log_3 4 = \log_3\!\left(\dfrac{36}{4}\right) = \log_3 9\)</p>
+          <p>\(\log_3 9 = \log_3 3^2 = 2\)</p>
+          $$\boxed{2}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>\(\ln\!\left(\dfrac{\sqrt{x+1}}{e^2(x-1)}\right) = \ln\sqrt{x+1} - \ln e^2 - \ln(x-1)\)</p>
+          <p>\(= \dfrac{1}{2}\ln(x+1) - 2 - \ln(x-1)\)</p>
+          $$\boxed{\tfrac{1}{2}\ln(x+1) - \ln(x-1) - 2}$$
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SKILL 28: EXPONENTIAL AND LOG EQUATIONS
+═══════════════════════════════════════════════════════════ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 28</div>
+    <h2>Exponential and Logarithmic Equations</h2>
+  </div>
+
+  <div class="section concept">
+    <div class="section-label">What It Is</div>
+    <p>An <em>exponential equation</em> is one where the unknown appears in the exponent, for example \(3^x = 20\). A <em>logarithmic equation</em> is one where the unknown appears inside a logarithm, for example \(\log_2(3x-1) = 4\).</p>
+    <p>The key idea is that logarithms and exponentials are inverses of each other. To "undo" an exponential, take a log; to "undo" a log, raise the base to a power. This pair of inverse operations lets you isolate the unknown in any such equation.</p>
+    <p>Always check your solutions back in the original equation: logarithms are only defined for positive arguments, so apparent solutions that make the argument zero or negative must be rejected.</p>
+  </div>
+
+  <div class="section formula">
+    <div class="section-label">The Rules</div>
+    <div class="formula-grid">
+      <div class="formula-item">
+        <div class="f-label">Solving \(a^x = b\) — take log of both sides</div>
+        $$x = \frac{\ln b}{\ln a} \qquad \text{(or equivalently } x\ln a = \ln b\text{)}$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Solving \(\log_a x = b\) — convert to exponential form</div>
+        $$x = a^b$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Inverse identities (always valid for correct domains)</div>
+        $$e^{\ln x} = x \quad (x>0) \qquad \ln(e^x) = x$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Hidden quadratic — when \(e^{2x}\) and \(e^x\) appear together</div>
+        <p>Substitute \(u = e^x\) (or \(u = a^x\)), turning the equation into a quadratic in \(u\).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section apply">
+    <div class="section-label">When To Use It</div>
+    <p><strong>Exponential growth/decay models</strong>: solving \(P_0 e^{kt} = P\) for \(t\).</p>
+    <p><strong>Equations with the unknown in the exponent</strong>: any time you see \(a^x = \text{number}\), take \(\ln\) (or \(\log\)) of both sides.</p>
+    <p><strong>Equations with logs on one or both sides</strong>: convert to exponential form, or use log laws to combine everything into a single log first, then convert.</p>
+    <p><strong>Hidden quadratics</strong>: when \(e^{2x}\) and \(e^x\) appear together, substitute \(u=e^x\) and solve the resulting quadratic in \(u\).</p>
+  </div>
+
+  <div class="section examples">
+    <div class="section-label">Worked Examples</div>
+
+    <div class="example-block">
+      <h4>Example 1 — Solve an exponential equation</h4>
+      <p>Solve \(5^x = 17\), giving your answer to 3 significant figures.</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Take \(\ln\) of both sides</div>
+        $$\ln 5^x = \ln 17$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Apply the power law</div>
+        $$x \ln 5 = \ln 17$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Divide both sides by \(\ln 5\)</div>
+        $$x = \frac{\ln 17}{\ln 5} = \frac{2.8332\ldots}{1.6094\ldots}$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Evaluate</div>
+        $$\boxed{x \approx 1.76}$$
+      </div>
+    </div>
+
+    <div class="example-block">
+      <h4>Example 2 — Exponential equation forming a quadratic</h4>
+      <p>Solve \(e^{2x} - 5e^x + 6 = 0\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Recognise the hidden quadratic</div>
+        <p>Note that \(e^{2x} = (e^x)^2\). Let \(u = e^x\). The equation becomes:</p>
+        $$u^2 - 5u + 6 = 0$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Factorise the quadratic</div>
+        $$(u-2)(u-3) = 0 \implies u = 2 \text{ or } u = 3$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Replace \(u\) with \(e^x\) and solve each case</div>
+        <p>Case 1: \(e^x = 2 \implies x = \ln 2\)</p>
+        <p>Case 2: \(e^x = 3 \implies x = \ln 3\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — State the solutions</div>
+        $$\boxed{x = \ln 2 \quad \text{or} \quad x = \ln 3}$$
+      </div>
+    </div>
+  </div>
+
+  <div class="section questions">
+    <div class="section-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Solve \(4^x = 11\), giving your answer to 3 s.f.</li>
+      <li>Solve \(2^{x+1} = 30\), giving your answer to 3 s.f.</li>
+      <li>Solve \(\log_3(2x-1) = 4\).</li>
+      <li>Solve \(\log_2 x + \log_2(x-3) = 2\). (Reject any invalid solutions.)</li>
+      <li>Solve \(e^{2x} - 3e^x - 10 = 0\), giving exact answers.</li>
+      <li>Solve \(3\ln x - \ln(x^2) = 2\), giving your answer in exact form.</li>
+      <li>A population grows according to \(P = 500\,e^{0.04t}\). Find the value of \(t\), to the nearest year, when the population first reaches 2000.</li>
+    </ol>
+  </div>
+
+  <div class="section solutions">
+    <div class="section-label">Fully Worked Solutions</div>
+    <ol class="s-list">
+
+      <li>
+        <div class="sol-block">
+          <p>\(x\ln 4 = \ln 11 \implies x = \dfrac{\ln 11}{\ln 4}\)</p>
+          $$\boxed{x \approx 1.73}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Take \(\ln\): \((x+1)\ln 2 = \ln 30\)</p>
+          <p>\(x+1 = \dfrac{\ln 30}{\ln 2} \approx \dfrac{3.4012}{0.6931} \approx 4.907\)</p>
+          <p>\(x \approx 3.907\)</p>
+          $$\boxed{x \approx 3.91}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Convert: \(2x-1 = 3^4 = 81\)</p>
+          <p>\(2x = 82 \implies x = 41\)</p>
+          $$\boxed{x = 41}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Multiplication law: \(\log_2[x(x-3)] = 2 \implies x(x-3) = 4\)</p>
+          <p>\(x^2 - 3x - 4 = 0 \implies (x-4)(x+1) = 0\)</p>
+          <p>\(x = 4\) or \(x = -1\). But \(x = -1\) gives \(\log_2(-1)\) which is undefined.</p>
+          $$\boxed{x = 4}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Let \(u = e^x\): \(u^2 - 3u - 10 = 0 \implies (u-5)(u+2)=0\)</p>
+          <p>\(u = 5\) or \(u = -2\). Since \(e^x > 0\), reject \(u = -2\).</p>
+          <p>\(e^x = 5 \implies x = \ln 5\)</p>
+          $$\boxed{x = \ln 5}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Apply power law: \(\ln x^3 - \ln x^2 = 2 \implies \ln\!\left(\dfrac{x^3}{x^2}\right) = 2 \implies \ln x = 2\)</p>
+          $$\boxed{x = e^2}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>\(500\,e^{0.04t} = 2000 \implies e^{0.04t} = 4\)</p>
+          <p>\(0.04t = \ln 4 \implies t = \dfrac{\ln 4}{0.04} \approx \dfrac{1.3863}{0.04} \approx 34.66\)</p>
+          $$\boxed{t \approx 35 \text{ years}}$$
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SKILL 29: sin²+cos²=1 AND DERIVED IDENTITIES
+═══════════════════════════════════════════════════════════ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 29</div>
+    <h2>The Identity \(\sin^2\theta + \cos^2\theta = 1\) and Its Derived Forms</h2>
+  </div>
+
+  <div class="section concept">
+    <div class="section-label">What It Is</div>
+    <p>The fundamental Pythagorean trigonometric identity states that for <em>any</em> angle \(\theta\), the square of sine plus the square of cosine always equals exactly 1. This is a direct consequence of Pythagoras' theorem applied to a point on the unit circle.</p>
+    <p>By dividing this identity through by \(\cos^2\theta\) or by \(\sin^2\theta\), you generate two further identities involving the reciprocal functions \(\sec\) and \(\cosec\) and the co-function \(\cot\). These three identities together are the backbone of almost all trigonometric manipulation at A-level.</p>
+    <p>Unlike a formula you have to derive fresh each time, these are identities: they are true for every value of \(\theta\) for which the functions are defined, and you use them by substituting one side for the other wherever it helps simplify an expression or equation.</p>
+  </div>
+
+  <div class="section formula">
+    <div class="section-label">The Identities</div>
+    <div class="formula-grid">
+      <div class="formula-item">
+        <div class="f-label">Fundamental Identity</div>
+        $$\sin^2\theta + \cos^2\theta \equiv 1$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Divide through by \(\cos^2\theta\)</div>
+        $$\tan^2\theta + 1 \equiv \sec^2\theta$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Divide through by \(\sin^2\theta\)</div>
+        $$1 + \cot^2\theta \equiv \cosec^2\theta$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Useful rearrangements (learn these)</div>
+        $$\sin^2\theta = 1 - \cos^2\theta \qquad \cos^2\theta = 1 - \sin^2\theta$$
+        $$\sec^2\theta - 1 = \tan^2\theta \qquad \cosec^2\theta - 1 = \cot^2\theta$$
+      </div>
+    </div>
+  </div>
+
+  <div class="section apply">
+    <div class="section-label">When To Use It</div>
+    <p><strong>Solving quadratic trig equations</strong>: if an equation contains both \(\sin\) and \(\cos\) (or \(\tan\) and \(\sec\)), substitute the identity to reduce it to one ratio only, then solve as a quadratic.</p>
+    <p><strong>Proving identities</strong>: when one side of a proposed identity contains a squared trig function, substitute using \(\sin^2\theta + \cos^2\theta = 1\) to match the other side.</p>
+    <p><strong>Integration</strong>: replace \(\sin^2\theta\) or \(\cos^2\theta\) using the identity before integrating.</p>
+    <p><strong>Simplifying expressions</strong>: whenever you see \(1 - \sin^2\theta\), recognise it immediately as \(\cos^2\theta\), and so on.</p>
+  </div>
+
+  <div class="section examples">
+    <div class="section-label">Worked Examples</div>
+
+    <div class="example-block">
+      <h4>Example 1 — Solve a quadratic trigonometric equation</h4>
+      <p>Solve \(2\sin^2\theta + \cos\theta - 1 = 0\) for \(0 \leq \theta \leq 360°\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — The equation has both \(\sin^2\theta\) and \(\cos\theta\). Replace \(\sin^2\theta\)</div>
+        <p>Use \(\sin^2\theta = 1 - \cos^2\theta\):</p>
+        $$2(1-\cos^2\theta) + \cos\theta - 1 = 0$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Expand and collect</div>
+        $$2 - 2\cos^2\theta + \cos\theta - 1 = 0$$
+        $$-2\cos^2\theta + \cos\theta + 1 = 0$$
+        <p>Multiply by \(-1\):</p>
+        $$2\cos^2\theta - \cos\theta - 1 = 0$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Factorise the quadratic (let \(c = \cos\theta\))</div>
+        $$(2\cos\theta + 1)(\cos\theta - 1) = 0$$
+        $$\cos\theta = -\tfrac{1}{2} \quad \text{or} \quad \cos\theta = 1$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Solve each case in the given range</div>
+        <p>\(\cos\theta = 1 \implies \theta = 0°, 360°\)</p>
+        <p>\(\cos\theta = -\frac{1}{2} \implies \theta = 120°, 240°\)</p>
+        $$\boxed{\theta = 0°,\; 120°,\; 240°,\; 360°}$$
+      </div>
+    </div>
+
+    <div class="example-block">
+      <h4>Example 2 — Prove an identity</h4>
+      <p>Prove that \(\dfrac{\sin^2\theta}{1 + \cos\theta} = 1 - \cos\theta\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Work with the left-hand side (LHS)</div>
+        $$\text{LHS} = \frac{\sin^2\theta}{1+\cos\theta}$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Replace \(\sin^2\theta\) using the identity</div>
+        $$= \frac{1 - \cos^2\theta}{1+\cos\theta}$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Factorise the numerator as a difference of two squares</div>
+        $$= \frac{(1-\cos\theta)(1+\cos\theta)}{1+\cos\theta}$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Cancel the common factor</div>
+        $$= 1 - \cos\theta = \text{RHS} \qquad \blacksquare$$
+        $$\boxed{\text{Identity proved.}}$$
+      </div>
+    </div>
+  </div>
+
+  <div class="section questions">
+    <div class="section-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Solve \(\cos^2\theta + \sin\theta + 1 = 0\) for \(0 \leq \theta \leq 360°\).</li>
+      <li>Solve \(2\tan^2\theta - \sec\theta - 1 = 0\) for \(0° \leq \theta < 360°\).</li>
+      <li>Simplify \(\dfrac{\cos^2\theta - 1}{\sin\theta}\).</li>
+      <li>Prove that \(\dfrac{\tan^2\theta}{\sec\theta - 1} = \sec\theta + 1\).</li>
+      <li>Solve \(3\sin^2\theta = 2\cos\theta + 2\) for \(0 \leq \theta \leq 2\pi\), giving answers in exact form.</li>
+      <li>Prove that \((\sin\theta + \cos\theta)^2 = 1 + 2\sin\theta\cos\theta\).</li>
+      <li>Solve \(\cosec^2\theta - \cot\theta = 3\) for \(0° < \theta < 360°\).</li>
+    </ol>
+  </div>
+
+  <div class="section solutions">
+    <div class="section-label">Fully Worked Solutions</div>
+    <ol class="s-list">
+
+      <li>
+        <div class="sol-block">
+          <p>Replace \(\cos^2\theta = 1-\sin^2\theta\):</p>
+          <p>\((1-\sin^2\theta)+\sin\theta+1=0 \implies -\sin^2\theta+\sin\theta+2=0\)</p>
+          <p>Multiply by \(-1\): \(\sin^2\theta - \sin\theta - 2 = 0\)</p>
+          <p>Factorise: \((\sin\theta-2)(\sin\theta+1)=0\)</p>
+          <p>\(\sin\theta = 2\) is impossible (range is \([-1,1]\)).</p>
+          <p>\(\sin\theta = -1 \implies \theta = 270°\)</p>
+          $$\boxed{\theta = 270°}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Use \(\tan^2\theta = \sec^2\theta - 1\):</p>
+          <p>\(2(\sec^2\theta-1)-\sec\theta-1=0 \implies 2\sec^2\theta-\sec\theta-3=0\)</p>
+          <p>Factorise: \((2\sec\theta-3)(\sec\theta+1)=0\)</p>
+          <p>\(\sec\theta = \frac{3}{2} \implies \cos\theta = \frac{2}{3} \implies \theta \approx 48.2°, 311.8°\)</p>
+          <p>\(\sec\theta = -1 \implies \cos\theta = -1 \implies \theta = 180°\)</p>
+          $$\boxed{\theta \approx 48.2°,\; 180°,\; 311.8°}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>\(\cos^2\theta - 1 = -(1-\cos^2\theta) = -\sin^2\theta\)</p>
+          <p>So \(\dfrac{\cos^2\theta-1}{\sin\theta} = \dfrac{-\sin^2\theta}{\sin\theta} = -\sin\theta\)</p>
+          $$\boxed{-\sin\theta}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>LHS: \(\dfrac{\tan^2\theta}{\sec\theta-1} = \dfrac{\sec^2\theta-1}{\sec\theta-1} = \dfrac{(\sec\theta-1)(\sec\theta+1)}{\sec\theta-1} = \sec\theta+1\) = RHS \(\quad\blacksquare\)</p>
+          $$\boxed{\text{Identity proved.}}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Replace \(\sin^2\theta = 1-\cos^2\theta\):</p>
+          <p>\(3(1-\cos^2\theta)=2\cos\theta+2 \implies 3-3\cos^2\theta=2\cos\theta+2\)</p>
+          <p>\(3\cos^2\theta+2\cos\theta-1=0 \implies (3\cos\theta-1)(\cos\theta+1)=0\)</p>
+          <p>\(\cos\theta = \frac{1}{3}\): no exact standard angle, so \(\theta = \arccos\!\left(\frac{1}{3}\right)\) and \(\theta = 2\pi - \arccos\!\left(\frac{1}{3}\right)\).</p>
+          <p>\(\cos\theta = -1 \implies \theta = \pi\)</p>
+          $$\boxed{\theta = \pi,\quad \theta = \arccos\!\!\left(\tfrac{1}{3}\right),\quad \theta = 2\pi - \arccos\!\!\left(\tfrac{1}{3}\right)}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>LHS: \((\sin\theta+\cos\theta)^2 = \sin^2\theta + 2\sin\theta\cos\theta + \cos^2\theta\)</p>
+          <p>\(= (\sin^2\theta+\cos^2\theta) + 2\sin\theta\cos\theta = 1 + 2\sin\theta\cos\theta\) = RHS \(\quad\blacksquare\)</p>
+          $$\boxed{\text{Identity proved.}}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Use \(\cosec^2\theta = 1+\cot^2\theta\):</p>
+          <p>\(1+\cot^2\theta - \cot\theta = 3 \implies \cot^2\theta-\cot\theta-2=0\)</p>
+          <p>Factorise: \((\cot\theta-2)(\cot\theta+1)=0\)</p>
+          <p>\(\cot\theta=2 \implies \tan\theta=\frac{1}{2} \implies \theta\approx 26.6°, 206.6°\)</p>
+          <p>\(\cot\theta=-1 \implies \tan\theta=-1 \implies \theta=135°, 315°\)</p>
+          $$\boxed{\theta \approx 26.6°,\; 135°,\; 206.6°,\; 315°}$$
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SKILL 30: DOUBLE ANGLE FORMULAE
+═══════════════════════════════════════════════════════════ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 30</div>
+    <h2>Double Angle Formulae</h2>
+  </div>
+
+  <div class="section concept">
+    <div class="section-label">What It Is</div>
+    <p>The double angle formulae express \(\sin 2\theta\), \(\cos 2\theta\), and \(\tan 2\theta\) in terms of \(\sin\theta\), \(\cos\theta\), and \(\tan\theta\). They are special cases of the addition formulae, obtained by setting both angles equal: \(\sin(A+B)\) with \(A=B=\theta\).</p>
+    <p>Crucially, \(\cos 2\theta\) has <em>three equivalent forms</em>. You choose the version that matches the other terms already present in the equation or expression you are working with — choosing the right form saves huge amounts of work.</p>
+    <p>These formulae appear constantly when solving trigonometric equations that mix a double angle with a single angle, when integrating \(\sin^2\theta\) or \(\cos^2\theta\), and when eliminating a parameter from parametric equations.</p>
+  </div>
+
+  <div class="section formula">
+    <div class="section-label">The Formulae</div>
+    <div class="formula-grid">
+      <div class="formula-item">
+        <div class="f-label">Sine double angle</div>
+        $$\sin 2\theta = 2\sin\theta\cos\theta$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Cosine double angle — three equivalent forms</div>
+        $$\cos 2\theta = \cos^2\theta - \sin^2\theta$$
+        $$\cos 2\theta = 2\cos^2\theta - 1$$
+        $$\cos 2\theta = 1 - 2\sin^2\theta$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Tangent double angle</div>
+        $$\tan 2\theta = \frac{2\tan\theta}{1-\tan^2\theta}$$
+      </div>
+      <div class="formula-item">
+        <div class="f-label">Rearranged forms for integration (memorise these)</div>
+        $$\cos^2\theta = \frac{1+\cos 2\theta}{2} \qquad \sin^2\theta = \frac{1-\cos 2\theta}{2}$$
+      </div>
+    </div>
+  </div>
+
+  <div class="section apply">
+    <div class="section-label">When To Use It</div>
+    <p><strong>Solving equations</strong>: when an equation contains \(\sin 2\theta\) and \(\sin\theta\) (or \(\cos 2\theta\) and \(\cos\theta\)), substitute the double angle formula to get everything in one trig ratio, then factorise.</p>
+    <p><strong>Choosing the right \(\cos 2\theta\) form</strong>: if the other terms in the equation contain only \(\sin\theta\), use \(\cos 2\theta = 1-2\sin^2\theta\); if only \(\cos\theta\), use \(2\cos^2\theta-1\); if both, use \(\cos^2\theta-\sin^2\theta\).</p>
+    <p><strong>Integration</strong>: to integrate \(\sin^2\theta\) or \(\cos^2\theta\), rewrite using the rearranged forms above first.</p>
+    <p><strong>Eliminating parameters</strong>: in parametric equations where \(x=\cos\theta\) and \(y=\cos 2\theta\), substitute \(\cos 2\theta = 2\cos^2\theta-1 = 2x^2-1\) to get the Cartesian form directly.</p>
+  </div>
+
+  <div class="section examples">
+    <div class="section-label">Worked Examples</div>
+
+    <div class="example-block">
+      <h4>Example 1 — Solve a double angle equation</h4>
+      <p>Solve \(\sin 2\theta = \sin\theta\) for \(0 \leq \theta \leq 360°\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — Replace \(\sin 2\theta\) using the double angle formula</div>
+        $$2\sin\theta\cos\theta = \sin\theta$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Bring everything to one side</div>
+        $$2\sin\theta\cos\theta - \sin\theta = 0$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Factorise — take out the common factor \(\sin\theta\)</div>
+        $$\sin\theta\,(2\cos\theta - 1) = 0$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Solve each factor</div>
+        <p>\(\sin\theta = 0 \implies \theta = 0°, 180°, 360°\)</p>
+        <p>\(2\cos\theta - 1 = 0 \implies \cos\theta = \dfrac{1}{2} \implies \theta = 60°, 300°\)</p>
+      </div>
+      <div class="step">
+        <div class="step-label">Step 5 — Collect all solutions</div>
+        $$\boxed{\theta = 0°,\; 60°,\; 180°,\; 300°,\; 360°}$$
+      </div>
+    </div>
+
+    <div class="example-block">
+      <h4>Example 2 — Equation with \(\cos 2\theta\) and \(\sin\theta\)</h4>
+      <p>Solve \(\cos 2\theta + 3\sin\theta - 2 = 0\) for \(0 \leq \theta \leq 2\pi\).</p>
+
+      <div class="step">
+        <div class="step-label">Step 1 — The other terms contain \(\sin\theta\), so use \(\cos 2\theta = 1-2\sin^2\theta\)</div>
+        $$(1-2\sin^2\theta) + 3\sin\theta - 2 = 0$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 2 — Collect terms</div>
+        $$-2\sin^2\theta + 3\sin\theta - 1 = 0$$
+        <p>Multiply by \(-1\):</p>
+        $$2\sin^2\theta - 3\sin\theta + 1 = 0$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 3 — Factorise</div>
+        $$(2\sin\theta - 1)(\sin\theta - 1) = 0$$
+        $$\sin\theta = \tfrac{1}{2} \quad \text{or} \quad \sin\theta = 1$$
+      </div>
+      <div class="step">
+        <div class="step-label">Step 4 — Solve in the given range \(0 \leq \theta \leq 2\pi\)</div>
+        <p>\(\sin\theta = 1 \implies \theta = \dfrac{\pi}{2}\)</p>
+        <p>\(\sin\theta = \dfrac{1}{2} \implies \theta = \dfrac{\pi}{6},\;\dfrac{5\pi}{6}\)</p>
+        $$\boxed{\theta = \frac{\pi}{6},\quad \frac{\pi}{2},\quad \frac{5\pi}{6}}$$
+      </div>
+    </div>
+  </div>
+
+  <div class="section questions">
+    <div class="section-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Solve \(\sin 2\theta = \cos\theta\) for \(0° \leq \theta \leq 360°\).</li>
+      <li>Solve \(\cos 2\theta = \cos\theta\) for \(0 \leq \theta \leq 2\pi\). Give exact answers.</li>
+      <li>Solve \(\cos 2\theta + \sin\theta = 0\) for \(-180° \leq \theta \leq 180°\).</li>
+      <li>Given that \(\sin\theta = \dfrac{3}{5}\) and \(\theta\) is acute, find the exact values of \(\sin 2\theta\) and \(\cos 2\theta\).</li>
+      <li>Prove that \(\dfrac{\sin 2\theta}{1 - \cos 2\theta} \equiv \cot\theta\).</li>
+      <li>Solve \(3\cos 2\theta + \cos\theta + 2 = 0\) for \(0° \leq \theta \leq 360°\).</li>
+      <li>Solve \(\tan 2\theta = 3\tan\theta\) for \(0° < \theta < 180°\), giving answers to 1 decimal place where not exact.</li>
+    </ol>
+  </div>
+
+  <div class="section solutions">
+    <div class="section-label">Fully Worked Solutions</div>
+    <ol class="s-list">
+
+      <li>
+        <div class="sol-block">
+          <p>Replace \(\sin 2\theta = 2\sin\theta\cos\theta\):</p>
+          <p>\(2\sin\theta\cos\theta - \cos\theta = 0 \implies \cos\theta(2\sin\theta-1)=0\)</p>
+          <p>\(\cos\theta=0 \implies \theta=90°,270°\)</p>
+          <p>\(\sin\theta=\frac{1}{2} \implies \theta=30°,150°\)</p>
+          $$\boxed{\theta = 30°,\; 90°,\; 150°,\; 270°}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Other terms contain \(\cos\theta\): use \(\cos 2\theta = 2\cos^2\theta-1\).</p>
+          <p>\(2\cos^2\theta-1=\cos\theta \implies 2\cos^2\theta-\cos\theta-1=0\)</p>
+          <p>\((2\cos\theta+1)(\cos\theta-1)=0\)</p>
+          <p>\(\cos\theta=-\frac{1}{2} \implies \theta=\dfrac{2\pi}{3},\;\dfrac{4\pi}{3}\)</p>
+          <p>\(\cos\theta=1 \implies \theta=0,\;2\pi\)</p>
+          $$\boxed{\theta = 0,\;\frac{2\pi}{3},\;\frac{4\pi}{3},\;2\pi}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Use \(\cos 2\theta = 1-2\sin^2\theta\) (other term has \(\sin\theta\)).</p>
+          <p>\(1-2\sin^2\theta+\sin\theta=0 \implies 2\sin^2\theta-\sin\theta-1=0\)</p>
+          <p>\((2\sin\theta+1)(\sin\theta-1)=0\)</p>
+          <p>\(\sin\theta=-\frac{1}{2} \implies \theta=-30°,-150°\)</p>
+          <p>\(\sin\theta=1 \implies \theta=90°\)</p>
+          $$\boxed{\theta = -150°,\;-30°,\;90°}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>\(\sin\theta=\frac{3}{5}\), so from Pythagoras \(\cos\theta=\frac{4}{5}\) (acute).</p>
+          <p>\(\sin 2\theta = 2\sin\theta\cos\theta = 2\cdot\frac{3}{5}\cdot\frac{4}{5} = \frac{24}{25}\)</p>
+          <p>\(\cos 2\theta = \cos^2\theta-\sin^2\theta = \frac{16}{25}-\frac{9}{25} = \frac{7}{25}\)</p>
+          $$\boxed{\sin 2\theta = \frac{24}{25},\quad \cos 2\theta = \frac{7}{25}}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>LHS: \(\dfrac{\sin 2\theta}{1-\cos 2\theta} = \dfrac{2\sin\theta\cos\theta}{1-(1-2\sin^2\theta)} = \dfrac{2\sin\theta\cos\theta}{2\sin^2\theta} = \dfrac{\cos\theta}{\sin\theta} = \cot\theta\) = RHS \(\quad\blacksquare\)</p>
+          $$\boxed{\text{Identity proved.}}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Use \(\cos 2\theta = 2\cos^2\theta - 1\):</p>
+          <p>\(3(2\cos^2\theta-1)+\cos\theta+2=0 \implies 6\cos^2\theta+\cos\theta-1=0\)</p>
+          <p>\((3\cos\theta-1)(2\cos\theta+1)=0\)</p>
+          <p>\(\cos\theta=\frac{1}{3} \implies \theta\approx 70.5°,289.5°\)</p>
+          <p>\(\cos\theta=-\frac{1}{2} \implies \theta=120°,240°\)</p>
+          $$\boxed{\theta \approx 70.5°,\;120°,\;240°,\;289.5°}$$
+        </div>
+      </li>
+
+      <li>
+        <div class="sol-block">
+          <p>Replace \(\tan 2\theta = \dfrac{2\tan\theta}{1-\tan^2\theta}\):</p>
+          <p>\(\dfrac{2\tan\theta}{1-\tan^2\theta} = 3\tan\theta\)</p>
+          <p>If \(\tan\theta \neq 0\): divide both sides by \(\tan\theta\):</p>
+          <p>\(\dfrac{2}{1-\tan^2\theta}=3 \implies 2=3(1-\tan^2\theta)=3-3\tan^2\theta\)</p>
+          <p>\(3\tan^2\theta=1 \implies \tan^2\theta=\frac{1}{3} \implies \tan\theta=\pm\frac{1}{\sqrt{3}}\)</p>
+          <p>In \(0°<\theta<180°\): \(\tan\theta=\frac{1}{\sqrt{3}}\implies\theta=30°\); \(\tan\theta=-\frac{1}{\sqrt{3}}\implies\theta=150°\).</p>
+          <p>Also check \(\tan\theta=0\): \(\theta=0°\) and \(\theta=180°\) are excluded by the open interval.</p>
+          $$\boxed{\theta = 30°,\;150°}$$
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</div>
+
+<div style="max-width:900px;margin:0 auto;text-align:center;padding:20px;color:#999;font-size:0.82rem;">
+  Edexcel IAL P3 &amp; P4 &nbsp;·&nbsp; Skills 26–30 &nbsp;·&nbsp; All content self-contained
+</div>
+
+</body>
+</html>

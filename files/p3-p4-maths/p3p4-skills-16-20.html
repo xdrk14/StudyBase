@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3/P4 Maths — Skills 16–20: Integration Techniques</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['$$', '$$']],
+    tags: 'none'
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #1a1a2e;
+  font-size: 16px;
+  line-height: 1.7;
+}
+.page-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+/* Page title */
+.page-title {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 40px 32px;
+  background: #1a1a2e;
+  border-radius: 12px;
+  color: #ffffff;
+}
+.page-title h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.page-title p {
+  font-size: 1rem;
+  opacity: 0.75;
+  font-weight: 400;
+}
+
+/* Skill block */
+.skill-block {
+  margin-bottom: 64px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+/* Skill header */
+.skill-header {
+  background: #1a1a2e;
+  color: #ffffff;
+  padding: 24px 32px;
+}
+.skill-header .skill-number {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 6px;
+}
+.skill-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+/* Content boxes */
+.box {
+  padding: 28px 32px;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.box:last-child { border-bottom: none; }
+
+.box-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  opacity: 0.6;
+}
+
+/* Concept box */
+.box-concept { background: #e8f4fd; }
+.box-concept .box-label { color: #1565c0; }
+
+/* Formula box */
+.box-formula { background: #fff9e6; }
+.box-formula .box-label { color: #e65100; }
+.box-formula .formula-content {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* Where to apply box */
+.box-apply { background: #f0faf0; }
+.box-apply .box-label { color: #2e7d32; }
+
+/* Examples box */
+.box-examples { background: #e8f8e8; }
+.box-examples .box-label { color: #1b5e20; }
+
+/* Questions box */
+.box-questions { background: #f3e8ff; }
+.box-questions .box-label { color: #4a148c; }
+
+/* Solutions box */
+.box-solutions { background: #fff0e8; }
+.box-solutions .box-label { color: #bf360c; }
+
+/* Example styling */
+.example {
+  margin-bottom: 28px;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.6);
+  border-left: 4px solid #2e7d32;
+  border-radius: 0 8px 8px 0;
+}
+.example:last-child { margin-bottom: 0; }
+.example h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1b5e20;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.step {
+  margin: 8px 0;
+  padding: 6px 0;
+}
+.step-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Question list */
+.q-list {
+  list-style: none;
+  counter-reset: qcounter;
+}
+.q-list li {
+  counter-increment: qcounter;
+  margin-bottom: 14px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 8px;
+  border-left: 3px solid #7b1fa2;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.q-list li::before {
+  content: "Q" counter(qcounter);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #7b1fa2;
+  background: rgba(123,31,162,0.12);
+  padding: 3px 8px;
+  border-radius: 4px;
+  min-width: 36px;
+  text-align: center;
+  margin-top: 2px;
+  letter-spacing: 0.3px;
+}
+
+/* Solution list */
+.s-list {
+  list-style: none;
+  counter-reset: scounter;
+}
+.s-list > li {
+  counter-increment: scounter;
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 8px;
+  border-left: 3px solid #e64a19;
+}
+.s-list > li > .s-head {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #bf360c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.s-list > li > .s-head::before {
+  content: "Solution " counter(scounter) " — ";
+}
+
+/* Divider between examples */
+.example-divider {
+  height: 1px;
+  background: rgba(46,125,50,0.2);
+  margin: 24px 0;
+}
+
+p { margin-bottom: 10px; }
+p:last-child { margin-bottom: 0; }
+
+ul.bullet-list {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+ul.bullet-list li { margin-bottom: 6px; }
+
+.mjx-chtml { overflow-x: auto; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .page-title h1 { font-size: 1.4rem; }
+  .skill-header h2 { font-size: 1.2rem; }
+  .box { padding: 20px 18px; }
+  .example { padding: 16px 16px; }
+}
+</style>
+<!-- sb:start -->
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
+<script src="../../app/note.js"></script>
+<!-- sb:end -->
+</head>
+<body>
+<div class="page-wrap">
+
+<div class="page-title">
+  <h1>Edexcel IAL Pure Mathematics — P3 &amp; P4</h1>
+  <p>Skills 16 – 20 &nbsp;|&nbsp; Integration Techniques &nbsp;|&nbsp; Full Teaching Notes with Worked Examples &amp; Solutions</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- SKILL 16 -->
+<!-- ============================================================ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 16</div>
+    <h2>Integrating \(\sin x\), \(\cos x\), and \(\sec^2 x\)</h2>
+  </div>
+
+  <!-- Concept -->
+  <div class="box box-concept">
+    <div class="box-label">What It Is</div>
+    <p>Integration is the reverse of differentiation. If you know the derivative of a function, then the integral of that derivative gives you back the original function (plus a constant \(C\), since constants vanish when you differentiate).</p>
+    <p>Because we know that \(\frac{d}{dx}(\sin x) = \cos x\), it follows immediately that \(\int \cos x \, dx = \sin x + C\). We apply the same reverse-thinking to \(\cos x\) and \(\sec^2 x\).</p>
+    <p>These three are <strong>standard results</strong> that you must memorise. Every integral in this skill can be looked up from your memory — no technique or manipulation is needed beyond recognising the form.</p>
+    <p>When the argument of the trig function is a <strong>linear expression</strong> of the form \(ax + b\) (e.g. \(\sin(3x+1)\)), you divide your answer by the coefficient of \(x\) — this is the reverse of the chain rule and is covered in more depth in Skill 17 and 18. Here we include it as an extension of the standard results.</p>
+  </div>
+
+  <!-- Formula -->
+  <div class="box box-formula">
+    <div class="box-label">Formulae / Rules</div>
+    <div class="formula-content">
+      <p><strong>Standard Integrals (must memorise):</strong></p>
+      $$\int \cos x \, dx = \sin x + C$$
+      $$\int \sin x \, dx = -\cos x + C$$
+      $$\int \sec^2 x \, dx = \tan x + C$$
+      <p style="margin-top:16px;"><strong>With linear argument \(ax + b\) (divide by coefficient \(a\)):</strong></p>
+      $$\int \cos(ax+b) \, dx = \frac{1}{a}\sin(ax+b) + C$$
+      $$\int \sin(ax+b) \, dx = -\frac{1}{a}\cos(ax+b) + C$$
+      $$\int \sec^2(ax+b) \, dx = \frac{1}{a}\tan(ax+b) + C$$
+    </div>
+  </div>
+
+  <!-- Where to apply -->
+  <div class="box box-apply">
+    <div class="box-label">Where to Apply This</div>
+    <ul class="bullet-list">
+      <li>Whenever you see a bare \(\sin x\), \(\cos x\), or \(\sec^2 x\) with no other complication — apply the standard result directly.</li>
+      <li>Whenever the argument is linear (e.g. \(\cos(3x)\), \(\sin(2x-1)\), \(\sec^2(5x)\)) — apply the result and divide by the inner coefficient.</li>
+      <li>In definite integrals, substitute both limits after integrating (ensure your calculator is in <strong>radians</strong>).</li>
+      <li>Do <em>not</em> use this skill when the argument is non-linear (e.g. \(\sin(x^2)\)) — that requires substitution.</li>
+    </ul>
+  </div>
+
+  <!-- Worked examples -->
+  <div class="box box-examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example">
+      <h4>Example 1 — Mixed standard integrals (indefinite)</h4>
+      <div class="step"><span class="step-label">Question</span>Find \(\displaystyle\int \left(3\sin x - 2\cos(4x) + 5\sec^2(3x)\right)dx\).</div>
+      <div class="step"><span class="step-label">Step 1 — Integrate term by term</span>
+        Each term is integrated separately using the standard results.
+        $$\int 3\sin x \, dx = 3 \cdot (-\cos x) = -3\cos x$$
+        $$\int -2\cos(4x) \, dx = -2 \cdot \frac{1}{4}\sin(4x) = -\frac{1}{2}\sin(4x)$$
+        $$\int 5\sec^2(3x) \, dx = 5 \cdot \frac{1}{3}\tan(3x) = \frac{5}{3}\tan(3x)$$
+      </div>
+      <div class="step"><span class="step-label">Step 2 — Combine and add constant</span>
+        $$\boxed{-3\cos x - \frac{1}{2}\sin(4x) + \frac{5}{3}\tan(3x) + C}$$
+      </div>
+    </div>
+
+    <div class="example-divider"></div>
+
+    <div class="example">
+      <h4>Example 2 — Definite integral</h4>
+      <div class="step"><span class="step-label">Question</span>Evaluate \(\displaystyle\int_{0}^{\pi/4} \left(\cos(2x) + \sin x\right)dx\).</div>
+      <div class="step"><span class="step-label">Step 1 — Integrate</span>
+        $$\int \cos(2x)\,dx = \frac{1}{2}\sin(2x), \qquad \int \sin x\,dx = -\cos x$$
+        So the indefinite integral is \(\dfrac{1}{2}\sin(2x) - \cos x\).
+      </div>
+      <div class="step"><span class="step-label">Step 2 — Apply limits (upper minus lower)</span>
+        <em>Upper limit</em> \(x = \dfrac{\pi}{4}\):
+        $$\frac{1}{2}\sin\!\left(\frac{\pi}{2}\right) - \cos\!\left(\frac{\pi}{4}\right) = \frac{1}{2}(1) - \frac{\sqrt{2}}{2} = \frac{1}{2} - \frac{\sqrt{2}}{2}$$
+        <em>Lower limit</em> \(x = 0\):
+        $$\frac{1}{2}\sin(0) - \cos(0) = 0 - 1 = -1$$
+      </div>
+      <div class="step"><span class="step-label">Step 3 — Subtract</span>
+        $$\left(\frac{1}{2} - \frac{\sqrt{2}}{2}\right) - (-1) = \frac{1}{2} - \frac{\sqrt{2}}{2} + 1 = \frac{3}{2} - \frac{\sqrt{2}}{2}$$
+        $$\boxed{\dfrac{3}{2} - \dfrac{\sqrt{2}}{2}}$$
+      </div>
+    </div>
+  </div>
+
+  <!-- Questions -->
+  <div class="box box-questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Find \(\displaystyle\int \sin(5x)\,dx\).</li>
+      <li>Find \(\displaystyle\int \cos\!\left(\frac{x}{2}\right)dx\).</li>
+      <li>Find \(\displaystyle\int \sec^2(7x)\,dx\).</li>
+      <li>Find \(\displaystyle\int \left(4\cos x - 3\sin(2x)\right)dx\).</li>
+      <li>Find \(\displaystyle\int \left(\sin(3x) + 2\sec^2(x)\right)dx\).</li>
+      <li>Evaluate \(\displaystyle\int_{0}^{\pi/6} \cos(3x)\,dx\).</li>
+      <li>Evaluate \(\displaystyle\int_{0}^{\pi/2} \left(2\sin x + \cos(2x)\right)dx\).</li>
+    </ol>
+  </div>
+
+  <!-- Solutions -->
+  <div class="box box-solutions">
+    <div class="box-label">Full Solutions</div>
+    <ol class="s-list">
+      <li>
+        <div class="s-head"></div>
+        Using \(\int\sin(ax)\,dx = -\dfrac{1}{a}\cos(ax)+C\) with \(a=5\):
+        $$\boxed{-\frac{1}{5}\cos(5x)+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        Using \(\int\cos(ax)\,dx = \dfrac{1}{a}\sin(ax)+C\) with \(a=\dfrac{1}{2}\):
+        $$\int\cos\!\left(\tfrac{x}{2}\right)dx = \frac{1}{1/2}\sin\!\left(\tfrac{x}{2}\right)+C = 2\sin\!\left(\tfrac{x}{2}\right)+C$$
+        $$\boxed{2\sin\!\left(\dfrac{x}{2}\right)+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        Using \(\int\sec^2(ax)\,dx = \dfrac{1}{a}\tan(ax)+C\) with \(a=7\):
+        $$\boxed{\frac{1}{7}\tan(7x)+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        Integrate term by term:
+        $$\int 4\cos x\,dx = 4\sin x$$
+        $$\int -3\sin(2x)\,dx = -3\cdot\left(-\tfrac{1}{2}\cos(2x)\right) = \tfrac{3}{2}\cos(2x)$$
+        $$\boxed{4\sin x + \frac{3}{2}\cos(2x)+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        $$\int\sin(3x)\,dx = -\tfrac{1}{3}\cos(3x)$$
+        $$\int 2\sec^2 x\,dx = 2\tan x$$
+        $$\boxed{-\frac{1}{3}\cos(3x)+2\tan x+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        Integrate: \(\int\cos(3x)\,dx = \dfrac{1}{3}\sin(3x)\). Apply limits:
+        $$\left[\frac{1}{3}\sin(3x)\right]_{0}^{\pi/6} = \frac{1}{3}\sin\!\left(\frac{\pi}{2}\right) - \frac{1}{3}\sin(0) = \frac{1}{3}(1)-0$$
+        $$\boxed{\dfrac{1}{3}}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        Integrate: \(\int 2\sin x\,dx = -2\cos x\), \(\int\cos(2x)\,dx = \dfrac{1}{2}\sin(2x)\).
+        $$\left[-2\cos x + \tfrac{1}{2}\sin(2x)\right]_{0}^{\pi/2}$$
+        <em>Upper</em>: \(-2\cos(\pi/2)+\tfrac{1}{2}\sin(\pi) = 0+0 = 0\)<br>
+        <em>Lower</em>: \(-2\cos(0)+\tfrac{1}{2}\sin(0) = -2+0 = -2\)
+        $$0-(-2) = \boxed{2}$$
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SKILL 17 -->
+<!-- ============================================================ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 17</div>
+    <h2>Integration by Recognition — The Log Rule \(\displaystyle\int\frac{f'(x)}{f(x)}\,dx\)</h2>
+  </div>
+
+  <!-- Concept -->
+  <div class="box box-concept">
+    <div class="box-label">What It Is</div>
+    <p>You already know that \(\dfrac{d}{dx}[\ln|f(x)|] = \dfrac{f'(x)}{f(x)}\) by the chain rule. Integration reverses this: if an integrand is a fraction whose numerator is <strong>exactly the derivative of the denominator</strong>, the answer is \(\ln|f(x)| + C\).</p>
+    <p>This is often called the <strong>"f-prime over f" rule</strong>. You are not doing a substitution — you are simply <em>recognising</em> the pattern directly from the integrand.</p>
+    <p>The absolute value signs \(|\cdot|\) in \(\ln|f(x)|\) are important: they ensure the logarithm is defined even when \(f(x)\) is negative. Always include them in indefinite integrals.</p>
+    <p>Sometimes the numerator is a <em>multiple</em> of \(f'(x)\). In that case, adjust by factoring out the scalar before applying the rule. If the numerator is a multiple \(k \cdot f'(x)\), simply write \(k\ln|f(x)|+C\).</p>
+  </div>
+
+  <!-- Formula -->
+  <div class="box box-formula">
+    <div class="box-label">Formula / Rule</div>
+    <div class="formula-content">
+      $$\int \frac{f'(x)}{f(x)}\,dx = \ln|f(x)| + C$$
+      <p style="margin-top:14px;"><strong>With scalar multiple (general form):</strong></p>
+      $$\int \frac{k\,f'(x)}{f(x)}\,dx = k\ln|f(x)| + C$$
+      <p style="margin-top:14px;"><strong>Key check:</strong> Differentiate \(f(x)\) mentally. Does the result match the numerator (up to a constant)? If yes — apply the rule.</p>
+    </div>
+  </div>
+
+  <!-- Where to apply -->
+  <div class="box box-apply">
+    <div class="box-label">Where to Apply This</div>
+    <ul class="bullet-list">
+      <li>The integrand is a fraction.</li>
+      <li>The denominator is some function \(f(x)\).</li>
+      <li>The numerator is (a constant multiple of) the derivative of the denominator.</li>
+      <li>Common triggers: \(\dfrac{x}{x^2+3}\), \(\dfrac{\cos x}{\sin x}\), \(\dfrac{e^x}{e^x+1}\), \(\dfrac{2x+1}{x^2+x-4}\).</li>
+      <li><strong>Do not use</strong> this if the numerator is not proportional to \(f'(x)\) — use partial fractions or substitution instead.</li>
+    </ul>
+  </div>
+
+  <!-- Worked examples -->
+  <div class="box box-examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example">
+      <h4>Example 1 — Polynomial denominator</h4>
+      <div class="step"><span class="step-label">Question</span>Find \(\displaystyle\int \frac{6x^2}{x^3+5}\,dx\).</div>
+      <div class="step"><span class="step-label">Step 1 — Identify f(x)</span>
+        Set \(f(x) = x^3 + 5\).
+      </div>
+      <div class="step"><span class="step-label">Step 2 — Compute f'(x)</span>
+        $$f'(x) = 3x^2$$
+      </div>
+      <div class="step"><span class="step-label">Step 3 — Compare numerator to f'(x)</span>
+        The numerator is \(6x^2\). Observe: \(6x^2 = 2 \cdot 3x^2 = 2 \cdot f'(x)\). So the scalar multiple is \(k = 2\).
+      </div>
+      <div class="step"><span class="step-label">Step 4 — Apply the rule</span>
+        $$\int \frac{6x^2}{x^3+5}\,dx = 2\ln|x^3+5| + C$$
+        $$\boxed{2\ln|x^3+5|+C}$$
+      </div>
+    </div>
+
+    <div class="example-divider"></div>
+
+    <div class="example">
+      <h4>Example 2 — Trigonometric denominator</h4>
+      <div class="step"><span class="step-label">Question</span>Find \(\displaystyle\int \frac{3\cos x}{4\sin x}\,dx\).</div>
+      <div class="step"><span class="step-label">Step 1 — Factor out the scalar</span>
+        $$\int \frac{3\cos x}{4\sin x}\,dx = \frac{3}{4}\int \frac{\cos x}{\sin x}\,dx$$
+      </div>
+      <div class="step"><span class="step-label">Step 2 — Identify f(x)</span>
+        Set \(f(x) = \sin x\). Then \(f'(x) = \cos x\). The numerator of the inner integral is exactly \(f'(x)\).
+      </div>
+      <div class="step"><span class="step-label">Step 3 — Apply the rule</span>
+        $$\frac{3}{4}\int \frac{\cos x}{\sin x}\,dx = \frac{3}{4}\ln|\sin x| + C$$
+        $$\boxed{\dfrac{3}{4}\ln|\sin x|+C}$$
+      </div>
+    </div>
+  </div>
+
+  <!-- Questions -->
+  <div class="box box-questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Find \(\displaystyle\int \frac{2x}{x^2+7}\,dx\).</li>
+      <li>Find \(\displaystyle\int \frac{5}{5x-3}\,dx\).</li>
+      <li>Find \(\displaystyle\int \frac{\sin x}{\cos x}\,dx\).</li>
+      <li>Find \(\displaystyle\int \frac{4x^3+6x}{x^4+3x^2+1}\,dx\).</li>
+      <li>Find \(\displaystyle\int \frac{e^{2x}}{e^{2x}+4}\,dx\).</li>
+      <li>Find \(\displaystyle\int \frac{3}{2x+1}\,dx\).</li>
+      <li>Find \(\displaystyle\int \frac{6x^2-2}{2x^3-2x+5}\,dx\).</li>
+    </ol>
+  </div>
+
+  <!-- Solutions -->
+  <div class="box box-solutions">
+    <div class="box-label">Full Solutions</div>
+    <ol class="s-list">
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=x^2+7\), \(f'(x)=2x\). Numerator \(= f'(x)\), so \(k=1\).
+        $$\boxed{\ln|x^2+7|+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=5x-3\), \(f'(x)=5\). Numerator is exactly \(5 = f'(x)\), so:
+        $$\boxed{\ln|5x-3|+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=\cos x\), \(f'(x)=-\sin x\). Numerator is \(\sin x = -f'(x)\), so \(k=-1\):
+        $$\int\frac{\sin x}{\cos x}\,dx = -\ln|\cos x|+C$$
+        This can also be written as \(\ln|\sec x|+C\) using log laws.
+        $$\boxed{-\ln|\cos x|+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=x^4+3x^2+1\), \(f'(x)=4x^3+6x\). Numerator \(=f'(x)\) exactly.
+        $$\boxed{\ln|x^4+3x^2+1|+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=e^{2x}+4\), \(f'(x)=2e^{2x}\). Numerator is \(e^{2x} = \dfrac{1}{2}f'(x)\), so \(k=\dfrac{1}{2}\):
+        $$\boxed{\frac{1}{2}\ln(e^{2x}+4)+C}$$
+        (No modulus needed since \(e^{2x}+4 > 0\) always.)
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=2x+1\), \(f'(x)=2\). Numerator is \(3 = \dfrac{3}{2}\cdot 2 = \dfrac{3}{2}f'(x)\):
+        $$\boxed{\frac{3}{2}\ln|2x+1|+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=2x^3-2x+5\), \(f'(x)=6x^2-2\). Numerator \(=f'(x)\) exactly.
+        $$\boxed{\ln|2x^3-2x+5|+C}$$
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SKILL 18 -->
+<!-- ============================================================ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 18</div>
+    <h2>Integration by Recognition — Reverse Chain Rule (Power Form)</h2>
+  </div>
+
+  <!-- Concept -->
+  <div class="box box-concept">
+    <div class="box-label">What It Is</div>
+    <p>The chain rule tells us that \(\dfrac{d}{dx}[f(x)]^n = n[f(x)]^{n-1} \cdot f'(x)\). <strong>Reversing</strong> this gives us: if the integrand is a power of some function \(f(x)\) multiplied by (a scalar multiple of) its derivative \(f'(x)\), then the integral is \(\dfrac{[f(x)]^{n+1}}{n+1} + C\).</p>
+    <p>You are <strong>recognising</strong> the integrand as the output of the chain rule. No formal substitution is written down — you spot the pattern and write the answer directly.</p>
+    <p>The key check: differentiate the <em>inner</em> function \(f(x)\). Is the result present (up to a constant) in the integrand alongside the power? If yes — apply the reverse chain rule.</p>
+    <p>This rule also covers expressions of the form \(e^{f(x)} \cdot f'(x)\), which integrate to \(e^{f(x)}+C\).</p>
+  </div>
+
+  <!-- Formula -->
+  <div class="box box-formula">
+    <div class="box-label">Formula / Rule</div>
+    <div class="formula-content">
+      <p><strong>Power form (reverse chain rule):</strong></p>
+      $$\int [f(x)]^n \cdot f'(x)\,dx = \frac{[f(x)]^{n+1}}{n+1} + C \qquad (n \neq -1)$$
+      <p style="margin-top:14px;"><strong>With scalar multiple \(k\):</strong></p>
+      $$\int k[f(x)]^n \cdot f'(x)\,dx = \frac{k[f(x)]^{n+1}}{n+1} + C$$
+      <p style="margin-top:14px;"><strong>Exponential form:</strong></p>
+      $$\int e^{f(x)} \cdot f'(x)\,dx = e^{f(x)} + C$$
+      <p style="margin-top:14px;"><strong>Note:</strong> The case \(n = -1\) gives the log rule (Skill 17).</p>
+    </div>
+  </div>
+
+  <!-- Where to apply -->
+  <div class="box box-apply">
+    <div class="box-label">Where to Apply This</div>
+    <ul class="bullet-list">
+      <li>The integrand is a product of two parts: a <strong>power of a function</strong> and (a multiple of) that <strong>function's derivative</strong>.</li>
+      <li>Common triggers: \((x^2+1)^5 \cdot 2x\), \(\sin^3 x \cdot \cos x\), \(e^{x^2} \cdot 2x\).</li>
+      <li>Always check the derivative is present: if it's missing entirely (not just off by a constant), this method cannot be applied — use substitution.</li>
+      <li>If the multiple is off by a constant, adjust: e.g., for \(x(x^2+1)^4\), note \(f'(x)=2x\) but numerator is \(x\); factor out \(\tfrac{1}{2}\) and proceed.</li>
+    </ul>
+  </div>
+
+  <!-- Worked examples -->
+  <div class="box box-examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example">
+      <h4>Example 1 — Polynomial power</h4>
+      <div class="step"><span class="step-label">Question</span>Find \(\displaystyle\int 6x(x^2+3)^4\,dx\).</div>
+      <div class="step"><span class="step-label">Step 1 — Identify f(x) and n</span>
+        Let \(f(x) = x^2+3\), so \(f'(x) = 2x\). The power is \(n=4\).
+      </div>
+      <div class="step"><span class="step-label">Step 2 — Check the derivative is present</span>
+        The integrand has \(6x\). We need \(f'(x) = 2x\). Note \(6x = 3 \cdot 2x = 3 \cdot f'(x)\). So the scalar is \(k=3\).
+      </div>
+      <div class="step"><span class="step-label">Step 3 — Apply reverse chain rule</span>
+        $$\int 6x(x^2+3)^4\,dx = 3 \cdot \frac{(x^2+3)^5}{5} + C = \frac{3(x^2+3)^5}{5} + C$$
+      </div>
+      <div class="step"><span class="step-label">Step 4 — Verify by differentiating</span>
+        \(\dfrac{d}{dx}\!\left[\dfrac{3(x^2+3)^5}{5}\right] = \dfrac{3}{5}\cdot 5(x^2+3)^4 \cdot 2x = 6x(x^2+3)^4\). ✓
+        $$\boxed{\frac{3(x^2+3)^5}{5}+C}$$
+      </div>
+    </div>
+
+    <div class="example-divider"></div>
+
+    <div class="example">
+      <h4>Example 2 — Trigonometric power</h4>
+      <div class="step"><span class="step-label">Question</span>Find \(\displaystyle\int \sin^4 x \cos x\,dx\).</div>
+      <div class="step"><span class="step-label">Step 1 — Identify f(x) and n</span>
+        Let \(f(x) = \sin x\), so \(f'(x) = \cos x\). The power is \(n=4\).
+      </div>
+      <div class="step"><span class="step-label">Step 2 — Check the derivative is present</span>
+        The integrand is \(\sin^4 x \cdot \cos x = [f(x)]^4 \cdot f'(x)\). The derivative is present exactly, so \(k=1\).
+      </div>
+      <div class="step"><span class="step-label">Step 3 — Apply reverse chain rule</span>
+        $$\int \sin^4 x \cos x\,dx = \frac{\sin^5 x}{5} + C$$
+      </div>
+      <div class="step"><span class="step-label">Step 4 — Verify</span>
+        \(\dfrac{d}{dx}\!\left[\dfrac{\sin^5 x}{5}\right] = \dfrac{5\sin^4 x \cos x}{5} = \sin^4 x\cos x\). ✓
+        $$\boxed{\frac{\sin^5 x}{5}+C}$$
+      </div>
+    </div>
+  </div>
+
+  <!-- Questions -->
+  <div class="box box-questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Find \(\displaystyle\int 4x(x^2-1)^3\,dx\).</li>
+      <li>Find \(\displaystyle\int 3\cos x \sin^2 x\,dx\).</li>
+      <li>Find \(\displaystyle\int (2x+1)(x^2+x)^5\,dx\).</li>
+      <li>Find \(\displaystyle\int \frac{1}{2}e^{x}\cdot e^{e^x}\,dx\). <em>(Hint: treat \(e^x\) as the inner function.)</em></li>
+      <li>Find \(\displaystyle\int 2x e^{x^2}\,dx\).</li>
+      <li>Find \(\displaystyle\int \cos x(\sin x + 2)^4\,dx\).</li>
+      <li>Find \(\displaystyle\int \frac{3x^2}{\sqrt{x^3+4}}\,dx\). <em>(Write the square root as a power first.)</em></li>
+    </ol>
+  </div>
+
+  <!-- Solutions -->
+  <div class="box box-solutions">
+    <div class="box-label">Full Solutions</div>
+    <ol class="s-list">
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=x^2-1\), \(f'(x)=2x\), \(n=3\). Numerator: \(4x = 2\cdot 2x = 2f'(x)\), so \(k=2\).
+        $$\int 4x(x^2-1)^3\,dx = 2\cdot\frac{(x^2-1)^4}{4}+C = \frac{(x^2-1)^4}{2}+C$$
+        $$\boxed{\dfrac{(x^2-1)^4}{2}+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=\sin x\), \(f'(x)=\cos x\), \(n=2\). Numerator: \(3\cos x = 3f'(x)\), so \(k=3\).
+        $$\int 3\cos x\sin^2 x\,dx = 3\cdot\frac{\sin^3 x}{3}+C = \sin^3 x+C$$
+        $$\boxed{\sin^3 x+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=x^2+x\), \(f'(x)=2x+1\), \(n=5\). Numerator: \(2x+1 = f'(x)\) exactly, so \(k=1\).
+        $$\int(2x+1)(x^2+x)^5\,dx = \frac{(x^2+x)^6}{6}+C$$
+        $$\boxed{\dfrac{(x^2+x)^6}{6}+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        Let \(f(x)=e^x\), \(f'(x)=e^x\). The integrand is \(\tfrac{1}{2}e^x\cdot e^{e^x} = \tfrac{1}{2}f'(x)\cdot e^{f(x)}\). Exponential form with \(k=\tfrac{1}{2}\):
+        $$\int \tfrac{1}{2}e^{e^x}\cdot e^x\,dx = \frac{1}{2}e^{e^x}+C$$
+        $$\boxed{\dfrac{1}{2}e^{e^x}+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=x^2\), \(f'(x)=2x\). Numerator: \(2x = f'(x)\) exactly. Exponential form:
+        $$\boxed{e^{x^2}+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(f(x)=\sin x+2\), \(f'(x)=\cos x\), \(n=4\). Numerator: \(\cos x = f'(x)\) exactly.
+        $$\int\cos x(\sin x+2)^4\,dx = \frac{(\sin x+2)^5}{5}+C$$
+        $$\boxed{\dfrac{(\sin x+2)^5}{5}+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        Rewrite: \(\dfrac{3x^2}{\sqrt{x^3+4}} = 3x^2(x^3+4)^{-1/2}\). Let \(f(x)=x^3+4\), \(f'(x)=3x^2\), \(n=-\tfrac{1}{2}\).
+        Numerator: \(3x^2=f'(x)\) exactly.
+        $$\int 3x^2(x^3+4)^{-1/2}\,dx = \frac{(x^3+4)^{1/2}}{1/2}+C = 2\sqrt{x^3+4}+C$$
+        $$\boxed{2\sqrt{x^3+4}+C}$$
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SKILL 19 -->
+<!-- ============================================================ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 19</div>
+    <h2>Integration by Substitution</h2>
+  </div>
+
+  <!-- Concept -->
+  <div class="box box-concept">
+    <div class="box-label">What It Is</div>
+    <p>Integration by substitution is the formal version of the reverse chain rule. You introduce a new variable \(u\) to replace a complicated inner function, turning a difficult integral into a simpler one in terms of \(u\).</p>
+    <p>The key idea is that you not only replace the function inside the integrand, but also replace \(dx\) with \(du\) using the relationship \(\dfrac{du}{dx} = u'\), which gives \(dx = \dfrac{du}{u'}\). After substitution, the integral must be <strong>entirely in terms of \(u\)</strong> — no \(x\) should remain.</p>
+    <p>For <strong>indefinite integrals</strong>, once you have integrated in terms of \(u\), you substitute back \(u = f(x)\) at the end to give your answer in terms of \(x\).</p>
+    <p>For <strong>definite integrals</strong>, you must convert the \(x\)-limits into \(u\)-limits using your substitution, and then you never need to substitute back. This is the most common source of errors — always change the limits.</p>
+  </div>
+
+  <!-- Formula -->
+  <div class="box box-formula">
+    <div class="box-label">Formula / Rule</div>
+    <div class="formula-content">
+      <p><strong>General substitution rule:</strong></p>
+      $$\int f(g(x))\cdot g'(x)\,dx = \int f(u)\,du \quad \text{where } u = g(x)$$
+      <p style="margin-top:14px;"><strong>Procedure (indefinite):</strong></p>
+      <p>1. Choose \(u = g(x)\). &nbsp; 2. Compute \(\dfrac{du}{dx}\) and rearrange to find \(dx\) in terms of \(du\). &nbsp; 3. Substitute everything. &nbsp; 4. Integrate. &nbsp; 5. Replace \(u\) with \(g(x)\).</p>
+      <p style="margin-top:14px;"><strong>Procedure (definite):</strong></p>
+      <p>Same steps 1–4, but convert limits: if \(x=a\), compute \(u=g(a)\); if \(x=b\), compute \(u=g(b)\). Do not substitute back.</p>
+    </div>
+  </div>
+
+  <!-- Where to apply -->
+  <div class="box box-apply">
+    <div class="box-label">Where to Apply This</div>
+    <ul class="bullet-list">
+      <li>The integrand is a composite function (a function inside a function) and the reverse chain rule cannot be applied directly because the derivative is missing or the expression is too complex to recognise.</li>
+      <li>A good choice for \(u\) is almost always the <strong>inner function</strong> — the expression inside brackets, under a square root, in the exponent, or in the denominator.</li>
+      <li>After substitution, the integral must be purely in terms of \(u\). If \(x\) remains and cannot be eliminated, your substitution choice was wrong — try again.</li>
+      <li>Common choices: \(u = x^2+1\), \(u = \sin x\), \(u = e^x+3\), \(u = \sqrt{x}\) (for which \(x = u^2\)).</li>
+    </ul>
+  </div>
+
+  <!-- Worked examples -->
+  <div class="box box-examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example">
+      <h4>Example 1 — Indefinite integral</h4>
+      <div class="step"><span class="step-label">Question</span>Find \(\displaystyle\int x\sqrt{x^2+5}\,dx\).</div>
+      <div class="step"><span class="step-label">Step 1 — Choose substitution</span>
+        The inner function inside the square root is \(x^2+5\). Let \(u = x^2+5\).
+      </div>
+      <div class="step"><span class="step-label">Step 2 — Differentiate to find dx</span>
+        $$\frac{du}{dx} = 2x \implies du = 2x\,dx \implies x\,dx = \frac{du}{2}$$
+      </div>
+      <div class="step"><span class="step-label">Step 3 — Substitute everything</span>
+        Replace \(x^2+5\) with \(u\) and \(x\,dx\) with \(\dfrac{du}{2}\):
+        $$\int x\sqrt{x^2+5}\,dx = \int \sqrt{u}\cdot\frac{du}{2} = \frac{1}{2}\int u^{1/2}\,du$$
+      </div>
+      <div class="step"><span class="step-label">Step 4 — Integrate in terms of u</span>
+        $$\frac{1}{2}\cdot\frac{u^{3/2}}{3/2} = \frac{1}{2}\cdot\frac{2u^{3/2}}{3} = \frac{u^{3/2}}{3}$$
+      </div>
+      <div class="step"><span class="step-label">Step 5 — Substitute back u = x²+5</span>
+        $$\boxed{\frac{(x^2+5)^{3/2}}{3}+C}$$
+      </div>
+    </div>
+
+    <div class="example-divider"></div>
+
+    <div class="example">
+      <h4>Example 2 — Definite integral</h4>
+      <div class="step"><span class="step-label">Question</span>Evaluate \(\displaystyle\int_{0}^{1} \frac{2x}{(x^2+1)^3}\,dx\).</div>
+      <div class="step"><span class="step-label">Step 1 — Choose substitution</span>
+        Let \(u = x^2+1\).
+      </div>
+      <div class="step"><span class="step-label">Step 2 — Differentiate</span>
+        $$\frac{du}{dx} = 2x \implies du = 2x\,dx$$
+      </div>
+      <div class="step"><span class="step-label">Step 3 — Convert limits</span>
+        When \(x=0\): \(u = 0^2+1 = 1\).<br>
+        When \(x=1\): \(u = 1^2+1 = 2\).<br>
+        New limits: \(u=1\) to \(u=2\).
+      </div>
+      <div class="step"><span class="step-label">Step 4 — Substitute</span>
+        $$\int_{0}^{1}\frac{2x}{(x^2+1)^3}\,dx = \int_{1}^{2}\frac{du}{u^3} = \int_{1}^{2} u^{-3}\,du$$
+      </div>
+      <div class="step"><span class="step-label">Step 5 — Integrate and apply limits</span>
+        $$\int_{1}^{2}u^{-3}\,du = \left[\frac{u^{-2}}{-2}\right]_{1}^{2} = \left[-\frac{1}{2u^2}\right]_{1}^{2}$$
+        $$= \left(-\frac{1}{2(4)}\right) - \left(-\frac{1}{2(1)}\right) = -\frac{1}{8}+\frac{1}{2} = \frac{3}{8}$$
+        $$\boxed{\dfrac{3}{8}}$$
+      </div>
+    </div>
+  </div>
+
+  <!-- Questions -->
+  <div class="box box-questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Find \(\displaystyle\int 3x^2(x^3+2)^4\,dx\). Use \(u=x^3+2\).</li>
+      <li>Find \(\displaystyle\int \cos x\, e^{\sin x}\,dx\). Use \(u=\sin x\).</li>
+      <li>Find \(\displaystyle\int \frac{x}{\sqrt{1-x^2}}\,dx\). Use \(u=1-x^2\).</li>
+      <li>Evaluate \(\displaystyle\int_{0}^{1} 2x(x^2+3)^2\,dx\). Use \(u=x^2+3\).</li>
+      <li>Evaluate \(\displaystyle\int_{0}^{\pi/2} \sin x\cos^3 x\,dx\). Use \(u=\cos x\).</li>
+      <li>Find \(\displaystyle\int x\sqrt{2x+1}\,dx\). Use \(u=2x+1\).</li>
+      <li>Find \(\displaystyle\int \frac{e^x}{(e^x+1)^2}\,dx\). Use \(u=e^x+1\).</li>
+    </ol>
+  </div>
+
+  <!-- Solutions -->
+  <div class="box box-solutions">
+    <div class="box-label">Full Solutions</div>
+    <ol class="s-list">
+      <li>
+        <div class="s-head"></div>
+        \(u=x^3+2\), \(du=3x^2\,dx\).
+        $$\int (u)^4\,du = \frac{u^5}{5}+C = \frac{(x^3+2)^5}{5}+C$$
+        $$\boxed{\dfrac{(x^3+2)^5}{5}+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(u=\sin x\), \(du=\cos x\,dx\).
+        $$\int e^u\,du = e^u+C = e^{\sin x}+C$$
+        $$\boxed{e^{\sin x}+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(u=1-x^2\), \(du=-2x\,dx\implies x\,dx = -\tfrac{1}{2}du\).
+        $$\int\frac{-\frac{1}{2}\,du}{\sqrt{u}} = -\frac{1}{2}\int u^{-1/2}\,du = -\frac{1}{2}\cdot 2u^{1/2}+C = -\sqrt{1-x^2}+C$$
+        $$\boxed{-\sqrt{1-x^2}+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(u=x^2+3\), \(du=2x\,dx\). Limits: \(x=0\Rightarrow u=3\); \(x=1\Rightarrow u=4\).
+        $$\int_3^4 u^2\,du = \left[\frac{u^3}{3}\right]_3^4 = \frac{64}{3}-\frac{27}{3} = \frac{37}{3}$$
+        $$\boxed{\dfrac{37}{3}}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(u=\cos x\), \(du=-\sin x\,dx\). Limits: \(x=0\Rightarrow u=1\); \(x=\tfrac{\pi}{2}\Rightarrow u=0\).
+        $$\int_1^0 -u^3\,du = \int_0^1 u^3\,du = \left[\frac{u^4}{4}\right]_0^1 = \frac{1}{4}$$
+        $$\boxed{\dfrac{1}{4}}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(u=2x+1\), so \(x=\dfrac{u-1}{2}\), \(dx=\dfrac{du}{2}\).
+        $$\int \frac{u-1}{2}\cdot\sqrt{u}\cdot\frac{du}{2} = \frac{1}{4}\int(u-1)u^{1/2}\,du = \frac{1}{4}\int\!\left(u^{3/2}-u^{1/2}\right)du$$
+        $$= \frac{1}{4}\left[\frac{2u^{5/2}}{5}-\frac{2u^{3/2}}{3}\right]+C = \frac{u^{5/2}}{10}-\frac{u^{3/2}}{6}+C$$
+        Substitute back \(u=2x+1\):
+        $$\boxed{\dfrac{(2x+1)^{5/2}}{10}-\dfrac{(2x+1)^{3/2}}{6}+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        \(u=e^x+1\), \(du=e^x\,dx\).
+        $$\int\frac{du}{u^2} = \int u^{-2}\,du = -u^{-1}+C = -\frac{1}{e^x+1}+C$$
+        $$\boxed{-\dfrac{1}{e^x+1}+C}$$
+      </li>
+    </ol>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- SKILL 20 -->
+<!-- ============================================================ -->
+<div class="skill-block">
+  <div class="skill-header">
+    <div class="skill-number">Skill 20</div>
+    <h2>Integration by Parts</h2>
+  </div>
+
+  <!-- Concept -->
+  <div class="box box-concept">
+    <div class="box-label">What It Is</div>
+    <p>Integration by parts is used when the integrand is a <strong>product of two different types of function</strong> (e.g. a polynomial times an exponential, or a polynomial times \(\ln x\)), and no simpler technique works.</p>
+    <p>The formula comes from reversing the product rule of differentiation. Recall: \(\dfrac{d}{dx}[uv] = u\dfrac{dv}{dx} + v\dfrac{du}{dx}\). Integrating both sides and rearranging gives the parts formula.</p>
+    <p>You must decide which part to call \(u\) (which you will differentiate) and which to call \(\dfrac{dv}{dx}\) (which you will integrate). A reliable guide is the acronym <strong>LIATE</strong>: choose \(u\) from whichever comes first — <strong>L</strong>ogarithm, <strong>I</strong>nverse trig, <strong>A</strong>lgebraic (polynomial), <strong>T</strong>rigonometric, <strong>E</strong>xponential.</p>
+    <p>Sometimes you need to apply the formula <strong>twice</strong>. And sometimes applying it twice returns you to the original integral, which you can then solve algebraically (treating it as an equation).</p>
+  </div>
+
+  <!-- Formula -->
+  <div class="box box-formula">
+    <div class="box-label">Formula / Rule</div>
+    <div class="formula-content">
+      <p><strong>Integration by Parts formula:</strong></p>
+      $$\int u\,\frac{dv}{dx}\,dx = uv - \int v\,\frac{du}{dx}\,dx$$
+      <p style="margin-top:14px;"><strong>Equivalently (using shorthand):</strong></p>
+      $$\int u\,dv = uv - \int v\,du$$
+      <p style="margin-top:14px;"><strong>LIATE priority for choosing \(u\):</strong></p>
+      <p><strong>L</strong>ogarithm &gt; <strong>I</strong>nverse trig &gt; <strong>A</strong>lgebra (polynomial) &gt; <strong>T</strong>rig &gt; <strong>E</strong>xponential</p>
+      <p style="margin-top:14px;"><strong>Special case — integrating \(\ln x\) alone:</strong><br>
+        Write \(\ln x = \ln x \cdot 1\), let \(u = \ln x\) and \(\dfrac{dv}{dx}=1\).</p>
+    </div>
+  </div>
+
+  <!-- Where to apply -->
+  <div class="box box-apply">
+    <div class="box-label">Where to Apply This</div>
+    <ul class="bullet-list">
+      <li>The integrand is a product of two functions from different categories (e.g. \(x e^x\), \(x^2\cos x\), \(x\ln x\)).</li>
+      <li>The integrand is \(\ln x\) or \(\arctan x\) alone — write it as \(\ln x \cdot 1\) and integrate \(1\).</li>
+      <li>Try substitution first — use parts only when substitution fails or is not possible.</li>
+      <li>If after applying parts you get the <strong>same integral</strong> as the original (with trig × exponential products), collect it on one side and divide.</li>
+      <li>For definite integrals: apply the formula and substitute limits into the \([uv]\) term, then integrate the remaining integral with limits.</li>
+    </ul>
+  </div>
+
+  <!-- Worked examples -->
+  <div class="box box-examples">
+    <div class="box-label">Worked Examples</div>
+
+    <div class="example">
+      <h4>Example 1 — Polynomial × Exponential</h4>
+      <div class="step"><span class="step-label">Question</span>Find \(\displaystyle\int x e^{2x}\,dx\).</div>
+      <div class="step"><span class="step-label">Step 1 — Choose u and dv/dx</span>
+        LIATE: Algebra before Exponential. So let:
+        $$u = x \implies \frac{du}{dx} = 1$$
+        $$\frac{dv}{dx} = e^{2x} \implies v = \frac{e^{2x}}{2}$$
+      </div>
+      <div class="step"><span class="step-label">Step 2 — Apply the formula</span>
+        $$\int x e^{2x}\,dx = uv - \int v\,\frac{du}{dx}\,dx = x\cdot\frac{e^{2x}}{2} - \int \frac{e^{2x}}{2}\cdot 1\,dx$$
+      </div>
+      <div class="step"><span class="step-label">Step 3 — Integrate the remaining term</span>
+        $$= \frac{x e^{2x}}{2} - \frac{1}{2}\cdot\frac{e^{2x}}{2} + C = \frac{x e^{2x}}{2} - \frac{e^{2x}}{4} + C$$
+      </div>
+      <div class="step"><span class="step-label">Step 4 — Final answer (factorise)</span>
+        $$\boxed{\frac{e^{2x}}{4}(2x-1)+C}$$
+      </div>
+    </div>
+
+    <div class="example-divider"></div>
+
+    <div class="example">
+      <h4>Example 2 — Logarithm alone</h4>
+      <div class="step"><span class="step-label">Question</span>Find \(\displaystyle\int x^2\ln x\,dx\).</div>
+      <div class="step"><span class="step-label">Step 1 — Choose u and dv/dx</span>
+        LIATE: Logarithm before Algebra. So let:
+        $$u = \ln x \implies \frac{du}{dx} = \frac{1}{x}$$
+        $$\frac{dv}{dx} = x^2 \implies v = \frac{x^3}{3}$$
+      </div>
+      <div class="step"><span class="step-label">Step 2 — Apply the formula</span>
+        $$\int x^2\ln x\,dx = \frac{x^3}{3}\ln x - \int \frac{x^3}{3}\cdot\frac{1}{x}\,dx = \frac{x^3}{3}\ln x - \int\frac{x^2}{3}\,dx$$
+      </div>
+      <div class="step"><span class="step-label">Step 3 — Integrate the remaining term</span>
+        $$= \frac{x^3}{3}\ln x - \frac{x^3}{9} + C$$
+      </div>
+      <div class="step"><span class="step-label">Step 4 — Final answer (factorise)</span>
+        $$\boxed{\frac{x^3}{9}(3\ln x - 1)+C}$$
+      </div>
+    </div>
+  </div>
+
+  <!-- Questions -->
+  <div class="box box-questions">
+    <div class="box-label">Practice Questions</div>
+    <ol class="q-list">
+      <li>Find \(\displaystyle\int x\cos x\,dx\).</li>
+      <li>Find \(\displaystyle\int x e^{x}\,dx\).</li>
+      <li>Find \(\displaystyle\int \ln x\,dx\). <em>(Hint: write as \(\ln x \cdot 1\).)</em></li>
+      <li>Find \(\displaystyle\int x^2 e^{x}\,dx\). <em>(Apply parts twice.)</em></li>
+      <li>Find \(\displaystyle\int x\sin(2x)\,dx\).</li>
+      <li>Evaluate \(\displaystyle\int_{1}^{e} x\ln x\,dx\).</li>
+      <li>Find \(\displaystyle\int e^{x}\sin x\,dx\). <em>(Apply parts twice, then solve algebraically.)</em></li>
+    </ol>
+  </div>
+
+  <!-- Solutions -->
+  <div class="box box-solutions">
+    <div class="box-label">Full Solutions</div>
+    <ol class="s-list">
+      <li>
+        <div class="s-head"></div>
+        Let \(u=x\), \(\dfrac{dv}{dx}=\cos x\), so \(\dfrac{du}{dx}=1\), \(v=\sin x\).
+        $$\int x\cos x\,dx = x\sin x - \int\sin x\,dx = x\sin x + \cos x + C$$
+        $$\boxed{x\sin x+\cos x+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        Let \(u=x\), \(\dfrac{dv}{dx}=e^x\), so \(\dfrac{du}{dx}=1\), \(v=e^x\).
+        $$\int xe^x\,dx = xe^x - \int e^x\,dx = xe^x - e^x + C = e^x(x-1)+C$$
+        $$\boxed{e^x(x-1)+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        Write \(\ln x = \ln x\cdot 1\). Let \(u=\ln x\), \(\dfrac{dv}{dx}=1\), so \(\dfrac{du}{dx}=\dfrac{1}{x}\), \(v=x\).
+        $$\int\ln x\,dx = x\ln x - \int x\cdot\frac{1}{x}\,dx = x\ln x - \int 1\,dx = x\ln x - x + C$$
+        $$\boxed{x\ln x - x + C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        <strong>First application:</strong> Let \(u=x^2\), \(\dfrac{dv}{dx}=e^x\), so \(\dfrac{du}{dx}=2x\), \(v=e^x\).
+        $$\int x^2 e^x\,dx = x^2 e^x - \int 2xe^x\,dx$$
+        <strong>Second application</strong> on \(\int 2xe^x\,dx\): Let \(u=2x\), \(\dfrac{dv}{dx}=e^x\), so \(\dfrac{du}{dx}=2\), \(v=e^x\).
+        $$\int 2xe^x\,dx = 2xe^x - \int 2e^x\,dx = 2xe^x - 2e^x$$
+        <strong>Combine:</strong>
+        $$\int x^2 e^x\,dx = x^2 e^x - (2xe^x - 2e^x) + C = x^2 e^x - 2xe^x + 2e^x + C$$
+        $$\boxed{e^x(x^2-2x+2)+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        Let \(u=x\), \(\dfrac{dv}{dx}=\sin(2x)\), so \(\dfrac{du}{dx}=1\), \(v=-\dfrac{1}{2}\cos(2x)\).
+        $$\int x\sin(2x)\,dx = -\frac{x\cos(2x)}{2} - \int\!\left(-\frac{\cos(2x)}{2}\right)dx = -\frac{x\cos(2x)}{2}+\frac{1}{2}\int\cos(2x)\,dx$$
+        $$= -\frac{x\cos(2x)}{2} + \frac{\sin(2x)}{4} + C$$
+        $$\boxed{-\dfrac{x\cos(2x)}{2}+\dfrac{\sin(2x)}{4}+C}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        Let \(u=\ln x\), \(\dfrac{dv}{dx}=x\), so \(\dfrac{du}{dx}=\dfrac{1}{x}\), \(v=\dfrac{x^2}{2}\).
+        $$\int_1^e x\ln x\,dx = \left[\frac{x^2\ln x}{2}\right]_1^e - \int_1^e\frac{x^2}{2}\cdot\frac{1}{x}\,dx = \left[\frac{x^2\ln x}{2}\right]_1^e - \int_1^e\frac{x}{2}\,dx$$
+        $$= \left[\frac{x^2\ln x}{2}\right]_1^e - \left[\frac{x^2}{4}\right]_1^e$$
+        Evaluate \(\left[\dfrac{x^2\ln x}{2}\right]_1^e = \dfrac{e^2\cdot 1}{2} - \dfrac{1\cdot 0}{2} = \dfrac{e^2}{2}\).
+        Evaluate \(\left[\dfrac{x^2}{4}\right]_1^e = \dfrac{e^2}{4} - \dfrac{1}{4}\).
+        $$= \frac{e^2}{2} - \left(\frac{e^2}{4}-\frac{1}{4}\right) = \frac{e^2}{2}-\frac{e^2}{4}+\frac{1}{4} = \frac{e^2}{4}+\frac{1}{4}$$
+        $$\boxed{\dfrac{e^2+1}{4}}$$
+      </li>
+      <li>
+        <div class="s-head"></div>
+        <strong>First application:</strong> Let \(u=e^x\), \(\dfrac{dv}{dx}=\sin x\), so \(\dfrac{du}{dx}=e^x\), \(v=-\cos x\).
+        $$I = \int e^x\sin x\,dx = -e^x\cos x + \int e^x\cos x\,dx$$
+        <strong>Second application</strong> on \(\int e^x\cos x\,dx\): Let \(u=e^x\), \(\dfrac{dv}{dx}=\cos x\), so \(\dfrac{du}{dx}=e^x\), \(v=\sin x\).
+        $$\int e^x\cos x\,dx = e^x\sin x - \int e^x\sin x\,dx = e^x\sin x - I$$
+        <strong>Substitute back:</strong>
+        $$I = -e^x\cos x + e^x\sin x - I$$
+        $$2I = e^x(\sin x - \cos x)$$
+        $$I = \frac{e^x(\sin x-\cos x)}{2}+C$$
+        $$\boxed{\dfrac{e^x(\sin x - \cos x)}{2}+C}$$
+      </li>
+    </ol>
+  </div>
+</div>
+
+</div><!-- end page-wrap -->
+</body>
+</html>

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Edexcel IAL P3 & P4 — Skills 1–5: Differentiation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #1a1a2e;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── Page Title ── */
+  .page-title {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .page-title h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    letter-spacing: -0.5px;
+  }
+  .page-title p {
+    margin-top: 8px;
+    color: #555;
+    font-size: 1rem;
+  }
+  .page-title .badge {
+    display: inline-block;
+    margin-top: 14px;
+    background: #1a1a2e;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+  }
+
+  /* ── Skill Block ── */
+  .skill-block {
+    margin-bottom: 72px;
+  }
+
+  /* ── Section Header ── */
+  .section-header {
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 20px 28px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-header .skill-num {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .section-header h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  /* ── Box Types ── */
+  .box {
+    padding: 24px 28px;
+    border-radius: 0;
+    margin-top: 2px;
+  }
+  .box:last-child { border-radius: 0 0 10px 10px; }
+  .box.first { border-radius: 0; }
+
+  .box-concept   { background: #e8f4fd; }
+  .box-formula   { background: #fff9e6; }
+  .box-examples  { background: #e8f8e8; }
+  .box-questions { background: #f3e8ff; }
+  .box-solutions { background: #fff0e8; }
+
+  .box-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 0.6;
+  }
+  .box-concept   .box-label { color: #1565c0; }
+  .box-formula   .box-label { color: #b45309; }
+  .box-examples  .box-label { color: #1b5e20; }
+  .box-questions .box-label { color: #6a1b9a; }
+  .box-solutions .box-label { color: #bf360c; }
+
+  .box h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a1a2e;
+  }
+
+  /* Formula display */
+  .box-formula .formula-display {
+    font-size: 1.15rem;
+    text-align: center;
+    padding: 10px 0 4px;
+  }
+
+  /* When-to-use list */
+  .when-list {
+    list-style: none;
+    padding: 0;
+  }
+  .when-list li {
+    padding: 5px 0 5px 22px;
+    position: relative;
+  }
+  .when-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #888;
+    font-weight: 600;
+  }
+
+  /* Worked examples */
+  .example-block {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .example-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .example-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: #1b5e20;
+  }
+  .step {
+    margin: 6px 0;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.55);
+    border-left: 3px solid #a5d6a7;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.95rem;
+  }
+  .step .step-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #388e3c;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* Questions */
+  .q-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: qcount;
+  }
+  .q-list li {
+    counter-increment: qcount;
+    padding: 8px 0 8px 36px;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.97rem;
+  }
+  .q-list li:last-child { border-bottom: none; }
+  .q-list li::before {
+    content: "Q" counter(qcount);
+    position: absolute;
+    left: 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #7b1fa2;
+    background: rgba(123,31,162,0.1);
+    padding: 2px 7px;
+    border-radius: 10px;
+    top: 10px;
+  }
+
+  /* Solutions */
+  .sol-block {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .sol-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .sol-title {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #bf360c;
+    margin-bottom: 8px;
+  }
+  .sol-step {
+    margin: 5px 0;
+    padding: 5px 12px;
+    background: rgba(255,255,255,0.55);
+    border-left: 3px solid #ffab91;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.94rem;
+  }
+  .sol-step .step-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #e64a19;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* Divider between header and first box */
+  .skill-inner { border-radius: 0 0 10px 10px; overflow: hidden; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .page-title h1 { font-size: 1.4rem; }
+    .section-header h2 { font-size: 1.1rem; }
+    .box { padding: 18px 16px; }
+  }
+</style>
+<!-- sb:start -->
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
+<script src="../../app/note.js"></script>
+<!-- sb:end -->
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <h1>Edexcel IAL Pure Mathematics — P3 &amp; P4</h1>
+    <p>Complete teaching notes with worked examples, practice questions, and full solutions</p>
+    <span class="badge">Skills 1 – 5 &nbsp;·&nbsp; Differentiation</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SKILL 1 — CHAIN RULE
+  ═══════════════════════════════════════════════ -->
+  <div class="skill-block">
+    <div class="section-header">
+      <span class="skill-num">Skill 1</span>
+      <h2>The Chain Rule</h2>
+    </div>
+    <div class="skill-inner">
+
+      <!-- Concept -->
+      <div class="box box-concept">
+        <div class="box-label">What It Is</div>
+        <p>The Chain Rule is used to differentiate <strong>composite functions</strong> — that is, a function inside another function, written as \(f(g(x))\). For example, \((3x+1)^5\) is a composite function because the inner function \(3x+1\) is raised to a power by the outer function. You cannot simply differentiate the bracket and leave it; you must account for the inner function too. The Chain Rule tells you to differentiate the outside function first (leaving the inside alone), then multiply by the derivative of the inside function. This "chain" of multiplication is where the rule gets its name.</p>
+      </div>
+
+      <!-- Formula -->
+      <div class="box box-formula">
+        <div class="box-label">The Rule</div>
+        <p>If \(y = f(u)\) where \(u = g(x)\), then:</p>
+        <div class="formula-display">
+          $$\frac{dy}{dx} = \frac{dy}{du} \times \frac{du}{dx}$$
+        </div>
+        <p style="margin-top:12px;">Equivalently, for a function of a function:</p>
+        <div class="formula-display">
+          $$\frac{d}{dx}\bigl[f(g(x))\bigr] = f'(g(x)) \cdot g'(x)$$
+        </div>
+        <p style="margin-top:12px;">Quick pattern: <strong>differentiate the outer function</strong> (keeping inner unchanged), then <strong>multiply by the derivative of the inner function</strong>.</p>
+      </div>
+
+      <!-- When to use -->
+      <div class="box box-concept">
+        <div class="box-label">When to Apply It</div>
+        <ul class="when-list">
+          <li>Any function raised to a power where the base is itself a function of \(x\), e.g. \((x^2+1)^6\)</li>
+          <li>Trigonometric functions with a non-trivial argument, e.g. \(\sin(3x^2)\)</li>
+          <li>Exponential or logarithmic functions of a function, e.g. \(e^{x^2}\) or \(\ln(5x+1)\)</li>
+          <li>Any time you see a function plugged <em>inside</em> another function — ask: "is there something more complex than just \(x\) inside?"</li>
+        </ul>
+      </div>
+
+      <!-- Worked Examples -->
+      <div class="box box-examples">
+        <div class="box-label">Worked Examples</div>
+
+        <div class="example-block">
+          <div class="example-title">Example 1 — Differentiate \(y = (3x^2 + 5)^4\)</div>
+          <div class="step"><span class="step-label">Identify the structure</span>Outer function: \((\,\cdot\,)^4\). &nbsp; Inner function: \(u = 3x^2 + 5\).</div>
+          <div class="step"><span class="step-label">Differentiate the outer</span>\(\dfrac{dy}{du} = 4u^3\)&nbsp; (power rule on the outer function, inner left unchanged).</div>
+          <div class="step"><span class="step-label">Differentiate the inner</span>\(\dfrac{du}{dx} = 6x\)</div>
+          <div class="step"><span class="step-label">Apply Chain Rule</span>\(\dfrac{dy}{dx} = 4u^3 \times 6x = 4(3x^2+5)^3 \times 6x\)</div>
+          <div class="step"><span class="step-label">Simplify</span>$$\boxed{\dfrac{dy}{dx} = 24x(3x^2+5)^3}$$</div>
+        </div>
+
+        <div class="example-block">
+          <div class="example-title">Example 2 — Differentiate \(y = \sin(5x^3 - 2x)\)</div>
+          <div class="step"><span class="step-label">Identify the structure</span>Outer function: \(\sin(\,\cdot\,)\). &nbsp; Inner function: \(u = 5x^3 - 2x\).</div>
+          <div class="step"><span class="step-label">Differentiate the outer</span>\(\dfrac{dy}{du} = \cos(u)\)</div>
+          <div class="step"><span class="step-label">Differentiate the inner</span>\(\dfrac{du}{dx} = 15x^2 - 2\)</div>
+          <div class="step"><span class="step-label">Apply Chain Rule</span>\(\dfrac{dy}{dx} = \cos(u) \times (15x^2 - 2)\)</div>
+          <div class="step"><span class="step-label">Substitute back</span>$$\boxed{\dfrac{dy}{dx} = (15x^2 - 2)\cos(5x^3 - 2x)}$$</div>
+        </div>
+      </div>
+
+      <!-- Questions -->
+      <div class="box box-questions">
+        <div class="box-label">Practice Questions</div>
+        <ol class="q-list">
+          <li>Differentiate \(y = (4x - 7)^6\)</li>
+          <li>Differentiate \(y = (x^2 + 3x)^5\)</li>
+          <li>Differentiate \(y = \sqrt{2x^3 + 1}\) &nbsp; (write as a power first)</li>
+          <li>Differentiate \(y = \cos(4x + 1)\)</li>
+          <li>Differentiate \(y = \tan(x^2)\)</li>
+          <li>Differentiate \(y = (x^3 - 2x + 1)^{-3}\)</li>
+          <li>Differentiate \(y = \sin^4(x)\) &nbsp; (write as \((\sin x)^4\))</li>
+        </ol>
+      </div>
+
+      <!-- Solutions -->
+      <div class="box box-solutions">
+        <div class="box-label">Full Solutions</div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q1 — \(y = (4x-7)^6\)</div>
+          <div class="sol-step"><span class="step-label">Inner</span>\(u = 4x - 7\), so \(\dfrac{du}{dx} = 4\)</div>
+          <div class="sol-step"><span class="step-label">Outer differentiated</span>\(\dfrac{dy}{du} = 6u^5 = 6(4x-7)^5\)</div>
+          <div class="sol-step"><span class="step-label">Chain Rule</span>$$\boxed{\dfrac{dy}{dx} = 24(4x-7)^5}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q2 — \(y = (x^2+3x)^5\)</div>
+          <div class="sol-step"><span class="step-label">Inner</span>\(u = x^2+3x\), so \(\dfrac{du}{dx} = 2x+3\)</div>
+          <div class="sol-step"><span class="step-label">Outer differentiated</span>\(\dfrac{dy}{du} = 5u^4 = 5(x^2+3x)^4\)</div>
+          <div class="sol-step"><span class="step-label">Chain Rule</span>$$\boxed{\dfrac{dy}{dx} = 5(2x+3)(x^2+3x)^4}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q3 — \(y = \sqrt{2x^3+1} = (2x^3+1)^{1/2}\)</div>
+          <div class="sol-step"><span class="step-label">Inner</span>\(u = 2x^3+1\), so \(\dfrac{du}{dx} = 6x^2\)</div>
+          <div class="sol-step"><span class="step-label">Outer differentiated</span>\(\dfrac{dy}{du} = \dfrac{1}{2}u^{-1/2} = \dfrac{1}{2}(2x^3+1)^{-1/2}\)</div>
+          <div class="sol-step"><span class="step-label">Chain Rule</span>\(\dfrac{dy}{dx} = \dfrac{1}{2}(2x^3+1)^{-1/2} \times 6x^2 = 3x^2(2x^3+1)^{-1/2}\)</div>
+          <div class="sol-step"><span class="step-label">Write neatly</span>$$\boxed{\dfrac{dy}{dx} = \dfrac{3x^2}{\sqrt{2x^3+1}}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q4 — \(y = \cos(4x+1)\)</div>
+          <div class="sol-step"><span class="step-label">Inner</span>\(u = 4x+1\), so \(\dfrac{du}{dx} = 4\)</div>
+          <div class="sol-step"><span class="step-label">Outer differentiated</span>\(\dfrac{dy}{du} = -\sin(u)\)</div>
+          <div class="sol-step"><span class="step-label">Chain Rule</span>$$\boxed{\dfrac{dy}{dx} = -4\sin(4x+1)}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q5 — \(y = \tan(x^2)\)</div>
+          <div class="sol-step"><span class="step-label">Inner</span>\(u = x^2\), so \(\dfrac{du}{dx} = 2x\)</div>
+          <div class="sol-step"><span class="step-label">Outer differentiated</span>\(\dfrac{dy}{du} = \sec^2(u)\)</div>
+          <div class="sol-step"><span class="step-label">Chain Rule</span>$$\boxed{\dfrac{dy}{dx} = 2x\sec^2(x^2)}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q6 — \(y = (x^3-2x+1)^{-3}\)</div>
+          <div class="sol-step"><span class="step-label">Inner</span>\(u = x^3-2x+1\), so \(\dfrac{du}{dx} = 3x^2-2\)</div>
+          <div class="sol-step"><span class="step-label">Outer differentiated</span>\(\dfrac{dy}{du} = -3u^{-4}\)</div>
+          <div class="sol-step"><span class="step-label">Chain Rule</span>$$\boxed{\dfrac{dy}{dx} = -3(3x^2-2)(x^3-2x+1)^{-4}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q7 — \(y = \sin^4(x) = (\sin x)^4\)</div>
+          <div class="sol-step"><span class="step-label">Inner</span>\(u = \sin x\), so \(\dfrac{du}{dx} = \cos x\)</div>
+          <div class="sol-step"><span class="step-label">Outer differentiated</span>\(\dfrac{dy}{du} = 4u^3 = 4\sin^3 x\)</div>
+          <div class="sol-step"><span class="step-label">Chain Rule</span>$$\boxed{\dfrac{dy}{dx} = 4\sin^3(x)\cos(x)}$$</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SKILL 2 — PRODUCT RULE
+  ═══════════════════════════════════════════════ -->
+  <div class="skill-block">
+    <div class="section-header">
+      <span class="skill-num">Skill 2</span>
+      <h2>The Product Rule</h2>
+    </div>
+    <div class="skill-inner">
+
+      <div class="box box-concept">
+        <div class="box-label">What It Is</div>
+        <p>The Product Rule is used when you need to differentiate an expression that is the <strong>product (multiplication)</strong> of two separate functions of \(x\). A common mistake is to differentiate each part separately and multiply — this is <strong>wrong</strong>. For example, \(\dfrac{d}{dx}[u \cdot v] \ne \dfrac{du}{dx} \cdot \dfrac{dv}{dx}\). The correct method accounts for the fact that both parts are changing simultaneously. You label the two parts \(u\) and \(v\), differentiate each one, and then combine them using the formula below.</p>
+      </div>
+
+      <div class="box box-formula">
+        <div class="box-label">The Rule</div>
+        <p>If \(y = u \cdot v\), where \(u\) and \(v\) are both functions of \(x\), then:</p>
+        <div class="formula-display">
+          $$\frac{dy}{dx} = u\frac{dv}{dx} + v\frac{du}{dx}$$
+        </div>
+        <p style="margin-top:12px;">Memory aid: <strong>"first times derivative of second, plus second times derivative of first"</strong></p>
+      </div>
+
+      <div class="box box-concept">
+        <div class="box-label">When to Apply It</div>
+        <ul class="when-list">
+          <li>Whenever the expression is a product of two distinct functions, e.g. \(x^2 \sin x\) or \(e^x \ln x\)</li>
+          <li>When neither factor can be simplified away or combined into one</li>
+          <li>Watch for hidden products — \(x\cos x\) is a product even though it looks simple</li>
+          <li>Often combined with the Chain Rule when one of \(u\) or \(v\) is itself composite</li>
+        </ul>
+      </div>
+
+      <div class="box box-examples">
+        <div class="box-label">Worked Examples</div>
+
+        <div class="example-block">
+          <div class="example-title">Example 1 — Differentiate \(y = x^3 \sin x\)</div>
+          <div class="step"><span class="step-label">Label the parts</span>\(u = x^3\) &nbsp;&nbsp; \(v = \sin x\)</div>
+          <div class="step"><span class="step-label">Differentiate each</span>\(\dfrac{du}{dx} = 3x^2\) &nbsp;&nbsp; \(\dfrac{dv}{dx} = \cos x\)</div>
+          <div class="step"><span class="step-label">Apply Product Rule</span>\(\dfrac{dy}{dx} = u\dfrac{dv}{dx} + v\dfrac{du}{dx} = x^3 \cos x + \sin x \cdot 3x^2\)</div>
+          <div class="step"><span class="step-label">Simplify (factorise)</span>$$\boxed{\dfrac{dy}{dx} = x^2(x\cos x + 3\sin x)}$$</div>
+        </div>
+
+        <div class="example-block">
+          <div class="example-title">Example 2 — Differentiate \(y = (2x+1)^3 \ln x\)</div>
+          <div class="step"><span class="step-label">Label the parts</span>\(u = (2x+1)^3\) &nbsp;&nbsp; \(v = \ln x\)</div>
+          <div class="step"><span class="step-label">Differentiate \(u\) — Chain Rule needed</span>\(\dfrac{du}{dx} = 3(2x+1)^2 \times 2 = 6(2x+1)^2\)</div>
+          <div class="step"><span class="step-label">Differentiate \(v\)</span>\(\dfrac{dv}{dx} = \dfrac{1}{x}\)</div>
+          <div class="step"><span class="step-label">Apply Product Rule</span>\(\dfrac{dy}{dx} = (2x+1)^3 \cdot \dfrac{1}{x} + \ln x \cdot 6(2x+1)^2\)</div>
+          <div class="step"><span class="step-label">Factorise</span>$$\boxed{\dfrac{dy}{dx} = (2x+1)^2\!\left[\frac{2x+1}{x} + 6\ln x\right]}$$</div>
+        </div>
+      </div>
+
+      <div class="box box-questions">
+        <div class="box-label">Practice Questions</div>
+        <ol class="q-list">
+          <li>Differentiate \(y = x^4 \cos x\)</li>
+          <li>Differentiate \(y = x^2 e^x\)</li>
+          <li>Differentiate \(y = \sqrt{x}\, \ln x\)</li>
+          <li>Differentiate \(y = (x^2+1)\sin x\)</li>
+          <li>Differentiate \(y = x^3(3x-1)^4\)</li>
+          <li>Differentiate \(y = e^x \cos x\)</li>
+          <li>Differentiate \(y = x \ln x\)</li>
+        </ol>
+      </div>
+
+      <div class="box box-solutions">
+        <div class="box-label">Full Solutions</div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q1 — \(y = x^4\cos x\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=x^4,\; v=\cos x\)</div>
+          <div class="sol-step"><span class="step-label">Derivatives</span>\(u'=4x^3,\; v'=-\sin x\)</div>
+          <div class="sol-step"><span class="step-label">Product Rule</span>$$\boxed{\dfrac{dy}{dx} = -x^4\sin x + 4x^3\cos x = x^3(4\cos x - x\sin x)}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q2 — \(y = x^2 e^x\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=x^2,\; v=e^x\)</div>
+          <div class="sol-step"><span class="step-label">Derivatives</span>\(u'=2x,\; v'=e^x\)</div>
+          <div class="sol-step"><span class="step-label">Product Rule</span>$$\boxed{\dfrac{dy}{dx} = x^2 e^x + 2xe^x = xe^x(x+2)}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q3 — \(y = \sqrt{x}\,\ln x = x^{1/2}\ln x\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=x^{1/2},\; v=\ln x\)</div>
+          <div class="sol-step"><span class="step-label">Derivatives</span>\(u'=\dfrac{1}{2}x^{-1/2},\; v'=\dfrac{1}{x}\)</div>
+          <div class="sol-step"><span class="step-label">Product Rule</span>\(\dfrac{dy}{dx} = x^{1/2}\cdot\dfrac{1}{x} + \ln x\cdot\dfrac{1}{2}x^{-1/2} = x^{-1/2} + \dfrac{\ln x}{2\sqrt{x}}\)</div>
+          <div class="sol-step"><span class="step-label">Factorise</span>$$\boxed{\dfrac{dy}{dx} = \dfrac{1}{\sqrt{x}}\!\left(1 + \dfrac{\ln x}{2}\right) = \dfrac{2 + \ln x}{2\sqrt{x}}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q4 — \(y = (x^2+1)\sin x\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=x^2+1,\; v=\sin x\)</div>
+          <div class="sol-step"><span class="step-label">Derivatives</span>\(u'=2x,\; v'=\cos x\)</div>
+          <div class="sol-step"><span class="step-label">Product Rule</span>$$\boxed{\dfrac{dy}{dx} = (x^2+1)\cos x + 2x\sin x}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q5 — \(y = x^3(3x-1)^4\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=x^3,\; v=(3x-1)^4\)</div>
+          <div class="sol-step"><span class="step-label">Derivatives</span>\(u'=3x^2\); for \(v\) use Chain Rule: \(v'=4(3x-1)^3\times 3 = 12(3x-1)^3\)</div>
+          <div class="sol-step"><span class="step-label">Product Rule</span>\(\dfrac{dy}{dx} = x^3\cdot 12(3x-1)^3 + (3x-1)^4\cdot 3x^2\)</div>
+          <div class="sol-step"><span class="step-label">Factorise</span>\(= 3x^2(3x-1)^3\bigl[4x + (3x-1)\bigr] = 3x^2(3x-1)^3(7x-1)\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = 3x^2(7x-1)(3x-1)^3}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q6 — \(y = e^x\cos x\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=e^x,\; v=\cos x\)</div>
+          <div class="sol-step"><span class="step-label">Derivatives</span>\(u'=e^x,\; v'=-\sin x\)</div>
+          <div class="sol-step"><span class="step-label">Product Rule</span>$$\boxed{\dfrac{dy}{dx} = e^x\cos x - e^x\sin x = e^x(\cos x - \sin x)}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q7 — \(y = x\ln x\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=x,\; v=\ln x\)</div>
+          <div class="sol-step"><span class="step-label">Derivatives</span>\(u'=1,\; v'=\dfrac{1}{x}\)</div>
+          <div class="sol-step"><span class="step-label">Product Rule</span>\(\dfrac{dy}{dx} = x\cdot\dfrac{1}{x} + \ln x\cdot 1 = 1 + \ln x\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = 1 + \ln x}$$</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SKILL 3 — QUOTIENT RULE
+  ═══════════════════════════════════════════════ -->
+  <div class="skill-block">
+    <div class="section-header">
+      <span class="skill-num">Skill 3</span>
+      <h2>The Quotient Rule</h2>
+    </div>
+    <div class="skill-inner">
+
+      <div class="box box-concept">
+        <div class="box-label">What It Is</div>
+        <p>The Quotient Rule is used to differentiate a <strong>fraction where both the numerator and denominator are functions of \(x\)</strong>. Just as you cannot differentiate a product by multiplying the separate derivatives, you cannot differentiate a fraction by dividing them. The Quotient Rule gives the correct formula. A critical warning: the <strong>order of terms in the numerator matters</strong> because of the minus sign — always write it as "denominator times derivative of numerator minus numerator times derivative of denominator", never the other way around.</p>
+      </div>
+
+      <div class="box box-formula">
+        <div class="box-label">The Rule</div>
+        <p>If \(y = \dfrac{u}{v}\), where \(u\) and \(v\) are both functions of \(x\), then:</p>
+        <div class="formula-display">
+          $$\frac{dy}{dx} = \frac{v\dfrac{du}{dx} - u\dfrac{dv}{dx}}{v^2}$$
+        </div>
+        <p style="margin-top:12px;">Memory aid: <strong>"vdu minus udv, all over v squared"</strong></p>
+      </div>
+
+      <div class="box box-concept">
+        <div class="box-label">When to Apply It</div>
+        <ul class="when-list">
+          <li>Whenever \(y\) is written as a fraction \(\dfrac{f(x)}{g(x)}\) and both numerator and denominator depend on \(x\)</li>
+          <li>Examples: \(\dfrac{\sin x}{x^2}\), \(\dfrac{e^x}{x+1}\), \(\dfrac{\ln x}{\cos x}\)</li>
+          <li>Note: if the denominator is a constant, you do not need this rule — just differentiate normally</li>
+          <li>You can also re-write some quotients as negative powers and use the Product Rule instead — both methods give the same answer</li>
+        </ul>
+      </div>
+
+      <div class="box box-examples">
+        <div class="box-label">Worked Examples</div>
+
+        <div class="example-block">
+          <div class="example-title">Example 1 — Differentiate \(y = \dfrac{x^2}{x+3}\)</div>
+          <div class="step"><span class="step-label">Label the parts</span>\(u = x^2\) &nbsp;&nbsp; \(v = x+3\)</div>
+          <div class="step"><span class="step-label">Differentiate each</span>\(\dfrac{du}{dx} = 2x\) &nbsp;&nbsp; \(\dfrac{dv}{dx} = 1\)</div>
+          <div class="step"><span class="step-label">Apply Quotient Rule</span>\(\dfrac{dy}{dx} = \dfrac{(x+3)(2x) - x^2(1)}{(x+3)^2}\)</div>
+          <div class="step"><span class="step-label">Expand numerator</span>\(= \dfrac{2x^2 + 6x - x^2}{(x+3)^2} = \dfrac{x^2 + 6x}{(x+3)^2}\)</div>
+          <div class="step"><span class="step-label">Factorise numerator</span>$$\boxed{\dfrac{dy}{dx} = \dfrac{x(x+6)}{(x+3)^2}}$$</div>
+        </div>
+
+        <div class="example-block">
+          <div class="example-title">Example 2 — Differentiate \(y = \dfrac{\cos x}{e^x}\)</div>
+          <div class="step"><span class="step-label">Label the parts</span>\(u = \cos x\) &nbsp;&nbsp; \(v = e^x\)</div>
+          <div class="step"><span class="step-label">Differentiate each</span>\(\dfrac{du}{dx} = -\sin x\) &nbsp;&nbsp; \(\dfrac{dv}{dx} = e^x\)</div>
+          <div class="step"><span class="step-label">Apply Quotient Rule</span>\(\dfrac{dy}{dx} = \dfrac{e^x(-\sin x) - \cos x\cdot e^x}{(e^x)^2}\)</div>
+          <div class="step"><span class="step-label">Simplify denominator</span>\((e^x)^2 = e^{2x}\)</div>
+          <div class="step"><span class="step-label">Factor numerator</span>\(= \dfrac{-e^x(\sin x + \cos x)}{e^{2x}} = \dfrac{-(\sin x + \cos x)}{e^x}\)</div>
+          <div class="step">$$\boxed{\dfrac{dy}{dx} = -\dfrac{\sin x + \cos x}{e^x}}$$</div>
+        </div>
+      </div>
+
+      <div class="box box-questions">
+        <div class="box-label">Practice Questions</div>
+        <ol class="q-list">
+          <li>Differentiate \(y = \dfrac{3x}{x^2-1}\)</li>
+          <li>Differentiate \(y = \dfrac{\sin x}{x}\)</li>
+          <li>Differentiate \(y = \dfrac{e^x}{x^3}\)</li>
+          <li>Differentiate \(y = \dfrac{x^2+1}{2x-3}\)</li>
+          <li>Differentiate \(y = \dfrac{\ln x}{x^2}\)</li>
+          <li>Differentiate \(y = \dfrac{\tan x}{x}\)</li>
+          <li>Differentiate \(y = \dfrac{x}{\sqrt{x^2+4}}\) &nbsp; (Hint: write the square root as a power)</li>
+        </ol>
+      </div>
+
+      <div class="box box-solutions">
+        <div class="box-label">Full Solutions</div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q1 — \(y = \dfrac{3x}{x^2-1}\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=3x,\; v=x^2-1\); \(u'=3,\; v'=2x\)</div>
+          <div class="sol-step"><span class="step-label">Quotient Rule</span>\(\dfrac{dy}{dx} = \dfrac{(x^2-1)(3) - 3x(2x)}{(x^2-1)^2} = \dfrac{3x^2-3-6x^2}{(x^2-1)^2} = \dfrac{-3x^2-3}{(x^2-1)^2}\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = \dfrac{-3(x^2+1)}{(x^2-1)^2}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q2 — \(y = \dfrac{\sin x}{x}\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=\sin x,\; v=x\); \(u'=\cos x,\; v'=1\)</div>
+          <div class="sol-step"><span class="step-label">Quotient Rule</span>$$\boxed{\dfrac{dy}{dx} = \dfrac{x\cos x - \sin x}{x^2}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q3 — \(y = \dfrac{e^x}{x^3}\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=e^x,\; v=x^3\); \(u'=e^x,\; v'=3x^2\)</div>
+          <div class="sol-step"><span class="step-label">Quotient Rule</span>\(\dfrac{dy}{dx} = \dfrac{x^3 e^x - e^x\cdot 3x^2}{x^6} = \dfrac{e^x x^2(x-3)}{x^6}\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = \dfrac{e^x(x-3)}{x^4}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q4 — \(y = \dfrac{x^2+1}{2x-3}\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=x^2+1,\; v=2x-3\); \(u'=2x,\; v'=2\)</div>
+          <div class="sol-step"><span class="step-label">Quotient Rule</span>\(\dfrac{dy}{dx} = \dfrac{(2x-3)(2x)-(x^2+1)(2)}{(2x-3)^2} = \dfrac{4x^2-6x-2x^2-2}{(2x-3)^2} = \dfrac{2x^2-6x-2}{(2x-3)^2}\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = \dfrac{2(x^2-3x-1)}{(2x-3)^2}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q5 — \(y = \dfrac{\ln x}{x^2}\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=\ln x,\; v=x^2\); \(u'=\dfrac{1}{x},\; v'=2x\)</div>
+          <div class="sol-step"><span class="step-label">Quotient Rule</span>\(\dfrac{dy}{dx} = \dfrac{x^2\cdot\dfrac{1}{x} - \ln x\cdot 2x}{x^4} = \dfrac{x - 2x\ln x}{x^4} = \dfrac{x(1-2\ln x)}{x^4}\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = \dfrac{1-2\ln x}{x^3}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q6 — \(y = \dfrac{\tan x}{x}\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=\tan x,\; v=x\); \(u'=\sec^2 x,\; v'=1\)</div>
+          <div class="sol-step"><span class="step-label">Quotient Rule</span>$$\boxed{\dfrac{dy}{dx} = \dfrac{x\sec^2 x - \tan x}{x^2}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q7 — \(y = \dfrac{x}{\sqrt{x^2+4}} = \dfrac{x}{(x^2+4)^{1/2}}\)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u=x,\; v=(x^2+4)^{1/2}\); \(u'=1\)</div>
+          <div class="sol-step"><span class="step-label">Differentiate \(v\) — Chain Rule</span>\(v' = \dfrac{1}{2}(x^2+4)^{-1/2}\cdot 2x = \dfrac{x}{(x^2+4)^{1/2}}\)</div>
+          <div class="sol-step"><span class="step-label">Quotient Rule</span>\(\dfrac{dy}{dx} = \dfrac{(x^2+4)^{1/2}\cdot1 - x\cdot\dfrac{x}{(x^2+4)^{1/2}}}{x^2+4}\)</div>
+          <div class="sol-step"><span class="step-label">Multiply numerator and denominator by \((x^2+4)^{1/2}\)</span>\(= \dfrac{(x^2+4) - x^2}{(x^2+4)^{3/2}} = \dfrac{4}{(x^2+4)^{3/2}}\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = \dfrac{4}{(x^2+4)^{3/2}}}$$</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SKILL 4 — DIFFERENTIATING xⁿ, CONSTANTS, POLYNOMIALS
+  ═══════════════════════════════════════════════ -->
+  <div class="skill-block">
+    <div class="section-header">
+      <span class="skill-num">Skill 4</span>
+      <h2>Differentiating \(x^n\), Constants, and Polynomials</h2>
+    </div>
+    <div class="skill-inner">
+
+      <div class="box box-concept">
+        <div class="box-label">What It Is</div>
+        <p>This is the most fundamental differentiation skill — the <strong>Power Rule</strong>. It applies to any term of the form \(ax^n\), where \(a\) is a constant and \(n\) is any real number (positive integer, negative integer, or fraction). To differentiate, you bring the power down and multiply it by the coefficient, then reduce the power by one. A constant term (a number with no \(x\)) always differentiates to zero, because a horizontal line has no slope. A polynomial is simply a sum of power terms, so you differentiate it term by term.</p>
+      </div>
+
+      <div class="box box-formula">
+        <div class="box-label">The Rules</div>
+        <div class="formula-display">
+          $$\frac{d}{dx}\bigl[ax^n\bigr] = nax^{n-1}$$
+        </div>
+        <div class="formula-display" style="margin-top:12px;">
+          $$\frac{d}{dx}\bigl[c\bigr] = 0 \quad \text{(for any constant } c\text{)}$$
+        </div>
+        <div class="formula-display" style="margin-top:12px;">
+          $$\frac{d}{dx}\bigl[f(x) + g(x)\bigr] = f'(x) + g'(x) \quad \text{(differentiate term by term)}$$
+        </div>
+      </div>
+
+      <div class="box box-concept">
+        <div class="box-label">When to Apply It</div>
+        <ul class="when-list">
+          <li>Any term of the form \(ax^n\), regardless of whether \(n\) is positive, negative, or fractional</li>
+          <li>Before applying, rewrite roots and fractions as powers: \(\sqrt{x} = x^{1/2}\), \(\dfrac{1}{x^3} = x^{-3}\)</li>
+          <li>Polynomials: differentiate each term separately</li>
+          <li>Standalone constants always give zero when differentiated</li>
+        </ul>
+      </div>
+
+      <div class="box box-examples">
+        <div class="box-label">Worked Examples</div>
+
+        <div class="example-block">
+          <div class="example-title">Example 1 — Differentiate \(y = 5x^4 - 3x^2 + 7x - 9\)</div>
+          <div class="step"><span class="step-label">Differentiate \(5x^4\)</span>Bring down the 4, multiply: \(4 \times 5 = 20\). Reduce power: \(20x^3\)</div>
+          <div class="step"><span class="step-label">Differentiate \(-3x^2\)</span>Bring down the 2: \(2\times(-3)=-6\). Reduce power: \(-6x\)</div>
+          <div class="step"><span class="step-label">Differentiate \(7x\)</span>\(7x = 7x^1\). Bring down the 1: \(1\times 7=7\). Reduce power: \(7x^0 = 7\)</div>
+          <div class="step"><span class="step-label">Differentiate \(-9\)</span>Constant → \(0\)</div>
+          <div class="step"><span class="step-label">Combine</span>$$\boxed{\dfrac{dy}{dx} = 20x^3 - 6x + 7}$$</div>
+        </div>
+
+        <div class="example-block">
+          <div class="example-title">Example 2 — Differentiate \(y = 3x^{-2} + 4\sqrt{x} - \dfrac{5}{x^3}\)</div>
+          <div class="step"><span class="step-label">Rewrite all terms as powers</span>\(y = 3x^{-2} + 4x^{1/2} - 5x^{-3}\)</div>
+          <div class="step"><span class="step-label">Differentiate \(3x^{-2}\)</span>\((-2)\times 3 = -6\). Power becomes \(-3\): gives \(-6x^{-3}\)</div>
+          <div class="step"><span class="step-label">Differentiate \(4x^{1/2}\)</span>\(\tfrac{1}{2}\times 4 = 2\). Power becomes \(-\tfrac{1}{2}\): gives \(2x^{-1/2}\)</div>
+          <div class="step"><span class="step-label">Differentiate \(-5x^{-3}\)</span>\((-3)\times(-5)=15\). Power becomes \(-4\): gives \(15x^{-4}\)</div>
+          <div class="step"><span class="step-label">Write in tidy form</span>$$\boxed{\dfrac{dy}{dx} = -\dfrac{6}{x^3} + \dfrac{2}{\sqrt{x}} + \dfrac{15}{x^4}}$$</div>
+        </div>
+      </div>
+
+      <div class="box box-questions">
+        <div class="box-label">Practice Questions</div>
+        <ol class="q-list">
+          <li>Differentiate \(y = 7x^5 - 4x^3 + 2x - 11\)</li>
+          <li>Differentiate \(y = 6x^{-3} + 5x^2 - 8\)</li>
+          <li>Differentiate \(y = \sqrt[3]{x^4}\) &nbsp; (write as a power first)</li>
+          <li>Differentiate \(y = \dfrac{4}{x^2} - \dfrac{3}{x} + 9x\)</li>
+          <li>Differentiate \(y = 2x^{3/2} - 6x^{1/3} + 4\)</li>
+          <li>Differentiate \(y = (x+3)(x-2)\) &nbsp; (expand first)</li>
+          <li>Differentiate \(y = \dfrac{x^3 + 5x^2 - 2}{x}\) &nbsp; (divide each term by \(x\) first)</li>
+        </ol>
+      </div>
+
+      <div class="box box-solutions">
+        <div class="box-label">Full Solutions</div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q1 — \(y = 7x^5 - 4x^3 + 2x - 11\)</div>
+          <div class="sol-step"><span class="step-label">Term by term</span>\(7x^5 \to 35x^4\); \(-4x^3\to -12x^2\); \(2x\to 2\); \(-11\to 0\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = 35x^4 - 12x^2 + 2}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q2 — \(y = 6x^{-3} + 5x^2 - 8\)</div>
+          <div class="sol-step"><span class="step-label">Term by term</span>\(6x^{-3}\to -18x^{-4}\); \(5x^2\to 10x\); \(-8\to 0\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = -\dfrac{18}{x^4} + 10x}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q3 — \(y = \sqrt[3]{x^4} = x^{4/3}\)</div>
+          <div class="sol-step"><span class="step-label">Power rule</span>\(\dfrac{4}{3}\times 1 = \dfrac{4}{3}\). Power becomes \(\dfrac{4}{3}-1 = \dfrac{1}{3}\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = \dfrac{4}{3}x^{1/3} = \dfrac{4}{3}\sqrt[3]{x}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q4 — \(y = \dfrac{4}{x^2} - \dfrac{3}{x} + 9x = 4x^{-2} - 3x^{-1} + 9x\)</div>
+          <div class="sol-step"><span class="step-label">Term by term</span>\(4x^{-2}\to -8x^{-3}\); \(-3x^{-1}\to 3x^{-2}\); \(9x\to 9\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = -\dfrac{8}{x^3} + \dfrac{3}{x^2} + 9}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q5 — \(y = 2x^{3/2} - 6x^{1/3} + 4\)</div>
+          <div class="sol-step"><span class="step-label">Term by term</span>\(2x^{3/2}\to 3x^{1/2}\); \(-6x^{1/3}\to -2x^{-2/3}\); \(4\to 0\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = 3\sqrt{x} - \dfrac{2}{x^{2/3}}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q6 — \(y = (x+3)(x-2)\)</div>
+          <div class="sol-step"><span class="step-label">Expand</span>\(y = x^2 - 2x + 3x - 6 = x^2 + x - 6\)</div>
+          <div class="sol-step"><span class="step-label">Differentiate</span>$$\boxed{\dfrac{dy}{dx} = 2x + 1}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q7 — \(y = \dfrac{x^3 + 5x^2 - 2}{x}\)</div>
+          <div class="sol-step"><span class="step-label">Divide each term by \(x\)</span>\(y = x^2 + 5x - 2x^{-1}\)</div>
+          <div class="sol-step"><span class="step-label">Differentiate</span>\(x^2\to 2x\); \(5x\to 5\); \(-2x^{-1}\to 2x^{-2}\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = 2x + 5 + \dfrac{2}{x^2}}$$</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SKILL 5 — DIFFERENTIATING eˣ AND ef(x)
+  ═══════════════════════════════════════════════ -->
+  <div class="skill-block">
+    <div class="section-header">
+      <span class="skill-num">Skill 5</span>
+      <h2>Differentiating \(e^x\) and \(e^{f(x)}\)</h2>
+    </div>
+    <div class="skill-inner">
+
+      <div class="box box-concept">
+        <div class="box-label">What It Is</div>
+        <p>The exponential function \(e^x\) has a remarkable and unique property: <strong>its derivative is itself</strong>. No other function has this property. This means differentiating \(e^x\) always gives back \(e^x\). When the exponent is more complex — a function of \(x\) rather than just \(x\) itself — you treat it as a composite function and apply the Chain Rule. The "outer" function is the exponential, and the "inner" function is the exponent. The rule is simply: copy the exponential down unchanged, then multiply by the derivative of the exponent.</p>
+      </div>
+
+      <div class="box box-formula">
+        <div class="box-label">The Rules</div>
+        <div class="formula-display">
+          $$\frac{d}{dx}\bigl[e^x\bigr] = e^x$$
+        </div>
+        <div class="formula-display" style="margin-top:14px;">
+          $$\frac{d}{dx}\bigl[e^{f(x)}\bigr] = f'(x)\cdot e^{f(x)}$$
+        </div>
+        <p style="margin-top:12px;">Pattern: <strong>the exponential stays, multiply by the derivative of the exponent</strong> (Chain Rule).</p>
+        <p style="margin-top:8px;">For the special linear case \(e^{ax+b}\):</p>
+        <div class="formula-display">
+          $$\frac{d}{dx}\bigl[e^{ax+b}\bigr] = a\,e^{ax+b}$$
+        </div>
+      </div>
+
+      <div class="box box-concept">
+        <div class="box-label">When to Apply It</div>
+        <ul class="when-list">
+          <li>Any expression of the form \(e^{(\text{anything involving }x)}\)</li>
+          <li>If the exponent is just \(x\), the answer is simply \(e^x\) again</li>
+          <li>If the exponent is a linear function \(ax+b\), multiply by \(a\)</li>
+          <li>If the exponent is a more complex function (quadratic, trig, etc.), apply the Chain Rule: multiply by its derivative</li>
+          <li>The exponential \(e^{f(x)}\) itself never disappears — it always appears in the answer</li>
+        </ul>
+      </div>
+
+      <div class="box box-examples">
+        <div class="box-label">Worked Examples</div>
+
+        <div class="example-block">
+          <div class="example-title">Example 1 — Differentiate \(y = e^{4x^3 - 2x}\)</div>
+          <div class="step"><span class="step-label">Identify the structure</span>This is \(e^{f(x)}\) where the exponent \(f(x) = 4x^3 - 2x\)</div>
+          <div class="step"><span class="step-label">Differentiate the exponent</span>\(f'(x) = 12x^2 - 2\)</div>
+          <div class="step"><span class="step-label">Apply the rule</span>Copy down the exponential unchanged, multiply by \(f'(x)\):</div>
+          <div class="step"><span class="step-label">Final answer</span>$$\boxed{\dfrac{dy}{dx} = (12x^2 - 2)\,e^{4x^3 - 2x}}$$</div>
+        </div>
+
+        <div class="example-block">
+          <div class="example-title">Example 2 — Differentiate \(y = 5e^{\sin x}\)</div>
+          <div class="step"><span class="step-label">Identify the structure</span>This is \(5e^{f(x)}\) where the exponent \(f(x) = \sin x\)</div>
+          <div class="step"><span class="step-label">Differentiate the exponent</span>\(f'(x) = \cos x\)</div>
+          <div class="step"><span class="step-label">Apply the rule</span>Multiply the constant \(5\) by the result:</div>
+          <div class="step"><span class="step-label">Final answer</span>$$\boxed{\dfrac{dy}{dx} = 5\cos x\, e^{\sin x}}$$</div>
+        </div>
+      </div>
+
+      <div class="box box-questions">
+        <div class="box-label">Practice Questions</div>
+        <ol class="q-list">
+          <li>Differentiate \(y = e^{7x}\)</li>
+          <li>Differentiate \(y = e^{3x^2 + 1}\)</li>
+          <li>Differentiate \(y = 4e^{-5x}\)</li>
+          <li>Differentiate \(y = e^{x^3 - x}\)</li>
+          <li>Differentiate \(y = e^{\cos x}\)</li>
+          <li>Differentiate \(y = e^{\sqrt{x}} = e^{x^{1/2}}\)</li>
+          <li>Differentiate \(y = x^2 e^{3x}\) &nbsp; (Product Rule required)</li>
+        </ol>
+      </div>
+
+      <div class="box box-solutions">
+        <div class="box-label">Full Solutions</div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q1 — \(y = e^{7x}\)</div>
+          <div class="sol-step"><span class="step-label">Exponent is \(7x\), its derivative is \(7\)</span></div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = 7e^{7x}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q2 — \(y = e^{3x^2+1}\)</div>
+          <div class="sol-step"><span class="step-label">Exponent \(f(x) = 3x^2+1\), so \(f'(x) = 6x\)</span></div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = 6x\,e^{3x^2+1}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q3 — \(y = 4e^{-5x}\)</div>
+          <div class="sol-step"><span class="step-label">Exponent \(f(x) = -5x\), so \(f'(x) = -5\)</span></div>
+          <div class="sol-step"><span class="step-label">Multiply constant \(4\) by \(-5\)</span>\(4\times(-5)=-20\)</div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = -20e^{-5x}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q4 — \(y = e^{x^3-x}\)</div>
+          <div class="sol-step"><span class="step-label">Exponent \(f(x) = x^3-x\), so \(f'(x) = 3x^2-1\)</span></div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = (3x^2-1)\,e^{x^3-x}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q5 — \(y = e^{\cos x}\)</div>
+          <div class="sol-step"><span class="step-label">Exponent \(f(x) = \cos x\), so \(f'(x) = -\sin x\)</span></div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = -\sin x\, e^{\cos x}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q6 — \(y = e^{x^{1/2}}\)</div>
+          <div class="sol-step"><span class="step-label">Exponent \(f(x) = x^{1/2}\), so \(f'(x) = \dfrac{1}{2}x^{-1/2} = \dfrac{1}{2\sqrt{x}}\)</span></div>
+          <div class="sol-step">$$\boxed{\dfrac{dy}{dx} = \dfrac{1}{2\sqrt{x}}\,e^{\sqrt{x}}}$$</div>
+        </div>
+
+        <div class="sol-block">
+          <div class="sol-title">Q7 — \(y = x^2 e^{3x}\) (Product Rule)</div>
+          <div class="sol-step"><span class="step-label">Set up</span>\(u = x^2,\; v = e^{3x}\)</div>
+          <div class="sol-step"><span class="step-label">Derivatives</span>\(u' = 2x\); for \(v\): exponent is \(3x\), derivative is \(3\), so \(v' = 3e^{3x}\)</div>
+          <div class="sol-step"><span class="step-label">Product Rule</span>\(\dfrac{dy}{dx} = x^2\cdot 3e^{3x} + e^{3x}\cdot 2x = 3x^2 e^{3x} + 2xe^{3x}\)</div>
+          <div class="sol-step"><span class="step-label">Factorise</span>$$\boxed{\dfrac{dy}{dx} = xe^{3x}(3x+2)}$$</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- end page-wrapper -->
+</body>
+</html>

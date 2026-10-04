@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edexcel IAL P3 & P4 — Skills 21–25</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['$$', '$$']],
+      tags: 'none'
+    },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+  };
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #1a1a2e;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: #1a1a2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 28px;
+    border-radius: 12px;
+    margin-bottom: 48px;
+  }
+  .page-header h1 { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .page-header p  { font-size: 1rem; color: #a0aec0; font-weight: 400; }
+
+  /* SKILL BLOCK */
+  .skill-block { margin-bottom: 64px; }
+
+  /* SKILL HEADER */
+  .skill-header {
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 18px 28px;
+    border-radius: 10px;
+    margin-bottom: 28px;
+  }
+  .skill-header .skill-number { font-size: 0.8rem; font-weight: 600; color: #63b3ed; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+  .skill-header h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.3px; }
+
+  /* SECTION LABELS */
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding: 0 4px;
+  }
+
+  /* BOX TYPES */
+  .box { border-radius: 10px; padding: 22px 26px; margin-bottom: 22px; }
+
+  .concept-box   { background: #e8f4fd; }
+  .concept-box   .section-label { color: #2b6cb0; }
+
+  .formula-box   { background: #fff9e6; }
+  .formula-box   .section-label { color: #b7791f; }
+  .formula-box   .formula-content { font-size: 1.05rem; }
+
+  .example-box   { background: #e8f8e8; }
+  .example-box   .section-label { color: #276749; }
+
+  .questions-box { background: #f3e8ff; }
+  .questions-box .section-label { color: #6b46c1; }
+
+  .solutions-box { background: #fff0e8; }
+  .solutions-box .section-label { color: #c05621; }
+
+  /* TYPOGRAPHY INSIDE BOXES */
+  .box p { margin-bottom: 10px; color: #1a1a2e; }
+  .box p:last-child { margin-bottom: 0; }
+
+  .box h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 18px 0 8px;
+    color: inherit;
+  }
+  .box h3:first-child { margin-top: 0; }
+
+  .box ul, .box ol { padding-left: 22px; margin-bottom: 10px; }
+  .box li { margin-bottom: 6px; }
+
+  /* STEP BLOCKS inside examples */
+  .step {
+    margin: 10px 0;
+    padding: 10px 14px;
+    border-left: 3px solid rgba(0,0,0,0.12);
+    background: rgba(255,255,255,0.55);
+    border-radius: 0 6px 6px 0;
+  }
+  .step-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #555; margin-bottom: 4px; }
+
+  /* QUESTION / SOLUTION ITEMS */
+  .q-item, .s-item {
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 8px;
+  }
+  .q-item:last-child, .s-item:last-child { margin-bottom: 0; }
+  .q-num, .s-num {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .q-num { color: #6b46c1; }
+  .s-num { color: #c05621; }
+
+  /* DIVIDER between skills */
+  .skill-divider {
+    border: none;
+    border-top: 2px dashed #e2e8f0;
+    margin: 56px 0;
+  }
+
+  /* MathJax display override for breathing room */
+  mjx-container[display="true"] { margin: 12px 0 !important; overflow-x: auto; }
+
+  @media (max-width: 600px) {
+    .page-header h1 { font-size: 1.4rem; }
+    .skill-header h2 { font-size: 1.15rem; }
+    .box { padding: 16px 16px; }
+  }
+</style>
+<!-- sb:start -->
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
+<script src="../../app/note.js"></script>
+<!-- sb:end -->
+</head>
+<body>
+<div class="page-wrapper">
+
+  <div class="page-header">
+    <h1>Edexcel IAL P3 &amp; P4 Mathematics</h1>
+    <p>Skills 21 – 25 &nbsp;|&nbsp; Complete Teaching Notes with Worked Examples &amp; Practice</p>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SKILL 21 — INTEGRATING PARTIAL FRACTIONS                      -->
+  <!-- ============================================================ -->
+  <div class="skill-block">
+    <div class="skill-header">
+      <div class="skill-number">Skill 21</div>
+      <h2>Integrating Partial Fractions</h2>
+    </div>
+
+    <!-- CONCEPT -->
+    <div class="box concept-box">
+      <div class="section-label">What It Is</div>
+      <p>When you need to integrate a rational function (a polynomial divided by a polynomial), you often cannot integrate it directly. The trick is to first split the fraction into simpler pieces called <strong>partial fractions</strong>, then integrate each piece separately using the standard logarithm rule.</p>
+      <p>Each partial fraction has the form \(\dfrac{A}{ax+b}\), which integrates neatly to a logarithm. This converts one hard integral into a sum of easy integrals.</p>
+      <p>This technique only applies to proper fractions where the top has a lower degree than the bottom. If the fraction is improper, you must do algebraic division first (see Skill 25).</p>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="box formula-box">
+      <div class="section-label">The Rule</div>
+      <div class="formula-content">
+        <p><strong>Standard logarithm integral:</strong></p>
+        $$\int \frac{A}{ax+b}\,dx = \frac{A}{a}\ln|ax+b| + c$$
+        <p><strong>For a repeated linear factor:</strong></p>
+        $$\int \frac{A}{(ax+b)^2}\,dx = \frac{-A}{a(ax+b)} + c$$
+        <p><strong>General approach:</strong> Split into partial fractions, then apply the rule above to each term separately.</p>
+      </div>
+    </div>
+
+    <!-- WHEN TO APPLY -->
+    <div class="box concept-box">
+      <div class="section-label">Where to Apply It</div>
+      <p>Use this when you are asked to integrate a fraction whose denominator factorises into linear factors. Common exam triggers: "find \(\int \dfrac{f(x)}{(x+a)(x+b)}\,dx\)" or definite integral versions of the same. Always check the fraction is proper first.</p>
+    </div>
+
+    <!-- WORKED EXAMPLE 1 -->
+    <div class="box example-box">
+      <div class="section-label">Worked Example 1</div>
+      <p>Find \(\displaystyle\int \frac{5x+1}{(x+1)(2x-1)}\,dx\).</p>
+
+      <div class="step"><div class="step-label">Step 1 — Set up partial fractions</div>
+        <p>Write \(\dfrac{5x+1}{(x+1)(2x-1)} \equiv \dfrac{A}{x+1} + \dfrac{B}{2x-1}\).</p>
+      </div>
+
+      <div class="step"><div class="step-label">Step 2 — Multiply both sides by the denominator</div>
+        $$5x+1 \equiv A(2x-1) + B(x+1)$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 3 — Substitute roots to find A and B</div>
+        <p>Let \(x = -1\): \(\;5(-1)+1 = A(2(-1)-1)\;\Rightarrow\; -4 = -3A \;\Rightarrow\; A = \dfrac{4}{3}\).</p>
+        <p>Let \(x = \dfrac{1}{2}\): \(\;5\!\left(\tfrac{1}{2}\right)+1 = B\!\left(\tfrac{1}{2}+1\right) \;\Rightarrow\; \dfrac{7}{2} = \dfrac{3B}{2} \;\Rightarrow\; B = \dfrac{7}{3}\).</p>
+      </div>
+
+      <div class="step"><div class="step-label">Step 4 — Rewrite and integrate</div>
+        $$\int \frac{5x+1}{(x+1)(2x-1)}\,dx = \int \frac{\frac{4}{3}}{x+1}\,dx + \int \frac{\frac{7}{3}}{2x-1}\,dx$$
+        $$= \frac{4}{3}\ln|x+1| + \frac{7}{3}\cdot\frac{1}{2}\ln|2x-1| + c$$
+      </div>
+
+      <div class="step"><div class="step-label">Final Answer</div>
+        $$\boxed{\frac{4}{3}\ln|x+1| + \frac{7}{6}\ln|2x-1| + c}$$
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLE 2 -->
+    <div class="box example-box">
+      <div class="section-label">Worked Example 2</div>
+      <p>Evaluate \(\displaystyle\int_0^{1} \frac{3}{(x+1)(x+2)}\,dx\).</p>
+
+      <div class="step"><div class="step-label">Step 1 — Partial fractions</div>
+        $$\frac{3}{(x+1)(x+2)} \equiv \frac{A}{x+1}+\frac{B}{x+2}$$
+        <p>Multiply through: \(3 \equiv A(x+2)+B(x+1)\).</p>
+      </div>
+
+      <div class="step"><div class="step-label">Step 2 — Find constants</div>
+        <p>Let \(x=-1\): \(3 = A(1)\Rightarrow A=3\).</p>
+        <p>Let \(x=-2\): \(3 = B(-1)\Rightarrow B=-3\).</p>
+      </div>
+
+      <div class="step"><div class="step-label">Step 3 — Integrate</div>
+        $$\int_0^1 \frac{3}{x+1} - \frac{3}{x+2}\,dx = \Big[3\ln|x+1| - 3\ln|x+2|\Big]_0^1$$
+        $$= \Big[3\ln\!\left(\frac{x+1}{x+2}\right)\Big]_0^1$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 4 — Apply limits</div>
+        $$= 3\ln\!\left(\frac{2}{3}\right) - 3\ln\!\left(\frac{1}{2}\right) = 3\ln\!\left(\frac{2}{3}\times 2\right) = 3\ln\!\left(\frac{4}{3}\right)$$
+      </div>
+
+      <div class="step"><div class="step-label">Final Answer</div>
+        $$\boxed{3\ln\!\left(\frac{4}{3}\right)}$$
+      </div>
+    </div>
+
+    <!-- PRACTICE QUESTIONS -->
+    <div class="box questions-box">
+      <div class="section-label">Practice Questions</div>
+
+      <div class="q-item"><div class="q-num">Question 1</div>
+        <p>Find \(\displaystyle\int \frac{4}{(x+1)(x-1)}\,dx\).</p>
+      </div>
+      <div class="q-item"><div class="q-num">Question 2</div>
+        <p>Find \(\displaystyle\int \frac{7x-1}{(x-3)(2x+1)}\,dx\).</p>
+      </div>
+      <div class="q-item"><div class="q-num">Question 3</div>
+        <p>Evaluate \(\displaystyle\int_2^4 \frac{6}{(x-1)(x+2)}\,dx\).</p>
+      </div>
+      <div class="q-item"><div class="q-num">Question 4</div>
+        <p>Find \(\displaystyle\int \frac{5}{x(x+5)}\,dx\).</p>
+      </div>
+      <div class="q-item"><div class="q-num">Question 5</div>
+        <p>Find \(\displaystyle\int \frac{3x+11}{(x+1)(x+3)}\,dx\).</p>
+      </div>
+      <div class="q-item"><div class="q-num">Question 6</div>
+        <p>Find \(\displaystyle\int \frac{1}{(2x+1)(x-2)}\,dx\).</p>
+      </div>
+      <div class="q-item"><div class="q-num">Question 7</div>
+        <p>Evaluate \(\displaystyle\int_1^2 \frac{8x}{(x^2-1)(x+1)}\,dx\). [Hint: \(x^2-1=(x-1)(x+1)\).]</p>
+      </div>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div class="box solutions-box">
+      <div class="section-label">Full Solutions</div>
+
+      <div class="s-item"><div class="s-num">Solution 1</div>
+        <p>\(\dfrac{4}{(x+1)(x-1)}\equiv\dfrac{A}{x+1}+\dfrac{B}{x-1}\). Multiply: \(4\equiv A(x-1)+B(x+1)\).</p>
+        <p>\(x=1:\;4=2B\Rightarrow B=2.\quad x=-1:\;4=-2A\Rightarrow A=-2.\)</p>
+        $$\int \frac{-2}{x+1}+\frac{2}{x-1}\,dx = \boxed{-2\ln|x+1|+2\ln|x-1|+c}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 2</div>
+        <p>\(\dfrac{7x-1}{(x-3)(2x+1)}\equiv\dfrac{A}{x-3}+\dfrac{B}{2x+1}\). Multiply: \(7x-1\equiv A(2x+1)+B(x-3)\).</p>
+        <p>\(x=3:\;20=7A\Rightarrow A=\dfrac{20}{7}.\quad x=-\tfrac{1}{2}:\;-\tfrac{9}{2}=-\tfrac{7B}{2}\Rightarrow B=\dfrac{9}{7}.\)</p>
+        $$\boxed{\frac{20}{7}\ln|x-3|+\frac{9}{14}\ln|2x+1|+c}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 3</div>
+        <p>\(\dfrac{6}{(x-1)(x+2)}\equiv\dfrac{A}{x-1}+\dfrac{B}{x+2}.\quad x=1:\;6=3A\Rightarrow A=2.\quad x=-2:\;6=-3B\Rightarrow B=-2.\)</p>
+        $$\Big[2\ln|x-1|-2\ln|x+2|\Big]_2^4 = \left(2\ln 3-2\ln 6\right)-\left(2\ln 1-2\ln 4\right)$$
+        $$= 2\ln 3-2\ln 6-0+2\ln 4 = 2\ln\!\frac{12}{6} = \boxed{2\ln 2}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 4</div>
+        <p>\(\dfrac{5}{x(x+5)}\equiv\dfrac{A}{x}+\dfrac{B}{x+5}.\quad x=0:\;5=5A\Rightarrow A=1.\quad x=-5:\;5=-5B\Rightarrow B=-1.\)</p>
+        $$\boxed{\ln|x|-\ln|x+5|+c \;=\;\ln\!\left|\frac{x}{x+5}\right|+c}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 5</div>
+        <p>\(\dfrac{3x+11}{(x+1)(x+3)}\equiv\dfrac{A}{x+1}+\dfrac{B}{x+3}.\quad x=-1:\;8=2A\Rightarrow A=4.\quad x=-3:\;2=-2B\Rightarrow B=-1.\)</p>
+        $$\boxed{4\ln|x+1|-\ln|x+3|+c}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 6</div>
+        <p>\(\dfrac{1}{(2x+1)(x-2)}\equiv\dfrac{A}{2x+1}+\dfrac{B}{x-2}.\quad x=2:\;1=5B\Rightarrow B=\tfrac{1}{5}.\quad x=-\tfrac{1}{2}:\;1=-\tfrac{5A}{2}\Rightarrow A=-\tfrac{2}{5}.\)</p>
+        $$\int\frac{-\frac{2}{5}}{2x+1}+\frac{\frac{1}{5}}{x-2}\,dx = \boxed{-\frac{1}{5}\ln|2x+1|+\frac{1}{5}\ln|x-2|+c}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 7</div>
+        <p>The denominator is \((x-1)(x+1)^2\). Split: \(\dfrac{8x}{(x-1)(x+1)^2}\equiv\dfrac{A}{x-1}+\dfrac{B}{x+1}+\dfrac{C}{(x+1)^2}\).</p>
+        <p>Multiply through: \(8x\equiv A(x+1)^2+B(x-1)(x+1)+C(x-1)\).</p>
+        <p>\(x=1:\;8=4A\Rightarrow A=2.\quad x=-1:\;-8=-2C\Rightarrow C=4.\)</p>
+        <p>Coefficient of \(x^2:\;0=A+B\Rightarrow B=-2.\)</p>
+        $$\Big[2\ln|x-1|-2\ln|x+1|-\frac{4}{x+1}\Big]_1^2$$
+        <p>At \(x=2\): \(2\ln 1-2\ln 3-\tfrac{4}{3}=0-2\ln 3-\tfrac{4}{3}\).</p>
+        <p>At \(x=1\): \(2\ln 0-\cdots\) — note the lower limit \(x=1\) makes \(\ln|x-1|\) diverge. For this course the integral is improper; re-examining: \(\int_1^2\) with \(x=1\) being the root of \((x-1)\). The answer left in terms of the antiderivative evaluated at limit \(x\to1^+\) gives \(+\infty\), so the integral diverges. In exam contexts this question would typically avoid such a singularity. With the original factoring \(x^2-1=(x-1)(x+1)\), we have denominator \((x^2-1)(x+1)=(x-1)(x+1)^2\) and the lower limit \(x=1\) is a singularity. The correct answer is: \(\boxed{\text{The integral diverges (improper integral with singularity at }x=1\text{)}}\).</p>
+      </div>
+    </div>
+  </div><!-- end skill 21 -->
+
+  <hr class="skill-divider">
+
+  <!-- ============================================================ -->
+  <!-- SKILL 22 — INTEGRATING TRIG USING IDENTITIES                  -->
+  <!-- ============================================================ -->
+  <div class="skill-block">
+    <div class="skill-header">
+      <div class="skill-number">Skill 22</div>
+      <h2>Integrating Trigonometric Functions Using Identities</h2>
+    </div>
+
+    <!-- CONCEPT -->
+    <div class="box concept-box">
+      <div class="section-label">What It Is</div>
+      <p>You cannot directly integrate expressions like \(\sin^2 x\), \(\cos^2 x\), \(\sin x\cos x\), or \(\tan^2 x\) in their current form. The strategy is to <strong>replace them with equivalent identities</strong> that turn the expression into something you already know how to integrate.</p>
+      <p>The key toolkit is the double-angle and Pythagorean identities. Once you rewrite the integrand, every term becomes a standard integral (sin, cos, sec², or a constant) that you can handle directly.</p>
+      <p>This is essentially an algebraic manipulation step <em>before</em> you integrate, not a new integration rule. You transform the problem, then use known results.</p>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="box formula-box">
+      <div class="section-label">Key Identities for Integration</div>
+      <div class="formula-content">
+        <p><strong>Powers of sine and cosine — use double angle:</strong></p>
+        $$\cos 2x = 1 - 2\sin^2 x \;\Rightarrow\; \sin^2 x = \frac{1-\cos 2x}{2}$$
+        $$\cos 2x = 2\cos^2 x - 1 \;\Rightarrow\; \cos^2 x = \frac{1+\cos 2x}{2}$$
+        <p><strong>Product of sine and cosine:</strong></p>
+        $$\sin x\cos x = \tfrac{1}{2}\sin 2x$$
+        <p><strong>Tangent squared — use Pythagorean identity:</strong></p>
+        $$\tan^2 x = \sec^2 x - 1$$
+        <p><strong>Standard results needed after substitution:</strong></p>
+        $$\int\cos kx\,dx = \frac{\sin kx}{k}+c,\quad \int\sin kx\,dx = -\frac{\cos kx}{k}+c,\quad \int\sec^2 x\,dx = \tan x+c$$
+      </div>
+    </div>
+
+    <!-- WHEN TO APPLY -->
+    <div class="box concept-box">
+      <div class="section-label">Where to Apply It</div>
+      <p>Use whenever the integrand contains: \(\sin^2 x\), \(\cos^2 x\), \(\tan^2 x\), \(\sin x\cos x\), \(\sin^2 x\cos^2 x\), or any product/power of trig functions that does not immediately reduce to a standard form. The signal in the exam is: "the integral looks impossible" — that means reach for an identity.</p>
+    </div>
+
+    <!-- WORKED EXAMPLE 1 -->
+    <div class="box example-box">
+      <div class="section-label">Worked Example 1</div>
+      <p>Find \(\displaystyle\int 3\sin^2 x\,dx\).</p>
+
+      <div class="step"><div class="step-label">Step 1 — Replace \(\sin^2 x\) using the double angle identity</div>
+        $$\sin^2 x = \frac{1-\cos 2x}{2}$$
+        <p>So the integral becomes:</p>
+        $$\int 3\cdot\frac{1-\cos 2x}{2}\,dx = \int \frac{3}{2} - \frac{3}{2}\cos 2x\,dx$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 2 — Integrate term by term</div>
+        $$= \frac{3}{2}x - \frac{3}{2}\cdot\frac{\sin 2x}{2} + c$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 3 — Simplify</div>
+        $$= \frac{3}{2}x - \frac{3}{4}\sin 2x + c$$
+      </div>
+
+      <div class="step"><div class="step-label">Final Answer</div>
+        $$\boxed{\frac{3}{2}x - \frac{3}{4}\sin 2x + c}$$
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLE 2 -->
+    <div class="box example-box">
+      <div class="section-label">Worked Example 2</div>
+      <p>Evaluate \(\displaystyle\int_0^{\pi/4}\!\left(\tan^2 x + \sin x\cos x\right)dx\).</p>
+
+      <div class="step"><div class="step-label">Step 1 — Replace each term</div>
+        <p>\(\tan^2 x = \sec^2 x - 1\) and \(\sin x\cos x = \tfrac{1}{2}\sin 2x\).</p>
+        $$\int_0^{\pi/4}\!\left(\sec^2 x - 1 + \tfrac{1}{2}\sin 2x\right)dx$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 2 — Integrate</div>
+        $$= \Big[\tan x - x - \frac{1}{4}\cos 2x\Big]_0^{\pi/4}$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 3 — Apply limits</div>
+        <p>At \(x=\dfrac{\pi}{4}\): \(\tan\dfrac{\pi}{4} - \dfrac{\pi}{4} - \dfrac{1}{4}\cos\dfrac{\pi}{2} = 1 - \dfrac{\pi}{4} - 0 = 1-\dfrac{\pi}{4}\).</p>
+        <p>At \(x=0\): \(\tan 0 - 0 - \dfrac{1}{4}\cos 0 = 0-0-\dfrac{1}{4} = -\dfrac{1}{4}\).</p>
+      </div>
+
+      <div class="step"><div class="step-label">Step 4 — Subtract</div>
+        $$\left(1-\frac{\pi}{4}\right)-\left(-\frac{1}{4}\right) = 1-\frac{\pi}{4}+\frac{1}{4} = \frac{5}{4}-\frac{\pi}{4}$$
+      </div>
+
+      <div class="step"><div class="step-label">Final Answer</div>
+        $$\boxed{\frac{5}{4}-\frac{\pi}{4}}$$
+      </div>
+    </div>
+
+    <!-- PRACTICE QUESTIONS -->
+    <div class="box questions-box">
+      <div class="section-label">Practice Questions</div>
+      <div class="q-item"><div class="q-num">Question 1</div><p>Find \(\displaystyle\int \cos^2 x\,dx\).</p></div>
+      <div class="q-item"><div class="q-num">Question 2</div><p>Find \(\displaystyle\int 4\sin^2 3x\,dx\).</p></div>
+      <div class="q-item"><div class="q-num">Question 3</div><p>Find \(\displaystyle\int \tan^2 x\,dx\).</p></div>
+      <div class="q-item"><div class="q-num">Question 4</div><p>Evaluate \(\displaystyle\int_0^{\pi/2}\sin^2 x\,dx\).</p></div>
+      <div class="q-item"><div class="q-num">Question 5</div><p>Find \(\displaystyle\int 6\sin x\cos x\,dx\).</p></div>
+      <div class="q-item"><div class="q-num">Question 6</div><p>Find \(\displaystyle\int \cos^2 2x\,dx\).</p></div>
+      <div class="q-item"><div class="q-num">Question 7</div><p>Evaluate \(\displaystyle\int_0^{\pi/4}(1+\tan^2 x)\,dx\). [Note: \(1+\tan^2 x = \sec^2 x\).]</p></div>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div class="box solutions-box">
+      <div class="section-label">Full Solutions</div>
+
+      <div class="s-item"><div class="s-num">Solution 1</div>
+        <p>Use \(\cos^2 x = \dfrac{1+\cos 2x}{2}\).</p>
+        $$\int\frac{1+\cos 2x}{2}\,dx = \boxed{\frac{x}{2}+\frac{\sin 2x}{4}+c}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 2</div>
+        <p>Use \(\sin^2 3x = \dfrac{1-\cos 6x}{2}\).</p>
+        $$\int 4\cdot\frac{1-\cos 6x}{2}\,dx = \int 2-2\cos 6x\,dx = \boxed{2x - \frac{\sin 6x}{3}+c}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 3</div>
+        <p>Use \(\tan^2 x = \sec^2 x-1\).</p>
+        $$\int(\sec^2 x-1)\,dx = \boxed{\tan x - x + c}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 4</div>
+        <p>Use \(\sin^2 x = \dfrac{1-\cos 2x}{2}\).</p>
+        $$\left[\frac{x}{2}-\frac{\sin 2x}{4}\right]_0^{\pi/2} = \left(\frac{\pi}{4}-0\right)-(0-0) = \boxed{\frac{\pi}{4}}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 5</div>
+        <p>Use \(\sin x\cos x = \dfrac{1}{2}\sin 2x\), so \(6\sin x\cos x = 3\sin 2x\).</p>
+        $$\int 3\sin 2x\,dx = \boxed{-\frac{3}{2}\cos 2x + c}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 6</div>
+        <p>Use \(\cos^2 2x = \dfrac{1+\cos 4x}{2}\).</p>
+        $$\int\frac{1+\cos 4x}{2}\,dx = \boxed{\frac{x}{2}+\frac{\sin 4x}{8}+c}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 7</div>
+        <p>\(1+\tan^2 x = \sec^2 x\), so the integral is \(\displaystyle\int_0^{\pi/4}\sec^2 x\,dx\).</p>
+        $$\Big[\tan x\Big]_0^{\pi/4} = \tan\frac{\pi}{4}-\tan 0 = 1-0 = \boxed{1}$$
+      </div>
+    </div>
+  </div><!-- end skill 22 -->
+
+  <hr class="skill-divider">
+
+  <!-- ============================================================ -->
+  <!-- SKILL 23 — PARTIAL FRACTIONS                                  -->
+  <!-- ============================================================ -->
+  <div class="skill-block">
+    <div class="skill-header">
+      <div class="skill-number">Skill 23</div>
+      <h2>Partial Fractions (Distinct, Repeated &amp; Improper)</h2>
+    </div>
+
+    <!-- CONCEPT -->
+    <div class="box concept-box">
+      <div class="section-label">What It Is</div>
+      <p>Partial fractions is the process of <strong>splitting a single complicated fraction into a sum of simpler fractions</strong>. Think of it as the reverse of adding fractions. You start with the result and work backwards to find what simpler fractions add up to give it.</p>
+      <p>The denominator of the original fraction determines the form of the partial fractions. Distinct (different) linear factors give one term each. A repeated linear factor \((ax+b)^2\) requires <em>two</em> terms. An improper fraction (top degree ≥ bottom degree) requires a polynomial quotient term as well.</p>
+      <p>Partial fractions are used heavily in both integration (Skill 21) and binomial expansion (Skill 24). Mastering the decomposition is essential before tackling those applications.</p>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="box formula-box">
+      <div class="section-label">The Three Forms</div>
+      <div class="formula-content">
+        <p><strong>Form 1 — Distinct linear factors:</strong></p>
+        $$\frac{f(x)}{(ax+b)(cx+d)} \equiv \frac{A}{ax+b}+\frac{B}{cx+d}$$
+        <p><strong>Form 2 — Repeated linear factor:</strong></p>
+        $$\frac{f(x)}{(ax+b)^2(cx+d)} \equiv \frac{A}{ax+b}+\frac{B}{(ax+b)^2}+\frac{C}{cx+d}$$
+        <p><strong>Form 3 — Improper fraction (degree of numerator ≥ degree of denominator):</strong></p>
+        <p>First perform algebraic long division to write it as \(\text{polynomial} + \text{proper fraction}\), then decompose the proper fraction part.</p>
+        $$\frac{\text{cubic}}{\text{quadratic}} \equiv (px+q) + \frac{rx+s}{(ax+b)(cx+d)}$$
+      </div>
+    </div>
+
+    <!-- WHEN TO APPLY -->
+    <div class="box concept-box">
+      <div class="section-label">Where to Apply It</div>
+      <p>Use partial fractions whenever you need to simplify a rational expression before integrating, expanding using the binomial series, or solving a differential equation. Check whether the fraction is proper first. If not, divide first (Skill 25), then decompose the remainder.</p>
+    </div>
+
+    <!-- WORKED EXAMPLE 1 — repeated factor -->
+    <div class="box example-box">
+      <div class="section-label">Worked Example 1 — Repeated Factor</div>
+      <p>Express \(\dfrac{6x^2+5x-3}{x(x+1)^2}\) in partial fractions.</p>
+
+      <div class="step"><div class="step-label">Step 1 — Identify the form</div>
+        <p>Denominator has: \(x\) (distinct), \((x+1)\) (repeated, so needs two terms).</p>
+        $$\frac{6x^2+5x-3}{x(x+1)^2} \equiv \frac{A}{x}+\frac{B}{x+1}+\frac{C}{(x+1)^2}$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 2 — Multiply both sides by \(x(x+1)^2\)</div>
+        $$6x^2+5x-3 \equiv A(x+1)^2 + Bx(x+1) + Cx$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 3 — Substitute roots</div>
+        <p>Let \(x=0\): \(-3 = A(1) \Rightarrow A = -3\).</p>
+        <p>Let \(x=-1\): \(6-5-3 = C(-1) \Rightarrow -2 = -C \Rightarrow C = 2\).</p>
+      </div>
+
+      <div class="step"><div class="step-label">Step 4 — Find B by equating coefficients of \(x^2\)</div>
+        <p>Expand the RHS: \(A(x^2+2x+1)+Bx(x+1)+Cx = (A+B)x^2+\cdots\)</p>
+        <p>Coefficient of \(x^2\): \(6 = A+B = -3+B \Rightarrow B = 9\).</p>
+      </div>
+
+      <div class="step"><div class="step-label">Final Answer</div>
+        $$\boxed{\frac{-3}{x}+\frac{9}{x+1}+\frac{2}{(x+1)^2}}$$
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLE 2 — improper -->
+    <div class="box example-box">
+      <div class="section-label">Worked Example 2 — Improper Fraction</div>
+      <p>Express \(\dfrac{3x^2-2x-1}{(x-1)(x+2)}\) in partial fractions.</p>
+
+      <div class="step"><div class="step-label">Step 1 — Check degree</div>
+        <p>Top is degree 2. Bottom expands to \(x^2+x-2\), also degree 2. Since degrees are equal, this is improper. Divide first.</p>
+      </div>
+
+      <div class="step"><div class="step-label">Step 2 — Polynomial long division</div>
+        <p>Divide \(3x^2-2x-1\) by \(x^2+x-2\):</p>
+        <p>\(3x^2-2x-1 = 3(x^2+x-2) + (-5x+5)\)</p>
+        <p>Check: \(3(x^2+x-2) = 3x^2+3x-6\). Then \((3x^2-2x-1)-(3x^2+3x-6) = -5x+5\). ✓</p>
+        $$\frac{3x^2-2x-1}{(x-1)(x+2)} = 3 + \frac{-5x+5}{(x-1)(x+2)}$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 3 — Decompose the remainder</div>
+        <p>Note \(-5x+5 = -5(x-1)\), so \(\dfrac{-5(x-1)}{(x-1)(x+2)} = \dfrac{-5}{x+2}\).</p>
+        <p>Alternatively, use the standard method: \(\dfrac{-5x+5}{(x-1)(x+2)}\equiv\dfrac{A}{x-1}+\dfrac{B}{x+2}\).</p>
+        <p>\(-5x+5\equiv A(x+2)+B(x-1)\). At \(x=1\): \(0=3A\Rightarrow A=0\). At \(x=-2\): \(15=-3B\Rightarrow B=-5\).</p>
+      </div>
+
+      <div class="step"><div class="step-label">Final Answer</div>
+        $$\boxed{3 - \frac{5}{x+2}}$$
+      </div>
+    </div>
+
+    <!-- PRACTICE QUESTIONS -->
+    <div class="box questions-box">
+      <div class="section-label">Practice Questions</div>
+      <div class="q-item"><div class="q-num">Question 1</div><p>Express \(\dfrac{11x-1}{(x+2)(2x-1)}\) in partial fractions.</p></div>
+      <div class="q-item"><div class="q-num">Question 2</div><p>Express \(\dfrac{5x+3}{(x+1)^2}\) in partial fractions.</p></div>
+      <div class="q-item"><div class="q-num">Question 3</div><p>Express \(\dfrac{4x^2+3x-2}{x(x+1)(x-2)}\) in partial fractions.</p></div>
+      <div class="q-item"><div class="q-num">Question 4</div><p>Express \(\dfrac{2x}{(x-3)(x+3)}\) in partial fractions.</p></div>
+      <div class="q-item"><div class="q-num">Question 5</div><p>Express \(\dfrac{7x-5}{(x-1)(x+2)^2}\) in partial fractions (repeated factor).</p></div>
+      <div class="q-item"><div class="q-num">Question 6</div><p>Express \(\dfrac{x^2+3x+5}{(x+1)(x+2)}\) in partial fractions (improper).</p></div>
+      <div class="q-item"><div class="q-num">Question 7</div><p>Express \(\dfrac{3x^2}{(x-1)(x+2)}\) in partial fractions (improper).</p></div>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div class="box solutions-box">
+      <div class="section-label">Full Solutions</div>
+
+      <div class="s-item"><div class="s-num">Solution 1</div>
+        <p>\(\dfrac{11x-1}{(x+2)(2x-1)}\equiv\dfrac{A}{x+2}+\dfrac{B}{2x-1}\). \(11x-1\equiv A(2x-1)+B(x+2)\).</p>
+        <p>\(x=-2:\;-23=-5A\Rightarrow A=\dfrac{23}{5}\).\quad \(x=\tfrac{1}{2}:\;\dfrac{9}{2}=\dfrac{5B}{2}\Rightarrow B=\dfrac{9}{5}\).</p>
+        $$\boxed{\frac{23}{5(x+2)}+\frac{9}{5(2x-1)}}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 2</div>
+        <p>\(\dfrac{5x+3}{(x+1)^2}\equiv\dfrac{A}{x+1}+\dfrac{B}{(x+1)^2}\). \(5x+3\equiv A(x+1)+B\).</p>
+        <p>\(x=-1:\;-2=B\Rightarrow B=-2\). Coefficient of \(x\): \(5=A\Rightarrow A=5\).</p>
+        $$\boxed{\frac{5}{x+1}-\frac{2}{(x+1)^2}}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 3</div>
+        <p>\(\dfrac{4x^2+3x-2}{x(x+1)(x-2)}\equiv\dfrac{A}{x}+\dfrac{B}{x+1}+\dfrac{C}{x-2}\).</p>
+        <p>\(4x^2+3x-2\equiv A(x+1)(x-2)+Bx(x-2)+Cx(x+1)\).</p>
+        <p>\(x=0:\;-2=A(-2)\Rightarrow A=1.\quad x=-1:\;-1=B(-1)(-3)\Rightarrow B=-\tfrac{1}{3}.\quad x=2:\;16=C(2)(3)\Rightarrow C=\tfrac{8}{3}.\)</p>
+        $$\boxed{\frac{1}{x}-\frac{1}{3(x+1)}+\frac{8}{3(x-2)}}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 4</div>
+        <p>\(\dfrac{2x}{(x-3)(x+3)}\equiv\dfrac{A}{x-3}+\dfrac{B}{x+3}\). \(2x\equiv A(x+3)+B(x-3)\).</p>
+        <p>\(x=3:\;6=6A\Rightarrow A=1.\quad x=-3:\;-6=-6B\Rightarrow B=1.\)</p>
+        $$\boxed{\frac{1}{x-3}+\frac{1}{x+3}}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 5</div>
+        <p>\(\dfrac{7x-5}{(x-1)(x+2)^2}\equiv\dfrac{A}{x-1}+\dfrac{B}{x+2}+\dfrac{C}{(x+2)^2}\). Multiply: \(7x-5\equiv A(x+2)^2+B(x-1)(x+2)+C(x-1)\).</p>
+        <p>\(x=1:\;2=9A\Rightarrow A=\tfrac{2}{9}.\quad x=-2:\;-19=-3C\Rightarrow C=\tfrac{19}{3}.\)</p>
+        <p>Coeff of \(x^2:\;0=A+B\Rightarrow B=-\tfrac{2}{9}.\)</p>
+        $$\boxed{\frac{2}{9(x-1)}-\frac{2}{9(x+2)}+\frac{19}{3(x+2)^2}}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 6</div>
+        <p>Top degree = bottom degree = 2, so improper. Bottom expands to \(x^2+3x+2\).</p>
+        <p>\(x^2+3x+5 = 1\cdot(x^2+3x+2)+3\). So quotient = 1, remainder = 3.</p>
+        <p>\(\dfrac{3}{(x+1)(x+2)}\equiv\dfrac{A}{x+1}+\dfrac{B}{x+2}\). \(x=-1:\;3=A.\quad x=-2:\;3=-B\Rightarrow B=-3.\)</p>
+        $$\boxed{1+\frac{3}{x+1}-\frac{3}{x+2}}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 7</div>
+        <p>Top degree 2 = bottom degree 2, improper. Bottom expands to \(x^2+x-2\).</p>
+        <p>\(3x^2 = 3(x^2+x-2)+(-3x+6)\). Quotient = 3, remainder = \(-3x+6\).</p>
+        <p>\(\dfrac{-3x+6}{(x-1)(x+2)}\equiv\dfrac{A}{x-1}+\dfrac{B}{x+2}\). \(x=1:\;3=3A\Rightarrow A=1.\quad x=-2:\;12=-3B\Rightarrow B=-4.\)</p>
+        $$\boxed{3+\frac{1}{x-1}-\frac{4}{x+2}}$$
+      </div>
+    </div>
+  </div><!-- end skill 23 -->
+
+  <hr class="skill-divider">
+
+  <!-- ============================================================ -->
+  <!-- SKILL 24 — BINOMIAL EXPANSION (NEGATIVE / FRACTIONAL n)       -->
+  <!-- ============================================================ -->
+  <div class="skill-block">
+    <div class="skill-header">
+      <div class="skill-number">Skill 24</div>
+      <h2>Binomial Expansion — Negative &amp; Fractional Indices</h2>
+    </div>
+
+    <!-- CONCEPT -->
+    <div class="box concept-box">
+      <div class="section-label">What It Is</div>
+      <p>At GCSE and early A-level you used the binomial theorem for positive integer powers like \((1+x)^5\), giving a finite number of terms. When the power \(n\) is a <strong>negative number or a fraction</strong>, the expansion gives an <strong>infinite series</strong> that only converges (gives a finite, useful answer) when \(|x| < 1\).</p>
+      <p>This is hugely powerful because it lets you expand things like \(\dfrac{1}{(1+x)^2}\) or \(\sqrt{1+x}\) as polynomials, which makes them easier to integrate, differentiate, or approximate.</p>
+      <p>The formula looks identical to the standard binomial series — the only difference is that \(n\) is no longer a positive integer, and the series never terminates.</p>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="box formula-box">
+      <div class="section-label">The Binomial Series Formula</div>
+      <div class="formula-content">
+        $$\boxed{(1+x)^n = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots}$$
+        <p style="margin-top:10px;"><strong>Valid only when \(|x| < 1\).</strong></p>
+        <p><strong>For \((a+bx)^n\) where \(a\neq 1\): factor out \(a^n\) first.</strong></p>
+        $$(a+bx)^n = a^n\!\left(1+\frac{bx}{a}\right)^n$$
+        <p>Then apply the formula with \(x\) replaced by \(\dfrac{bx}{a}\). Valid when \(\left|\dfrac{bx}{a}\right| < 1\), i.e., \(|x| < \dfrac{a}{b}\).</p>
+      </div>
+    </div>
+
+    <!-- WHEN TO APPLY -->
+    <div class="box concept-box">
+      <div class="section-label">Where to Apply It</div>
+      <p>Use this when the question asks you to expand an expression like \((1-2x)^{-1}\), \(\dfrac{1}{\sqrt{1+x}}\), or \(\dfrac{3}{(1+x)^2}\) as a series in ascending powers of \(x\). It is also used after partial fraction decomposition to expand each term separately (Skill 23 → Skill 24).</p>
+    </div>
+
+    <!-- WORKED EXAMPLE 1 -->
+    <div class="box example-box">
+      <div class="section-label">Worked Example 1</div>
+      <p>Expand \((1-2x)^{-2}\) up to and including the term in \(x^3\). State the range of validity.</p>
+
+      <div class="step"><div class="step-label">Step 1 — Identify n and the substitution</div>
+        <p>Here \(n = -2\) and we replace \(x\) with \(-2x\) in the formula.</p>
+      </div>
+
+      <div class="step"><div class="step-label">Step 2 — Write out the formula terms</div>
+        $$\text{Term 0: }1$$
+        $$\text{Term 1: }n(-2x) = (-2)(-2x) = 4x$$
+        $$\text{Term 2: }\frac{n(n-1)}{2!}(-2x)^2 = \frac{(-2)(-3)}{2}(4x^2) = 12x^2$$
+        $$\text{Term 3: }\frac{n(n-1)(n-2)}{3!}(-2x)^3 = \frac{(-2)(-3)(-4)}{6}(-8x^3) = 32x^3$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 3 — State the expansion and validity</div>
+        $$\text{Valid when }|-2x|<1\Rightarrow|x|<\tfrac{1}{2}$$
+      </div>
+
+      <div class="step"><div class="step-label">Final Answer</div>
+        $$\boxed{(1-2x)^{-2} \approx 1 + 4x + 12x^2 + 32x^3 + \cdots,\quad |x|<\tfrac{1}{2}}$$
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLE 2 -->
+    <div class="box example-box">
+      <div class="section-label">Worked Example 2</div>
+      <p>Expand \(\dfrac{1}{\sqrt{4+x}}\) up to and including the term in \(x^2\). State the range of validity.</p>
+
+      <div class="step"><div class="step-label">Step 1 — Rewrite in index form and factor out</div>
+        $$(4+x)^{-1/2} = \left(4\!\left(1+\frac{x}{4}\right)\right)^{-1/2} = 4^{-1/2}\!\left(1+\frac{x}{4}\right)^{-1/2} = \frac{1}{2}\!\left(1+\frac{x}{4}\right)^{-1/2}$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 2 — Apply binomial formula with \(n=-\tfrac{1}{2}\), substitute \(\tfrac{x}{4}\) for \(x\)</div>
+        $$\text{Term 1: }1$$
+        $$\text{Term 2: }\left(-\tfrac{1}{2}\right)\!\left(\tfrac{x}{4}\right) = -\frac{x}{8}$$
+        $$\text{Term 3: }\frac{(-\frac{1}{2})(-\frac{3}{2})}{2!}\!\left(\frac{x}{4}\right)^2 = \frac{\frac{3}{4}}{2}\cdot\frac{x^2}{16} = \frac{3x^2}{128}$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 3 — Multiply through by \(\tfrac{1}{2}\)</div>
+        $$\frac{1}{2}\!\left(1 - \frac{x}{8} + \frac{3x^2}{128}+\cdots\right) = \frac{1}{2} - \frac{x}{16} + \frac{3x^2}{256}+\cdots$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 4 — State validity</div>
+        <p>Valid when \(\left|\dfrac{x}{4}\right|<1\), i.e., \(|x|<4\).</p>
+      </div>
+
+      <div class="step"><div class="step-label">Final Answer</div>
+        $$\boxed{\frac{1}{\sqrt{4+x}} \approx \frac{1}{2} - \frac{x}{16} + \frac{3x^2}{256} + \cdots,\quad |x|<4}$$
+      </div>
+    </div>
+
+    <!-- PRACTICE QUESTIONS -->
+    <div class="box questions-box">
+      <div class="section-label">Practice Questions</div>
+      <div class="q-item"><div class="q-num">Question 1</div><p>Expand \((1+x)^{-1}\) up to the \(x^3\) term. State the validity.</p></div>
+      <div class="q-item"><div class="q-num">Question 2</div><p>Expand \((1+3x)^{1/3}\) up to the \(x^2\) term. State the validity.</p></div>
+      <div class="q-item"><div class="q-num">Question 3</div><p>Expand \((1-x)^{-3}\) up to the \(x^3\) term. State the validity.</p></div>
+      <div class="q-item"><div class="q-num">Question 4</div><p>Expand \(\dfrac{1}{(2+x)^2}\) up to the \(x^2\) term. State the validity.</p></div>
+      <div class="q-item"><div class="q-num">Question 5</div><p>Expand \(\sqrt{1-4x}\) up to the \(x^2\) term. State the validity.</p></div>
+      <div class="q-item"><div class="q-num">Question 6</div><p>Expand \(\dfrac{2}{\sqrt{9-x}}\) up to the \(x^2\) term. State the validity.</p></div>
+      <div class="q-item"><div class="q-num">Question 7</div><p>Given that \(\dfrac{5-x}{(1-x)(2+x)}\equiv\dfrac{A}{1-x}+\dfrac{B}{2+x}\), find \(A\) and \(B\), then expand the expression as a series up to the \(x^2\) term.</p></div>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div class="box solutions-box">
+      <div class="section-label">Full Solutions</div>
+
+      <div class="s-item"><div class="s-num">Solution 1</div>
+        <p>\((1+x)^{-1}\): \(n=-1\).</p>
+        <p>Terms: \(1 + (-1)x + \dfrac{(-1)(-2)}{2}x^2 + \dfrac{(-1)(-2)(-3)}{6}x^3\)</p>
+        $$\boxed{(1+x)^{-1} = 1-x+x^2-x^3+\cdots,\quad |x|<1}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 2</div>
+        <p>\(n=\tfrac{1}{3}\), substitute \(3x\).</p>
+        <p>Term 1: \(1\). Term 2: \(\tfrac{1}{3}(3x)=x\). Term 3: \(\dfrac{(\frac{1}{3})(-\frac{2}{3})}{2}(3x)^2 = \dfrac{-\frac{2}{9}}{2}\cdot 9x^2 = -x^2\).</p>
+        $$\boxed{(1+3x)^{1/3}\approx 1+x-x^2+\cdots,\quad |x|<\tfrac{1}{3}}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 3</div>
+        <p>\(n=-3\), substitute \(-x\).</p>
+        <p>T1: 1. T2: \((-3)(-x)=3x\). T3: \(\dfrac{(-3)(-4)}{2}x^2=6x^2\). T4: \(\dfrac{(-3)(-4)(-5)}{6}(-x)^3=-(-10x^3)=10x^3\).</p>
+        $$\boxed{(1-x)^{-3}\approx 1+3x+6x^2+10x^3+\cdots,\quad |x|<1}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 4</div>
+        <p>\((2+x)^{-2}=2^{-2}(1+\tfrac{x}{2})^{-2}=\tfrac{1}{4}(1+\tfrac{x}{2})^{-2}\).</p>
+        <p>\(n=-2\): T1=1, T2=\(-2\cdot\tfrac{x}{2}=-x\), T3=\(\dfrac{(-2)(-3)}{2}\cdot\tfrac{x^2}{4}=\tfrac{3x^2}{4}\).</p>
+        <p>Multiply by \(\tfrac{1}{4}\):</p>
+        $$\boxed{\frac{1}{(2+x)^2}\approx\frac{1}{4}-\frac{x}{4}+\frac{3x^2}{16}+\cdots,\quad |x|<2}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 5</div>
+        <p>\((1-4x)^{1/2}\): \(n=\tfrac{1}{2}\), substitute \(-4x\).</p>
+        <p>T1=1. T2=\(\tfrac{1}{2}(-4x)=-2x\). T3=\(\dfrac{(\frac{1}{2})(-\frac{1}{2})}{2}(16x^2)=-x^2\).</p>
+        $$\boxed{\sqrt{1-4x}\approx 1-2x-x^2+\cdots,\quad |x|<\tfrac{1}{4}}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 6</div>
+        <p>\(\dfrac{2}{\sqrt{9-x}}=2(9-x)^{-1/2}=2\cdot 9^{-1/2}\!\left(1-\tfrac{x}{9}\right)^{-1/2}=\tfrac{2}{3}\!\left(1-\tfrac{x}{9}\right)^{-1/2}\).</p>
+        <p>\(n=-\tfrac{1}{2}\), substitute \(-\tfrac{x}{9}\): T1=1, T2=\(-\tfrac{1}{2}\cdot(-\tfrac{x}{9})=\tfrac{x}{18}\), T3=\(\dfrac{(-\frac{1}{2})(-\frac{3}{2})}{2}\cdot\tfrac{x^2}{81}=\tfrac{3x^2}{648}=\tfrac{x^2}{216}\).</p>
+        <p>Multiply by \(\tfrac{2}{3}\):</p>
+        $$\boxed{\frac{2}{\sqrt{9-x}}\approx\frac{2}{3}+\frac{x}{27}+\frac{x^2}{324}+\cdots,\quad |x|<9}$$
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 7</div>
+        <p>Find \(A,B\): \(5-x\equiv A(2+x)+B(1-x)\).</p>
+        <p>\(x=1:\;4=3A\Rightarrow A=\tfrac{4}{3}.\quad x=-2:\;7=3B\Rightarrow B=\tfrac{7}{3}.\)</p>
+        <p>Expand each part separately.</p>
+        <p>\(\dfrac{4}{3}\cdot(1-x)^{-1}=\dfrac{4}{3}(1+x+x^2+\cdots)\).</p>
+        <p>\(\dfrac{7}{3}\cdot(2+x)^{-1}=\dfrac{7}{3}\cdot\tfrac{1}{2}(1+\tfrac{x}{2})^{-1}=\dfrac{7}{6}(1-\tfrac{x}{2}+\tfrac{x^2}{4}-\cdots)\).</p>
+        <p>Sum: \(\left(\tfrac{4}{3}+\tfrac{7}{6}\right)+\left(\tfrac{4}{3}-\tfrac{7}{12}\right)x+\left(\tfrac{4}{3}+\tfrac{7}{24}\right)x^2+\cdots\)</p>
+        <p>\(=\dfrac{5}{2}+\dfrac{9}{12}x+\dfrac{39}{24}x^2=\dfrac{5}{2}+\dfrac{3x}{4}+\dfrac{13x^2}{8}+\cdots\). Valid for \(|x|<1\) (the more restrictive condition).</p>
+        $$\boxed{\frac{5}{2}+\frac{3}{4}x+\frac{13}{8}x^2+\cdots,\quad |x|<1}$$
+      </div>
+    </div>
+  </div><!-- end skill 24 -->
+
+  <hr class="skill-divider">
+
+  <!-- ============================================================ -->
+  <!-- SKILL 25 — ALGEBRAIC LONG DIVISION                            -->
+  <!-- ============================================================ -->
+  <div class="skill-block">
+    <div class="skill-header">
+      <div class="skill-number">Skill 25</div>
+      <h2>Algebraic Long Division</h2>
+    </div>
+
+    <!-- CONCEPT -->
+    <div class="box concept-box">
+      <div class="section-label">What It Is</div>
+      <p>Algebraic long division is the polynomial equivalent of numerical long division. It allows you to divide one polynomial by another to get a <strong>quotient</strong> (the result) and a <strong>remainder</strong>. When the remainder is zero, the divisor is a factor of the dividend.</p>
+      <p>The process works by repeatedly asking: "what do I multiply the leading term of the divisor by to match the leading term of the current expression?" You then subtract and repeat until the remaining degree is less than the divisor's degree.</p>
+      <p>This is essential for converting improper algebraic fractions into mixed form (polynomial + proper fraction) before applying partial fractions or integration. It is also used to verify polynomial factors and to perform polynomial division in proof questions.</p>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="box formula-box">
+      <div class="section-label">The Division Algorithm</div>
+      <div class="formula-content">
+        <p>Any polynomial division can be written as:</p>
+        $$f(x) = d(x)\cdot q(x) + r(x)$$
+        <p>where \(f(x)\) is the dividend, \(d(x)\) is the divisor, \(q(x)\) is the quotient, and \(r(x)\) is the remainder.</p>
+        <p>The degree of \(r(x)\) must be strictly less than the degree of \(d(x)\).</p>
+        <p>As a fraction:</p>
+        $$\frac{f(x)}{d(x)} = q(x) + \frac{r(x)}{d(x)}$$
+        <p><strong>The Remainder Theorem</strong> (useful check): When \(f(x)\) is divided by \((x-a)\), the remainder equals \(f(a)\).</p>
+      </div>
+    </div>
+
+    <!-- WHEN TO APPLY -->
+    <div class="box concept-box">
+      <div class="section-label">Where to Apply It</div>
+      <p>Use algebraic long division whenever you have an improper algebraic fraction (numerator degree ≥ denominator degree) and need to convert it before doing partial fractions, integration, or binomial expansion. Also used when a question asks you to divide polynomials or when factorising a cubic after finding one factor by inspection or the factor theorem.</p>
+    </div>
+
+    <!-- WORKED EXAMPLE 1 -->
+    <div class="box example-box">
+      <div class="section-label">Worked Example 1</div>
+      <p>Divide \(2x^3 - 3x^2 + x + 5\) by \((x-2)\).</p>
+
+      <div class="step"><div class="step-label">Step 1 — Set up the division</div>
+        <p>Divide the leading term of the dividend by the leading term of the divisor:</p>
+        $$2x^3 \div x = 2x^2$$
+        <p>Multiply \(2x^2\) by \((x-2)\): \(2x^3 - 4x^2\). Subtract from dividend:</p>
+        $$(2x^3-3x^2+x+5)-(2x^3-4x^2) = x^2+x+5$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 2 — Repeat with the new expression</div>
+        <p>\(x^2 \div x = x\). Multiply \(x\) by \((x-2)\): \(x^2-2x\). Subtract:</p>
+        $$(x^2+x+5)-(x^2-2x) = 3x+5$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 3 — Repeat again</div>
+        <p>\(3x \div x = 3\). Multiply \(3\) by \((x-2)\): \(3x-6\). Subtract:</p>
+        $$(3x+5)-(3x-6) = 11$$
+        <p>Degree of 11 (degree 0) is less than degree of \((x-2)\) (degree 1). Stop. Remainder = 11.</p>
+      </div>
+
+      <div class="step"><div class="step-label">Step 4 — Check using remainder theorem</div>
+        <p>\(f(2) = 2(8)-3(4)+2+5 = 16-12+2+5 = 11\). ✓</p>
+      </div>
+
+      <div class="step"><div class="step-label">Final Answer</div>
+        $$\boxed{2x^3-3x^2+x+5 = (x-2)(2x^2+x+3)+11}$$
+        $$\text{or equivalently: }\frac{2x^3-3x^2+x+5}{x-2} = 2x^2+x+3+\frac{11}{x-2}$$
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLE 2 -->
+    <div class="box example-box">
+      <div class="section-label">Worked Example 2</div>
+      <p>Express \(\dfrac{x^3+2x^2-3}{x^2+x-2}\) in the form \(q(x)+\dfrac{r(x)}{x^2+x-2}\).</p>
+
+      <div class="step"><div class="step-label">Step 1 — Identify this is improper</div>
+        <p>Degree of top = 3. Degree of bottom = 2. Since 3 > 2, we must divide.</p>
+      </div>
+
+      <div class="step"><div class="step-label">Step 2 — First division step</div>
+        <p>\(x^3 \div x^2 = x\). Multiply \(x\) by \((x^2+x-2)\): \(x^3+x^2-2x\). Subtract:</p>
+        $$(x^3+2x^2-3)-(x^3+x^2-2x) = x^2+2x-3$$
+      </div>
+
+      <div class="step"><div class="step-label">Step 3 — Second division step</div>
+        <p>\(x^2 \div x^2 = 1\). Multiply \(1\) by \((x^2+x-2)\): \(x^2+x-2\). Subtract:</p>
+        $$(x^2+2x-3)-(x^2+x-2) = x-1$$
+        <p>Degree of \(x-1\) (degree 1) is less than degree of \(x^2+x-2\) (degree 2). Stop. Quotient = \(x+1\), remainder = \(x-1\).</p>
+      </div>
+
+      <div class="step"><div class="step-label">Step 4 — Check</div>
+        <p>\((x^2+x-2)(x+1)+(x-1) = x^3+x^2-2x+x^2+x-2+x-1 = x^3+2x^2-3\). ✓</p>
+      </div>
+
+      <div class="step"><div class="step-label">Final Answer</div>
+        $$\boxed{\frac{x^3+2x^2-3}{x^2+x-2} = (x+1)+\frac{x-1}{x^2+x-2}}$$
+      </div>
+    </div>
+
+    <!-- PRACTICE QUESTIONS -->
+    <div class="box questions-box">
+      <div class="section-label">Practice Questions</div>
+      <div class="q-item"><div class="q-num">Question 1</div><p>Divide \(x^3+3x^2-x-3\) by \((x+1)\).</p></div>
+      <div class="q-item"><div class="q-num">Question 2</div><p>Divide \(2x^3+x^2-5x+2\) by \((x-1)\).</p></div>
+      <div class="q-item"><div class="q-num">Question 3</div><p>Divide \(x^3-8\) by \((x-2)\). [Note: write missing terms as \(0x^2+0x-8\).]</p></div>
+      <div class="q-item"><div class="q-num">Question 4</div><p>Express \(\dfrac{3x^2+5x-1}{x+2}\) as a polynomial plus a remainder fraction.</p></div>
+      <div class="q-item"><div class="q-num">Question 5</div><p>Express \(\dfrac{x^3-x^2+x-1}{x^2+1}\) in the form \(q(x)+\dfrac{r}{x^2+1}\).</p></div>
+      <div class="q-item"><div class="q-num">Question 6</div><p>Divide \(4x^3-6x^2+2x+3\) by \((2x-3)\).</p></div>
+      <div class="q-item"><div class="q-num">Question 7</div><p>Show that \((x-3)\) is a factor of \(x^3-6x^2+11x-6\), then fully factorise the cubic.</p></div>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div class="box solutions-box">
+      <div class="section-label">Full Solutions</div>
+
+      <div class="s-item"><div class="s-num">Solution 1</div>
+        <p>Divide \(x^3+3x^2-x-3\) by \((x+1)\):</p>
+        <p>\(x^3\div x=x^2\). Mult: \(x^3+x^2\). Subtract: \(2x^2-x-3\).</p>
+        <p>\(2x^2\div x=2x\). Mult: \(2x^2+2x\). Subtract: \(-3x-3\).</p>
+        <p>\(-3x\div x=-3\). Mult: \(-3x-3\). Subtract: 0. Remainder = 0.</p>
+        $$\boxed{x^3+3x^2-x-3 = (x+1)(x^2+2x-3)}$$
+        <p>Check: \((x+1)(x^2+2x-3)=(x+1)(x+3)(x-1)\). Fully factorised: \((x+1)(x+3)(x-1)\).</p>
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 2</div>
+        <p>\(2x^3\div x=2x^2\). Mult: \(2x^3-2x^2\). Subtract: \(3x^2-5x+2\).</p>
+        <p>\(3x^2\div x=3x\). Mult: \(3x^2-3x\). Subtract: \(-2x+2\).</p>
+        <p>\(-2x\div x=-2\). Mult: \(-2x+2\). Subtract: 0.</p>
+        $$\boxed{2x^3+x^2-5x+2=(x-1)(2x^2+3x-2)}$$
+        <p>Check via remainder theorem: \(f(1)=2+1-5+2=0\). ✓</p>
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 3</div>
+        <p>Write: \(x^3+0x^2+0x-8\) divided by \((x-2)\).</p>
+        <p>\(x^3\div x=x^2\). Mult: \(x^3-2x^2\). Subtract: \(2x^2+0x-8\).</p>
+        <p>\(2x^2\div x=2x\). Mult: \(2x^2-4x\). Subtract: \(4x-8\).</p>
+        <p>\(4x\div x=4\). Mult: \(4x-8\). Subtract: 0.</p>
+        $$\boxed{x^3-8=(x-2)(x^2+2x+4)}$$
+        <p>This is the standard difference of cubes factorisation. ✓</p>
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 4</div>
+        <p>Divide \(3x^2+5x-1\) by \((x+2)\):</p>
+        <p>\(3x^2\div x=3x\). Mult: \(3x^2+6x\). Subtract: \(-x-1\).</p>
+        <p>\(-x\div x=-1\). Mult: \(-x-2\). Subtract: \(1\). Remainder = 1.</p>
+        $$\boxed{\frac{3x^2+5x-1}{x+2} = 3x-1+\frac{1}{x+2}}$$
+        <p>Check: \(f(-2)=3(4)+5(-2)-1=12-10-1=1\). ✓</p>
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 5</div>
+        <p>Divide \(x^3-x^2+x-1\) by \((x^2+1)\):</p>
+        <p>\(x^3\div x^2=x\). Mult: \(x^3+x\). Subtract: \(-x^2+0\cdot x-1\).</p>
+        <p>\(-x^2\div x^2=-1\). Mult: \(-x^2-1\). Subtract: \(0\). Remainder = 0.</p>
+        $$\boxed{\frac{x^3-x^2+x-1}{x^2+1} = x-1}$$
+        <p>Zero remainder confirms \((x^2+1)\) divides exactly. The cubic \(x^3-x^2+x-1=(x^2+1)(x-1)\).</p>
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 6</div>
+        <p>Divide \(4x^3-6x^2+2x+3\) by \((2x-3)\):</p>
+        <p>\(4x^3\div 2x=2x^2\). Mult: \(4x^3-6x^2\). Subtract: \(0\cdot x^2+2x+3\).</p>
+        <p>\(0\cdot x^2\div 2x=0\). So bring down: remainder is \(2x+3\).</p>
+        <p>\(2x\div 2x=1\). Mult: \(2x-3\). Subtract: \(6\). Remainder = 6.</p>
+        $$\boxed{4x^3-6x^2+2x+3=(2x-3)(2x^2+1)+6}$$
+        $$\text{i.e., }\frac{4x^3-6x^2+2x+3}{2x-3}=2x^2+1+\frac{6}{2x-3}$$
+        <p>Check via remainder theorem: \(f(\tfrac{3}{2})=4\cdot\tfrac{27}{8}-6\cdot\tfrac{9}{4}+3+3=\tfrac{27}{2}-\tfrac{27}{2}+6=6\). ✓</p>
+      </div>
+
+      <div class="s-item"><div class="s-num">Solution 7</div>
+        <p>Check \((x-3)\) is a factor: \(f(3)=27-54+33-6=0\). ✓ So remainder = 0, hence \((x-3)\) is a factor.</p>
+        <p>Divide \(x^3-6x^2+11x-6\) by \((x-3)\):</p>
+        <p>\(x^3\div x=x^2\). Mult: \(x^3-3x^2\). Subtract: \(-3x^2+11x-6\).</p>
+        <p>\(-3x^2\div x=-3x\). Mult: \(-3x^2+9x\). Subtract: \(2x-6\).</p>
+        <p>\(2x\div x=2\). Mult: \(2x-6\). Subtract: 0.</p>
+        <p>So \(x^3-6x^2+11x-6=(x-3)(x^2-3x+2)=(x-3)(x-1)(x-2)\).</p>
+        $$\boxed{x^3-6x^2+11x-6=(x-1)(x-2)(x-3)}$$
+      </div>
+    </div>
+  </div><!-- end skill 25 -->
+
+  <!-- Footer -->
+  <div style="text-align:center; margin-top:48px; padding-top:24px; border-top:2px solid #e2e8f0; color:#718096; font-size:0.85rem;">
+    <p>Edexcel IAL P3 &amp; P4 Mathematics &nbsp;·&nbsp; Skills 21–25 &nbsp;·&nbsp; All content rendered via MathJax</p>
+  </div>
+
+</div><!-- end page-wrapper -->
+</body>
+</html>

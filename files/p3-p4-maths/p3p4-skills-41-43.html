@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 & P4 | Skills 41–43: Differential Equations</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['$$', '$$']],
+      tags: 'none'
+    },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] },
+    chtml: { scale: 1, matchFontHeight: false }
+  };
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── GLOBAL OVERFLOW CONTROL ── */
+  body { overflow-x: hidden; }
+
+  .page-wrapper,
+  .box,
+  .example-card,
+  .sol-item,
+  .formula-display,
+  .step,
+  .sol-step,
+  .q-list li {
+    overflow-x: auto;
+  }
+
+  /* MathJax display containers */
+  mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    display: block !important;
+  }
+
+  mjx-container[display="true"] {
+    margin: 0.6em 0;
+  }
+
+  body {
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #1a1a2e;
+    padding: 24px 16px 60px;
+  }
+
+  .page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: #1a1a2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 32px 36px;
+    border-radius: 12px;
+    margin-bottom: 48px;
+  }
+  .page-header .module-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .page-header h1 {
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+  }
+  .page-header p {
+    color: #94a3b8;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  /* ── SKILL BLOCK ── */
+  .skill-block {
+    margin-bottom: 64px;
+  }
+
+  /* ── SKILL HEADER ── */
+  .skill-header {
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 20px 28px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .skill-number {
+    background: rgba(255,255,255,0.18);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .skill-header h2 {
+    font-size: clamp(16px, 3vw, 21px);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  /* ── SECTION BOXES ── */
+  .box {
+    border-radius: 0;
+    padding: 24px 28px;
+    border-left: 4px solid transparent;
+  }
+  .box:last-child { border-radius: 0 0 10px 10px; }
+  .box + .box { border-top: 1px solid rgba(0,0,0,0.06); }
+
+  .box-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.65;
+  }
+
+  /* concept */
+  .box-concept {
+    background: #e8f4fd;
+    border-left-color: #3b82f6;
+  }
+  .box-concept .box-label { color: #1e40af; }
+
+  /* formula */
+  .box-formula {
+    background: #fff9e6;
+    border-left-color: #f59e0b;
+    font-size: 17px;
+  }
+  .box-formula .box-label { color: #92400e; }
+
+  /* examples */
+  .box-examples {
+    background: #e8f8e8;
+    border-left-color: #22c55e;
+  }
+  .box-examples .box-label { color: #166534; }
+
+  /* questions */
+  .box-questions {
+    background: #f3e8ff;
+    border-left-color: #a855f7;
+  }
+  .box-questions .box-label { color: #6b21a8; }
+
+  /* solutions */
+  .box-solutions {
+    background: #fff0e8;
+    border-left-color: #f97316;
+    border-radius: 0 0 10px 10px;
+  }
+  .box-solutions .box-label { color: #7c2d12; }
+
+  /* ── TYPOGRAPHY INSIDE BOXES ── */
+  .box p { margin-bottom: 10px; }
+  .box p:last-child { margin-bottom: 0; }
+
+  .box ul, .box ol {
+    padding-left: 22px;
+    margin-bottom: 10px;
+  }
+  .box ul li, .box ol li { margin-bottom: 6px; }
+
+  /* ── EXAMPLE CARD ── */
+  .example-card {
+    background: rgba(255,255,255,0.65);
+    border-radius: 8px;
+    padding: 20px 22px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(34,197,94,0.25);
+  }
+  .example-card:last-child { margin-bottom: 0; }
+  .example-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #166534;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .step {
+    margin-bottom: 8px;
+    padding-left: 14px;
+    border-left: 2px solid #bbf7d0;
+  }
+  .step-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #15803d;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ── QUESTION LIST ── */
+  .q-list { list-style: none; padding: 0; }
+  .q-list li {
+    display: block;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 8px;
+    border-left: 3px solid #a855f7;
+    line-height: 1.75;
+  }
+  .q-badge {
+    display: inline-block;
+    background: #a855f7;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 2px 9px;
+    border-radius: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  /* ── SOLUTION LIST ── */
+  .sol-list { list-style: none; padding: 0; }
+  .sol-item {
+    background: rgba(255,255,255,0.6);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(249,115,22,0.2);
+  }
+  .sol-item:last-child { margin-bottom: 0; }
+  .sol-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: #c2410c;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .sol-step {
+    margin-bottom: 7px;
+    padding-left: 12px;
+    border-left: 2px solid #fed7aa;
+  }
+  .sol-step-label {
+    font-weight: 600;
+    font-size: 12px;
+    color: #ea580c;
+    display: block;
+    margin-bottom: 1px;
+  }
+
+  /* ── FORMULA DISPLAY ── */
+  .formula-display {
+    background: rgba(255,255,255,0.7);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    text-align: center;
+    border: 1px solid rgba(245,158,11,0.3);
+  }
+
+  /* ── WHERE TO APPLY ── */
+  .apply-list {
+    list-style: none;
+    padding: 0;
+  }
+  .apply-list li {
+    padding: 8px 14px;
+    margin-bottom: 8px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 6px;
+    border-left: 3px solid #f59e0b;
+    font-size: 15px;
+  }
+  .apply-list li strong { color: #92400e; }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+    margin: 36px 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .box { padding: 18px 16px; }
+    .skill-header { padding: 16px 18px; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .example-card { padding: 16px; }
+    .sol-item { padding: 14px; }
+  }
+</style>
+<!-- sb:start -->
+<script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
+<script src="../../app/note.js"></script>
+<!-- sb:end -->
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="module-tag">Edexcel IAL · P3 &amp; P4</div>
+    <h1>Skills 41–43: Differential Equations</h1>
+    <p>Forming · Solving · Modelling with DEs — complete from scratch</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SKILL 41 — FORMING DEs FROM WORDED PROBLEMS
+  ══════════════════════════════════════════════ -->
+  <div class="skill-block">
+    <div class="skill-header">
+      <span class="skill-number">SKILL 41</span>
+      <h2>Forming Differential Equations from Worded Problems</h2>
+    </div>
+
+    <!-- CONCEPT -->
+    <div class="box box-concept">
+      <div class="box-label">What It Is</div>
+      <p>A <strong>differential equation (DE)</strong> is any equation that contains a derivative such as \(\dfrac{dy}{dx}\) or \(\dfrac{dV}{dt}\). When a real-world situation describes how one quantity <em>changes</em> with respect to another, you can translate that description directly into a DE.</p>
+      <p>The key phrase to look for is <strong>"rate of change"</strong>. If something increases or decreases at a rate related to another quantity, that is a DE waiting to be written.</p>
+      <p>You do <strong>not</strong> need to solve the equation at this stage — forming it correctly is the entire task of Skill 41. Solving comes in Skills 42 and 43.</p>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="box box-formula">
+      <div class="box-label">The Rules</div>
+      <p><strong>Key translation table:</strong></p>
+      <div class="formula-display">
+        $$\text{"rate of change of } y \text{ with respect to } t \text{"} \;\longrightarrow\; \frac{dy}{dt}$$
+      </div>
+      <div class="formula-display">
+        $$\text{"} y \text{ increases at a rate proportional to } y \text{"} \;\longrightarrow\; \frac{dy}{dt} = ky \quad (k > 0)$$
+      </div>
+      <div class="formula-display">
+        $$\text{"} y \text{ decreases at a rate proportional to } y \text{"} \;\longrightarrow\; \frac{dy}{dt} = -ky \quad (k > 0)$$
+      </div>
+      <div class="formula-display">
+        $$\text{"rate proportional to the square of } y \text{"} \;\longrightarrow\; \frac{dy}{dt} = ky^2$$
+      </div>
+      <p style="margin-top:12px;">The constant of proportionality \(k\) is always <strong>positive</strong>. A <em>decrease</em> is indicated by placing a negative sign in front of \(k\), not by making \(k\) negative.</p>
+    </div>
+
+    <!-- WHERE TO APPLY -->
+    <div class="box box-concept">
+      <div class="box-label">Where to Apply This</div>
+      <ul class="apply-list">
+        <li><strong>Population problems:</strong> "The population grows at a rate proportional to its current size."</li>
+        <li><strong>Radioactive decay:</strong> "The number of atoms decreases at a rate proportional to the number present."</li>
+        <li><strong>Cooling problems:</strong> "The temperature drops at a rate proportional to the difference between the object and room temperature."</li>
+        <li><strong>Liquid flow:</strong> "Water drains from a tank at a rate proportional to the square root of the depth."</li>
+        <li><strong>Area / volume change:</strong> "A spherical balloon is inflated so that its volume increases at a constant rate."</li>
+      </ul>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="box box-examples">
+      <div class="box-label">Worked Examples</div>
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Population Growth</div>
+        <p><em>The size \(P\) of a bacteria colony at time \(t\) hours increases at a rate directly proportional to the current population. Write a differential equation for \(P\).</em></p>
+
+        <div class="step">
+          <span class="step-label">Step 1 — Identify what is changing and with respect to what</span>
+          <p>\(P\) is changing with respect to \(t\), so the derivative is \(\dfrac{dP}{dt}\).</p>
+        </div>
+        <div class="step">
+          <span class="step-label">Step 2 — Translate "proportional to the current population"</span>
+          <p>Directly proportional to \(P\) means the right-hand side is \(kP\) for some positive constant \(k\).</p>
+        </div>
+        <div class="step">
+          <span class="step-label">Step 3 — Decide the sign</span>
+          <p>The population <em>increases</em>, so no negative sign is needed.</p>
+        </div>
+        <div class="step">
+          <span class="step-label">Step 4 — Write the DE</span>
+          $$\boxed{\frac{dP}{dt} = kP}$$
+          <p>where \(k > 0\) is a positive constant.</p>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Liquid Draining from a Tank</div>
+        <p><em>A tank contains water to a depth of \(h\) metres. Water leaks from a hole at the bottom at a rate proportional to the square root of the depth. Write a differential equation for \(h\) in terms of time \(t\) seconds.</em></p>
+
+        <div class="step">
+          <span class="step-label">Step 1 — Identify the derivative</span>
+          <p>The depth \(h\) is changing with respect to time \(t\), so the derivative is \(\dfrac{dh}{dt}\).</p>
+        </div>
+        <div class="step">
+          <span class="step-label">Step 2 — Translate "proportional to the square root of the depth"</span>
+          <p>Proportional to \(\sqrt{h}\) means the right-hand side is \(k\sqrt{h}\) for some positive constant \(k\).</p>
+        </div>
+        <div class="step">
+          <span class="step-label">Step 3 — Decide the sign</span>
+          <p>The water is <em>draining</em>, so \(h\) is <strong>decreasing</strong>. A minus sign is required.</p>
+        </div>
+        <div class="step">
+          <span class="step-label">Step 4 — Write the DE</span>
+          $$\boxed{\frac{dh}{dt} = -k\sqrt{h}}$$
+          <p>where \(k > 0\) is a positive constant.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS -->
+    <div class="box box-questions">
+      <div class="box-label">Practice Questions</div>
+      <ul class="q-list">
+        <li><span class="q-badge">Q1</span> The mass \(m\) (kg) of a radioactive substance at time \(t\) years decreases at a rate proportional to the current mass. Write a DE for \(m\).</li>
+        <li><span class="q-badge">Q2</span> The number of fish \(F\) in a lake increases at a rate proportional to \(F\). Write a DE for \(F\) in terms of \(t\) weeks.</li>
+        <li><span class="q-badge">Q3</span> A cup of coffee cools at a rate proportional to the difference between its temperature \(\theta\)°C and the room temperature of 20°C. Write a DE for \(\theta\) in terms of \(t\) minutes. (Take the room temperature into account.)</li>
+        <li><span class="q-badge">Q4</span> The volume \(V\) cm³ of a spherical bubble grows at a rate proportional to its surface area \(S\) cm², where \(S = 4\pi r^2\) and \(V = \tfrac{4}{3}\pi r^3\). Write a DE for \(V\) in terms of \(t\) without introducing \(r\) or \(S\) into the final answer. (Hint: express \(S\) in terms of \(V\).)</li>
+        <li><span class="q-badge">Q5</span> The depth \(h\) (m) of water in a conical tank decreases at a rate proportional to \(h^2\). Write a DE for \(h\) in terms of \(t\) seconds.</li>
+        <li><span class="q-badge">Q6</span> A population \(P\) of insects increases at a rate proportional to \(\sqrt{P}\). Write a DE for \(P\) in terms of \(t\) days.</li>
+        <li><span class="q-badge">Q7</span> A quantity \(y\) increases at a constant rate of 3 units per second plus an additional rate proportional to \(y\) itself. Write a DE for \(y\) in terms of \(t\) seconds.</li>
+      </ul>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div class="box box-solutions">
+      <div class="box-label">Fully Worked Solutions</div>
+      <ul class="sol-list">
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q1 — Radioactive Decay</div>
+          <div class="sol-step">
+            <span class="sol-step-label">Derivative:</span>
+            <p>Mass \(m\) changes with time \(t\), so we need \(\dfrac{dm}{dt}\).</p>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step-label">Proportionality:</span>
+            <p>Rate proportional to \(m\) gives right-hand side \(km\).</p>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step-label">Sign:</span>
+            <p>Mass is <em>decreasing</em>, so a minus sign is needed.</p>
+          </div>
+          $$\boxed{\frac{dm}{dt} = -km, \quad k > 0}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q2 — Fish Population</div>
+          <div class="sol-step">
+            <span class="sol-step-label">Derivative:</span>
+            <p>\(F\) changes with \(t\), so the derivative is \(\dfrac{dF}{dt}\).</p>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step-label">Proportionality:</span>
+            <p>Rate proportional to \(F\) gives \(kF\).</p>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step-label">Sign:</span>
+            <p>Fish are <em>increasing</em>, so no negative sign.</p>
+          </div>
+          $$\boxed{\frac{dF}{dt} = kF, \quad k > 0}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q3 — Newton's Law of Cooling</div>
+          <div class="sol-step">
+            <span class="sol-step-label">Derivative:</span>
+            <p>\(\theta\) changes with \(t\), so the derivative is \(\dfrac{d\theta}{dt}\).</p>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step-label">Proportionality:</span>
+            <p>Rate proportional to the <em>excess temperature</em> \((\theta - 20)\), giving \(k(\theta - 20)\).</p>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step-label">Sign:</span>
+            <p>Coffee is <em>cooling</em>, so \(\theta\) decreases, requiring a minus sign.</p>
+          </div>
+          $$\boxed{\frac{d\theta}{dt} = -k(\theta - 20), \quad k > 0}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q4 — Spherical Bubble</div>
+          <div class="sol-step">
+            <span class="sol-step-label">Express S in terms of V:</span>
+            <p>From \(V = \dfrac{4}{3}\pi r^3\), we get \(r = \left(\dfrac{3V}{4\pi}\right)^{1/3}\).</p>
+            <p>Then \(S = 4\pi r^2 = 4\pi \left(\dfrac{3V}{4\pi}\right)^{2/3}\).</p>
+            <p>This simplifies to \(S = (36\pi)^{1/3}\, V^{2/3}\).</p>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step-label">Write the DE:</span>
+            <p>Rate proportional to \(S\) means \(\dfrac{dV}{dt} = kS\). Substituting:</p>
+          </div>
+          $$\boxed{\frac{dV}{dt} = k(36\pi)^{1/3}\, V^{2/3}}$$
+          <p style="margin-top:8px; font-size:14px; color:#7c2d12;">Note: Since \((36\pi)^{1/3}\) is itself a constant, this is often written simply as \(\dfrac{dV}{dt} = cV^{2/3}\) where \(c\) absorbs all constants.</p>
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q5 — Conical Tank</div>
+          <div class="sol-step">
+            <span class="sol-step-label">Derivative:</span>
+            <p>\(h\) changes with \(t\), giving \(\dfrac{dh}{dt}\).</p>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step-label">Proportionality and sign:</span>
+            <p>Rate proportional to \(h^2\), and depth is <em>decreasing</em>.</p>
+          </div>
+          $$\boxed{\frac{dh}{dt} = -kh^2, \quad k > 0}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q6 — Insect Population</div>
+          <div class="sol-step">
+            <span class="sol-step-label">Derivative:</span>
+            <p>\(P\) changes with \(t\), giving \(\dfrac{dP}{dt}\).</p>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step-label">Proportionality and sign:</span>
+            <p>Rate proportional to \(\sqrt{P}\), population is <em>increasing</em>.</p>
+          </div>
+          $$\boxed{\frac{dP}{dt} = k\sqrt{P}, \quad k > 0}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q7 — Combined Rate</div>
+          <div class="sol-step">
+            <span class="sol-step-label">Two separate contributions to the rate:</span>
+            <p>Constant rate of 3 units per second \(\rightarrow\) contributes \(+3\) to \(\dfrac{dy}{dt}\).</p>
+            <p>Additional rate proportional to \(y\) \(\rightarrow\) contributes \(+ky\).</p>
+          </div>
+          <div class="sol-step">
+            <span class="sol-step-label">Combine:</span>
+          </div>
+          $$\boxed{\frac{dy}{dt} = ky + 3, \quad k > 0}$$
+        </li>
+
+      </ul>
+    </div>
+  </div><!-- end skill 41 -->
+
+  <div class="section-divider"></div>
+
+  <!-- ══════════════════════════════════════════════
+       SKILL 42 — GENERAL VS PARTICULAR SOLUTION
+  ══════════════════════════════════════════════ -->
+  <div class="skill-block">
+    <div class="skill-header">
+      <span class="skill-number">SKILL 42</span>
+      <h2>General Solution vs Particular Solution</h2>
+    </div>
+
+    <!-- CONCEPT -->
+    <div class="box box-concept">
+      <div class="box-label">What It Is</div>
+      <p>Solving a differential equation by <strong>separation of variables</strong> means rearranging the equation so that all terms involving \(y\) (and \(dy\)) are on one side, and all terms involving \(x\) (or \(t\)) are on the other side. You then integrate both sides.</p>
+      <p>The <strong>general solution</strong> contains an arbitrary constant \(C\). This represents an entire <em>family</em> of curves — infinitely many solutions, one for each value of \(C\).</p>
+      <p>A <strong>particular solution</strong> is obtained by substituting a known point — called a <strong>boundary condition</strong> or <strong>initial condition</strong> — into the general solution to find the exact value of \(C\). This gives one specific curve.</p>
+      <p>Think of it this way: the general solution is all possible answers; the particular solution is the one answer that fits the given starting information.</p>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="box box-formula">
+      <div class="box-label">The Method — Separation of Variables</div>
+      <p><strong>For a DE of the form \(\dfrac{dy}{dx} = f(x)\,g(y)\):</strong></p>
+      <div class="formula-display">
+        $$\text{Step 1: Separate} \qquad \frac{1}{g(y)}\,dy = f(x)\,dx$$
+      </div>
+      <div class="formula-display">
+        $$\text{Step 2: Integrate both sides} \qquad \int \frac{1}{g(y)}\,dy = \int f(x)\,dx + C$$
+      </div>
+      <div class="formula-display">
+        $$\text{Step 3 (if required): Apply boundary condition to find } C$$
+      </div>
+      <p style="margin-top:12px;"><strong>Important:</strong> Only one constant \(C\) is needed — one from the left integral and one from the right would just combine into a single constant anyway.</p>
+      <p><strong>Also important:</strong> When integrating \(\dfrac{1}{y}\,dy\), the result is \(\ln|y|\) — always use the modulus sign.</p>
+    </div>
+
+    <!-- WHERE TO APPLY -->
+    <div class="box box-concept">
+      <div class="box-label">Where to Apply This</div>
+      <ul class="apply-list">
+        <li><strong>General solution only:</strong> When the question asks you to "find the general solution" or "solve the DE" without giving any additional information.</li>
+        <li><strong>Particular solution:</strong> When a starting value is given (e.g., "when \(t = 0\), \(y = 5\)"), substitute it after finding the general solution.</li>
+        <li><strong>Separation applies when:</strong> The DE can be written in the form \(\dfrac{dy}{dx} = f(x) \cdot g(y)\) — that is, the right side factors into a function of \(x\) times a function of \(y\).</li>
+        <li><strong>Does NOT apply when:</strong> The equation cannot be separated (e.g., \(\dfrac{dy}{dx} = x + y\) — these require different methods not on this syllabus).</li>
+      </ul>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="box box-examples">
+      <div class="box-label">Worked Examples</div>
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — General Solution</div>
+        <p><em>Find the general solution of \(\;\dfrac{dy}{dx} = 3x^2 y\).</em></p>
+
+        <div class="step">
+          <span class="step-label">Step 1 — Separate the variables</span>
+          <p>Divide both sides by \(y\) (assuming \(y \neq 0\)) and multiply both sides by \(dx\):</p>
+          $$\frac{1}{y}\,dy = 3x^2\,dx$$
+        </div>
+        <div class="step">
+          <span class="step-label">Step 2 — Integrate both sides</span>
+          $$\int \frac{1}{y}\,dy = \int 3x^2\,dx$$
+          $$\ln|y| = x^3 + C$$
+        </div>
+        <div class="step">
+          <span class="step-label">Step 3 — Exponentiate to make y the subject</span>
+          <p>Apply \(e^{\,\cdot\,}\) to both sides:</p>
+          $$|y| = e^{x^3 + C} = e^C \cdot e^{x^3}$$
+          <p>Since \(e^C\) is just a positive constant, we rename it \(A\) (where \(A > 0\), but we allow it to absorb the ± from the modulus):</p>
+          $$\boxed{y = Ae^{x^3}}$$
+          <p>where \(A\) is an arbitrary constant.</p>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Particular Solution</div>
+        <p><em>Solve the differential equation \(\;\dfrac{dy}{dx} = \dfrac{2x}{y}\), given that \(y = 4\) when \(x = 0\).</em></p>
+
+        <div class="step">
+          <span class="step-label">Step 1 — Separate the variables</span>
+          <p>Multiply both sides by \(y\) and by \(dx\):</p>
+          $$y\,dy = 2x\,dx$$
+        </div>
+        <div class="step">
+          <span class="step-label">Step 2 — Integrate both sides</span>
+          $$\int y\,dy = \int 2x\,dx$$
+          $$\frac{y^2}{2} = x^2 + C$$
+        </div>
+        <div class="step">
+          <span class="step-label">Step 3 — This is the general solution. Now apply the boundary condition \(y = 4\) when \(x = 0\)</span>
+          $$\frac{4^2}{2} = 0^2 + C \implies \frac{16}{2} = C \implies C = 8$$
+        </div>
+        <div class="step">
+          <span class="step-label">Step 4 — Write the particular solution</span>
+          $$\frac{y^2}{2} = x^2 + 8$$
+          $$\boxed{y^2 = 2x^2 + 16}$$
+          <p>(Or equivalently, \(y = \sqrt{2x^2+16}\) since \(y = 4 > 0\) at \(x = 0\).)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS -->
+    <div class="box box-questions">
+      <div class="box-label">Practice Questions</div>
+      <ul class="q-list">
+        <li><span class="q-badge">Q1</span> Find the general solution of \(\dfrac{dy}{dx} = 5y\).</li>
+        <li><span class="q-badge">Q2</span> Find the general solution of \(\dfrac{dy}{dx} = \dfrac{x^2}{y^3}\).</li>
+        <li><span class="q-badge">Q3</span> Solve \(\dfrac{dy}{dx} = -2xy\), given that \(y = 3\) when \(x = 0\). Give the particular solution in the form \(y = f(x)\).</li>
+        <li><span class="q-badge">Q4</span> Find the general solution of \(\dfrac{dV}{dt} = -kV\), where \(k\) is a positive constant. (Leave \(k\) in your answer.)</li>
+        <li><span class="q-badge">Q5</span> Solve \(\dfrac{dy}{dx} = \dfrac{4x}{y^2}\), given that \(y = 2\) when \(x = 1\). Give your answer in the form \(y^3 = f(x)\).</li>
+        <li><span class="q-badge">Q6</span> Find the particular solution of \(\dfrac{dN}{dt} = N^2\), given that \(N = 1\) when \(t = 0\). (State the domain of validity.)</li>
+        <li><span class="q-badge">Q7</span> Solve \(\dfrac{dy}{dx} = \dfrac{\sin x}{y}\), given that \(y = 0\) when \(x = \dfrac{\pi}{2}\). Give your answer in the form \(y^2 = f(x)\).</li>
+      </ul>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div class="box box-solutions">
+      <div class="box-label">Fully Worked Solutions</div>
+      <ul class="sol-list">
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q1</div>
+          <div class="sol-step"><span class="sol-step-label">Separate:</span> \(\dfrac{1}{y}\,dy = 5\,dx\)</div>
+          <div class="sol-step"><span class="sol-step-label">Integrate:</span> \(\ln|y| = 5x + C\)</div>
+          <div class="sol-step"><span class="sol-step-label">Exponentiate:</span> \(|y| = e^{5x+C} = e^C e^{5x}\)</div>
+          $$\boxed{y = Ae^{5x}}$$
+          <p style="font-size:14px; color:#7c2d12;">where \(A\) is an arbitrary constant.</p>
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q2</div>
+          <div class="sol-step"><span class="sol-step-label">Separate:</span> \(y^3\,dy = x^2\,dx\)</div>
+          <div class="sol-step"><span class="sol-step-label">Integrate:</span>
+            $$\int y^3\,dy = \int x^2\,dx \implies \frac{y^4}{4} = \frac{x^3}{3} + C$$
+          </div>
+          $$\boxed{y^4 = \frac{4x^3}{3} + A}$$
+          <p style="font-size:14px; color:#7c2d12;">where \(A = 4C\) is an arbitrary constant.</p>
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q3</div>
+          <div class="sol-step"><span class="sol-step-label">Separate:</span> \(\dfrac{1}{y}\,dy = -2x\,dx\)</div>
+          <div class="sol-step"><span class="sol-step-label">Integrate:</span> \(\ln|y| = -x^2 + C\)</div>
+          <div class="sol-step"><span class="sol-step-label">General solution:</span> \(y = Ae^{-x^2}\)</div>
+          <div class="sol-step"><span class="sol-step-label">Apply \(y = 3\) when \(x = 0\):</span> \(3 = Ae^{0} = A\), so \(A = 3\)</div>
+          $$\boxed{y = 3e^{-x^2}}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q4</div>
+          <div class="sol-step"><span class="sol-step-label">Separate:</span> \(\dfrac{1}{V}\,dV = -k\,dt\)</div>
+          <div class="sol-step"><span class="sol-step-label">Integrate:</span> \(\ln|V| = -kt + C\)</div>
+          <div class="sol-step"><span class="sol-step-label">Exponentiate:</span> \(V = Ae^{-kt}\)</div>
+          $$\boxed{V = Ae^{-kt}}$$
+          <p style="font-size:14px; color:#7c2d12;">where \(A\) is an arbitrary constant and \(k > 0\).</p>
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q5</div>
+          <div class="sol-step"><span class="sol-step-label">Separate:</span> \(y^2\,dy = 4x\,dx\)</div>
+          <div class="sol-step"><span class="sol-step-label">Integrate:</span>
+            $$\frac{y^3}{3} = 2x^2 + C \implies y^3 = 6x^2 + A$$
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Apply \(y = 2\) when \(x = 1\):</span>
+            $$8 = 6(1) + A \implies A = 2$$
+          </div>
+          $$\boxed{y^3 = 6x^2 + 2}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q6</div>
+          <div class="sol-step"><span class="sol-step-label">Separate:</span> \(\dfrac{1}{N^2}\,dN = dt\), i.e. \(N^{-2}\,dN = dt\)</div>
+          <div class="sol-step"><span class="sol-step-label">Integrate:</span>
+            $$-N^{-1} = t + C \implies -\frac{1}{N} = t + C$$
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Apply \(N = 1\) when \(t = 0\):</span>
+            $$-\frac{1}{1} = 0 + C \implies C = -1$$
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Substitute \(C = -1\) and rearrange:</span>
+            $$-\frac{1}{N} = t - 1 \implies N = \frac{1}{1-t}$$
+          </div>
+          $$\boxed{N = \frac{1}{1-t}, \quad t < 1}$$
+          <p style="font-size:14px; color:#7c2d12;">Valid for \(t < 1\) only; \(N \to \infty\) as \(t \to 1^-\).</p>
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q7</div>
+          <div class="sol-step"><span class="sol-step-label">Separate:</span> \(y\,dy = \sin x\,dx\)</div>
+          <div class="sol-step"><span class="sol-step-label">Integrate:</span>
+            $$\frac{y^2}{2} = -\cos x + C \implies y^2 = -2\cos x + A$$
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Apply \(y = 0\) when \(x = \dfrac{\pi}{2}\):</span>
+            $$0 = -2\cos\!\left(\frac{\pi}{2}\right) + A = -2(0) + A \implies A = 0$$
+          </div>
+          $$\boxed{y^2 = -2\cos x}$$
+        </li>
+
+      </ul>
+    </div>
+  </div><!-- end skill 42 -->
+
+  <div class="section-divider"></div>
+
+  <!-- ══════════════════════════════════════════════
+       SKILL 43 — MODELLING: GROWTH, DECAY, COOLING
+  ══════════════════════════════════════════════ -->
+  <div class="skill-block">
+    <div class="skill-header">
+      <span class="skill-number">SKILL 43</span>
+      <h2>Modelling: Growth, Decay and Newton's Law of Cooling</h2>
+    </div>
+
+    <!-- CONCEPT -->
+    <div class="box box-concept">
+      <div class="box-label">What It Is</div>
+      <p>Skill 43 brings everything together: you take a real-world scenario, form the DE (Skill 41), solve it by separation of variables (Skill 42), then interpret the answer in context.</p>
+      <p><strong>Exponential growth</strong> describes quantities that increase at a rate proportional to themselves — bacteria, compound interest, early-stage viral spread.</p>
+      <p><strong>Exponential decay</strong> describes quantities that decrease at a rate proportional to themselves — radioactive material, drug concentration in blood, charge on a capacitor.</p>
+      <p><strong>Newton's Law of Cooling</strong> describes how an object's temperature approaches room (ambient) temperature at a rate proportional to the <em>difference</em> between the object's temperature and the room temperature. It produces a shifted exponential — the temperature approaches a non-zero limit.</p>
+      <p>In every case, the key skill is correctly identifying the initial condition to find the particular solution, and then using that solution to answer questions about specific times or values.</p>
+    </div>
+
+    <!-- FORMULA -->
+    <div class="box box-formula">
+      <div class="box-label">The Three Core Models</div>
+      <p><strong>Model 1 — Exponential Growth</strong></p>
+      <div class="formula-display">
+        $$\frac{dy}{dt} = ky \;\xrightarrow{\text{solve}}\; \boxed{y = Ae^{kt}} \quad (k > 0)$$
+      </div>
+      <p><strong>Model 2 — Exponential Decay</strong></p>
+      <div class="formula-display">
+        $$\frac{dy}{dt} = -ky \;\xrightarrow{\text{solve}}\; \boxed{y = Ae^{-kt}} \quad (k > 0)$$
+      </div>
+      <p><strong>Model 3 — Newton's Law of Cooling</strong></p>
+      <div class="formula-display">
+        $$\frac{d\theta}{dt} = -k(\theta - \theta_0) \;\xrightarrow{\text{solve}}\; \boxed{\theta = \theta_0 + Ae^{-kt}} \quad (k > 0)$$
+      </div>
+      <p>where \(\theta_0\) is the constant ambient (room) temperature.</p>
+      <p style="margin-top:10px;"><strong>In every case:</strong> \(A\) is determined by the initial condition (usually the value of \(y\) or \(\theta\) at \(t = 0\)).</p>
+    </div>
+
+    <!-- WHERE TO APPLY -->
+    <div class="box box-concept">
+      <div class="box-label">Where to Apply This</div>
+      <ul class="apply-list">
+        <li><strong>Use Model 1 (growth)</strong> when the quantity increases and "rate of change is proportional to current value" — population, investment value.</li>
+        <li><strong>Use Model 2 (decay)</strong> when the quantity decreases and "rate of change is proportional to current value" — radioactive decay, drug clearance, value depreciation.</li>
+        <li><strong>Use Model 3 (cooling)</strong> when temperature decreases toward a fixed ambient level — hot object in a room, cooling of lava, warming of a cold drink.</li>
+        <li><strong>Finding time:</strong> Substitute the target value of \(y\) into the particular solution and use \(\ln\) to solve for \(t\).</li>
+        <li><strong>Finding value at time \(t\):</strong> Simply substitute \(t\) into the particular solution and evaluate.</li>
+      </ul>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="box box-examples">
+      <div class="box-label">Worked Examples</div>
+
+      <div class="example-card">
+        <div class="example-title">Example 1 — Radioactive Decay</div>
+        <p><em>A radioactive substance has mass \(m\) grams at time \(t\) years. The substance decays at a rate proportional to its current mass, with constant of proportionality \(k = 0.03\).</em></p>
+        <p><em>Initially, \(m = 200\) g. Find: (a) the mass after 10 years, (b) the time taken for the mass to halve.</em></p>
+
+        <div class="step">
+          <span class="step-label">Step 1 — Form the DE</span>
+          $$\frac{dm}{dt} = -0.03m$$
+        </div>
+        <div class="step">
+          <span class="step-label">Step 2 — Separate and integrate</span>
+          $$\frac{1}{m}\,dm = -0.03\,dt$$
+          $$\ln|m| = -0.03t + C$$
+          $$m = Ae^{-0.03t}$$
+        </div>
+        <div class="step">
+          <span class="step-label">Step 3 — Apply initial condition: \(m = 200\) when \(t = 0\)</span>
+          $$200 = Ae^{0} = A \implies A = 200$$
+          <p>Particular solution: \(m = 200e^{-0.03t}\)</p>
+        </div>
+        <div class="step">
+          <span class="step-label">Part (a): Mass after 10 years</span>
+          $$m = 200e^{-0.03 \times 10} = 200e^{-0.3} \approx 200 \times 0.7408 \approx 148.2 \text{ g}$$
+          $$\boxed{m \approx 148.2 \text{ g}}$$
+        </div>
+        <div class="step">
+          <span class="step-label">Part (b): Time to halve (i.e., find \(t\) when \(m = 100\))</span>
+          $$100 = 200e^{-0.03t}$$
+          $$\frac{1}{2} = e^{-0.03t}$$
+          $$\ln\!\left(\frac{1}{2}\right) = -0.03t$$
+          $$-\ln 2 = -0.03t$$
+          $$t = \frac{\ln 2}{0.03} = \frac{0.6931\ldots}{0.03} \approx 23.1 \text{ years}$$
+          $$\boxed{t \approx 23.1 \text{ years}}$$
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2 — Newton's Law of Cooling</div>
+        <p><em>A cup of tea is made at 95°C and placed in a room at 20°C. After 5 minutes the tea has cooled to 75°C. Find the temperature of the tea after a further 10 minutes (i.e., at \(t = 15\) min).</em></p>
+
+        <div class="step">
+          <span class="step-label">Step 1 — Form the DE (Newton's Law of Cooling)</span>
+          $$\frac{d\theta}{dt} = -k(\theta - 20)$$
+        </div>
+        <div class="step">
+          <span class="step-label">Step 2 — Solve by separation</span>
+          <p>Let \(u = \theta - 20\), so \(\dfrac{du}{dt} = \dfrac{d\theta}{dt}\). Then:</p>
+          $$\frac{du}{u} = -k\,dt \implies \ln|u| = -kt + C \implies u = Ae^{-kt}$$
+          $$\theta - 20 = Ae^{-kt} \implies \theta = 20 + Ae^{-kt}$$
+        </div>
+        <div class="step">
+          <span class="step-label">Step 3 — Apply initial condition: \(\theta = 95\) when \(t = 0\)</span>
+          $$95 = 20 + Ae^{0} = 20 + A \implies A = 75$$
+          <p>So: \(\theta = 20 + 75e^{-kt}\)</p>
+        </div>
+        <div class="step">
+          <span class="step-label">Step 4 — Use second condition (\(\theta = 75\) when \(t = 5\)) to find \(k\)</span>
+          $$75 = 20 + 75e^{-5k}$$
+          $$55 = 75e^{-5k}$$
+          $$e^{-5k} = \frac{55}{75} = \frac{11}{15}$$
+          $$-5k = \ln\!\left(\frac{11}{15}\right) \implies k = -\frac{1}{5}\ln\!\left(\frac{11}{15}\right) = \frac{1}{5}\ln\!\left(\frac{15}{11}\right)$$
+        </div>
+        <div class="step">
+          <span class="step-label">Step 5 — Find \(\theta\) at \(t = 15\)</span>
+          <p>It is cleaner to use \(e^{-5k} = \dfrac{11}{15}\), so \(e^{-15k} = \left(\dfrac{11}{15}\right)^3\).</p>
+          $$\theta = 20 + 75\left(\frac{11}{15}\right)^3 = 20 + 75 \times \frac{1331}{3375} = 20 + \frac{99825}{3375}$$
+          $$= 20 + 29.578\ldots \approx 49.6°\text{C}$$
+          $$\boxed{\theta \approx 49.6°\text{C}}$$
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTIONS -->
+    <div class="box box-questions">
+      <div class="box-label">Practice Questions</div>
+      <ul class="q-list">
+        <li><span class="q-badge">Q1</span> A population of bacteria grows so that \(\dfrac{dP}{dt} = 0.05P\), where \(P\) is the number of bacteria at time \(t\) hours. Initially \(P = 500\). Find: (a) the population after 8 hours; (b) the time for the population to reach 2000.</li>
+        <li><span class="q-badge">Q2</span> The mass \(m\) (grams) of a radioactive isotope satisfies \(\dfrac{dm}{dt} = -0.012m\). Initially \(m = 80\) g. Find (a) the mass after 20 years; (b) the half-life of the isotope (time for mass to halve).</li>
+        <li><span class="q-badge">Q3</span> A hot object cools according to \(\dfrac{d\theta}{dt} = -k(\theta - 15)\), where \(\theta\)°C is the temperature and the room temperature is 15°C. Initially \(\theta = 80\)°C. After 4 minutes, \(\theta = 60\)°C. Find the temperature after 12 minutes.</li>
+        <li><span class="q-badge">Q4</span> The value \(V\) (£) of a car satisfies \(\dfrac{dV}{dt} = -0.25V\), where \(t\) is years since purchase. Initially the car is worth £24,000. Find (a) its value after 3 years; (b) the time for the car to be worth £6,000.</li>
+        <li><span class="q-badge">Q5</span> A cold drink at 4°C is placed in a room at 22°C. After 10 minutes it has warmed to 10°C. Using Newton's Law of Cooling/Warming, find the temperature at \(t = 30\) minutes. [The same model applies — the constant \(k\) is still positive even though the object warms.]</li>
+        <li><span class="q-badge">Q6</span> The number of people \(N\) infected with a virus satisfies \(\dfrac{dN}{dt} = kN\). On day 0, \(N = 50\). On day 3, \(N = 200\). Find (a) the value of \(k\); (b) the predicted number of infected people on day 7 (nearest whole number).</li>
+        <li><span class="q-badge">Q7</span> A body found at a crime scene has a temperature of 30°C. Room temperature is 18°C. Normal body temperature is 37°C. Given \(\dfrac{d\theta}{dt} = -k(\theta - 18)\) with \(k = 0.1\) per hour, how long ago (in hours) did death occur? Give your answer to 2 decimal places.</li>
+      </ul>
+    </div>
+
+    <!-- SOLUTIONS -->
+    <div class="box box-solutions">
+      <div class="box-label">Fully Worked Solutions</div>
+      <ul class="sol-list">
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q1 — Bacteria Growth</div>
+          <div class="sol-step"><span class="sol-step-label">Solve the DE:</span>
+            <p>Separate and integrate: \(\ln P = 0.05t + C \implies P = Ae^{0.05t}\).</p>
+            <p>Initial condition \(P = 500\) at \(t = 0\): \(A = 500\).</p>
+            <p>Particular solution: \(P = 500e^{0.05t}\).</p>
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Part (a): \(t = 8\)</span>
+            $$P = 500e^{0.05 \times 8} = 500e^{0.4} \approx 500 \times 1.4918 \approx 745.9$$
+          </div>
+          $$\boxed{P \approx 746 \text{ bacteria (to nearest whole number)}}$$
+          <div class="sol-step"><span class="sol-step-label">Part (b): Find \(t\) when \(P = 2000\)</span>
+            $$2000 = 500e^{0.05t} \implies 4 = e^{0.05t} \implies \ln 4 = 0.05t \implies t = \frac{\ln 4}{0.05} = \frac{1.3863}{0.05}$$
+          </div>
+          $$\boxed{t \approx 27.7 \text{ hours}}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q2 — Radioactive Isotope</div>
+          <div class="sol-step"><span class="sol-step-label">Solve the DE:</span>
+            <p>Particular solution: \(m = 80e^{-0.012t}\).</p>
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Part (a): \(t = 20\)</span>
+            $$m = 80e^{-0.012 \times 20} = 80e^{-0.24} \approx 80 \times 0.7866 \approx 62.9$$
+          </div>
+          $$\boxed{m \approx 62.9 \text{ g}}$$
+          <div class="sol-step"><span class="sol-step-label">Part (b): Half-life (find \(t\) when \(m = 40\))</span>
+            $$40 = 80e^{-0.012t} \implies \tfrac{1}{2} = e^{-0.012t} \implies \ln\tfrac{1}{2} = -0.012t \implies t = \frac{\ln 2}{0.012}$$
+          </div>
+          $$\boxed{t \approx 57.8 \text{ years}}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q3 — Newton's Law of Cooling</div>
+          <div class="sol-step"><span class="sol-step-label">General solution:</span>
+            <p>\(\theta = 15 + Ae^{-kt}\).</p>
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Initial condition \(\theta = 80\) at \(t = 0\):</span>
+            <p>\(80 = 15 + A \implies A = 65\). So \(\theta = 15 + 65e^{-kt}\).</p>
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Use \(\theta = 60\) at \(t = 4\) to find \(k\):</span>
+            $$60 = 15 + 65e^{-4k} \implies 45 = 65e^{-4k} \implies e^{-4k} = \frac{45}{65} = \frac{9}{13}$$
+            $$k = -\frac{1}{4}\ln\!\left(\frac{9}{13}\right) = \frac{1}{4}\ln\!\left(\frac{13}{9}\right)$$
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Find \(\theta\) at \(t = 12\): Use \(e^{-12k} = \left(\frac{9}{13}\right)^3\)</span>
+            $$\theta = 15 + 65\left(\frac{9}{13}\right)^3 = 15 + 65 \times \frac{729}{2197} = 15 + \frac{47385}{2197} \approx 15 + 21.57 \approx 36.6°\text{C}$$
+          </div>
+          $$\boxed{\theta \approx 36.6°\text{C}}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q4 — Car Depreciation</div>
+          <div class="sol-step"><span class="sol-step-label">Particular solution:</span>
+            <p>\(V = 24000\, e^{-0.25t}\).</p>
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Part (a): \(t = 3\)</span>
+            $$V = 24000\, e^{-0.75} \approx 24000 \times 0.4724 \approx 11337$$
+          </div>
+          $$\boxed{V \approx £11{,}337}$$
+          <div class="sol-step"><span class="sol-step-label">Part (b): Find \(t\) when \(V = 6000\)</span>
+            $$6000 = 24000\,e^{-0.25t} \implies \frac{1}{4} = e^{-0.25t} \implies \ln\!\left(\tfrac{1}{4}\right) = -0.25t \implies t = \frac{\ln 4}{0.25}$$
+          </div>
+          $$\boxed{t \approx 5.55 \text{ years}}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q5 — Warming Drink</div>
+          <div class="sol-step"><span class="sol-step-label">Form the DE:</span>
+            <p>\(\dfrac{d\theta}{dt} = -k(\theta - 22)\). (Here the drink is below room temp, so \(\theta - 22 < 0\), which makes \(\dfrac{d\theta}{dt} > 0\) — the drink warms up. The model is self-consistent.)</p>
+          </div>
+          <div class="sol-step"><span class="sol-step-label">General solution:</span>
+            <p>\(\theta = 22 + Ae^{-kt}\).</p>
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Initial condition \(\theta = 4\) at \(t = 0\):</span>
+            <p>\(4 = 22 + A \implies A = -18\). So \(\theta = 22 - 18e^{-kt}\).</p>
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Use \(\theta = 10\) at \(t = 10\) to find \(k\):</span>
+            $$10 = 22 - 18e^{-10k} \implies 18e^{-10k} = 12 \implies e^{-10k} = \frac{2}{3}$$
+            $$k = -\frac{1}{10}\ln\!\left(\frac{2}{3}\right) = \frac{1}{10}\ln\!\left(\frac{3}{2}\right)$$
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Find \(\theta\) at \(t = 30\): Use \(e^{-30k} = \left(\frac{2}{3}\right)^3 = \frac{8}{27}\)</span>
+            $$\theta = 22 - 18 \times \frac{8}{27} = 22 - \frac{144}{27} = 22 - \frac{16}{3} = 22 - 5.333\ldots \approx 16.67°\text{C}$$
+          </div>
+          $$\boxed{\theta \approx 16.7°\text{C}}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q6 — Viral Spread</div>
+          <div class="sol-step"><span class="sol-step-label">Particular solution:</span>
+            <p>\(N = 50e^{kt}\).</p>
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Part (a): Use \(N = 200\) at \(t = 3\) to find \(k\)</span>
+            $$200 = 50e^{3k} \implies 4 = e^{3k} \implies 3k = \ln 4 \implies k = \frac{\ln 4}{3}$$
+          </div>
+          $$\boxed{k = \frac{\ln 4}{3} \approx 0.4621}$$
+          <div class="sol-step"><span class="sol-step-label">Part (b): Find \(N\) at \(t = 7\)</span>
+            $$N = 50e^{7k} = 50 \times 4^{7/3} = 50 \times 4^{7/3}$$
+            <p>\(4^{7/3} = (4^7)^{1/3} = (16384)^{1/3} \approx 25.398\)</p>
+            $$N \approx 50 \times 25.398 \approx 1270$$
+          </div>
+          $$\boxed{N \approx 1270 \text{ people}}$$
+        </li>
+
+        <li class="sol-item">
+          <div class="sol-title">Solution Q7 — Time of Death</div>
+          <div class="sol-step"><span class="sol-step-label">Set up the model:</span>
+            <p>The body started at \(\theta = 37\)°C (normal body temperature) at the time of death (call this \(t = 0\)).</p>
+            <p>General solution: \(\theta = 18 + Ae^{-0.1t}\).</p>
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Apply \(\theta = 37\) at \(t = 0\):</span>
+            $$37 = 18 + A \implies A = 19$$
+            <p>So \(\theta = 18 + 19e^{-0.1t}\).</p>
+          </div>
+          <div class="sol-step"><span class="sol-step-label">Find \(t\) when \(\theta = 30\):</span>
+            $$30 = 18 + 19e^{-0.1t} \implies 12 = 19e^{-0.1t} \implies e^{-0.1t} = \frac{12}{19}$$
+            $$-0.1t = \ln\!\left(\frac{12}{19}\right) \implies t = \frac{-1}{0.1}\ln\!\left(\frac{12}{19}\right) = 10\ln\!\left(\frac{19}{12}\right)$$
+            $$t = 10 \times \ln(1.5833\ldots) = 10 \times 0.45985\ldots \approx 4.60$$
+          </div>
+          $$\boxed{t \approx 4.60 \text{ hours ago}}$$
+        </li>
+
+      </ul>
+    </div>
+  </div><!-- end skill 43 -->
+
+  <!-- FOOTER -->
+  <div style="text-align:center; margin-top: 48px; padding: 20px; color: #94a3b8; font-size: 13px;">
+    <p>Edexcel IAL P3 &amp; P4 · Skills 41–43 · Differential Equations</p>
+  </div>
+
+</div><!-- end page-wrapper -->
+</body>
+</html>
